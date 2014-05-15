@@ -1,6 +1,7 @@
 from random import choice, shuffle
 import json
 import sys
+from uuid import uuid4
 
 with open("names.txt") as namefile:
     names = [n.strip() for n in namefile.readlines()]
@@ -71,32 +72,17 @@ def make_da():
 def count_tree(top):
     return 1 + len(top["children"]) + sum([count_tree(n) for n in top["children"]])
 
-def progress(current, end):
-    msg = "{} of {}\r".format(current, end)
-    sys.stdout.write(msg)
-    sys.stdout.flush()
+def couch_reduce(node, parent, acc):
+    id_ = str(uuid4())
+    acc.append({
+        "pcv": node["pcv"],
+        "id": id_,
+        "name": node["name"],
+        "parent": parent
+    })
+    for child in node["children"]:
+        couch_reduce(child, id_, acc)
+    return acc
 
-incidences = []
-max_runs = 10000
-for i in range(max_runs):
-    progress(i, max_runs)
-    incidences.append(count_tree(make_da()))
-print
+print json.dumps(couch_reduce(eval(sys.argv[1], globals(), locals())(), None, []), indent=2)
 
-histogram = {}
-for item in incidences:
-    section = round(item, -3)
-    if section in histogram:
-        histogram[section] += 1
-    else:
-        histogram[section] = 1
-
-kv = [(k, histogram[k]) for k in histogram]
-kv.sort(cmp=lambda x, y: cmp(x[0], y[0]))
-
-def pp_hist(hist):
-    for kv in hist:
-        scale_value = kv[1] / 50
-        print "{}\t:\t{}".format(kv[0], "*"*scale_value)
-
-pp_hist(kv)
