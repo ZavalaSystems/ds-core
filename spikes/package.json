@@ -1,0 +1,8 @@
+{
+    "dependencies": {
+        "q": "1.x",
+        "lodash": "2.x",
+        "bilby": "0.x",
+        "mach": "0.9.x"
+    }
+}
