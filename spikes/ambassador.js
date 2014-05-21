@@ -133,6 +133,30 @@ module.exports = function (nameGen) {
                             builders.seniorExecutive,
                             builders.crystal))
                 );
+            },
+            teamMin: function () {
+                return makeRecursive(
+                    "Team Ambassador",
+                    5000,
+                    makeChildren(3, builders.wine)
+                );
+            },
+            executiveMin: function () {
+                return makeRecursive(
+                    "Executive Ambassador",
+                    10000,
+                    makeChildren(4, builders.wine)
+                        .concat(makeChildren(1, builders.teamMin))
+                );
+            },
+            diamondMin: function () {
+                return makeRecursive(
+                    "Diamond Ambassador",
+                    100000,
+                    makeChildren(12, builders.wine)
+                        .concat(makeChildren(8, builders.teamMin))
+                        .concat(makeChildren(4, builders.executiveMin))
+                );
             }
         };
 

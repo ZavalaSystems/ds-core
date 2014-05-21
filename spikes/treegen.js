@@ -48,13 +48,23 @@ var fs = require("fs"),
         return input;
     }
 
+    function countTree(node) {
+        return 1 + node.children.length + _.reduce(
+            _.map(node.children, countTree),
+            function (x, y) { return x + y; },
+            0
+        );
+    }
+
     function main() {
         getNameDB("names.txt")
             .then(toLines)
             .then(_.shuffle)
             .then(crossgenerator)
             .then(require("./ambassador.js"))
-            .then(function (amb) { return amb.diamond(); })
+            .then(function (amb) { return amb.diamondMin(); })
+            .then(dump)
+            .then(countTree)
             .then(dump)
             .done();
     }
