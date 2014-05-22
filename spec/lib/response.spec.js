@@ -21,6 +21,18 @@
                     expect(out.status).toBe(200);
                 });
             });
+            describe("notFound", function () {
+                it("should set the status code to 404", function () {
+                    var out = res.status.notFound({});
+                    expect(out.status).toBe(404);
+                });
+            });
+            describe("internalServerError", function () {
+                it("should set the status code to 500", function () {
+                    var out = res.status.internalServerError({});
+                    expect(out.status).toBe(500);
+                });
+            });
         });
         describe("header functions", function () {
             describe("contentType", function () {
