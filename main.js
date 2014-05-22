@@ -1,10 +1,9 @@
-(function main(mach, _, cfg) {
+(function main(mach, cfg) {
     "use strict";
-    var app = mach.stack(),
-        hostTpl = _.template("${protocol}//${host}:${port}");
+    var app = mach.stack();
 
     app.get("/", function (request) {
-        var host = hostTpl(request);
+        var host = cfg.templates.host(request);
         return mach.json({
             consultant: {
                 list: host + "/consultant",
@@ -19,6 +18,5 @@
     mach.serve(app, cfg.server.port);
 }(
     require("mach"),
-    require("lodash"),
-    require("./config.json")
+    require("./config.js")
 ));
