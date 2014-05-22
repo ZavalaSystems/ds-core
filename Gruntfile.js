@@ -18,15 +18,26 @@ module.exports = function (grunt) {
             }
         },
         jasmine_node: {
-            options: {
-
-            },
+            coverage: {},
             all: ["spec/"]
+        },
+        watch: {
+            scripts: {
+                files: [
+                    "main.js",
+                    "consultant.js",
+                    "lib/**/*.js",
+                    "spec/**/*.js"
+                ],
+                tasks: ["default"]
+            }
         }
     });
 
     grunt.loadNpmTasks("grunt-jslint");
     grunt.loadNpmTasks("grunt-jasmine-node");
+    grunt.loadNpmTasks("grunt-jasmine-node-coverage");
+    grunt.loadNpmTasks("grunt-contrib-watch");
 
     grunt.registerTask("default", ["jslint", "jasmine_node"]);
 };
