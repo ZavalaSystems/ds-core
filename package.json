@@ -4,6 +4,9 @@
         "bilby": "0.x",
         "request": "2.x",
         "mach": "0.x",
-        "q": "1.x"
+        "q": "1.x",
+        "grunt": "0.x",
+        "grunt-jslint": "1.x",
+        "grunt-jasmine-node": "*"
     }
 }
