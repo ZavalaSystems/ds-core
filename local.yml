@@ -1,0 +1,33 @@
+---
+- hosts: 127.0.0.1
+  connection: local
+  tasks:
+  - name: Get sha1 variable
+    command: git rev-parse --short HEAD
+    register: core_version
+
+  - name: npm install
+    npm:
+      path: /home/ubuntu/build
+
+  - name: Build docker image
+    docker_image: 
+      name: likwid/stuff
+      state: present
+      path: /home/ubuntu/build
+      tag: "{{ core_version.stdout }}"
+
+  - name: Test image
+    docker:
+      image: likwid/stuff:{{ core_version.stdout }}
+      command: grunt
+
+  - name: Get sha1 variable
+    shell: "docker inspect --format='\x7B\x7B.State.ExitCode\x7D\x7D' `docker ps -lq`"
+    register: test_return_code
+    failed_when: "test_return_code != 0" 
+
+  - name: Debug
+    debug:
+      msg: "{{ test_return_code.stdout }}"
+
