@@ -6,6 +6,9 @@
         "mach": "0.x",
         "q": "1.x",
         "grunt": "0.x",
+        "grunt-jslint": "*",
+        "grunt-jasmine-node": "*",
+        "grunt-jasmine-node-coverage": "*",
         "grunt-contrib-watch": "0.x",
         "grunt-jasmine-node-cover": "0.x"
     }
