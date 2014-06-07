@@ -7,7 +7,8 @@
     register: core_version
 
   - name: Notify Build Start
-    command: curl -XPOST https://api.hipchat.com/v2/room/$HIPCHAT_ROOM/notification\?auth_token\=$HIPCHAT_KEY -d { "message": "Building revision {{ core_version.stdout }}"}    
+    command: >
+      curl -XPOST https://api.hipchat.com/v2/room/$HIPCHAT_ROOM/notification\?auth_token\=$HIPCHAT_KEY -d '{ "message": "Building revision {{ core_version.stdout }}" }'  
 
   - name: npm install
     npm:
@@ -35,9 +36,11 @@
   connection: local
   tasks:
   - name: Notify Build Success
-    command: curl -XPOST https://api.hipchat.com/v2/room/$HIPCHAT_ROOM/notification\?auth_token\=$HIPCHAT_KEY -d { "message": "Build {{ core_version.stdout }} succeeded."}
+    command: >
+      curl -XPOST https://api.hipchat.com/v2/room/$HIPCHAT_ROOM/notification\?auth_token\=$HIPCHAT_KEY -d '{ "message": "Build {{ core_version.stdout }} succeeded." }'
     when: "test_return_code == 0"
 
   - name: Notify Build Failure
-    command: curl -XPOST https://api.hipchat.com/v2/room/$HIPCHAT_ROOM/notification\?auth_token\=$HIPCHAT_KEY -d { "message": "Build {{ core_version.stdout }} failed."}
+    command: >
+      curl -XPOST https://api.hipchat.com/v2/room/$HIPCHAT_ROOM/notification\?auth_token\=$HIPCHAT_KEY -d '{ "message": "Build {{ core_version.stdout }} failed." }'
     when: "test_return_code != 0"
