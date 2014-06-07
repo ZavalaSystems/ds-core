@@ -7,8 +7,11 @@
     register: core_version
 
   - name: Notify Build Start
-    command: >
-      curl -XPOST https://api.hipchat.com/v2/room/$HIPCHAT_ROOM/notification\?auth_token\=$HIPCHAT_KEY -d '{ "message": "Building revision {{ core_version.stdout }}" }'  
+    uri:
+      method: POST
+      url: https://api.hipchat.com/v2/room/{{ ansible_env.HIPCHAT_ROOM }}/notification?auth_token={{ ansible_env.$HIPCHAT_KEY }}
+      HEADER_Content-Type: application/json
+      body: '{ "message": "Building revision {{ core_version.stdout }}" }' 
 
   - name: npm install
     npm:
@@ -31,21 +34,26 @@
     register: test_return_code
     failed_when: "test_return_code.stdout != 0" 
 
-
 - hosts: 127.0.0.1
   connection: local
   tasks:
   - name: Notify Build Success
-    command: >
-      curl -XPOST https://api.hipchat.com/v2/room/$HIPCHAT_ROOM/notification\?auth_token\=$HIPCHAT_KEY -d '{ "message": "Build {{ core_version.stdout }} succeeded." }'
-    when: "test_return_code.stdout == 0"
+    uri:
+      method: POST
+      url: https://api.hipchat.com/v2/room/{{ ansible_env.HIPCHAT_ROOM }}/notification?auth_token={{ ansible_env.$HIPCHAT_KEY }}
+      HEADER_Content-Type: application/json
+      body: '{ "message": "Build {{ core_version.stdout }} succeeded." }'
+    when: test_return_code.stdout == 0
 
   - name: Notify Build Failure
-    command: >
-      curl -XPOST https://api.hipchat.com/v2/room/$HIPCHAT_ROOM/notification\?auth_token\=$HIPCHAT_KEY -d '{ "message": "Build {{ core_version.stdout }} failed." }'
-    when: "test_return_code.stdout != 0"
+    uri:
+      method: POST
+      url: https://api.hipchat.com/v2/room/{{ ansible_env.HIPCHAT_ROOM }}/notification?auth_token={{ ansible_env.$HIPCHAT_KEY }}
+      HEADER_Content-Type: application/json
+      body: '{ "message": "Build {{ core_version.stdout }} failed." }' 
+    when: test_return_code.stdout != 0
 
   - name: Failure Reason
     debug:
       msg: "Return code was {{ test_return_code.stdout }}"
-    when: "test_return_code.stdout != 0"
+    when: test_return_code.stdout != 0
