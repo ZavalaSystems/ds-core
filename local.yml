@@ -11,7 +11,8 @@
       method: POST
       url: https://api.hipchat.com/v2/room/{{ ansible_env.HIPCHAT_ROOM }}/notification?auth_token={{ ansible_env.$HIPCHAT_KEY }}
       HEADER_Content-Type: application/json
-      body: '{ "message": "Building revision {{ core_version.stdout }}" }' 
+      body: >
+        { "message": "Building revision {{ core_version.stdout }}" }
 
   - name: npm install
     npm:
