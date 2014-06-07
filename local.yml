@@ -26,7 +26,7 @@
       image: likwid/stuff:{{ core_version.stdout }}
       command: grunt
 
-  - name: Get sha1 variable
+  - name: Inspect test results
     shell: "docker inspect --format='\x7B\x7B.State.ExitCode\x7D\x7D' `docker ps -lq`"
     register: test_return_code
     failed_when: "test_return_code != 0" 
