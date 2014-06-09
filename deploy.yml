@@ -4,6 +4,7 @@
   tasks: 
   - name: Pull new docker image
     command: docker pull likwid/stuff:{{ version }}
+    sudo: False
 
   - name: Stopping remote container
     shell: docker stop `docker ps -lq`
