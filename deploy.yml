@@ -13,7 +13,7 @@
   - name: "Start version {{ version }}"
     docker: 
       image: likwid/stuff:{{ version }}
-      ports: 8080
+      ports: "8080:8080"
 
   - name: Notify hipchat of success
     hipchat:
