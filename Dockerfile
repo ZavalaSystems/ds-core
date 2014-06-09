@@ -1,6 +1,6 @@
 FROM ubuntu:14.04
-RUN apt-get install -y nodejs npm build-essential git
-RUN npm install -g grunt-cli
+RUN apt-get update
+RUN apt-get install -y nodejs
 RUN ln -s /usr/bin/nodejs /usr/local/bin/node
 CMD ["node", "main.js"]
 ADD . /opt/gsati

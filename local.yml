@@ -7,22 +7,18 @@
     register: core_version
 
   - name: Notify Build Start
-    uri:
-      method: POST
-      url: https://api.hipchat.com/v2/room/{{ ansible_env.HIPCHAT_ROOM }}/notification?auth_token={{ ansible_env.HIPCHAT_KEY }}
-      HEADER_Content-Type: application/json
-      body: >
-        \x7B "message": "Building revision {{ core_version.stdout }}" \x7D
+    command: >
+      curl -XPOST -H "Content-Type: application/json" https://api.hipchat.com/v2/room/{{ ansible_env.HIPCHAT_ROOM }}/notification\?auth_token\={{ ansible_env.HIPCHAT_KEY }} -d '{ "message": "Building revision {{ core_version.stdout }}" }'  
 
   - name: npm install
     npm:
-      path: /home/ubuntu/build
+      path: "{{ build_path | expanduser }}"
 
   - name: Build docker image
     docker_image: 
       name: likwid/stuff
       state: present
-      path: /home/ubuntu/build
+      path: "{{ build_path | expanduser }}"
       tag: "{{ core_version.stdout }}"
 
   - name: Test image
@@ -39,22 +35,11 @@
   connection: local
   tasks:
   - name: Notify Build Success
-    uri:
-      method: POST
-      url: https://api.hipchat.com/v2/room/{{ ansible_env.HIPCHAT_ROOM }}/notification?auth_token={{ ansible_env.$HIPCHAT_KEY }}
-      HEADER_Content-Type: application/json
-      body: '{ "message": "Build {{ core_version.stdout }} succeeded." }'
-    when: test_return_code.stdout == 0
+    command: >
+      curl -XPOST -H "Content-Type: application/json" https://api.hipchat.com/v2/room/{{ ansible_env.HIPCHAT_ROOM }}/notification\?auth_token\={{ ansible_env.HIPCHAT_KEY }} -d '{ "message": "Build {{ core_version.stdout }} succeeded." }'
+    when: "test_return_code.stdout == 0"
 
   - name: Notify Build Failure
-    uri:
-      method: POST
-      url: https://api.hipchat.com/v2/room/{{ ansible_env.HIPCHAT_ROOM }}/notification?auth_token={{ ansible_env.$HIPCHAT_KEY }}
-      HEADER_Content-Type: application/json
-      body: '{ "message": "Build {{ core_version.stdout }} failed." }' 
-    when: test_return_code.stdout != 0
-
-  - name: Failure Reason
-    debug:
-      msg: "Return code was {{ test_return_code.stdout }}"
-    when: test_return_code.stdout != 0
+    command: >
+      curl -XPOST -H "Content-Type: application/json" https://api.hipchat.com/v2/room/{{ ansible_env.HIPCHAT_ROOM }}/notification\?auth_token\={{ ansible_env.HIPCHAT_KEY }} -d '{ "message": "Build {{ core_version.stdout }} failed." }'
+    when: "test_return_code.stdout != 0"
