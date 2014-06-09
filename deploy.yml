@@ -1,0 +1,27 @@
+---
+- hosts: all
+  sudo: True
+  tasks: 
+  - name: Pull new docker image
+    command: docker pull likwid/stuff:{{ version }}
+
+  - name: Stopping remote container
+    shell: docker stop `docker ps -lq`
+
+  - name: "Start version {{ version }}"
+    docker: 
+      image: likwid/stuff:{{ version }}
+      ports: 8080
+
+  - name: Notify hipchat of success
+    hipchat:
+      token: "{{ hipchat_token }}"
+      room: Build
+      msg: Deploy {{ version }} succeeded
+
+    # - name: Notify hipchat of failure
+    # hipchat:
+    #   token: "{{ hipchat_token }}"
+    #   room: Build
+    #   msg: Deploy {{ version }} failed
+    #   when: 
