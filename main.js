@@ -4,8 +4,8 @@
 
     app.get("/", function (request) {
         var host = cfg.templates.host(request),
-            version = toggle.getToggleOff(request, "feature.version") ?
-                        {version: "0.0.1"} :
+            version = toggle.getToggleOn(request, "feature.version") ?
+                        {version: "0.0.2"} :
                         {};
 
         return mach.json(_.merge(version, {
