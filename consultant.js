@@ -1,5 +1,5 @@
 /*jslint maxlen: 120*/
-module.exports = (function (bilby, _, cfg, con, m, res, uri, db) {
+module.exports = (function (bilby, _, cfg, con, m, res, uri, toggles, db) {
     "use strict";
     var hyperlink = bilby.curry(function (request, consultant) {
         return {
@@ -11,28 +11,36 @@ module.exports = (function (bilby, _, cfg, con, m, res, uri, db) {
         consultantListType = res.header.contentType(cfg.mediatypes.list.hypermedia.consultant),
         local = bilby.environment();
 
-    function hasQueryString(request) {
+    function emptyQueryString(request) {
         return m.get("query", request)
             .map(_.isEmpty)
             .getOrElse(false);
     }
 
+    function defaultConsultantList(request) {
+        return m.toOption(_.map(db, hyperlink(request)))
+            .map(res.respond)
+            .map(res.status.multipleChoices)
+            .map(consultantListType)
+            .getOrElse(res.status.internalServerError({}));
+    }
+
+    function queryConsultantList(request) {
+        return m.toOption(_.map(_.reduce(request.query, function (acc, value, key) {
+            return _.filter(acc, function (x) { return x[key].toString() === value; });
+        }, db), hyperlink(request)))
+            .map(res.respond)
+            .map(res.status.multipleChoices)
+            .map(consultantListType)
+            .getOrElse(res.status.internalServerError({}));
+    }
+
     local = local
-        .method("consultantList", hasQueryString, function (request) {
-            return m.toOption(_.map(db, hyperlink(request)))
-                .map(res.respond)
-                .map(res.status.multipleChoices)
-                .map(consultantListType)
-                .getOrElse(res.status.internalServerError({}));
-        })
+        .method("consultantList", emptyQueryString, defaultConsultantList)
         .method("consultantList", _.constant(true), function (request) {
-            return m.toOption(_.map(_.reduce(request.query, function (acc, value, key) {
-                return _.filter(acc, function (x) { return x[key].toString() === value; });
-            }, db), hyperlink(request)))
-                .map(res.respond)
-                .map(res.status.multipleChoices)
-                .map(consultantListType)
-                .getOrElse(res.status.internalServerError({}));
+            return toggles.getToggleOff(request, "feature.query") ?
+                    queryConsultantList(request) :
+                    defaultConsultantList(request);
         })
         .property("getChildren", bilby.curry(function (db, node) {
             return _.filter(db, function (x) { return x.parent === node.id; });
@@ -76,10 +84,11 @@ module.exports = (function (bilby, _, cfg, con, m, res, uri, db) {
 }(
     require("bilby"),
     require("lodash"),
-    require("./config.js"),
-    require("./lib/consultant.js"),
-    require("./lib/monad.js"),
-    require("./lib/response.js"),
-    require("./lib/uri.js"),
+    require("./config"),
+    require("./lib/consultant"),
+    require("./lib/monad"),
+    require("./lib/response"),
+    require("./lib/uri"),
+    require("./lib/toggle"),
     require("./spikes/flatcouch.json")
 ));
