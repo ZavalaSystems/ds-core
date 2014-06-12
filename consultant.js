@@ -37,11 +37,7 @@ module.exports = (function (bilby, _, cfg, con, m, res, uri, toggles, db) {
 
     local = local
         .method("consultantList", emptyQueryString, defaultConsultantList)
-        .method("consultantList", _.constant(true), function (request) {
-            return toggles.getToggleOff(request, "feature.query") ?
-                    queryConsultantList(request) :
-                    defaultConsultantList(request);
-        })
+        .method("consultantList", _.constant(true), queryConsultantList)
         .property("getChildren", bilby.curry(function (db, node) {
             return _.filter(db, function (x) { return x.parent === node.id; });
         }));
@@ -77,6 +73,18 @@ module.exports = (function (bilby, _, cfg, con, m, res, uri, toggles, db) {
                 .map(res.status.multipleChoices)
                 .map(consultantListType)
                 .getOrElse(res.status.notFound({}));
+        });
+
+        app.get("/consultant/:cid/full", function (request, cid) {
+            return toggles.getToggleOff(request, "feature.full") ?
+                    findNode(db, cid)
+                        .map(con.getGCV(local.getChildren(db)))
+                        .map(hyperlink(request))
+                        .map(res.respond)
+                        .map(consultantType)
+                        .map(res.status.ok)
+                        .getOrElse(res.status.notFound({})) :
+                    res.status.notFound({});
         });
 
         return app;

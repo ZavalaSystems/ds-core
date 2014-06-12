@@ -6,7 +6,7 @@
     beforeEach: true,
     afterEach: true
 */
-(function (cfg, _) {
+(function (cfg, _, bilby) {
     "use strict";
     describe("consultant core library", function () {
         var con = require("../../lib/consultant.js");
@@ -48,8 +48,29 @@
                 });
             });
         });
+
+        describe("getGCV", function () {
+            var nodeA = {pcv: 10},
+                nodeB = {pcv: 20},
+                nodeC = {pcv: 30},
+                nodeD = {pcv: 40},
+                local = bilby.environment()
+                    .method("stubGetChildren", function (x) { return _.isEqual(x, nodeA); }, _.constant([nodeB, nodeC]))
+                    .method("stubGetChildren", function (x) { return _.isEqual(x, nodeC); }, _.constant([nodeD]))
+                    .method("stubGetChildren", _.constant(true), _.constant([]));
+
+            it("should recursively calculate the GCV for a given node", function () {
+                var nodeWithGCV = con.getGCV(local.stubGetChildren, nodeA);
+
+                expect(nodeWithGCV).toEqual({
+                    pcv: 10,
+                    gcv: 100
+                });
+            });
+        });
     });
 }(
     require("../../config.js"),
-    require("lodash")
+    require("lodash"),
+    require("bilby")
 ));
