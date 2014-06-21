@@ -1,8 +1,10 @@
 {
-    "dependencies": {
-        "q": "1.x",
-        "lodash": "2.x",
-        "bilby": "0.x",
-        "mach": "0.9.x"
-    }
+  "dependencies": {
+    "bilby": "0.x",
+    "csv": "^0.4.0",
+    "lodash": "2.x",
+    "mach": "0.9.x",
+    "node-csv": "^0.1.2",
+    "q": "1.x"
+  }
 }

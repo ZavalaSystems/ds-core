@@ -78,7 +78,7 @@ module.exports = (function (bilby, _, cfg, con, m, res, uri, toggles, db) {
         app.get("/consultant/:cid/full", function (request, cid) {
             return toggles.getToggleOff(request, "feature.full") ?
                     findNode(db, cid)
-                        .map(con.getGCV(local.getChildren(db)))
+                        .map(con.assignGCV(local.getChildren(db)))
                         .map(hyperlink(request))
                         .map(res.respond)
                         .map(consultantType)

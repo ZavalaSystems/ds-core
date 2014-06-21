@@ -1,12 +1,13 @@
-(function main(mach, cfg) {
+(function main(mach, cfg, m) {
     "use strict";
-    var app = mach.stack();
+    var app = mach.stack(),
+        port = m.toOption(process.argv[2])
+            .getOrElse(cfg.server.port);
 
     app.get("/", function (request) {
         var host = cfg.templates.host(request);
 
         return mach.json({
-            version: "0.0.3",
             consultant: {
                 list: host + "/consultant",
                 root: host + "/consultant/root",
@@ -17,8 +18,9 @@
 
     app = require("./consultant.js")(app);
 
-    mach.serve(app, cfg.server.port);
+    mach.serve(app, port);
 }(
     require("mach"),
-    require("./config.js")
+    require("./config.js"),
+    require("./lib/monad")
 ));

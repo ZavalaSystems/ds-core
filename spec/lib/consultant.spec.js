@@ -60,7 +60,7 @@
                     .method("stubGetChildren", _.constant(true), _.constant([]));
 
             it("should recursively calculate the GCV for a given node", function () {
-                var nodeWithGCV = con.getGCV(local.stubGetChildren, nodeA);
+                var nodeWithGCV = con.assignGCV(local.stubGetChildren, nodeA);
 
                 expect(nodeWithGCV).toEqual({
                     pcv: 10,
