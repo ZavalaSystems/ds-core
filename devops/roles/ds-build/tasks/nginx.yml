@@ -1,0 +1,33 @@
+---
+- name: Start nginx
+  service:
+    name: nginx
+    state: started
+    enabled: yes
+
+- name: Remove nginx default
+  file:
+    path: /etc/nginx/sites-enabled/default
+    state: absent
+
+- name: Add htpasswd file
+  htpasswd: 
+    path: /var/www/jenkins
+    name: gsati
+    password: "{{ jenkins_pass }}"
+    owner: root
+    group: www-data
+    mode: 0640
+
+- name: Configure build proxy
+  template:
+    src: build.j2
+    dest: /etc/nginx/sites-available/build
+
+- name: Enable build proxy
+  file:
+    src: /etc/nginx/sites-available/build
+    path: /etc/nginx/sites-enabled/build
+    state: link
+  notify:
+  - restart nginx
