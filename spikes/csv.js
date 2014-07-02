@@ -92,8 +92,7 @@
         );
     }
 
-    dropDatabase()
-        .then(getCsvData("data.csv"))
+    getCsvData("data.csv")
         .then(makeObjectsFromCsv)
         .then(function (data) {
             var urlsPromise = _.compose(q.all, _.partialRight(_.map, _.compose(createNodeInDb, cleanup)));
