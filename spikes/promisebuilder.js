@@ -62,7 +62,7 @@ module.exports = (function (bilby, q, _) {
         })
         //two arg is assumed to be an async function with args, with a single return value
         .method("asPromise", funcarr, function (f, fargs) {
-            return local.asPromsie(f, {fargs: fargs});
+            return local.asPromise(f, {fargs: fargs});
         })
         .method("asPromise", funcobj, function (f, params) {
             var df = q.defer(),
@@ -70,10 +70,12 @@ module.exports = (function (bilby, q, _) {
             function cb() {
                 var args = _.toArray(arguments);
                 _.each(opts.fail, function (rej) {
-                    var msg = rej.apply(null, args);
-                    if (msg) {
-                        df.reject(msg);
-                        return;
+                    if (!df.promise.isRejected()) {
+                        var msg = rej.apply(null, args);
+                        if (msg) {
+                            df.reject(msg);
+                            return;
+                        }
                     }
                 });
                 df.resolve(opts.succ.apply(undefined, args));
