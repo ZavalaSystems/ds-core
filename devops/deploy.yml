@@ -14,6 +14,7 @@
     docker: 
       image: likwid/stuff:{{ version }}
       ports: "8080:8080"
+      detach: yes
 
   - name: Notify hipchat of success
     hipchat:
