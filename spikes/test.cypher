@@ -1,0 +1,1 @@
+match (cons:Consultant) optional match (cons)<-[:REPORTS_TO]-(sub) return cons, collect(sub)
