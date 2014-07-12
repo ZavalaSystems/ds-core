@@ -3,11 +3,15 @@
     "use strict";
     var hasError = _.identity,
         orderStream = inv.orderStream("July 1 2014"),
-        getNodes = pb.asPromise(request.post, ["http://localhost:7474/db/data/cypher",
-            {json: {
-                query: "start n=node({id}) match (n)<-[:REPORTS_TO*0..]-(m) return m",
-                params: {id: 328692}
-            }}], [
+        getNodes = pb.asPromise(request.post, [
+            "http://localhost:7474/db/data/cypher",
+            {
+                json: {
+                    query: "start n=node({id}) match (n)<-[:REPORTS_TO*0..]-(m) return m",
+                    params: {id: 328692}
+                }
+            }
+        ], [
             _.identity,
             function (err, response) { return response.statusCode !== 200; }
         ], function () {
@@ -93,4 +97,3 @@
     require("./inv"),
     require("./promisebuilder")
 ));
-

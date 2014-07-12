@@ -34,8 +34,5 @@
     require("./neo4j")
 ));
 
-
-
-
-//Smaller: 328692
-//Larger: 328685
+// Smaller: 328692
+// Larger: 328685
