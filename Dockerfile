@@ -6,3 +6,4 @@ CMD ["node", "main.js"]
 ADD . /opt/gsati
 WORKDIR /opt/gsati
 EXPOSE 8080
+
