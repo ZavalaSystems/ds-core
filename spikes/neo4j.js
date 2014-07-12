@@ -29,7 +29,7 @@ module.exports = (function (_, bilby, request, q, pb) {
             .property("getOrganization", function (id) {
                 return e.executeCypher(e.orgQuery, {id: id});
             })
-            .property("executeCypher", function (query, params) {
+            .property("executeCypher", _.curry(function (query, params) {
                 var options = {
                     json: {
                         query: query,
@@ -42,7 +42,7 @@ module.exports = (function (_, bilby, request, q, pb) {
                     [hasError, notStatus(200)],
                     getBody
                 );
-            })
+            }))
             .property("attachOrdersToConsultant", _.curry(function (orders, cRef) {
                 return q.all(_.map(orders, e.attachOrderToConsultant(cRef)))
                     .then(_.constant(cRef));
@@ -75,7 +75,7 @@ module.exports = (function (_, bilby, request, q, pb) {
                     .then(e.addLabel("Order"));
             })
             .property("getOrderMetaData", function (order) {
-                return { when: order.when };
+                return {when: order.when.getTime()};
             })
             .property("getLineItems", function (order) {
                 return []
