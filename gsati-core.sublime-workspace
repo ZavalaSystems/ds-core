@@ -4,6 +4,62 @@
 		"selected_items":
 		[
 			[
+				"reduce",
+				"reduceTree"
+			],
+			[
+				"gross",
+				"grossSales"
+			],
+			[
+				"total",
+				"totalCommissions"
+			],
+			[
+				"gr",
+				"grossCommissions"
+			],
+			[
+				"with",
+				"withCommissions"
+			],
+			[
+				"comm",
+				"commissions"
+			],
+			[
+				"cal",
+				"calcComms"
+			],
+			[
+				"cla",
+				"classCons"
+			],
+			[
+				"firs",
+				"firstLevelBv"
+			],
+			[
+				"getd",
+				"getDBVSearch"
+			],
+			[
+				"getDB",
+				"getDBVSearch"
+			],
+			[
+				"is",
+				"isDirectorOrHigher"
+			],
+			[
+				"getOr",
+				"getOrgVolume"
+			],
+			[
+				"getTeam",
+				"getTeamVolume"
+			],
+			[
 				"order",
 				"orderStream"
 			],
@@ -275,7 +331,7 @@
 			"file": "spikes/invmain.js",
 			"settings":
 			{
-				"buffer_size": 2760,
+				"buffer_size": 2822,
 				"line_ending": "Unix"
 			}
 		},
@@ -283,15 +339,23 @@
 			"file": "spikes/order_neo4j.js",
 			"settings":
 			{
-				"buffer_size": 849,
+				"buffer_size": 848,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "/Users/bkeown/.zshrc",
+			"file": "spikes/neo4jtree.js",
 			"settings":
 			{
-				"buffer_size": 2965,
+				"buffer_size": 9598,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "match (cons:Consultant) optional match (cons)<-[:REPORTS_TO]-(sub) with cons as consultant, collect(sub) as downline optional match (consultant)<-[:PLACED_BY]-(order:Order)<-[:PART_OF]-(li:LineItem) return consultant, downline, li",
+			"settings":
+			{
+				"buffer_size": 230,
 				"line_ending": "Unix"
 			}
 		},
@@ -299,7 +363,15 @@
 			"file": "spikes/neo4j.js",
 			"settings":
 			{
-				"buffer_size": 5254,
+				"buffer_size": 5271,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "spikes/test.cql",
+			"settings":
+			{
+				"buffer_size": 92,
 				"line_ending": "Unix"
 			}
 		},
@@ -315,9 +387,13 @@
 	"build_system": "",
 	"command_palette":
 	{
-		"height": 212.0,
+		"height": 392.0,
 		"selected_items":
 		[
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
 			[
 				"instal",
 				"Package Control: Install Package"
@@ -359,19 +435,15 @@
 				"Package Control: Remove Package"
 			],
 			[
-				"ins",
-				"Package Control: Install Package"
-			],
-			[
 				"instl",
 				"Package Control: Install Package"
 			]
 		],
-		"width": 602.0
+		"width": 467.0
 	},
 	"console":
 	{
-		"height": 126.0,
+		"height": 232.0,
 		"history":
 		[
 			"import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404' + 'e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
@@ -388,6 +460,8 @@
 	},
 	"file_history":
 	[
+		"/Users/bkeown/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/Users/bkeown/.zshrc",
 		"/Users/bkeown/Dropbox/code/github.com/likwid/gsati-core/spikes/promisebuilder.js",
 		"/Users/bkeown/Dropbox/code/github.com/likwid/gsati-core/spikes/inv.js",
 		"/Users/bkeown/Dropbox/code/github.com/likwid/gsati-core/spikes/csv.hs",
@@ -513,13 +587,11 @@
 		"/Users/bkeown/Dropbox/code/github.com/blitz.io/blitz-app/spec/blitz/traceroute_spec.rb",
 		"/Users/bkeown/Dropbox/code/github.com/blitz.io/blitz-app/public/js/func/fcore.time.js",
 		"/Users/bkeown/Dropbox/code/github.com/blitz.io/blitz-app/public/js/spec/func/fcore.time.spec.js",
-		"/Users/bkeown/Dropbox/code/github.com/blitz.io/blitz-app/public/js/controllers/settings/accountuserdetail.js",
-		"/Users/bkeown/Dropbox/code/github.com/blitz.io/blitz-app/public/js/filters/utcTime.js",
-		"/Users/bkeown/Dropbox/code/github.com/blitz.io/blitz-app/public/js/filters/browserTime.js"
+		"/Users/bkeown/Dropbox/code/github.com/blitz.io/blitz-app/public/js/controllers/settings/accountuserdetail.js"
 	],
 	"find":
 	{
-		"height": 45.0
+		"height": 42.0
 	},
 	"find_in_files":
 	{
@@ -614,15 +686,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2760,
+						"buffer_size": 2822,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								794,
-								794
+								2822,
+								2822
 							]
 						],
 						"settings":
@@ -732,13 +804,15 @@
 							"codeintel_tooltips": "popup",
 							"open_with_edit": true,
 							"sublime_auto_complete": true,
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1167.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 2,
 					"type": "text"
 				},
 				{
@@ -747,15 +821,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 849,
+						"buffer_size": 848,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								326,
-								326
+								103,
+								103
 							]
 						],
 						"settings":
@@ -865,7 +939,9 @@
 							"codeintel_tooltips": "popup",
 							"open_with_edit": true,
 							"sublime_auto_complete": true,
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -876,131 +952,30 @@
 				},
 				{
 					"buffer": 2,
-					"file": "/Users/bkeown/.zshrc",
+					"file": "spikes/neo4jtree.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2965,
+						"buffer_size": 9598,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2834,
-								2834
+								8493,
+								8493
 							]
 						],
 						"settings":
 						{
-							"codeintel": true,
-							"codeintel_config":
-							{
-								"JavaScript":
-								{
-									"codeintel_max_recursive_dir_depth": 2,
-									"codeintel_scan_files_in_project": false,
-									"javascriptExtraPaths":
-									[
-									]
-								},
-								"PHP":
-								{
-									"codeintel_max_recursive_dir_depth": 5,
-									"codeintel_scan_files_in_project": false,
-									"phpExtraPaths":
-									[
-									]
-								},
-								"Python":
-								{
-									"env":
-									{
-									}
-								}
-							},
-							"codeintel_enabled_languages":
-							[
-								"JavaScript",
-								"Mason",
-								"XBL",
-								"XUL",
-								"RHTML",
-								"SCSS",
-								"Python",
-								"HTML",
-								"Ruby",
-								"Python3",
-								"XML",
-								"Sass",
-								"XSLT",
-								"Django",
-								"HTML5",
-								"Perl",
-								"CSS",
-								"Twig",
-								"Less",
-								"Smarty",
-								"Node.js",
-								"Tcl",
-								"TemplateToolkit",
-								"PHP"
-							],
-							"codeintel_live": true,
-							"codeintel_live_enabled_languages":
-							[
-								"JavaScript",
-								"Mason",
-								"XBL",
-								"XUL",
-								"RHTML",
-								"SCSS",
-								"Python",
-								"HTML",
-								"Ruby",
-								"Python3",
-								"XML",
-								"Sass",
-								"XSLT",
-								"Django",
-								"HTML5",
-								"Perl",
-								"CSS",
-								"Twig",
-								"Less",
-								"Smarty",
-								"Node.js",
-								"Tcl",
-								"TemplateToolkit",
-								"PHP"
-							],
-							"codeintel_max_recursive_dir_depth": 10,
-							"codeintel_scan_exclude_dir":
-							{
-								"JavaScript":
-								[
-									"/build/",
-									"/min/"
-								]
-							},
-							"codeintel_scan_files_in_project": true,
-							"codeintel_selected_catalogs":
-							[
-								"PyWin32",
-								"jQuery",
-								"Rails"
-							],
-							"codeintel_snippets": true,
-							"codeintel_syntax_map":
-							{
-								"Python Django": "Python"
-							},
-							"codeintel_tooltips": "popup",
-							"sublime_auto_complete": true,
-							"syntax": "Packages/Text/Plain text.tmLanguage"
+							"open_with_edit": true,
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1119.0,
+						"translation.y": 5155.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
@@ -1008,19 +983,46 @@
 				},
 				{
 					"buffer": 3,
-					"file": "spikes/neo4j.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 5254,
+						"buffer_size": 230,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								4758,
-								4758
+								0,
+								230
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "spikes/neo4j.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5271,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2935,
+								2935
 							]
 						],
 						"settings":
@@ -1130,17 +1132,47 @@
 							"codeintel_tooltips": "popup",
 							"open_with_edit": true,
 							"sublime_auto_complete": true,
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 2521.0,
+						"translation.y": 1108.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 4,
 					"type": "text"
 				},
 				{
-					"buffer": 4,
+					"buffer": 5,
+					"file": "spikes/test.cql",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 92,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								37,
+								37
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
 					"file": "spikes/promisebuilder.js",
 					"semi_transient": false,
 					"settings":
@@ -1270,7 +1302,7 @@
 						"translation.y": 1434.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 6,
 					"type": "text"
 				}
 			]

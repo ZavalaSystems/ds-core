@@ -18,7 +18,8 @@ module.exports = (function (_) {
         },
         templates: {
             host: _.template("${protocol}//${host}:${port}")
-        }
+        },
+        dbUri: "http://localhost:7474/db/data/"
     };
 }(
     require("lodash")

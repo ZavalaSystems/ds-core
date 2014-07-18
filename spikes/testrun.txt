@@ -1,0 +1,8652 @@
+	name:  
+	consultant.data.rep: 1
+	retail: 22000
+	wineclub: 0
+	gifts: 0
+	pcv: 22000
+	pbv: 17600
+	tbv: 5376404
+	dbv1: 17600
+	dbv2: 17600
+	dbv3: 17600
+	qualified: false
+	qualSubs: 36
+	teamVolume: 5872084
+	orgVolume: 32128313
+	qualDirs: 6
+	rank: Ambassador
+	commissions: 0
+
+		name: Xanthie Drankus
+		consultant.data.rep: 1502
+		retail: 42700
+		wineclub: 61000
+		gifts: 39025
+		pcv: 111012
+		pbv: 102472
+		tbv: 102472
+		dbv1: 102472
+		dbv2: 102472
+		dbv3: 102472
+		qualified: true
+		qualSubs: 0
+		teamVolume: 111012
+		orgVolume: 111012
+		qualDirs: 0
+		rank: Ambassador
+		commissions: 22202
+
+		name: Gena Paez
+		consultant.data.rep: 1293
+		retail: 128700
+		wineclub: 80500
+		gifts: 36325
+		pcv: 211262
+		pbv: 185522
+		tbv: 185522
+		dbv1: 185522
+		dbv2: 185522
+		dbv3: 185522
+		qualified: true
+		qualSubs: 0
+		teamVolume: 211262
+		orgVolume: 211262
+		qualDirs: 0
+		rank: Ambassador
+		commissions: 42252
+
+		name: Dan Sobiech
+		consultant.data.rep: 1292
+		retail: 18600
+		wineclub: 0
+		gifts: 6300
+		pcv: 21750
+		pbv: 18030
+		tbv: 18030
+		dbv1: 18030
+		dbv2: 18030
+		dbv3: 18030
+		qualified: false
+		qualSubs: 0
+		teamVolume: 21750
+		orgVolume: 21750
+		qualDirs: 0
+		rank: Ambassador
+		commissions: 0
+
+		name: Claude Rouquet
+		consultant.data.rep: 1291
+		retail: 47000
+		wineclub: 44000
+		gifts: 22580
+		pcv: 93490
+		pbv: 84090
+		tbv: 84090
+		dbv1: 84090
+		dbv2: 84090
+		dbv3: 84090
+		qualified: true
+		qualSubs: 0
+		teamVolume: 93490
+		orgVolume: 93490
+		qualDirs: 0
+		rank: Ambassador
+		commissions: 18698
+
+		name: Leigh Ann Reed
+		consultant.data.rep: 1288
+		retail: 36500
+		wineclub: 17000
+		gifts: 6221
+		pcv: 53210
+		pbv: 45910
+		tbv: 45910
+		dbv1: 45910
+		dbv2: 45910
+		dbv3: 45910
+		qualified: true
+		qualSubs: 0
+		teamVolume: 53210
+		orgVolume: 53210
+		qualDirs: 0
+		rank: Ambassador
+		commissions: 10642
+
+		name: Stefani Poggi
+		consultant.data.rep: 1287
+		retail: 30600
+		wineclub: 34000
+		gifts: 19685
+		pcv: 67642
+		pbv: 61522
+		tbv: 61522
+		dbv1: 61522
+		dbv2: 61522
+		dbv3: 61522
+		qualified: true
+		qualSubs: 0
+		teamVolume: 67642
+		orgVolume: 67642
+		qualDirs: 0
+		rank: Ambassador
+		commissions: 13528
+
+		name: Jennifer Parker
+		consultant.data.rep: 1286
+		retail: 26500
+		wineclub: 0
+		gifts: 20975
+		pcv: 36987
+		pbv: 31687
+		tbv: 31687
+		dbv1: 31687
+		dbv2: 31687
+		dbv3: 31687
+		qualified: true
+		qualSubs: 0
+		teamVolume: 36987
+		orgVolume: 36987
+		qualDirs: 0
+		rank: Ambassador
+		commissions: 7397
+
+		name: Ricardo March
+		consultant.data.rep: 1284
+		retail: 14000
+		wineclub: 0
+		gifts: 8576
+		pcv: 18288
+		pbv: 15488
+		tbv: 15488
+		dbv1: 15488
+		dbv2: 15488
+		dbv3: 15488
+		qualified: false
+		qualSubs: 0
+		teamVolume: 18288
+		orgVolume: 18288
+		qualDirs: 0
+		rank: Ambassador
+		commissions: 0
+
+		name: Pierre Benoit Mace
+		consultant.data.rep: 1283
+		retail: 14700
+		wineclub: 43500
+		gifts: 15025
+		pcv: 57012
+		pbv: 54072
+		tbv: 54072
+		dbv1: 54072
+		dbv2: 54072
+		dbv3: 54072
+		qualified: true
+		qualSubs: 0
+		teamVolume: 57012
+		orgVolume: 57012
+		qualDirs: 0
+		rank: Ambassador
+		commissions: 11402
+
+		name: Lee Howard
+		consultant.data.rep: 1281
+		retail: 30400
+		wineclub: 36000
+		gifts: 0
+		pcv: 59200
+		pbv: 53120
+		tbv: 53120
+		dbv1: 53120
+		dbv2: 53120
+		dbv3: 53120
+		qualified: true
+		qualSubs: 0
+		teamVolume: 59200
+		orgVolume: 59200
+		qualDirs: 0
+		rank: Ambassador
+		commissions: 11840
+
+		name: Ken Hoernlein
+		consultant.data.rep: 1280
+		retail: 25800
+		wineclub: 62500
+		gifts: 2400
+		pcv: 77000
+		pbv: 71840
+		tbv: 71840
+		dbv1: 71840
+		dbv2: 71840
+		dbv3: 71840
+		qualified: true
+		qualSubs: 0
+		teamVolume: 77000
+		orgVolume: 77000
+		qualDirs: 0
+		rank: Ambassador
+		commissions: 15400
+
+		name: Laure Guilloteau
+		consultant.data.rep: 1279
+		retail: 91700
+		wineclub: 88000
+		gifts: 39126
+		pcv: 181663
+		pbv: 163323
+		tbv: 163323
+		dbv1: 163323
+		dbv2: 163323
+		dbv3: 163323
+		qualified: true
+		qualSubs: 0
+		teamVolume: 181663
+		orgVolume: 181663
+		qualDirs: 0
+		rank: Ambassador
+		commissions: 36332
+
+		name: Richard Groves
+		consultant.data.rep: 1278
+		retail: 31000
+		wineclub: 60500
+		gifts: 19900
+		pcv: 89350
+		pbv: 83150
+		tbv: 83150
+		dbv1: 83150
+		dbv2: 83150
+		dbv3: 83150
+		qualified: true
+		qualSubs: 0
+		teamVolume: 89350
+		orgVolume: 89350
+		qualDirs: 0
+		rank: Ambassador
+		commissions: 17870
+
+		name: Jombor Gal
+		consultant.data.rep: 1277
+		retail: 13500
+		wineclub: 17000
+		gifts: 0
+		pcv: 27100
+		pbv: 24400
+		tbv: 24400
+		dbv1: 24400
+		dbv2: 24400
+		dbv3: 24400
+		qualified: true
+		qualSubs: 0
+		teamVolume: 27100
+		orgVolume: 27100
+		qualDirs: 0
+		rank: Ambassador
+		commissions: 5420
+
+		name: Zachary Drake
+		consultant.data.rep: 1276
+		retail: 24000
+		wineclub: 36000
+		gifts: 4800
+		pcv: 55200
+		pbv: 50400
+		tbv: 50400
+		dbv1: 50400
+		dbv2: 50400
+		dbv3: 50400
+		qualified: true
+		qualSubs: 0
+		teamVolume: 55200
+		orgVolume: 55200
+		qualDirs: 0
+		rank: Ambassador
+		commissions: 11040
+
+		name: Terry Connaughton
+		consultant.data.rep: 1274
+		retail: 18000
+		wineclub: 131500
+		gifts: 29592
+		pcv: 137996
+		pbv: 134396
+		tbv: 134396
+		dbv1: 134396
+		dbv2: 134396
+		dbv3: 134396
+		qualified: true
+		qualSubs: 0
+		teamVolume: 137996
+		orgVolume: 137996
+		qualDirs: 0
+		rank: Ambassador
+		commissions: 27599
+
+		name: Bridgette Cusamano
+		consultant.data.rep: 1275
+		retail: 58700
+		wineclub: 51500
+		gifts: 69615
+		pcv: 134707
+		pbv: 122967
+		tbv: 122967
+		dbv1: 122967
+		dbv2: 122967
+		dbv3: 122967
+		qualified: true
+		qualSubs: 0
+		teamVolume: 134707
+		orgVolume: 134707
+		qualDirs: 0
+		rank: Ambassador
+		commissions: 26941
+
+		name: Nicole Burke
+		consultant.data.rep: 1273
+		retail: 101300
+		wineclub: 88000
+		gifts: 50050
+		pcv: 196725
+		pbv: 176465
+		tbv: 176465
+		dbv1: 176465
+		dbv2: 176465
+		dbv3: 176465
+		qualified: true
+		qualSubs: 0
+		teamVolume: 196725
+		orgVolume: 196725
+		qualDirs: 0
+		rank: Ambassador
+		commissions: 39345
+
+		name: Shawn Brennan
+		consultant.data.rep: 1271
+		retail: 62300
+		wineclub: 35500
+		gifts: 41535
+		pcv: 111467
+		pbv: 99007
+		tbv: 99007
+		dbv1: 99007
+		dbv2: 99007
+		dbv3: 99007
+		qualified: true
+		qualSubs: 0
+		teamVolume: 111467
+		orgVolume: 111467
+		qualDirs: 0
+		rank: Ambassador
+		commissions: 22293
+
+		name: Craige Bennett
+		consultant.data.rep: 1270
+		retail: 30200
+		wineclub: 0
+		gifts: 24100
+		pcv: 42250
+		pbv: 36210
+		tbv: 36210
+		dbv1: 36210
+		dbv2: 36210
+		dbv3: 36210
+		qualified: true
+		qualSubs: 0
+		teamVolume: 42250
+		orgVolume: 42250
+		qualDirs: 0
+		rank: Ambassador
+		commissions: 8450
+
+		name: Glenn Augustine
+		consultant.data.rep: 1268
+		retail: 4000
+		wineclub: 26000
+		gifts: 54979
+		pcv: 52289
+		pbv: 51489
+		tbv: 51489
+		dbv1: 51489
+		dbv2: 51489
+		dbv3: 51489
+		qualified: true
+		qualSubs: 0
+		teamVolume: 52289
+		orgVolume: 52289
+		qualDirs: 0
+		rank: Ambassador
+		commissions: 10457
+
+		name: David Pierson
+		consultant.data.rep: 1191
+		retail: 27700
+		wineclub: 44000
+		gifts: 16550
+		pcv: 71175
+		pbv: 65635
+		tbv: 65635
+		dbv1: 65635
+		dbv2: 65635
+		dbv3: 65635
+		qualified: true
+		qualSubs: 0
+		teamVolume: 71175
+		orgVolume: 71175
+		qualDirs: 0
+		rank: Ambassador
+		commissions: 14235
+
+		name: Kelly Muters
+		consultant.data.rep: 1150
+		retail: 42400
+		wineclub: 34000
+		gifts: 20947
+		pcv: 80073
+		pbv: 71593
+		tbv: 132668
+		dbv1: 71593
+		dbv2: 71593
+		dbv3: 71593
+		qualified: true
+		qualSubs: 1
+		teamVolume: 149768
+		orgVolume: 149768
+		qualDirs: 0
+		rank: Associate Ambassador
+		commissions: 17235
+
+			name: Christine Keil
+			consultant.data.rep: 1330
+			retail: 43100
+			wineclub: 26000
+			gifts: 11590
+			pcv: 69695
+			pbv: 61075
+			tbv: 61075
+			dbv1: 61075
+			dbv2: 61075
+			dbv3: 61075
+			qualified: true
+			qualSubs: 0
+			teamVolume: 69695
+			orgVolume: 69695
+			qualDirs: 0
+			rank: Ambassador
+			commissions: 13939
+
+		name: Steve Schmalhorst
+		consultant.data.rep: 1109
+		retail: 0
+		wineclub: 42500
+		gifts: 22382
+		pcv: 45191
+		pbv: 45191
+		tbv: 45191
+		dbv1: 45191
+		dbv2: 45191
+		dbv3: 45191
+		qualified: true
+		qualSubs: 0
+		teamVolume: 45191
+		orgVolume: 45191
+		qualDirs: 0
+		rank: Ambassador
+		commissions: 9038
+
+		name: Linda Wiener
+		consultant.data.rep: 1105
+		retail: 28900
+		wineclub: 18000
+		gifts: 10275
+		pcv: 48437
+		pbv: 42657
+		tbv: 42657
+		dbv1: 42657
+		dbv2: 42657
+		dbv3: 42657
+		qualified: true
+		qualSubs: 0
+		teamVolume: 48437
+		orgVolume: 48437
+		qualDirs: 0
+		rank: Ambassador
+		commissions: 9687
+
+		name: Arlene Levinson
+		consultant.data.rep: 1099
+		retail: 14500
+		wineclub: 63000
+		gifts: 45995
+		pcv: 87897
+		pbv: 84997
+		tbv: 84997
+		dbv1: 84997
+		dbv2: 84997
+		dbv3: 84997
+		qualified: true
+		qualSubs: 0
+		teamVolume: 87897
+		orgVolume: 87897
+		qualDirs: 0
+		rank: Ambassador
+		commissions: 17579
+
+		name: Donna Ebert
+		consultant.data.rep: 1081
+		retail: 32500
+		wineclub: 54000
+		gifts: 48094
+		pcv: 99747
+		pbv: 93247
+		tbv: 2350103
+		dbv1: 93247
+		dbv2: 93247
+		dbv3: 93247
+		qualified: true
+		qualSubs: 24
+		teamVolume: 2610263
+		orgVolume: 5149124
+		qualDirs: 2
+		rank: Crystal Director
+		commissions: 153304
+
+			name: Kiran Patel
+			consultant.data.rep: 1500
+			retail: 15000
+			wineclub: 0
+			gifts: 16725
+			pcv: 23362
+			pbv: 20362
+			tbv: 20362
+			dbv1: 20362
+			dbv2: 20362
+			dbv3: 20362
+			qualified: false
+			qualSubs: 0
+			teamVolume: 23362
+			orgVolume: 23362
+			qualDirs: 0
+			rank: Ambassador
+			commissions: 0
+
+			name: Betty Lucas
+			consultant.data.rep: 1485
+			retail: 25400
+			wineclub: 43000
+			gifts: 9850
+			pcv: 64725
+			pbv: 59645
+			tbv: 59645
+			dbv1: 59645
+			dbv2: 59645
+			dbv3: 59645
+			qualified: true
+			qualSubs: 0
+			teamVolume: 64725
+			orgVolume: 64725
+			qualDirs: 0
+			rank: Ambassador
+			commissions: 12945
+
+			name: Renee Romaneck
+			consultant.data.rep: 1479
+			retail: 73100
+			wineclub: 77500
+			gifts: 14846
+			pcv: 142523
+			pbv: 127903
+			tbv: 127903
+			dbv1: 127903
+			dbv2: 127903
+			dbv3: 127903
+			qualified: true
+			qualSubs: 0
+			teamVolume: 142523
+			orgVolume: 142523
+			qualDirs: 0
+			rank: Ambassador
+			commissions: 28504
+
+			name: Meg Haycraft
+			consultant.data.rep: 1453
+			retail: 16200
+			wineclub: 0
+			gifts: 17725
+			pcv: 25062
+			pbv: 21822
+			tbv: 21822
+			dbv1: 21822
+			dbv2: 21822
+			dbv3: 21822
+			qualified: true
+			qualSubs: 0
+			teamVolume: 25062
+			orgVolume: 29960
+			qualDirs: 0
+			rank: Ambassador
+			commissions: 5012
+
+				name: Henry Batha Jr
+				consultant.data.rep: 1501
+				retail: 3500
+				wineclub: 0
+				gifts: 2796
+				pcv: 4898
+				pbv: 4198
+				tbv: 4198
+				dbv1: 4198
+				dbv2: 4198
+				dbv3: 4198
+				qualified: false
+				qualSubs: 0
+				teamVolume: 4898
+				orgVolume: 4898
+				qualDirs: 0
+				rank: Ambassador
+				commissions: 0
+
+			name: Terri Cameron
+			consultant.data.rep: 1451
+			retail: 61500
+			wineclub: 62000
+			gifts: 12388
+			pcv: 117294
+			pbv: 104994
+			tbv: 104994
+			dbv1: 104994
+			dbv2: 104994
+			dbv3: 104994
+			qualified: true
+			qualSubs: 0
+			teamVolume: 117294
+			orgVolume: 117294
+			qualDirs: 0
+			rank: Ambassador
+			commissions: 23458
+
+			name: Joseph Coraci
+			consultant.data.rep: 1450
+			retail: 8000
+			wineclub: 0
+			gifts: 13980
+			pcv: 14990
+			pbv: 13390
+			tbv: 13390
+			dbv1: 13390
+			dbv2: 13390
+			dbv3: 13390
+			qualified: false
+			qualSubs: 0
+			teamVolume: 14990
+			orgVolume: 14990
+			qualDirs: 0
+			rank: Ambassador
+			commissions: 0
+
+			name: Lori Baker
+			consultant.data.rep: 1448
+			retail: 34900
+			wineclub: 36000
+			gifts: 3198
+			pcv: 65299
+			pbv: 58319
+			tbv: 132811
+			dbv1: 58319
+			dbv2: 58319
+			dbv3: 58319
+			qualified: true
+			qualSubs: 1
+			teamVolume: 145831
+			orgVolume: 145831
+			qualDirs: 0
+			rank: Associate Ambassador
+			commissions: 14548
+
+				name: Diane Grinstead
+				consultant.data.rep: 1460
+				retail: 30200
+				wineclub: 17000
+				gifts: 73465
+				pcv: 80532
+				pbv: 74492
+				tbv: 74492
+				dbv1: 74492
+				dbv2: 74492
+				dbv3: 74492
+				qualified: true
+				qualSubs: 0
+				teamVolume: 80532
+				orgVolume: 80532
+				qualDirs: 0
+				rank: Ambassador
+				commissions: 16106
+
+			name: Teresa  Carr
+			consultant.data.rep: 1444
+			retail: 53600
+			wineclub: 52000
+			gifts: 26325
+			pcv: 108362
+			pbv: 97642
+			tbv: 97642
+			dbv1: 97642
+			dbv2: 97642
+			dbv3: 97642
+			qualified: true
+			qualSubs: 0
+			teamVolume: 108362
+			orgVolume: 108362
+			qualDirs: 0
+			rank: Ambassador
+			commissions: 21672
+
+			name: Therese Lehenbauer
+			consultant.data.rep: 1438
+			retail: 33800
+			wineclub: 60000
+			gifts: 18544
+			pcv: 91072
+			pbv: 84312
+			tbv: 84312
+			dbv1: 84312
+			dbv2: 84312
+			dbv3: 84312
+			qualified: true
+			qualSubs: 0
+			teamVolume: 91072
+			orgVolume: 91072
+			qualDirs: 0
+			rank: Ambassador
+			commissions: 18214
+
+			name: Cathy Yehle
+			consultant.data.rep: 1431
+			retail: 0
+			wineclub: 0
+			gifts: 29550
+			pcv: 14775
+			pbv: 14775
+			tbv: 157742
+			dbv1: 14775
+			dbv2: 14775
+			dbv3: 14775
+			qualified: false
+			qualSubs: 1
+			teamVolume: 170762
+			orgVolume: 170762
+			qualDirs: 0
+			rank: Ambassador
+			commissions: 0
+
+				name: Michelle Joseph
+				consultant.data.rep: 1436
+				retail: 65100
+				wineclub: 86000
+				gifts: 44175
+				pcv: 155987
+				pbv: 142967
+				tbv: 142967
+				dbv1: 142967
+				dbv2: 142967
+				dbv3: 142967
+				qualified: true
+				qualSubs: 0
+				teamVolume: 155987
+				orgVolume: 155987
+				qualDirs: 0
+				rank: Ambassador
+				commissions: 31197
+
+			name: Darryl Kendrix
+			consultant.data.rep: 1425
+			retail: 47500
+			wineclub: 9000
+			gifts: 3600
+			pcv: 56500
+			pbv: 47000
+			tbv: 47000
+			dbv1: 47000
+			dbv2: 47000
+			dbv3: 47000
+			qualified: true
+			qualSubs: 0
+			teamVolume: 56500
+			orgVolume: 56500
+			qualDirs: 0
+			rank: Ambassador
+			commissions: 11300
+
+			name: Clay Barton
+			consultant.data.rep: 1411
+			retail: 11400
+			wineclub: 51000
+			gifts: 3400
+			pcv: 53900
+			pbv: 51620
+			tbv: 51620
+			dbv1: 51620
+			dbv2: 51620
+			dbv3: 51620
+			qualified: true
+			qualSubs: 0
+			teamVolume: 53900
+			orgVolume: 53900
+			qualDirs: 0
+			rank: Ambassador
+			commissions: 10780
+
+			name: Cynthia Porter
+			consultant.data.rep: 1410
+			retail: 35500
+			wineclub: 0
+			gifts: 28310
+			pcv: 49655
+			pbv: 42555
+			tbv: 42555
+			dbv1: 42555
+			dbv2: 42555
+			dbv3: 42555
+			qualified: true
+			qualSubs: 0
+			teamVolume: 49655
+			orgVolume: 49655
+			qualDirs: 0
+			rank: Ambassador
+			commissions: 9931
+
+			name: Ellie Blanch
+			consultant.data.rep: 1409
+			retail: 0
+			wineclub: 0
+			gifts: 0
+			pcv: 0
+			pbv: 0
+			tbv: 0
+			dbv1: 0
+			dbv2: 0
+			dbv3: 0
+			qualified: false
+			qualSubs: 0
+			teamVolume: 0
+			orgVolume: 0
+			qualDirs: 0
+			rank: Ambassador
+			commissions: 0
+
+			name: Matt Weber
+			consultant.data.rep: 1407
+			retail: 25800
+			wineclub: 54000
+			gifts: 6775
+			pcv: 72387
+			pbv: 67227
+			tbv: 67227
+			dbv1: 67227
+			dbv2: 67227
+			dbv3: 67227
+			qualified: true
+			qualSubs: 0
+			teamVolume: 72387
+			orgVolume: 72387
+			qualDirs: 0
+			rank: Ambassador
+			commissions: 14477
+
+			name: Kristen Birchard
+			consultant.data.rep: 1403
+			retail: 26800
+			wineclub: 0
+			gifts: 2200
+			pcv: 27900
+			pbv: 22540
+			tbv: 22540
+			dbv1: 22540
+			dbv2: 22540
+			dbv3: 22540
+			qualified: true
+			qualSubs: 0
+			teamVolume: 27900
+			orgVolume: 27900
+			qualDirs: 0
+			rank: Ambassador
+			commissions: 5580
+
+			name: Lesley Allen
+			consultant.data.rep: 1368
+			retail: 20200
+			wineclub: 52500
+			gifts: 12774
+			pcv: 68587
+			pbv: 64547
+			tbv: 131444
+			dbv1: 64547
+			dbv2: 64547
+			dbv3: 64547
+			qualified: true
+			qualSubs: 1
+			teamVolume: 145324
+			orgVolume: 145324
+			qualDirs: 0
+			rank: Associate Ambassador
+			commissions: 15054
+
+				name: Michael Barno
+				consultant.data.rep: 1391
+				retail: 49200
+				wineclub: 17000
+				gifts: 27875
+				pcv: 76737
+				pbv: 66897
+				tbv: 66897
+				dbv1: 66897
+				dbv2: 66897
+				dbv3: 66897
+				qualified: true
+				qualSubs: 0
+				teamVolume: 76737
+				orgVolume: 76737
+				qualDirs: 0
+				rank: Ambassador
+				commissions: 15347
+
+			name: Heiko Lucker
+			consultant.data.rep: 1356
+			retail: 18000
+			wineclub: 0
+			gifts: 5600
+			pcv: 20800
+			pbv: 17200
+			tbv: 17200
+			dbv1: 17200
+			dbv2: 17200
+			dbv3: 17200
+			qualified: false
+			qualSubs: 0
+			teamVolume: 20800
+			orgVolume: 20800
+			qualDirs: 0
+			rank: Ambassador
+			commissions: 0
+
+			name: Beatrice Vincent
+			consultant.data.rep: 1343
+			retail: 8400
+			wineclub: 0
+			gifts: 23500
+			pcv: 20150
+			pbv: 18470
+			tbv: 18470
+			dbv1: 18470
+			dbv2: 18470
+			dbv3: 18470
+			qualified: false
+			qualSubs: 0
+			teamVolume: 20150
+			orgVolume: 20150
+			qualDirs: 0
+			rank: Ambassador
+			commissions: 0
+
+			name: Stephanie Cash
+			consultant.data.rep: 1339
+			retail: 22400
+			wineclub: 9000
+			gifts: 5800
+			pcv: 32500
+			pbv: 28020
+			tbv: 28020
+			dbv1: 28020
+			dbv2: 28020
+			dbv3: 28020
+			qualified: true
+			qualSubs: 0
+			teamVolume: 32500
+			orgVolume: 32500
+			qualDirs: 0
+			rank: Ambassador
+			commissions: 6500
+
+			name: Victoria Arguello
+			consultant.data.rep: 1337
+			retail: 11600
+			wineclub: 0
+			gifts: 28800
+			pcv: 26000
+			pbv: 23680
+			tbv: 64632
+			dbv1: 23680
+			dbv2: 23680
+			dbv3: 23680
+			qualified: true
+			qualSubs: 1
+			teamVolume: 69952
+			orgVolume: 69952
+			qualDirs: 0
+			rank: Associate Ambassador
+			commissions: 6019
+
+				name: Alecia Santamaria
+				consultant.data.rep: 1359
+				retail: 15000
+				wineclub: 17000
+				gifts: 30705
+				pcv: 43952
+				pbv: 40952
+				tbv: 40952
+				dbv1: 40952
+				dbv2: 40952
+				dbv3: 40952
+				qualified: true
+				qualSubs: 0
+				teamVolume: 43952
+				orgVolume: 43952
+				qualDirs: 0
+				rank: Ambassador
+				commissions: 8790
+
+			name: Shannon Jimenez
+			consultant.data.rep: 1334
+			retail: 57900
+			wineclub: 53000
+			gifts: 9173
+			pcv: 104886
+			pbv: 93306
+			tbv: 93306
+			dbv1: 93306
+			dbv2: 93306
+			dbv3: 93306
+			qualified: true
+			qualSubs: 0
+			teamVolume: 104886
+			orgVolume: 104886
+			qualDirs: 0
+			rank: Ambassador
+			commissions: 20977
+
+			name: Tibbie Ballou
+			consultant.data.rep: 1329
+			retail: 13200
+			wineclub: 36000
+			gifts: 600
+			pcv: 42300
+			pbv: 39660
+			tbv: 39660
+			dbv1: 39660
+			dbv2: 39660
+			dbv3: 39660
+			qualified: true
+			qualSubs: 0
+			teamVolume: 42300
+			orgVolume: 42300
+			qualDirs: 0
+			rank: Ambassador
+			commissions: 8460
+
+			name: Katie Hanson
+			consultant.data.rep: 1307
+			retail: 145000
+			wineclub: 34000
+			gifts: 30776
+			pcv: 187588
+			pbv: 158588
+			tbv: 158588
+			dbv1: 158588
+			dbv2: 158588
+			dbv3: 158588
+			qualified: true
+			qualSubs: 0
+			teamVolume: 187588
+			orgVolume: 187588
+			qualDirs: 0
+			rank: Ambassador
+			commissions: 37517
+
+			name: Oscar Grau
+			consultant.data.rep: 1304
+			retail: 54400
+			wineclub: 9000
+			gifts: 4200
+			pcv: 63700
+			pbv: 52820
+			tbv: 52820
+			dbv1: 52820
+			dbv2: 52820
+			dbv3: 52820
+			qualified: true
+			qualSubs: 0
+			teamVolume: 63700
+			orgVolume: 63700
+			qualDirs: 0
+			rank: Ambassador
+			commissions: 12740
+
+			name: Christa Mahaffey
+			consultant.data.rep: 1240
+			retail: 0
+			wineclub: 0
+			gifts: 3600
+			pcv: 1800
+			pbv: 1800
+			tbv: 1800
+			dbv1: 1800
+			dbv2: 1800
+			dbv3: 1800
+			qualified: false
+			qualSubs: 0
+			teamVolume: 1800
+			orgVolume: 1800
+			qualDirs: 0
+			rank: Ambassador
+			commissions: 0
+
+			name: MaryRose Parkman
+			consultant.data.rep: 1231
+			retail: 16800
+			wineclub: 61500
+			gifts: 9295
+			pcv: 70647
+			pbv: 67287
+			tbv: 67287
+			dbv1: 67287
+			dbv2: 67287
+			dbv3: 67287
+			qualified: true
+			qualSubs: 0
+			teamVolume: 70647
+			orgVolume: 70647
+			qualDirs: 0
+			rank: Ambassador
+			commissions: 14129
+
+			name: Amy Kleckner-DeLuca
+			consultant.data.rep: 1220
+			retail: 0
+			wineclub: 0
+			gifts: 1988
+			pcv: 994
+			pbv: 994
+			tbv: 95779
+			dbv1: 994
+			dbv2: 994
+			dbv3: 994
+			qualified: false
+			qualSubs: 2
+			teamVolume: 102359
+			orgVolume: 102359
+			qualDirs: 0
+			rank: Ambassador
+			commissions: 0
+
+				name: Courtney Adamski
+				consultant.data.rep: 1239
+				retail: 14400
+				wineclub: 34500
+				gifts: 0
+				pcv: 42000
+				pbv: 39120
+				tbv: 39120
+				dbv1: 39120
+				dbv2: 39120
+				dbv3: 39120
+				qualified: true
+				qualSubs: 0
+				teamVolume: 42000
+				orgVolume: 42000
+				qualDirs: 0
+				rank: Ambassador
+				commissions: 8400
+
+				name: Amy Schmerl
+				consultant.data.rep: 1225
+				retail: 18500
+				wineclub: 35000
+				gifts: 25730
+				pcv: 59365
+				pbv: 55665
+				tbv: 55665
+				dbv1: 55665
+				dbv2: 55665
+				dbv3: 55665
+				qualified: true
+				qualSubs: 0
+				teamVolume: 59365
+				orgVolume: 59365
+				qualDirs: 0
+				rank: Ambassador
+				commissions: 11873
+
+			name: Vasile Chicu
+			consultant.data.rep: 1214
+			retail: 0
+			wineclub: 27000
+			gifts: 0
+			pcv: 21600
+			pbv: 21600
+			tbv: 115226
+			dbv1: 21600
+			dbv2: 21600
+			dbv3: 21600
+			qualified: false
+			qualSubs: 1
+			teamVolume: 119566
+			orgVolume: 119566
+			qualDirs: 0
+			rank: Ambassador
+			commissions: 0
+
+				name: Judith Comstock
+				consultant.data.rep: 1457
+				retail: 21700
+				wineclub: 52000
+				gifts: 69332
+				pcv: 97966
+				pbv: 93626
+				tbv: 93626
+				dbv1: 93626
+				dbv2: 93626
+				dbv3: 93626
+				qualified: true
+				qualSubs: 0
+				teamVolume: 97966
+				orgVolume: 97966
+				qualDirs: 0
+				rank: Ambassador
+				commissions: 19593
+
+			name: Steve De Lima
+			consultant.data.rep: 1195
+			retail: 21000
+			wineclub: 9000
+			gifts: 21697
+			pcv: 39048
+			pbv: 34848
+			tbv: 34848
+			dbv1: 34848
+			dbv2: 34848
+			dbv3: 34848
+			qualified: true
+			qualSubs: 0
+			teamVolume: 39048
+			orgVolume: 39048
+			qualDirs: 0
+			rank: Ambassador
+			commissions: 7809
+
+			name: Leslie Dougherty & Rick Tripp
+			consultant.data.rep: 1180
+			retail: 52400
+			wineclub: 27000
+			gifts: 21650
+			pcv: 84825
+			pbv: 74345
+			tbv: 385133
+			dbv1: 74345
+			dbv2: 74345
+			dbv3: 74345
+			qualified: true
+			qualSubs: 3
+			teamVolume: 423773
+			orgVolume: 494645
+			qualDirs: 0
+			rank: Senior Ambassador
+			commissions: 25169
+
+				name: Carolyn Winfrey
+				consultant.data.rep: 1253
+				retail: 10000
+				wineclub: 0
+				gifts: 994
+				pcv: 10497
+				pbv: 8497
+				tbv: 64492
+				dbv1: 8497
+				dbv2: 8497
+				dbv3: 8497
+				qualified: false
+				qualSubs: 1
+				teamVolume: 70872
+				orgVolume: 70872
+				qualDirs: 0
+				rank: Ambassador
+				commissions: 0
+
+					name: Kera Miller
+					consultant.data.rep: 1303
+					retail: 21900
+					wineclub: 36000
+					gifts: 19350
+					pcv: 60375
+					pbv: 55995
+					tbv: 55995
+					dbv1: 55995
+					dbv2: 55995
+					dbv3: 55995
+					qualified: true
+					qualSubs: 0
+					teamVolume: 60375
+					orgVolume: 60375
+					qualDirs: 0
+					rank: Ambassador
+					commissions: 12075
+
+				name: Steve Rath
+				consultant.data.rep: 1249
+				retail: 26900
+				wineclub: 52000
+				gifts: 27395
+				pcv: 82197
+				pbv: 76817
+				tbv: 76817
+				dbv1: 76817
+				dbv2: 76817
+				dbv3: 76817
+				qualified: true
+				qualSubs: 0
+				teamVolume: 82197
+				orgVolume: 82197
+				qualDirs: 0
+				rank: Ambassador
+				commissions: 16439
+
+				name: Amy Westrom
+				consultant.data.rep: 1234
+				retail: 52300
+				wineclub: 17000
+				gifts: 10095
+				pcv: 70947
+				pbv: 60487
+				tbv: 106277
+				dbv1: 60487
+				dbv2: 60487
+				dbv3: 60487
+				qualified: true
+				qualSubs: 1
+				teamVolume: 120837
+				orgVolume: 120837
+				qualDirs: 0
+				rank: Associate Ambassador
+				commissions: 15104
+
+					name: Norman Utley
+					consultant.data.rep: 1251
+					retail: 20500
+					wineclub: 27000
+					gifts: 15580
+					pcv: 49890
+					pbv: 45790
+					tbv: 45790
+					dbv1: 45790
+					dbv2: 45790
+					dbv3: 45790
+					qualified: true
+					qualSubs: 0
+					teamVolume: 49890
+					orgVolume: 49890
+					qualDirs: 0
+					rank: Ambassador
+					commissions: 9978
+
+				name: Terese Eiseman
+				consultant.data.rep: 1192
+				retail: 41100
+				wineclub: 85500
+				gifts: 52829
+				pcv: 135914
+				pbv: 127694
+				tbv: 127694
+				dbv1: 127694
+				dbv2: 127694
+				dbv3: 127694
+				qualified: true
+				qualSubs: 0
+				teamVolume: 135914
+				orgVolume: 135914
+				qualDirs: 0
+				rank: Ambassador
+				commissions: 27182
+
+			name: Lisa Lendio
+			consultant.data.rep: 1165
+			retail: 23400
+			wineclub: 0
+			gifts: 6900
+			pcv: 26850
+			pbv: 22170
+			tbv: 317647
+			dbv1: 22170
+			dbv2: 22170
+			dbv3: 22170
+			qualified: true
+			qualSubs: 1
+			teamVolume: 347587
+			orgVolume: 347587
+			qualDirs: 0
+			rank: Associate Ambassador
+			commissions: 7567
+
+				name: Judi Navarro
+				consultant.data.rep: 1167
+				retail: 58500
+				wineclub: 25500
+				gifts: 85350
+				pcv: 121575
+				pbv: 109875
+				tbv: 295477
+				dbv1: 109875
+				dbv2: 109875
+				dbv3: 109875
+				qualified: true
+				qualSubs: 2
+				teamVolume: 320737
+				orgVolume: 320737
+				qualDirs: 0
+				rank: Senior Ambassador
+				commissions: 29883
+
+					name: Alina Harvell
+					consultant.data.rep: 1482
+					retail: 46000
+					wineclub: 112500
+					gifts: 4700
+					pcv: 138350
+					pbv: 129150
+					tbv: 129150
+					dbv1: 129150
+					dbv2: 129150
+					dbv3: 129150
+					qualified: true
+					qualSubs: 0
+					teamVolume: 138350
+					orgVolume: 138350
+					qualDirs: 0
+					rank: Ambassador
+					commissions: 27670
+
+					name: Katherine Bryan
+					consultant.data.rep: 1168
+					retail: 21800
+					wineclub: 18000
+					gifts: 49225
+					pcv: 60812
+					pbv: 56452
+					tbv: 56452
+					dbv1: 56452
+					dbv2: 56452
+					dbv3: 56452
+					qualified: true
+					qualSubs: 0
+					teamVolume: 60812
+					orgVolume: 60812
+					qualDirs: 0
+					rank: Ambassador
+					commissions: 12162
+
+			name: Anne Minkin
+			consultant.data.rep: 1162
+			retail: 26000
+			wineclub: 59500
+			gifts: 24100
+			pcv: 85650
+			pbv: 80450
+			tbv: 1349363
+			dbv1: 80450
+			dbv2: 80450
+			dbv3: 80450
+			qualified: true
+			qualSubs: 14
+			teamVolume: 1473683
+			orgVolume: 1547545
+			qualDirs: 0
+			rank: Director
+			commissions: 91033
+
+				name: Shundria Reed
+				consultant.data.rep: 1499
+				retail: 48700
+				wineclub: 54000
+				gifts: 62225
+				pcv: 123012
+				pbv: 113272
+				tbv: 113272
+				dbv1: 113272
+				dbv2: 113272
+				dbv3: 113272
+				qualified: true
+				qualSubs: 0
+				teamVolume: 123012
+				orgVolume: 123012
+				qualDirs: 0
+				rank: Ambassador
+				commissions: 24602
+
+				name: Rebecca White
+				consultant.data.rep: 1496
+				retail: 4400
+				wineclub: 0
+				gifts: 13700
+				pcv: 11250
+				pbv: 10370
+				tbv: 10370
+				dbv1: 10370
+				dbv2: 10370
+				dbv3: 10370
+				qualified: false
+				qualSubs: 0
+				teamVolume: 11250
+				orgVolume: 11250
+				qualDirs: 0
+				rank: Ambassador
+				commissions: 0
+
+				name: Frank Reider
+				consultant.data.rep: 1474
+				retail: 7200
+				wineclub: 42500
+				gifts: 20025
+				pcv: 51212
+				pbv: 49772
+				tbv: 49772
+				dbv1: 49772
+				dbv2: 49772
+				dbv3: 49772
+				qualified: true
+				qualSubs: 0
+				teamVolume: 51212
+				orgVolume: 51212
+				qualDirs: 0
+				rank: Ambassador
+				commissions: 10242
+
+				name: Ananie Momplaisir
+				consultant.data.rep: 1466
+				retail: 8800
+				wineclub: 61500
+				gifts: 15580
+				pcv: 65790
+				pbv: 64030
+				tbv: 64030
+				dbv1: 64030
+				dbv2: 64030
+				dbv3: 64030
+				qualified: true
+				qualSubs: 0
+				teamVolume: 65790
+				orgVolume: 65790
+				qualDirs: 0
+				rank: Ambassador
+				commissions: 13158
+
+				name: Melissa Corson
+				consultant.data.rep: 1465
+				retail: 24600
+				wineclub: 17000
+				gifts: 6000
+				pcv: 41200
+				pbv: 36280
+				tbv: 36280
+				dbv1: 36280
+				dbv2: 36280
+				dbv3: 36280
+				qualified: true
+				qualSubs: 0
+				teamVolume: 41200
+				orgVolume: 41200
+				qualDirs: 0
+				rank: Ambassador
+				commissions: 8240
+
+				name: Liz Howng
+				consultant.data.rep: 1464
+				retail: 14200
+				wineclub: 8500
+				gifts: 17925
+				pcv: 29962
+				pbv: 27122
+				tbv: 27122
+				dbv1: 27122
+				dbv2: 27122
+				dbv3: 27122
+				qualified: true
+				qualSubs: 0
+				teamVolume: 29962
+				orgVolume: 29962
+				qualDirs: 0
+				rank: Ambassador
+				commissions: 5992
+
+				name: Janet D'Agnese
+				consultant.data.rep: 1462
+				retail: 42600
+				wineclub: 0
+				gifts: 14800
+				pcv: 50000
+				pbv: 41480
+				tbv: 41480
+				dbv1: 41480
+				dbv2: 41480
+				dbv3: 41480
+				qualified: true
+				qualSubs: 0
+				teamVolume: 50000
+				orgVolume: 50000
+				qualDirs: 0
+				rank: Ambassador
+				commissions: 10000
+
+				name: Philip Boland
+				consultant.data.rep: 1446
+				retail: 22600
+				wineclub: 0
+				gifts: 24700
+				pcv: 34950
+				pbv: 30430
+				tbv: 30430
+				dbv1: 30430
+				dbv2: 30430
+				dbv3: 30430
+				qualified: true
+				qualSubs: 0
+				teamVolume: 34950
+				orgVolume: 34950
+				qualDirs: 0
+				rank: Ambassador
+				commissions: 6990
+
+				name: Jim Bryant
+				consultant.data.rep: 1416
+				retail: 39300
+				wineclub: 0
+				gifts: 38473
+				pcv: 58536
+				pbv: 50676
+				tbv: 50676
+				dbv1: 50676
+				dbv2: 50676
+				dbv3: 50676
+				qualified: true
+				qualSubs: 0
+				teamVolume: 58536
+				orgVolume: 58536
+				qualDirs: 0
+				rank: Ambassador
+				commissions: 11707
+
+				name: Nancy Pollack
+				consultant.data.rep: 1385
+				retail: 60400
+				wineclub: 17000
+				gifts: 29873
+				pcv: 88936
+				pbv: 76856
+				tbv: 76856
+				dbv1: 76856
+				dbv2: 76856
+				dbv3: 76856
+				qualified: true
+				qualSubs: 0
+				teamVolume: 88936
+				orgVolume: 88936
+				qualDirs: 0
+				rank: Ambassador
+				commissions: 17787
+
+				name: Robert Simontacchi
+				consultant.data.rep: 1378
+				retail: 14000
+				wineclub: 34000
+				gifts: 9600
+				pcv: 46000
+				pbv: 43200
+				tbv: 43200
+				dbv1: 43200
+				dbv2: 43200
+				dbv3: 43200
+				qualified: true
+				qualSubs: 0
+				teamVolume: 46000
+				orgVolume: 46000
+				qualDirs: 0
+				rank: Ambassador
+				commissions: 9200
+
+				name: Karen Toso
+				consultant.data.rep: 1371
+				retail: 16800
+				wineclub: 0
+				gifts: 12575
+				pcv: 23087
+				pbv: 19727
+				tbv: 19727
+				dbv1: 19727
+				dbv2: 19727
+				dbv3: 19727
+				qualified: false
+				qualSubs: 0
+				teamVolume: 23087
+				orgVolume: 23087
+				qualDirs: 0
+				rank: Ambassador
+				commissions: 0
+
+				name: Lori Zuckerman
+				consultant.data.rep: 1354
+				retail: 132400
+				wineclub: 34500
+				gifts: 69898
+				pcv: 194949
+				pbv: 168469
+				tbv: 168469
+				dbv1: 168469
+				dbv2: 168469
+				dbv3: 168469
+				qualified: true
+				qualSubs: 0
+				teamVolume: 194949
+				orgVolume: 194949
+				qualDirs: 0
+				rank: Ambassador
+				commissions: 38989
+
+				name: Kelly Valera
+				consultant.data.rep: 1352
+				retail: 0
+				wineclub: 25500
+				gifts: 600
+				pcv: 20700
+				pbv: 20700
+				tbv: 20700
+				dbv1: 20700
+				dbv2: 20700
+				dbv3: 20700
+				qualified: false
+				qualSubs: 0
+				teamVolume: 20700
+				orgVolume: 20700
+				qualDirs: 0
+				rank: Ambassador
+				commissions: 0
+
+				name: Marla Ghiringhelli
+				consultant.data.rep: 1344
+				retail: 50100
+				wineclub: 114000
+				gifts: 22200
+				pcv: 152400
+				pbv: 142380
+				tbv: 254222
+				dbv1: 142380
+				dbv2: 142380
+				dbv3: 142380
+				qualified: true
+				qualSubs: 1
+				teamVolume: 268662
+				orgVolume: 268662
+				qualDirs: 0
+				rank: Associate Ambassador
+				commissions: 32716
+
+					name: Audra Sanchez
+					consultant.data.rep: 1486
+					retail: 22100
+					wineclub: 52500
+					gifts: 104325
+					pcv: 116262
+					pbv: 111842
+					tbv: 111842
+					dbv1: 111842
+					dbv2: 111842
+					dbv3: 111842
+					qualified: true
+					qualSubs: 0
+					teamVolume: 116262
+					orgVolume: 116262
+					qualDirs: 0
+					rank: Ambassador
+					commissions: 23252
+
+				name: Diane Weinsheimer
+				consultant.data.rep: 1243
+				retail: 16000
+				wineclub: 9000
+				gifts: 6000
+				pcv: 26200
+				pbv: 23000
+				tbv: 23000
+				dbv1: 23000
+				dbv2: 23000
+				dbv3: 23000
+				qualified: true
+				qualSubs: 0
+				teamVolume: 26200
+				orgVolume: 26200
+				qualDirs: 0
+				rank: Ambassador
+				commissions: 5240
+
+				name: Renee ReBell
+				consultant.data.rep: 1153
+				retail: 25200
+				wineclub: 53000
+				gifts: 45525
+				pcv: 90362
+				pbv: 85322
+				tbv: 290104
+				dbv1: 85322
+				dbv2: 85322
+				dbv3: 85322
+				qualified: true
+				qualSubs: 3
+				teamVolume: 308624
+				orgVolume: 327449
+				qualDirs: 0
+				rank: Senior Ambassador
+				commissions: 24780
+
+					name: Ladan Mozafar
+					consultant.data.rep: 1472
+					retail: 0
+					wineclub: 17000
+					gifts: 10450
+					pcv: 18825
+					pbv: 18825
+					tbv: 18825
+					dbv1: 18825
+					dbv2: 18825
+					dbv3: 18825
+					qualified: false
+					qualSubs: 0
+					teamVolume: 18825
+					orgVolume: 18825
+					qualDirs: 0
+					rank: Ambassador
+					commissions: 0
+
+					name: Sara James
+					consultant.data.rep: 1442
+					retail: 15900
+					wineclub: 104000
+					gifts: 18325
+					pcv: 108262
+					pbv: 105082
+					tbv: 105082
+					dbv1: 105082
+					dbv2: 105082
+					dbv3: 105082
+					qualified: true
+					qualSubs: 0
+					teamVolume: 108262
+					orgVolume: 108262
+					qualDirs: 0
+					rank: Ambassador
+					commissions: 21652
+
+					name: Pamela Herz
+					consultant.data.rep: 1424
+					retail: 39500
+					wineclub: 25500
+					gifts: 27600
+					pcv: 73700
+					pbv: 65800
+					tbv: 65800
+					dbv1: 65800
+					dbv2: 65800
+					dbv3: 65800
+					qualified: true
+					qualSubs: 0
+					teamVolume: 73700
+					orgVolume: 73700
+					qualDirs: 0
+					rank: Ambassador
+					commissions: 14740
+
+					name: Doris Behrens
+					consultant.data.rep: 1384
+					retail: 12000
+					wineclub: 27000
+					gifts: 5400
+					pcv: 36300
+					pbv: 33900
+					tbv: 33900
+					dbv1: 33900
+					dbv2: 33900
+					dbv3: 33900
+					qualified: true
+					qualSubs: 0
+					teamVolume: 36300
+					orgVolume: 36300
+					qualDirs: 0
+					rank: Ambassador
+					commissions: 7260
+
+			name: Suzy Silver
+			consultant.data.rep: 1155
+			retail: 23000
+			wineclub: 0
+			gifts: 10000
+			pcv: 28000
+			pbv: 23400
+			tbv: 23400
+			dbv1: 23400
+			dbv2: 23400
+			dbv3: 23400
+			qualified: true
+			qualSubs: 0
+			teamVolume: 28000
+			orgVolume: 28000
+			qualDirs: 0
+			rank: Ambassador
+			commissions: 5600
+
+			name: Natalie Smith
+			consultant.data.rep: 1098
+			retail: 0
+			wineclub: 0
+			gifts: 2500
+			pcv: 1250
+			pbv: 1250
+			tbv: 1250
+			dbv1: 1250
+			dbv2: 1250
+			dbv3: 1250
+			qualified: false
+			qualSubs: 0
+			teamVolume: 1250
+			orgVolume: 1250
+			qualDirs: 0
+			rank: Ambassador
+			commissions: 0
+
+			name: Genny Wright-Hailey
+			consultant.data.rep: 1091
+			retail: 46900
+			wineclub: 0
+			gifts: 44662
+			pcv: 69231
+			pbv: 59851
+			tbv: 380510
+			dbv1: 59851
+			dbv2: 59851
+			dbv3: 59851
+			qualified: true
+			qualSubs: 4
+			teamVolume: 426410
+			orgVolume: 426410
+			qualDirs: 0
+			rank: Director
+			commissions: 37658
+
+				name: William Sleeth
+				consultant.data.rep: 1325
+				retail: 38200
+				wineclub: 0
+				gifts: 0
+				pcv: 38200
+				pbv: 30560
+				tbv: 89507
+				dbv1: 30560
+				dbv2: 30560
+				dbv3: 30560
+				qualified: true
+				qualSubs: 1
+				teamVolume: 99147
+				orgVolume: 99147
+				qualDirs: 0
+				rank: Associate Ambassador
+				commissions: 8818
+
+					name: Helena Giesea
+					consultant.data.rep: 1398
+					retail: 0
+					wineclub: 0
+					gifts: 0
+					pcv: 0
+					pbv: 0
+					tbv: 0
+					dbv1: 0
+					dbv2: 0
+					dbv3: 0
+					qualified: false
+					qualSubs: 0
+					teamVolume: 0
+					orgVolume: 0
+					qualDirs: 0
+					rank: Ambassador
+					commissions: 0
+
+					name: Vinay Patel
+					consultant.data.rep: 1397
+					retail: 0
+					wineclub: 0
+					gifts: 0
+					pcv: 0
+					pbv: 0
+					tbv: 0
+					dbv1: 0
+					dbv2: 0
+					dbv3: 0
+					qualified: false
+					qualSubs: 0
+					teamVolume: 0
+					orgVolume: 0
+					qualDirs: 0
+					rank: Ambassador
+					commissions: 0
+
+					name: Jacquelyn Genevieve Boka
+					consultant.data.rep: 1333
+					retail: 10000
+					wineclub: 61500
+					gifts: 3494
+					pcv: 60947
+					pbv: 58947
+					tbv: 58947
+					dbv1: 58947
+					dbv2: 58947
+					dbv3: 58947
+					qualified: true
+					qualSubs: 0
+					teamVolume: 60947
+					orgVolume: 60947
+					qualDirs: 0
+					rank: Ambassador
+					commissions: 12189
+
+				name: Leslie Olson
+				consultant.data.rep: 1262
+				retail: 17200
+				wineclub: 0
+				gifts: 16725
+				pcv: 25562
+				pbv: 22122
+				tbv: 141817
+				dbv1: 22122
+				dbv2: 22122
+				dbv3: 22122
+				qualified: true
+				qualSubs: 1
+				teamVolume: 156657
+				orgVolume: 156657
+				qualDirs: 0
+				rank: Associate Ambassador
+				commissions: 7505
+
+					name: Jaclyn Bressette
+					consultant.data.rep: 1361
+					retail: 57000
+					wineclub: 87500
+					gifts: 8190
+					pcv: 131095
+					pbv: 119695
+					tbv: 119695
+					dbv1: 119695
+					dbv2: 119695
+					dbv3: 119695
+					qualified: true
+					qualSubs: 0
+					teamVolume: 131095
+					orgVolume: 131095
+					qualDirs: 0
+					rank: Ambassador
+					commissions: 26219
+
+				name: Monette Silva
+				consultant.data.rep: 1169
+				retail: 36600
+				wineclub: 8500
+				gifts: 11150
+				pcv: 48975
+				pbv: 41655
+				tbv: 41655
+				dbv1: 41655
+				dbv2: 41655
+				dbv3: 41655
+				qualified: true
+				qualSubs: 0
+				teamVolume: 48975
+				orgVolume: 48975
+				qualDirs: 0
+				rank: Ambassador
+				commissions: 9795
+
+				name: Courtney Messick
+				consultant.data.rep: 1131
+				retail: 23600
+				wineclub: 36000
+				gifts: 0
+				pcv: 52400
+				pbv: 47680
+				tbv: 47680
+				dbv1: 47680
+				dbv2: 47680
+				dbv3: 47680
+				qualified: true
+				qualSubs: 0
+				teamVolume: 52400
+				orgVolume: 52400
+				qualDirs: 0
+				rank: Ambassador
+				commissions: 10480
+
+			name: Karen Macdonald
+			consultant.data.rep: 1057
+			retail: 0
+			wineclub: 17000
+			gifts: 994
+			pcv: 14097
+			pbv: 14097
+			tbv: 14097
+			dbv1: 14097
+			dbv2: 14097
+			dbv3: 14097
+			qualified: false
+			qualSubs: 0
+			teamVolume: 14097
+			orgVolume: 14097
+			qualDirs: 0
+			rank: Ambassador
+			commissions: 0
+
+		name: Lindsey Field
+		consultant.data.rep: 1077
+		retail: 2100
+		wineclub: 25500
+		gifts: 43200
+		pcv: 44100
+		pbv: 43680
+		tbv: 43680
+		dbv1: 43680
+		dbv2: 43680
+		dbv3: 43680
+		qualified: true
+		qualSubs: 0
+		teamVolume: 44100
+		orgVolume: 44100
+		qualDirs: 0
+		rank: Ambassador
+		commissions: 8820
+
+		name: Jean-Charles Boisset
+		consultant.data.rep: 1073
+		retail: 86100
+		wineclub: 42500
+		gifts: 78700
+		pcv: 159450
+		pbv: 142230
+		tbv: 338736
+		dbv1: 142230
+		dbv2: 142230
+		dbv3: 142230
+		qualified: true
+		qualSubs: 1
+		teamVolume: 362656
+		orgVolume: 362656
+		qualDirs: 0
+		rank: Associate Ambassador
+		commissions: 35820
+
+			name: Melissa Ehlert-Traub
+			consultant.data.rep: 1320
+			retail: 33500
+			wineclub: 193000
+			gifts: 30613
+			pcv: 203206
+			pbv: 196506
+			tbv: 196506
+			dbv1: 196506
+			dbv2: 196506
+			dbv3: 196506
+			qualified: true
+			qualSubs: 0
+			teamVolume: 203206
+			orgVolume: 203206
+			qualDirs: 0
+			rank: Ambassador
+			commissions: 40641
+
+		name: Deborah Pfann
+		consultant.data.rep: 1053
+		retail: 32400
+		wineclub: 52000
+		gifts: 9575
+		pcv: 78787
+		pbv: 72307
+		tbv: 72307
+		dbv1: 72307
+		dbv2: 72307
+		dbv3: 72307
+		qualified: true
+		qualSubs: 0
+		teamVolume: 78787
+		orgVolume: 78787
+		qualDirs: 0
+		rank: Ambassador
+		commissions: 15757
+
+		name: Samantha Treadwell
+		consultant.data.rep: 1050
+		retail: 0
+		wineclub: 0
+		gifts: 8400
+		pcv: 4200
+		pbv: 4200
+		tbv: 397999
+		dbv1: 4200
+		dbv2: 4200
+		dbv3: 4200
+		qualified: false
+		qualSubs: 3
+		teamVolume: 448659
+		orgVolume: 470059
+		qualDirs: 0
+		rank: Ambassador
+		commissions: 0
+
+			name: Chondee Hardin
+			consultant.data.rep: 1349
+			retail: 78000
+			wineclub: 34000
+			gifts: 26719
+			pcv: 118559
+			pbv: 102959
+			tbv: 102959
+			dbv1: 102959
+			dbv2: 102959
+			dbv3: 102959
+			qualified: true
+			qualSubs: 0
+			teamVolume: 118559
+			orgVolume: 118559
+			qualDirs: 0
+			rank: Ambassador
+			commissions: 23711
+
+			name: Hilda Williams
+			consultant.data.rep: 1336
+			retail: 137700
+			wineclub: 42500
+			gifts: 27600
+			pcv: 185500
+			pbv: 157960
+			tbv: 157960
+			dbv1: 157960
+			dbv2: 157960
+			dbv3: 157960
+			qualified: true
+			qualSubs: 0
+			teamVolume: 185500
+			orgVolume: 185500
+			qualDirs: 0
+			rank: Ambassador
+			commissions: 37100
+
+			name: Kathy Kyser
+			consultant.data.rep: 1200
+			retail: 12200
+			wineclub: 9000
+			gifts: 4000
+			pcv: 21400
+			pbv: 18960
+			tbv: 18960
+			dbv1: 18960
+			dbv2: 18960
+			dbv3: 18960
+			qualified: false
+			qualSubs: 0
+			teamVolume: 21400
+			orgVolume: 21400
+			qualDirs: 0
+			rank: Ambassador
+			commissions: 0
+
+			name: Nichole Treadwell
+			consultant.data.rep: 1184
+			retail: 37600
+			wineclub: 121500
+			gifts: 11200
+			pcv: 140400
+			pbv: 132880
+			tbv: 132880
+			dbv1: 132880
+			dbv2: 132880
+			dbv3: 132880
+			qualified: true
+			qualSubs: 0
+			teamVolume: 140400
+			orgVolume: 140400
+			qualDirs: 0
+			rank: Ambassador
+			commissions: 28080
+
+		name: Laurie Turner
+		consultant.data.rep: 1048
+		retail: 50200
+		wineclub: 96000
+		gifts: 22725
+		pcv: 138362
+		pbv: 128322
+		tbv: 128322
+		dbv1: 128322
+		dbv2: 128322
+		dbv3: 128322
+		qualified: true
+		qualSubs: 0
+		teamVolume: 138362
+		orgVolume: 143262
+		qualDirs: 0
+		rank: Ambassador
+		commissions: 27672
+
+			name: Christiane Higbie
+			consultant.data.rep: 1483
+			retail: 4900
+			wineclub: 0
+			gifts: 0
+			pcv: 4900
+			pbv: 3920
+			tbv: 3920
+			dbv1: 3920
+			dbv2: 3920
+			dbv3: 3920
+			qualified: false
+			qualSubs: 0
+			teamVolume: 4900
+			orgVolume: 4900
+			qualDirs: 0
+			rank: Ambassador
+			commissions: 0
+
+		name: Dale Carrillo
+		consultant.data.rep: 1040
+		retail: 51000
+		wineclub: 104000
+		gifts: 59430
+		pcv: 163915
+		pbv: 153715
+		tbv: 153715
+		dbv1: 153715
+		dbv2: 153715
+		dbv3: 153715
+		qualified: true
+		qualSubs: 0
+		teamVolume: 163915
+		orgVolume: 163915
+		qualDirs: 0
+		rank: Ambassador
+		commissions: 32783
+
+		name: Carrie McCracken
+		consultant.data.rep: 1035
+		retail: 74700
+		wineclub: 51500
+		gifts: 19725
+		pcv: 125762
+		pbv: 110822
+		tbv: 1408611
+		dbv1: 110822
+		dbv2: 110822
+		dbv3: 110822
+		qualified: true
+		qualSubs: 15
+		teamVolume: 1553491
+		orgVolume: 1578041
+		qualDirs: 0
+		rank: Director
+		commissions: 104447
+
+			name: Melinda LeBlanc
+			consultant.data.rep: 1484
+			retail: 0
+			wineclub: 9000
+			gifts: 65575
+			pcv: 39987
+			pbv: 39987
+			tbv: 39987
+			dbv1: 39987
+			dbv2: 39987
+			dbv3: 39987
+			qualified: true
+			qualSubs: 0
+			teamVolume: 39987
+			orgVolume: 39987
+			qualDirs: 0
+			rank: Ambassador
+			commissions: 7997
+
+			name: Robin Schick
+			consultant.data.rep: 1454
+			retail: 6000
+			wineclub: 69500
+			gifts: 29700
+			pcv: 76450
+			pbv: 75250
+			tbv: 75250
+			dbv1: 75250
+			dbv2: 75250
+			dbv3: 75250
+			qualified: true
+			qualSubs: 0
+			teamVolume: 76450
+			orgVolume: 76450
+			qualDirs: 0
+			rank: Ambassador
+			commissions: 15290
+
+			name: Lauren Timlin
+			consultant.data.rep: 1377
+			retail: 0
+			wineclub: 0
+			gifts: 800
+			pcv: 400
+			pbv: 400
+			tbv: 400
+			dbv1: 400
+			dbv2: 400
+			dbv3: 400
+			qualified: false
+			qualSubs: 0
+			teamVolume: 400
+			orgVolume: 400
+			qualDirs: 0
+			rank: Ambassador
+			commissions: 0
+
+			name: Ray Corey
+			consultant.data.rep: 1317
+			retail: 21000
+			wineclub: 34000
+			gifts: 10485
+			pcv: 53442
+			pbv: 49242
+			tbv: 49242
+			dbv1: 49242
+			dbv2: 49242
+			dbv3: 49242
+			qualified: true
+			qualSubs: 0
+			teamVolume: 53442
+			orgVolume: 53442
+			qualDirs: 0
+			rank: Ambassador
+			commissions: 10688
+
+			name: Andii Ulrich
+			consultant.data.rep: 1300
+			retail: 47000
+			wineclub: 44000
+			gifts: 62071
+			pcv: 113235
+			pbv: 103835
+			tbv: 103835
+			dbv1: 103835
+			dbv2: 103835
+			dbv3: 103835
+			qualified: true
+			qualSubs: 0
+			teamVolume: 113235
+			orgVolume: 113235
+			qualDirs: 0
+			rank: Ambassador
+			commissions: 22647
+
+			name: Phyllis Tallent
+			consultant.data.rep: 1298
+			retail: 11400
+			wineclub: 0
+			gifts: 0
+			pcv: 11400
+			pbv: 9120
+			tbv: 9120
+			dbv1: 9120
+			dbv2: 9120
+			dbv3: 9120
+			qualified: false
+			qualSubs: 0
+			teamVolume: 11400
+			orgVolume: 11400
+			qualDirs: 0
+			rank: Ambassador
+			commissions: 0
+
+			name: Debra Liwienski
+			consultant.data.rep: 1260
+			retail: 55100
+			wineclub: 44000
+			gifts: 34700
+			pcv: 107650
+			pbv: 96630
+			tbv: 96630
+			dbv1: 96630
+			dbv2: 96630
+			dbv3: 96630
+			qualified: true
+			qualSubs: 0
+			teamVolume: 107650
+			orgVolume: 107650
+			qualDirs: 0
+			rank: Ambassador
+			commissions: 21530
+
+			name: Jill Glass
+			consultant.data.rep: 1241
+			retail: 33000
+			wineclub: 0
+			gifts: 29290
+			pcv: 47645
+			pbv: 41045
+			tbv: 114767
+			dbv1: 41045
+			dbv2: 41045
+			dbv3: 41045
+			qualified: true
+			qualSubs: 1
+			teamVolume: 123027
+			orgVolume: 123027
+			qualDirs: 0
+			rank: Associate Ambassador
+			commissions: 11003
+
+				name: Floyd Luman
+				consultant.data.rep: 1263
+				retail: 8300
+				wineclub: 69000
+				gifts: 23765
+				pcv: 75382
+				pbv: 73722
+				tbv: 73722
+				dbv1: 73722
+				dbv2: 73722
+				dbv3: 73722
+				qualified: true
+				qualSubs: 0
+				teamVolume: 75382
+				orgVolume: 75382
+				qualDirs: 0
+				rank: Ambassador
+				commissions: 15076
+
+			name: Emilie Petrocelli
+			consultant.data.rep: 1217
+			retail: 11500
+			wineclub: 0
+			gifts: 0
+			pcv: 11500
+			pbv: 9200
+			tbv: 9200
+			dbv1: 9200
+			dbv2: 9200
+			dbv3: 9200
+			qualified: false
+			qualSubs: 0
+			teamVolume: 11500
+			orgVolume: 11500
+			qualDirs: 0
+			rank: Ambassador
+			commissions: 0
+
+			name: Kelly Kemmerer
+			consultant.data.rep: 1202
+			retail: 71300
+			wineclub: 44000
+			gifts: 39025
+			pcv: 126012
+			pbv: 111752
+			tbv: 111752
+			dbv1: 111752
+			dbv2: 111752
+			dbv3: 111752
+			qualified: true
+			qualSubs: 0
+			teamVolume: 126012
+			orgVolume: 126012
+			qualDirs: 0
+			rank: Ambassador
+			commissions: 25202
+
+			name: Steve O'Connor
+			consultant.data.rep: 1201
+			retail: 72800
+			wineclub: 51500
+			gifts: 39176
+			pcv: 133588
+			pbv: 119028
+			tbv: 119028
+			dbv1: 119028
+			dbv2: 119028
+			dbv3: 119028
+			qualified: true
+			qualSubs: 0
+			teamVolume: 133588
+			orgVolume: 133588
+			qualDirs: 0
+			rank: Ambassador
+			commissions: 26717
+
+			name: John Fee
+			consultant.data.rep: 1190
+			retail: 35000
+			wineclub: 0
+			gifts: 28895
+			pcv: 49447
+			pbv: 42447
+			tbv: 42447
+			dbv1: 42447
+			dbv2: 42447
+			dbv3: 42447
+			qualified: true
+			qualSubs: 0
+			teamVolume: 49447
+			orgVolume: 49447
+			qualDirs: 0
+			rank: Ambassador
+			commissions: 9889
+
+			name: Kevin Grenny
+			consultant.data.rep: 1183
+			retail: 8600
+			wineclub: 36000
+			gifts: 13800
+			pcv: 44300
+			pbv: 42580
+			tbv: 42580
+			dbv1: 42580
+			dbv2: 42580
+			dbv3: 42580
+			qualified: true
+			qualSubs: 0
+			teamVolume: 44300
+			orgVolume: 44300
+			qualDirs: 0
+			rank: Ambassador
+			commissions: 8860
+
+			name: Mairin McCracken
+			consultant.data.rep: 1175
+			retail: 0
+			wineclub: 0
+			gifts: 2500
+			pcv: 1250
+			pbv: 1250
+			tbv: 1250
+			dbv1: 1250
+			dbv2: 1250
+			dbv3: 1250
+			qualified: false
+			qualSubs: 0
+			teamVolume: 1250
+			orgVolume: 1250
+			qualDirs: 0
+			rank: Ambassador
+			commissions: 0
+
+			name: David Vallejo
+			consultant.data.rep: 1158
+			retail: 44000
+			wineclub: 18000
+			gifts: 18713
+			pcv: 67756
+			pbv: 58956
+			tbv: 58956
+			dbv1: 58956
+			dbv2: 58956
+			dbv3: 58956
+			qualified: true
+			qualSubs: 0
+			teamVolume: 67756
+			orgVolume: 67756
+			qualDirs: 0
+			rank: Ambassador
+			commissions: 13551
+
+			name: Mayra Vazquez
+			consultant.data.rep: 1140
+			retail: 49800
+			wineclub: 45000
+			gifts: 1200
+			pcv: 86400
+			pbv: 76440
+			tbv: 157577
+			dbv1: 76440
+			dbv2: 76440
+			dbv3: 76440
+			qualified: true
+			qualSubs: 1
+			teamVolume: 177437
+			orgVolume: 177437
+			qualDirs: 0
+			rank: Associate Ambassador
+			commissions: 18902
+
+				name: Maribel Carella
+				consultant.data.rep: 1259
+				retail: 49500
+				wineclub: 0
+				gifts: 83075
+				pcv: 91037
+				pbv: 81137
+				tbv: 81137
+				dbv1: 81137
+				dbv2: 81137
+				dbv3: 81137
+				qualified: true
+				qualSubs: 0
+				teamVolume: 91037
+				orgVolume: 91037
+				qualDirs: 0
+				rank: Ambassador
+				commissions: 18207
+
+			name: Ganesh Monthu
+			consultant.data.rep: 1137
+			retail: 15000
+			wineclub: 25500
+			gifts: 36050
+			pcv: 53425
+			pbv: 50425
+			tbv: 50425
+			dbv1: 50425
+			dbv2: 50425
+			dbv3: 50425
+			qualified: true
+			qualSubs: 0
+			teamVolume: 53425
+			orgVolume: 53425
+			qualDirs: 0
+			rank: Ambassador
+			commissions: 10685
+
+			name: Robyn Ludwin
+			consultant.data.rep: 1118
+			retail: 32000
+			wineclub: 0
+			gifts: 0
+			pcv: 32000
+			pbv: 25600
+			tbv: 25600
+			dbv1: 25600
+			dbv2: 25600
+			dbv3: 25600
+			qualified: true
+			qualSubs: 0
+			teamVolume: 32000
+			orgVolume: 32000
+			qualDirs: 0
+			rank: Ambassador
+			commissions: 6400
+
+			name: Julia Schreiner
+			consultant.data.rep: 1116
+			retail: 40800
+			wineclub: 36000
+			gifts: 10700
+			pcv: 74950
+			pbv: 66790
+			tbv: 209713
+			dbv1: 66790
+			dbv2: 66790
+			dbv3: 66790
+			qualified: true
+			qualSubs: 1
+			teamVolume: 229973
+			orgVolume: 229973
+			qualDirs: 0
+			rank: Associate Ambassador
+			commissions: 17848
+
+				name: Kellie Jones
+				consultant.data.rep: 1172
+				retail: 60500
+				wineclub: 86500
+				gifts: 50646
+				pcv: 155023
+				pbv: 142923
+				tbv: 142923
+				dbv1: 142923
+				dbv2: 142923
+				dbv3: 142923
+				qualified: true
+				qualSubs: 0
+				teamVolume: 155023
+				orgVolume: 155023
+				qualDirs: 0
+				rank: Ambassador
+				commissions: 31004
+
+		name: Jessica Albere
+		consultant.data.rep: 1034
+		retail: 78700
+		wineclub: 88000
+		gifts: 18925
+		pcv: 158562
+		pbv: 142822
+		tbv: 142822
+		dbv1: 142822
+		dbv2: 142822
+		dbv3: 142822
+		qualified: true
+		qualSubs: 0
+		teamVolume: 158562
+		orgVolume: 158562
+		qualDirs: 0
+		rank: Ambassador
+		commissions: 31712
+
+		name: Neil Leddy
+		consultant.data.rep: 1032
+		retail: 0
+		wineclub: 36000
+		gifts: 0
+		pcv: 28800
+		pbv: 28800
+		tbv: 172623
+		dbv1: 28800
+		dbv2: 28800
+		dbv3: 28800
+		qualified: true
+		qualSubs: 1
+		teamVolume: 188563
+		orgVolume: 188563
+		qualDirs: 0
+		rank: Associate Ambassador
+		commissions: 7183
+
+			name: Kelly Nolan
+			consultant.data.rep: 1215
+			retail: 57100
+			wineclub: 26000
+			gifts: 9350
+			pcv: 82575
+			pbv: 71155
+			tbv: 143823
+			dbv1: 71155
+			dbv2: 71155
+			dbv3: 71155
+			qualified: true
+			qualSubs: 1
+			teamVolume: 159763
+			orgVolume: 159763
+			qualDirs: 0
+			rank: Associate Ambassador
+			commissions: 17968
+
+				name: Lori Kinney
+				consultant.data.rep: 1236
+				retail: 22600
+				wineclub: 61500
+				gifts: 10776
+				pcv: 77188
+				pbv: 72668
+				tbv: 72668
+				dbv1: 72668
+				dbv2: 72668
+				dbv3: 72668
+				qualified: true
+				qualSubs: 0
+				teamVolume: 77188
+				orgVolume: 77188
+				qualDirs: 0
+				rank: Ambassador
+				commissions: 15437
+
+		name: Benjamin Yee
+		consultant.data.rep: 1030
+		retail: 33500
+		wineclub: 34000
+		gifts: 35075
+		pcv: 78237
+		pbv: 71537
+		tbv: 71537
+		dbv1: 71537
+		dbv2: 71537
+		dbv3: 71537
+		qualified: true
+		qualSubs: 0
+		teamVolume: 78237
+		orgVolume: 78237
+		qualDirs: 0
+		rank: Ambassador
+		commissions: 15647
+
+		name: Valerie McDermott
+		consultant.data.rep: 1027
+		retail: 0
+		wineclub: 61000
+		gifts: 0
+		pcv: 48800
+		pbv: 48800
+		tbv: 74240
+		dbv1: 48800
+		dbv2: 48800
+		dbv3: 48800
+		qualified: true
+		qualSubs: 1
+		teamVolume: 80600
+		orgVolume: 80600
+		qualDirs: 0
+		rank: Associate Ambassador
+		commissions: 10268
+
+			name: Cynthia Rissler
+			consultant.data.rep: 1125
+			retail: 31800
+			wineclub: 0
+			gifts: 0
+			pcv: 31800
+			pbv: 25440
+			tbv: 25440
+			dbv1: 25440
+			dbv2: 25440
+			dbv3: 25440
+			qualified: true
+			qualSubs: 0
+			teamVolume: 31800
+			orgVolume: 31800
+			qualDirs: 0
+			rank: Ambassador
+			commissions: 6360
+
+		name: Sharon Beckham
+		consultant.data.rep: 1017
+		retail: 52700
+		wineclub: 138500
+		gifts: 74022
+		pcv: 200511
+		pbv: 189971
+		tbv: 189971
+		dbv1: 189971
+		dbv2: 189971
+		dbv3: 189971
+		qualified: true
+		qualSubs: 0
+		teamVolume: 200511
+		orgVolume: 497445
+		qualDirs: 0
+		rank: Ambassador
+		commissions: 40102
+
+			name: Sunny Toy
+			consultant.data.rep: 1019
+			retail: 9000
+			wineclub: 0
+			gifts: 0
+			pcv: 9000
+			pbv: 7200
+			tbv: 266954
+			dbv1: 7200
+			dbv2: 7200
+			dbv3: 7200
+			qualified: false
+			qualSubs: 3
+			teamVolume: 296934
+			orgVolume: 296934
+			qualDirs: 0
+			rank: Ambassador
+			commissions: 0
+
+				name: Koffi Kpachavi
+				consultant.data.rep: 1430
+				retail: 26600
+				wineclub: 72000
+				gifts: 36850
+				pcv: 102625
+				pbv: 97305
+				tbv: 97305
+				dbv1: 97305
+				dbv2: 97305
+				dbv3: 97305
+				qualified: true
+				qualSubs: 0
+				teamVolume: 102625
+				orgVolume: 102625
+				qualDirs: 0
+				rank: Ambassador
+				commissions: 20525
+
+				name: Johnnye Paige
+				consultant.data.rep: 1419
+				retail: 41800
+				wineclub: 17000
+				gifts: 5875
+				pcv: 58337
+				pbv: 49977
+				tbv: 49977
+				dbv1: 49977
+				dbv2: 49977
+				dbv3: 49977
+				qualified: true
+				qualSubs: 0
+				teamVolume: 58337
+				orgVolume: 58337
+				qualDirs: 0
+				rank: Ambassador
+				commissions: 11667
+
+				name: Helen Hubert
+				consultant.data.rep: 1026
+				retail: 72500
+				wineclub: 45000
+				gifts: 36944
+				pcv: 126972
+				pbv: 112472
+				tbv: 112472
+				dbv1: 112472
+				dbv2: 112472
+				dbv3: 112472
+				qualified: true
+				qualSubs: 0
+				teamVolume: 126972
+				orgVolume: 126972
+				qualDirs: 0
+				rank: Ambassador
+				commissions: 25394
+
+		name: Kelli Nielsen
+		consultant.data.rep: 1016
+		retail: 74400
+		wineclub: 69000
+		gifts: 26790
+		pcv: 142995
+		pbv: 128115
+		tbv: 483156
+		dbv1: 128115
+		dbv2: 128115
+		dbv3: 128115
+		qualified: true
+		qualSubs: 4
+		teamVolume: 539016
+		orgVolume: 539016
+		qualDirs: 0
+		rank: Director
+		commissions: 63004
+
+			name: Jacqueline Camilli
+			consultant.data.rep: 1079
+			retail: 28500
+			wineclub: 44000
+			gifts: 40375
+			pcv: 83887
+			pbv: 78187
+			tbv: 78187
+			dbv1: 78187
+			dbv2: 78187
+			dbv3: 78187
+			qualified: true
+			qualSubs: 0
+			teamVolume: 83887
+			orgVolume: 83887
+			qualDirs: 0
+			rank: Ambassador
+			commissions: 16777
+
+			name: Anne Jackson
+			consultant.data.rep: 1078
+			retail: 21800
+			wineclub: 52500
+			gifts: 47750
+			pcv: 87675
+			pbv: 83315
+			tbv: 142999
+			dbv1: 83315
+			dbv2: 83315
+			dbv3: 83315
+			qualified: true
+			qualSubs: 1
+			teamVolume: 157759
+			orgVolume: 157759
+			qualDirs: 0
+			rank: Associate Ambassador
+			commissions: 18728
+
+				name: Aly Imola
+				consultant.data.rep: 1261
+				retail: 52000
+				wineclub: 9000
+				gifts: 21769
+				pcv: 70084
+				pbv: 59684
+				tbv: 59684
+				dbv1: 59684
+				dbv2: 59684
+				dbv3: 59684
+				qualified: true
+				qualSubs: 0
+				teamVolume: 70084
+				orgVolume: 70084
+				qualDirs: 0
+				rank: Ambassador
+				commissions: 14016
+
+			name: Penny Stell
+			consultant.data.rep: 1038
+			retail: 41600
+			wineclub: 18000
+			gifts: 4800
+			pcv: 58400
+			pbv: 50080
+			tbv: 50080
+			dbv1: 50080
+			dbv2: 50080
+			dbv3: 50080
+			qualified: true
+			qualSubs: 0
+			teamVolume: 58400
+			orgVolume: 58400
+			qualDirs: 0
+			rank: Ambassador
+			commissions: 11680
+
+			name: Pennie Cronin
+			consultant.data.rep: 1031
+			retail: 61000
+			wineclub: 36000
+			gifts: 12350
+			pcv: 95975
+			pbv: 83775
+			tbv: 83775
+			dbv1: 83775
+			dbv2: 83775
+			dbv3: 83775
+			qualified: true
+			qualSubs: 0
+			teamVolume: 95975
+			orgVolume: 95975
+			qualDirs: 0
+			rank: Ambassador
+			commissions: 19195
+
+		name: Scott Bigelow
+		consultant.data.rep: 1009
+		retail: 10700
+		wineclub: 34000
+		gifts: 300
+		pcv: 38050
+		pbv: 35910
+		tbv: 1459873
+		dbv1: 35910
+		dbv2: 35910
+		dbv3: 35910
+		qualified: true
+		qualSubs: 9
+		teamVolume: 1594893
+		orgVolume: 2760040
+		qualDirs: 1
+		rank: Senior Ambassador
+		commissions: 33679
+
+			name: Al Vidal
+			consultant.data.rep: 1382
+			retail: 30900
+			wineclub: 34000
+			gifts: 12974
+			pcv: 64587
+			pbv: 58407
+			tbv: 58407
+			dbv1: 58407
+			dbv2: 58407
+			dbv3: 58407
+			qualified: true
+			qualSubs: 0
+			teamVolume: 64587
+			orgVolume: 64587
+			qualDirs: 0
+			rank: Ambassador
+			commissions: 12917
+
+			name: Shereen Giovanni
+			consultant.data.rep: 1355
+			retail: 35100
+			wineclub: 76500
+			gifts: 14590
+			pcv: 103595
+			pbv: 96575
+			tbv: 96575
+			dbv1: 96575
+			dbv2: 96575
+			dbv3: 96575
+			qualified: true
+			qualSubs: 0
+			teamVolume: 103595
+			orgVolume: 103595
+			qualDirs: 0
+			rank: Ambassador
+			commissions: 20719
+
+			name: Dennis Mancuso
+			consultant.data.rep: 1342
+			retail: 30600
+			wineclub: 34500
+			gifts: 9300
+			pcv: 62850
+			pbv: 56730
+			tbv: 56730
+			dbv1: 56730
+			dbv2: 56730
+			dbv3: 56730
+			qualified: true
+			qualSubs: 0
+			teamVolume: 62850
+			orgVolume: 62850
+			qualDirs: 0
+			rank: Ambassador
+			commissions: 12570
+
+			name: Julie Wilkey
+			consultant.data.rep: 1321
+			retail: 48300
+			wineclub: 17000
+			gifts: 25080
+			pcv: 74440
+			pbv: 64780
+			tbv: 64780
+			dbv1: 64780
+			dbv2: 64780
+			dbv3: 64780
+			qualified: true
+			qualSubs: 0
+			teamVolume: 74440
+			orgVolume: 74440
+			qualDirs: 0
+			rank: Ambassador
+			commissions: 14888
+
+			name: Allison Landy
+			consultant.data.rep: 1216
+			retail: 20800
+			wineclub: 0
+			gifts: 3800
+			pcv: 22700
+			pbv: 18540
+			tbv: 18540
+			dbv1: 18540
+			dbv2: 18540
+			dbv3: 18540
+			qualified: false
+			qualSubs: 0
+			teamVolume: 22700
+			orgVolume: 22700
+			qualDirs: 0
+			rank: Ambassador
+			commissions: 0
+
+			name: Arleen Reyes
+			consultant.data.rep: 1142
+			retail: 9600
+			wineclub: 27000
+			gifts: 21300
+			pcv: 41850
+			pbv: 39930
+			tbv: 413318
+			dbv1: 39930
+			dbv2: 39930
+			dbv3: 39930
+			qualified: true
+			qualSubs: 6
+			teamVolume: 455718
+			orgVolume: 455718
+			qualDirs: 0
+			rank: Senior Ambassador
+			commissions: 19571
+
+				name: Karl Sherwood-Coombs
+				consultant.data.rep: 1494
+				retail: 21000
+				wineclub: 36000
+				gifts: 45099
+				pcv: 72349
+				pbv: 68149
+				tbv: 68149
+				dbv1: 68149
+				dbv2: 68149
+				dbv3: 68149
+				qualified: true
+				qualSubs: 0
+				teamVolume: 72349
+				orgVolume: 72349
+				qualDirs: 0
+				rank: Ambassador
+				commissions: 14469
+
+				name: Annette Moran
+				consultant.data.rep: 1449
+				retail: 52900
+				wineclub: 25500
+				gifts: 21752
+				pcv: 84176
+				pbv: 73596
+				tbv: 73596
+				dbv1: 73596
+				dbv2: 73596
+				dbv3: 73596
+				qualified: true
+				qualSubs: 0
+				teamVolume: 84176
+				orgVolume: 84176
+				qualDirs: 0
+				rank: Ambassador
+				commissions: 16835
+
+				name: Eddy Zelaya
+				consultant.data.rep: 1435
+				retail: 23000
+				wineclub: 43500
+				gifts: 2100
+				pcv: 58850
+				pbv: 54250
+				tbv: 54250
+				dbv1: 54250
+				dbv2: 54250
+				dbv3: 54250
+				qualified: true
+				qualSubs: 0
+				teamVolume: 58850
+				orgVolume: 58850
+				qualDirs: 0
+				rank: Ambassador
+				commissions: 11770
+
+				name: Rachel Delgado
+				consultant.data.rep: 1421
+				retail: 25400
+				wineclub: 0
+				gifts: 1000
+				pcv: 25900
+				pbv: 20820
+				tbv: 20820
+				dbv1: 20820
+				dbv2: 20820
+				dbv3: 20820
+				qualified: true
+				qualSubs: 0
+				teamVolume: 25900
+				orgVolume: 25900
+				qualDirs: 0
+				rank: Ambassador
+				commissions: 5180
+
+				name: Regina Francis
+				consultant.data.rep: 1420
+				retail: 65900
+				wineclub: 44000
+				gifts: 43489
+				pcv: 122844
+				pbv: 109664
+				tbv: 109664
+				dbv1: 109664
+				dbv2: 109664
+				dbv3: 109664
+				qualified: true
+				qualSubs: 0
+				teamVolume: 122844
+				orgVolume: 122844
+				qualDirs: 0
+				rank: Ambassador
+				commissions: 24568
+
+				name: Kathy Hoffmann
+				consultant.data.rep: 1189
+				retail: 14200
+				wineclub: 34000
+				gifts: 16699
+				pcv: 49749
+				pbv: 46909
+				tbv: 46909
+				dbv1: 46909
+				dbv2: 46909
+				dbv3: 46909
+				qualified: true
+				qualSubs: 0
+				teamVolume: 49749
+				orgVolume: 49749
+				qualDirs: 0
+				rank: Ambassador
+				commissions: 9949
+
+			name: Mynette Boykin
+			consultant.data.rep: 1090
+			retail: 34200
+			wineclub: 70000
+			gifts: 40850
+			pcv: 110625
+			pbv: 103785
+			tbv: 103785
+			dbv1: 103785
+			dbv2: 103785
+			dbv3: 103785
+			qualified: true
+			qualSubs: 0
+			teamVolume: 110625
+			orgVolume: 110625
+			qualDirs: 0
+			rank: Ambassador
+			commissions: 22125
+
+			name: Tyrone & Felicia Cosey
+			consultant.data.rep: 1069
+			retail: 67200
+			wineclub: 54000
+			gifts: 32798
+			pcv: 126799
+			pbv: 113359
+			tbv: 170534
+			dbv1: 113359
+			dbv2: 113359
+			dbv3: 113359
+			qualified: true
+			qualSubs: 1
+			teamVolume: 185674
+			orgVolume: 185674
+			qualDirs: 0
+			rank: Associate Ambassador
+			commissions: 26502
+
+				name: David & Beverly Moragne
+				consultant.data.rep: 1412
+				retail: 8500
+				wineclub: 44000
+				gifts: 30350
+				pcv: 58875
+				pbv: 57175
+				tbv: 57175
+				dbv1: 57175
+				dbv2: 57175
+				dbv3: 57175
+				qualified: true
+				qualSubs: 0
+				teamVolume: 58875
+				orgVolume: 58875
+				qualDirs: 0
+				rank: Ambassador
+				commissions: 11775
+
+			name: Derek Mims
+			consultant.data.rep: 1033
+			retail: 48300
+			wineclub: 36000
+			gifts: 48740
+			pcv: 101470
+			pbv: 91810
+			tbv: 732733
+			dbv1: 91810
+			dbv2: 91810
+			dbv3: 91810
+			qualified: true
+			qualSubs: 5
+			teamVolume: 801853
+			orgVolume: 801853
+			qualDirs: 0
+			rank: Director
+			commissions: 64274
+
+				name: Amerilis Ersery
+				consultant.data.rep: 1250
+				retail: 36200
+				wineclub: 35500
+				gifts: 60621
+				pcv: 94910
+				pbv: 87670
+				tbv: 87670
+				dbv1: 87670
+				dbv2: 87670
+				dbv3: 87670
+				qualified: true
+				qualSubs: 0
+				teamVolume: 94910
+				orgVolume: 94910
+				qualDirs: 0
+				rank: Ambassador
+				commissions: 18982
+
+				name: David Ginn
+				consultant.data.rep: 1178
+				retail: 18600
+				wineclub: 9000
+				gifts: 29100
+				pcv: 40350
+				pbv: 36630
+				tbv: 36630
+				dbv1: 36630
+				dbv2: 36630
+				dbv3: 36630
+				qualified: true
+				qualSubs: 0
+				teamVolume: 40350
+				orgVolume: 40350
+				qualDirs: 0
+				rank: Ambassador
+				commissions: 8070
+
+				name: Jennifer Lugo
+				consultant.data.rep: 1177
+				retail: 16600
+				wineclub: 25500
+				gifts: 82352
+				pcv: 78176
+				pbv: 74856
+				tbv: 74856
+				dbv1: 74856
+				dbv2: 74856
+				dbv3: 74856
+				qualified: true
+				qualSubs: 0
+				teamVolume: 78176
+				orgVolume: 78176
+				qualDirs: 0
+				rank: Ambassador
+				commissions: 15635
+
+				name: Laura Burns
+				consultant.data.rep: 1074
+				retail: 41500
+				wineclub: 26000
+				gifts: 14975
+				pcv: 69787
+				pbv: 61487
+				tbv: 136489
+				dbv1: 61487
+				dbv2: 61487
+				dbv3: 61487
+				qualified: true
+				qualSubs: 1
+				teamVolume: 152289
+				orgVolume: 152289
+				qualDirs: 0
+				rank: Associate Ambassador
+				commissions: 15457
+
+					name: Rita Carlson
+					consultant.data.rep: 1085
+					retail: 37500
+					wineclub: 27000
+					gifts: 46805
+					pcv: 82502
+					pbv: 75002
+					tbv: 75002
+					dbv1: 75002
+					dbv2: 75002
+					dbv3: 75002
+					qualified: true
+					qualSubs: 0
+					teamVolume: 82502
+					orgVolume: 82502
+					qualDirs: 0
+					rank: Ambassador
+					commissions: 16500
+
+				name: Paul Mims
+				consultant.data.rep: 1036
+				retail: 36100
+				wineclub: 17000
+				gifts: 19319
+				pcv: 59359
+				pbv: 52139
+				tbv: 305278
+				dbv1: 52139
+				dbv2: 52139
+				dbv3: 52139
+				qualified: true
+				qualSubs: 2
+				teamVolume: 334658
+				orgVolume: 334658
+				qualDirs: 0
+				rank: Senior Ambassador
+				commissions: 17883
+
+					name: Jamie Johnston
+					consultant.data.rep: 1477
+					retail: 82600
+					wineclub: 53000
+					gifts: 53075
+					pcv: 151537
+					pbv: 135017
+					tbv: 187737
+					dbv1: 135017
+					dbv2: 135017
+					dbv3: 135017
+					qualified: true
+					qualSubs: 1
+					teamVolume: 208637
+					orgVolume: 208637
+					qualDirs: 0
+					rank: Associate Ambassador
+					commissions: 31361
+
+						name: Dana Stanton
+						consultant.data.rep: 1492
+						retail: 21900
+						wineclub: 42500
+						gifts: 2400
+						pcv: 57100
+						pbv: 52720
+						tbv: 52720
+						dbv1: 52720
+						dbv2: 52720
+						dbv3: 52720
+						qualified: true
+						qualSubs: 0
+						teamVolume: 57100
+						orgVolume: 57100
+						qualDirs: 0
+						rank: Ambassador
+						commissions: 11420
+
+					name: Mary Ross
+					consultant.data.rep: 1476
+					retail: 6300
+					wineclub: 62500
+					gifts: 20725
+					pcv: 66662
+					pbv: 65402
+					tbv: 65402
+					dbv1: 65402
+					dbv2: 65402
+					dbv3: 65402
+					qualified: true
+					qualSubs: 0
+					teamVolume: 66662
+					orgVolume: 66662
+					qualDirs: 0
+					rank: Ambassador
+					commissions: 13332
+
+			name: Elizabeth Martinez
+			consultant.data.rep: 1028
+			retail: 25800
+			wineclub: 71500
+			gifts: 79016
+			pcv: 122508
+			pbv: 117348
+			tbv: 356429
+			dbv1: 117348
+			dbv2: 117348
+			dbv3: 117348
+			qualified: true
+			qualSubs: 2
+			teamVolume: 390629
+			orgVolume: 413424
+			qualDirs: 0
+			rank: Senior Ambassador
+			commissions: 27648
+
+				name: Nina Woodcock
+				consultant.data.rep: 1497
+				retail: 13500
+				wineclub: 0
+				gifts: 18590
+				pcv: 22795
+				pbv: 20095
+				tbv: 20095
+				dbv1: 20095
+				dbv2: 20095
+				dbv3: 20095
+				qualified: false
+				qualSubs: 0
+				teamVolume: 22795
+				orgVolume: 22795
+				qualDirs: 0
+				rank: Ambassador
+				commissions: 0
+
+				name: Alicia C. Martinez
+				consultant.data.rep: 1475
+				retail: 11000
+				wineclub: 17500
+				gifts: 23745
+				pcv: 36872
+				pbv: 34672
+				tbv: 34672
+				dbv1: 34672
+				dbv2: 34672
+				dbv3: 34672
+				qualified: true
+				qualSubs: 0
+				teamVolume: 36872
+				orgVolume: 36872
+				qualDirs: 0
+				rank: Ambassador
+				commissions: 7374
+
+				name: Daisy Gomez
+				consultant.data.rep: 1154
+				retail: 33000
+				wineclub: 17000
+				gifts: 20325
+				pcv: 56762
+				pbv: 50162
+				tbv: 204409
+				dbv1: 50162
+				dbv2: 50162
+				dbv3: 50162
+				qualified: true
+				qualSubs: 2
+				teamVolume: 231249
+				orgVolume: 231249
+				qualDirs: 0
+				rank: Senior Ambassador
+				commissions: 15979
+
+					name: Vivi Williams
+					consultant.data.rep: 1441
+					retail: 39900
+					wineclub: 35000
+					gifts: 33775
+					pcv: 84787
+					pbv: 76807
+					tbv: 76807
+					dbv1: 76807
+					dbv2: 76807
+					dbv3: 76807
+					qualified: true
+					qualSubs: 0
+					teamVolume: 84787
+					orgVolume: 84787
+					qualDirs: 0
+					rank: Ambassador
+					commissions: 16957
+
+					name: Dawn Grissom
+					consultant.data.rep: 1440
+					retail: 61300
+					wineclub: 26000
+					gifts: 15200
+					pcv: 89700
+					pbv: 77440
+					tbv: 77440
+					dbv1: 77440
+					dbv2: 77440
+					dbv3: 77440
+					qualified: true
+					qualSubs: 0
+					teamVolume: 89700
+					orgVolume: 89700
+					qualDirs: 0
+					rank: Ambassador
+					commissions: 17940
+
+			name: Robinson O'Brien-Bours
+			consultant.data.rep: 1018
+			retail: 26600
+			wineclub: 44000
+			gifts: 93850
+			pcv: 108725
+			pbv: 103405
+			tbv: 103405
+			dbv1: 103405
+			dbv2: 103405
+			dbv3: 103405
+			qualified: true
+			qualSubs: 0
+			teamVolume: 108725
+			orgVolume: 122325
+			qualDirs: 0
+			rank: Ambassador
+			commissions: 21745
+
+				name: Tim Bradbury
+				consultant.data.rep: 1326
+				retail: 0
+				wineclub: 17000
+				gifts: 0
+				pcv: 13600
+				pbv: 13600
+				tbv: 13600
+				dbv1: 13600
+				dbv2: 13600
+				dbv3: 13600
+				qualified: false
+				qualSubs: 0
+				teamVolume: 13600
+				orgVolume: 13600
+				qualDirs: 0
+				rank: Ambassador
+				commissions: 0
+
+			name: Kenda Schachterle
+			consultant.data.rep: 1012
+			retail: 5400
+			wineclub: 0
+			gifts: 0
+			pcv: 5400
+			pbv: 4320
+			tbv: 140277
+			dbv1: 4320
+			dbv2: 4320
+			dbv3: 4320
+			qualified: false
+			qualSubs: 1
+			teamVolume: 158037
+			orgVolume: 304199
+			qualDirs: 0
+			rank: Ambassador
+			commissions: 0
+
+				name: Eva Harris
+				consultant.data.rep: 1113
+				retail: 83400
+				wineclub: 61000
+				gifts: 40875
+				pcv: 152637
+				pbv: 135957
+				tbv: 135957
+				dbv1: 135957
+				dbv2: 135957
+				dbv3: 135957
+				qualified: true
+				qualSubs: 0
+				teamVolume: 152637
+				orgVolume: 152637
+				qualDirs: 0
+				rank: Ambassador
+				commissions: 30527
+
+				name: Karen Weller
+				consultant.data.rep: 1070
+				retail: 2400
+				wineclub: 0
+				gifts: 4800
+				pcv: 4800
+				pbv: 4320
+				tbv: 4320
+				dbv1: 4320
+				dbv2: 4320
+				dbv3: 4320
+				qualified: false
+				qualSubs: 0
+				teamVolume: 4800
+				orgVolume: 4800
+				qualDirs: 0
+				rank: Ambassador
+				commissions: 0
+
+				name: Pamela Ruiz
+				consultant.data.rep: 1013
+				retail: 0
+				wineclub: 0
+				gifts: 0
+				pcv: 0
+				pbv: 0
+				tbv: 51082
+				dbv1: 0
+				dbv2: 0
+				dbv3: 0
+				qualified: false
+				qualSubs: 1
+				teamVolume: 52762
+				orgVolume: 141362
+				qualDirs: 0
+				rank: Ambassador
+				commissions: 0
+
+					name: Pedro Jaimot
+					consultant.data.rep: 1456
+					retail: 7200
+					wineclub: 17500
+					gifts: 0
+					pcv: 21200
+					pbv: 19760
+					tbv: 62580
+					dbv1: 19760
+					dbv2: 19760
+					dbv3: 19760
+					qualified: false
+					qualSubs: 1
+					teamVolume: 67300
+					orgVolume: 67300
+					qualDirs: 0
+					rank: Ambassador
+					commissions: 0
+
+						name: Phaola Taylor
+						consultant.data.rep: 1467
+						retail: 16400
+						wineclub: 36000
+						gifts: 1800
+						pcv: 46100
+						pbv: 42820
+						tbv: 42820
+						dbv1: 42820
+						dbv2: 42820
+						dbv3: 42820
+						qualified: true
+						qualSubs: 0
+						teamVolume: 46100
+						orgVolume: 46100
+						qualDirs: 0
+						rank: Ambassador
+						commissions: 9220
+
+					name: Sandy Gray
+					consultant.data.rep: 1265
+					retail: 8400
+					wineclub: 27000
+					gifts: 45524
+					pcv: 52762
+					pbv: 51082
+					tbv: 51082
+					dbv1: 51082
+					dbv2: 51082
+					dbv3: 51082
+					qualified: true
+					qualSubs: 0
+					teamVolume: 52762
+					orgVolume: 74062
+					qualDirs: 0
+					rank: Ambassador
+					commissions: 10552
+
+						name: Teresa Marzan
+						consultant.data.rep: 1347
+						retail: 0
+						wineclub: 18000
+						gifts: 13800
+						pcv: 21300
+						pbv: 21300
+						tbv: 21300
+						dbv1: 21300
+						dbv2: 21300
+						dbv3: 21300
+						qualified: false
+						qualSubs: 0
+						teamVolume: 21300
+						orgVolume: 21300
+						qualDirs: 0
+						rank: Ambassador
+						commissions: 0
+
+		name: Claudine Buglisi
+		consultant.data.rep: 1007
+		retail: 13500
+		wineclub: 34500
+		gifts: 35575
+		pcv: 58887
+		pbv: 56187
+		tbv: 955624
+		dbv1: 56187
+		dbv2: 56187
+		dbv3: 56187
+		qualified: true
+		qualSubs: 5
+		teamVolume: 1050404
+		orgVolume: 2975866
+		qualDirs: 1
+		rank: Senior Director
+		commissions: 67985
+
+			name: Matt Ericksen
+			consultant.data.rep: 1399
+			retail: 72300
+			wineclub: 70500
+			gifts: 39730
+			pcv: 148565
+			pbv: 134105
+			tbv: 134105
+			dbv1: 134105
+			dbv2: 134105
+			dbv3: 134105
+			qualified: true
+			qualSubs: 0
+			teamVolume: 148565
+			orgVolume: 148565
+			qualDirs: 0
+			rank: Ambassador
+			commissions: 29713
+
+			name: Mitzi Crawford
+			consultant.data.rep: 1322
+			retail: 45300
+			wineclub: 36000
+			gifts: 42900
+			pcv: 95550
+			pbv: 86490
+			tbv: 255999
+			dbv1: 86490
+			dbv2: 86490
+			dbv3: 86490
+			qualified: true
+			qualSubs: 1
+			teamVolume: 283939
+			orgVolume: 293339
+			qualDirs: 0
+			rank: Associate Ambassador
+			commissions: 22650
+
+				name: Lorraine Gaul
+				consultant.data.rep: 1363
+				retail: 9400
+				wineclub: 0
+				gifts: 0
+				pcv: 9400
+				pbv: 7520
+				tbv: 7520
+				dbv1: 7520
+				dbv2: 7520
+				dbv3: 7520
+				qualified: false
+				qualSubs: 0
+				teamVolume: 9400
+				orgVolume: 9400
+				qualDirs: 0
+				rank: Ambassador
+				commissions: 0
+
+				name: YOSHIKO WILLIAMS
+				consultant.data.rep: 1362
+				retail: 94400
+				wineclub: 61500
+				gifts: 89579
+				pcv: 188389
+				pbv: 169509
+				tbv: 169509
+				dbv1: 169509
+				dbv2: 169509
+				dbv3: 169509
+				qualified: true
+				qualSubs: 0
+				teamVolume: 188389
+				orgVolume: 188389
+				qualDirs: 0
+				rank: Ambassador
+				commissions: 37677
+
+			name: Joanie Hahn
+			consultant.data.rep: 1127
+			retail: 25000
+			wineclub: 51000
+			gifts: 0
+			pcv: 65800
+			pbv: 60800
+			tbv: 1609401
+			dbv1: 60800
+			dbv2: 60800
+			dbv3: 60800
+			qualified: true
+			qualSubs: 16
+			teamVolume: 1774741
+			orgVolume: 1893125
+			qualDirs: 0
+			rank: Director
+			commissions: 98494
+
+				name: Joe Castillo
+				consultant.data.rep: 1498
+				retail: 87100
+				wineclub: 36000
+				gifts: 33138
+				pcv: 132469
+				pbv: 115049
+				tbv: 196216
+				dbv1: 115049
+				dbv2: 115049
+				dbv3: 115049
+				qualified: true
+				qualSubs: 1
+				teamVolume: 227656
+				orgVolume: 227656
+				qualDirs: 0
+				rank: Associate Ambassador
+				commissions: 28116
+
+					name: Dave Castillo
+					consultant.data.rep: 1503
+					retail: 70100
+					wineclub: 0
+					gifts: 50175
+					pcv: 95187
+					pbv: 81167
+					tbv: 81167
+					dbv1: 81167
+					dbv2: 81167
+					dbv3: 81167
+					qualified: true
+					qualSubs: 0
+					teamVolume: 95187
+					orgVolume: 95187
+					qualDirs: 0
+					rank: Ambassador
+					commissions: 19037
+
+				name: Roxanne Harband
+				consultant.data.rep: 1471
+				retail: 29600
+				wineclub: 51500
+				gifts: 35663
+				pcv: 88631
+				pbv: 82711
+				tbv: 82711
+				dbv1: 82711
+				dbv2: 82711
+				dbv3: 82711
+				qualified: true
+				qualSubs: 0
+				teamVolume: 88631
+				orgVolume: 88631
+				qualDirs: 0
+				rank: Ambassador
+				commissions: 17726
+
+				name: Nicolas Coulet
+				consultant.data.rep: 1452
+				retail: 32100
+				wineclub: 0
+				gifts: 84275
+				pcv: 74237
+				pbv: 67817
+				tbv: 67817
+				dbv1: 67817
+				dbv2: 67817
+				dbv3: 67817
+				qualified: true
+				qualSubs: 0
+				teamVolume: 74237
+				orgVolume: 74237
+				qualDirs: 0
+				rank: Ambassador
+				commissions: 14847
+
+				name: Kimberly Cesena
+				consultant.data.rep: 1417
+				retail: 18300
+				wineclub: 17000
+				gifts: 10800
+				pcv: 37300
+				pbv: 33640
+				tbv: 33640
+				dbv1: 33640
+				dbv2: 33640
+				dbv3: 33640
+				qualified: true
+				qualSubs: 0
+				teamVolume: 37300
+				orgVolume: 37300
+				qualDirs: 0
+				rank: Ambassador
+				commissions: 7460
+
+				name: Wayne Brantley
+				consultant.data.rep: 1404
+				retail: 0
+				wineclub: 0
+				gifts: 0
+				pcv: 0
+				pbv: 0
+				tbv: 58247
+				dbv1: 0
+				dbv2: 0
+				dbv3: 0
+				qualified: false
+				qualSubs: 1
+				teamVolume: 61247
+				orgVolume: 61247
+				qualDirs: 0
+				rank: Ambassador
+				commissions: 0
+
+					name: Chris & Elizabeth Dennard
+					consultant.data.rep: 1433
+					retail: 15000
+					wineclub: 27000
+					gifts: 49295
+					pcv: 61247
+					pbv: 58247
+					tbv: 58247
+					dbv1: 58247
+					dbv2: 58247
+					dbv3: 58247
+					qualified: true
+					qualSubs: 0
+					teamVolume: 61247
+					orgVolume: 61247
+					qualDirs: 0
+					rank: Ambassador
+					commissions: 12249
+
+				name: Ann Sandmann
+				consultant.data.rep: 1367
+				retail: 24900
+				wineclub: 0
+				gifts: 9300
+				pcv: 29550
+				pbv: 24570
+				tbv: 24570
+				dbv1: 24570
+				dbv2: 24570
+				dbv3: 24570
+				qualified: true
+				qualSubs: 0
+				teamVolume: 29550
+				orgVolume: 29550
+				qualDirs: 0
+				rank: Ambassador
+				commissions: 5910
+
+				name: Linda Garrido
+				consultant.data.rep: 1332
+				retail: 57600
+				wineclub: 0
+				gifts: 9375
+				pcv: 62287
+				pbv: 50767
+				tbv: 50767
+				dbv1: 50767
+				dbv2: 50767
+				dbv3: 50767
+				qualified: true
+				qualSubs: 0
+				teamVolume: 62287
+				orgVolume: 62287
+				qualDirs: 0
+				rank: Ambassador
+				commissions: 12457
+
+				name: Anna Ruotolo
+				consultant.data.rep: 1316
+				retail: 9500
+				wineclub: 34000
+				gifts: 6287
+				pcv: 39843
+				pbv: 37943
+				tbv: 37943
+				dbv1: 37943
+				dbv2: 37943
+				dbv3: 37943
+				qualified: true
+				qualSubs: 0
+				teamVolume: 39843
+				orgVolume: 39843
+				qualDirs: 0
+				rank: Ambassador
+				commissions: 7968
+
+				name: Cassandra Hahn
+				consultant.data.rep: 1314
+				retail: 83800
+				wineclub: 69500
+				gifts: 49182
+				pcv: 163991
+				pbv: 147231
+				tbv: 147231
+				dbv1: 147231
+				dbv2: 147231
+				dbv3: 147231
+				qualified: true
+				qualSubs: 0
+				teamVolume: 163991
+				orgVolume: 163991
+				qualDirs: 0
+				rank: Ambassador
+				commissions: 32798
+
+				name: Valerie Zankich
+				consultant.data.rep: 1305
+				retail: 19100
+				wineclub: 63000
+				gifts: 118900
+				pcv: 128950
+				pbv: 125130
+				tbv: 125130
+				dbv1: 125130
+				dbv2: 125130
+				dbv3: 125130
+				qualified: true
+				qualSubs: 0
+				teamVolume: 128950
+				orgVolume: 128950
+				qualDirs: 0
+				rank: Ambassador
+				commissions: 25790
+
+				name: Kim Salle
+				consultant.data.rep: 1242
+				retail: 35200
+				wineclub: 0
+				gifts: 26800
+				pcv: 48600
+				pbv: 41560
+				tbv: 41560
+				dbv1: 41560
+				dbv2: 41560
+				dbv3: 41560
+				qualified: true
+				qualSubs: 0
+				teamVolume: 48600
+				orgVolume: 48600
+				qualDirs: 0
+				rank: Ambassador
+				commissions: 9720
+
+				name: Toni Ulrich
+				consultant.data.rep: 1235
+				retail: 10100
+				wineclub: 17000
+				gifts: 3790
+				pcv: 25595
+				pbv: 23575
+				tbv: 58450
+				dbv1: 23575
+				dbv2: 23575
+				dbv3: 23575
+				qualified: true
+				qualSubs: 1
+				teamVolume: 62170
+				orgVolume: 62170
+				qualDirs: 0
+				rank: Associate Ambassador
+				commissions: 5816
+
+					name: Faye Cater
+					consultant.data.rep: 1248
+					retail: 8500
+					wineclub: 17500
+					gifts: 28150
+					pcv: 36575
+					pbv: 34875
+					tbv: 34875
+					dbv1: 34875
+					dbv2: 34875
+					dbv3: 34875
+					qualified: true
+					qualSubs: 0
+					teamVolume: 36575
+					orgVolume: 36575
+					qualDirs: 0
+					rank: Ambassador
+					commissions: 7315
+
+				name: Veronica Pilnick
+				consultant.data.rep: 1232
+				retail: 5000
+				wineclub: 0
+				gifts: 14750
+				pcv: 12375
+				pbv: 11375
+				tbv: 11375
+				dbv1: 11375
+				dbv2: 11375
+				dbv3: 11375
+				qualified: false
+				qualSubs: 0
+				teamVolume: 12375
+				orgVolume: 12375
+				qualDirs: 0
+				rank: Ambassador
+				commissions: 0
+
+				name: Ricky Mellomida
+				consultant.data.rep: 1228
+				retail: 45600
+				wineclub: 0
+				gifts: 101532
+				pcv: 96366
+				pbv: 87246
+				tbv: 87246
+				dbv1: 87246
+				dbv2: 87246
+				dbv3: 87246
+				qualified: true
+				qualSubs: 0
+				teamVolume: 96366
+				orgVolume: 96366
+				qualDirs: 0
+				rank: Ambassador
+				commissions: 19273
+
+				name: Leslie Braga
+				consultant.data.rep: 1226
+				retail: 0
+				wineclub: 18000
+				gifts: 16725
+				pcv: 22762
+				pbv: 22762
+				tbv: 22762
+				dbv1: 22762
+				dbv2: 22762
+				dbv3: 22762
+				qualified: false
+				qualSubs: 0
+				teamVolume: 22762
+				orgVolume: 22762
+				qualDirs: 0
+				rank: Ambassador
+				commissions: 0
+
+				name: Olivia Sawong
+				consultant.data.rep: 1209
+				retail: 24600
+				wineclub: 70000
+				gifts: 119650
+				pcv: 140425
+				pbv: 135505
+				tbv: 135505
+				dbv1: 135505
+				dbv2: 135505
+				dbv3: 135505
+				qualified: true
+				qualSubs: 0
+				teamVolume: 140425
+				orgVolume: 140425
+				qualDirs: 0
+				rank: Ambassador
+				commissions: 28085
+
+				name: Madelyn Arthur
+				consultant.data.rep: 1159
+				retail: 19700
+				wineclub: 61500
+				gifts: 57365
+				pcv: 97582
+				pbv: 93642
+				tbv: 93642
+				dbv1: 93642
+				dbv2: 93642
+				dbv3: 93642
+				qualified: true
+				qualSubs: 0
+				teamVolume: 97582
+				orgVolume: 97582
+				qualDirs: 0
+				rank: Ambassador
+				commissions: 19516
+
+				name: Terry Lehman
+				consultant.data.rep: 1149
+				retail: 76000
+				wineclub: 0
+				gifts: 8494
+				pcv: 80247
+				pbv: 65047
+				tbv: 311386
+				dbv1: 65047
+				dbv2: 65047
+				dbv3: 65047
+				qualified: true
+				qualSubs: 4
+				teamVolume: 351466
+				orgVolume: 352766
+				qualDirs: 0
+				rank: Senior Ambassador
+				commissions: 23470
+
+					name: Marjorie RESNICK
+					consultant.data.rep: 1366
+					retail: 52100
+					wineclub: 18000
+					gifts: 69000
+					pcv: 101000
+					pbv: 90580
+					tbv: 90580
+					dbv1: 90580
+					dbv2: 90580
+					dbv3: 90580
+					qualified: true
+					qualSubs: 0
+					teamVolume: 101000
+					orgVolume: 101000
+					qualDirs: 0
+					rank: Ambassador
+					commissions: 20200
+
+					name: Andrew Lehman
+					consultant.data.rep: 1306
+					retail: 45000
+					wineclub: 44500
+					gifts: 16350
+					pcv: 88775
+					pbv: 79775
+					tbv: 79775
+					dbv1: 79775
+					dbv2: 79775
+					dbv3: 79775
+					qualified: true
+					qualSubs: 0
+					teamVolume: 88775
+					orgVolume: 88775
+					qualDirs: 0
+					rank: Ambassador
+					commissions: 17755
+
+					name: Jill Barnes
+					consultant.data.rep: 1301
+					retail: 19700
+					wineclub: 35500
+					gifts: 5700
+					pcv: 50950
+					pbv: 47010
+					tbv: 47010
+					dbv1: 47010
+					dbv2: 47010
+					dbv3: 47010
+					qualified: true
+					qualSubs: 0
+					teamVolume: 50950
+					orgVolume: 50950
+					qualDirs: 0
+					rank: Ambassador
+					commissions: 10190
+
+					name: Allison Lehman
+					consultant.data.rep: 1246
+					retail: 7600
+					wineclub: 18000
+					gifts: 16988
+					pcv: 30494
+					pbv: 28974
+					tbv: 28974
+					dbv1: 28974
+					dbv2: 28974
+					dbv3: 28974
+					qualified: true
+					qualSubs: 0
+					teamVolume: 30494
+					orgVolume: 30494
+					qualDirs: 0
+					rank: Ambassador
+					commissions: 6098
+
+					name: Melissa Lehman
+					consultant.data.rep: 1229
+					retail: 1300
+					wineclub: 0
+					gifts: 0
+					pcv: 1300
+					pbv: 1040
+					tbv: 1040
+					dbv1: 1040
+					dbv2: 1040
+					dbv3: 1040
+					qualified: false
+					qualSubs: 0
+					teamVolume: 1300
+					orgVolume: 1300
+					qualDirs: 0
+					rank: Ambassador
+					commissions: 0
+
+				name: Kay Cadei Newby
+				consultant.data.rep: 1052
+				retail: 25500
+				wineclub: 25500
+				gifts: 27975
+				pcv: 59887
+				pbv: 54787
+				tbv: 54787
+				dbv1: 54787
+				dbv2: 54787
+				dbv3: 54787
+				qualified: true
+				qualSubs: 0
+				teamVolume: 59887
+				orgVolume: 80587
+				qualDirs: 0
+				rank: Ambassador
+				commissions: 11977
+
+					name: Tiffany Terry
+					consultant.data.rep: 1185
+					retail: 19800
+					wineclub: 0
+					gifts: 1800
+					pcv: 20700
+					pbv: 16740
+					tbv: 16740
+					dbv1: 16740
+					dbv2: 16740
+					dbv3: 16740
+					qualified: false
+					qualSubs: 0
+					teamVolume: 20700
+					orgVolume: 20700
+					qualDirs: 0
+					rank: Ambassador
+					commissions: 0
+
+			name: Teres Mongrain
+			consultant.data.rep: 1122
+			retail: 17300
+			wineclub: 9000
+			gifts: 56825
+			pcv: 52912
+			pbv: 49452
+			tbv: 327409
+			dbv1: 49452
+			dbv2: 49452
+			dbv3: 49452
+			qualified: true
+			qualSubs: 3
+			teamVolume: 351369
+			orgVolume: 351369
+			qualDirs: 0
+			rank: Senior Ambassador
+			commissions: 18920
+
+				name: Donna Greene
+				consultant.data.rep: 1380
+				retail: 52700
+				wineclub: 42500
+				gifts: 39950
+				pcv: 106675
+				pbv: 96135
+				tbv: 96135
+				dbv1: 96135
+				dbv2: 96135
+				dbv3: 96135
+				qualified: true
+				qualSubs: 0
+				teamVolume: 106675
+				orgVolume: 106675
+				qualDirs: 0
+				rank: Ambassador
+				commissions: 21335
+
+				name: Elyse Woodall
+				consultant.data.rep: 1230
+				retail: 36000
+				wineclub: 103500
+				gifts: 11264
+				pcv: 124432
+				pbv: 117232
+				tbv: 117232
+				dbv1: 117232
+				dbv2: 117232
+				dbv3: 117232
+				qualified: true
+				qualSubs: 0
+				teamVolume: 124432
+				orgVolume: 124432
+				qualDirs: 0
+				rank: Ambassador
+				commissions: 24886
+
+				name: Melanie Gilbert
+				consultant.data.rep: 1174
+				retail: 13800
+				wineclub: 53000
+				gifts: 22300
+				pcv: 67350
+				pbv: 64590
+				tbv: 64590
+				dbv1: 64590
+				dbv2: 64590
+				dbv3: 64590
+				qualified: true
+				qualSubs: 0
+				teamVolume: 67350
+				orgVolume: 67350
+				qualDirs: 0
+				rank: Ambassador
+				commissions: 13470
+
+			name: Brenda Jones
+			consultant.data.rep: 1103
+			retail: 22200
+			wineclub: 0
+			gifts: 23800
+			pcv: 34100
+			pbv: 29660
+			tbv: 29660
+			dbv1: 29660
+			dbv2: 29660
+			dbv3: 29660
+			qualified: true
+			qualSubs: 0
+			teamVolume: 34100
+			orgVolume: 34100
+			qualDirs: 0
+			rank: Ambassador
+			commissions: 6820
+
+			name: Catherine & Chris Frosi-Bradley
+			consultant.data.rep: 1101
+			retail: 86700
+			wineclub: 0
+			gifts: 72890
+			pcv: 123145
+			pbv: 105805
+			tbv: 152264
+			dbv1: 105805
+			dbv2: 105805
+			dbv3: 105805
+			qualified: true
+			qualSubs: 1
+			teamVolume: 173544
+			orgVolume: 196481
+			qualDirs: 0
+			rank: Associate Ambassador
+			commissions: 25980
+
+				name: Trish Smith
+				consultant.data.rep: 1408
+				retail: 9000
+				wineclub: 0
+				gifts: 27875
+				pcv: 22937
+				pbv: 21137
+				tbv: 21137
+				dbv1: 21137
+				dbv2: 21137
+				dbv3: 21137
+				qualified: false
+				qualSubs: 0
+				teamVolume: 22937
+				orgVolume: 22937
+				qualDirs: 0
+				rank: Ambassador
+				commissions: 0
+
+				name: Gina Padilla
+				consultant.data.rep: 1266
+				retail: 19700
+				wineclub: 36000
+				gifts: 3798
+				pcv: 50399
+				pbv: 46459
+				tbv: 46459
+				dbv1: 46459
+				dbv2: 46459
+				dbv3: 46459
+				qualified: true
+				qualSubs: 0
+				teamVolume: 50399
+				orgVolume: 50399
+				qualDirs: 0
+				rank: Ambassador
+				commissions: 10079
+
+		name: Mitch Hart
+		consultant.data.rep: 1003
+		retail: 63000
+		wineclub: 61500
+		gifts: 46425
+		pcv: 135412
+		pbv: 122812
+		tbv: 1686511
+		dbv1: 122812
+		dbv2: 122812
+		dbv3: 122812
+		qualified: true
+		qualSubs: 9
+		teamVolume: 1828511
+		orgVolume: 3587146
+		qualDirs: 2
+		rank: Crystal Director
+		commissions: 132283
+
+			name: Alice Mannarino
+			consultant.data.rep: 1468
+			retail: 31500
+			wineclub: 79000
+			gifts: 132541
+			pcv: 160970
+			pbv: 154670
+			tbv: 154670
+			dbv1: 154670
+			dbv2: 154670
+			dbv3: 154670
+			qualified: true
+			qualSubs: 0
+			teamVolume: 160970
+			orgVolume: 160970
+			qualDirs: 0
+			rank: Ambassador
+			commissions: 32194
+
+			name: Walt Henry
+			consultant.data.rep: 1395
+			retail: 17200
+			wineclub: 99000
+			gifts: 52523
+			pcv: 122661
+			pbv: 119221
+			tbv: 119221
+			dbv1: 119221
+			dbv2: 119221
+			dbv3: 119221
+			qualified: true
+			qualSubs: 0
+			teamVolume: 122661
+			orgVolume: 122661
+			qualDirs: 0
+			rank: Ambassador
+			commissions: 24532
+
+			name: Daniell Sanfilippo
+			consultant.data.rep: 1394
+			retail: 4900
+			wineclub: 0
+			gifts: 0
+			pcv: 4900
+			pbv: 3920
+			tbv: 3920
+			dbv1: 3920
+			dbv2: 3920
+			dbv3: 3920
+			qualified: false
+			qualSubs: 0
+			teamVolume: 4900
+			orgVolume: 4900
+			qualDirs: 0
+			rank: Ambassador
+			commissions: 0
+
+			name: Ralph Kindred
+			consultant.data.rep: 1390
+			retail: 3000
+			wineclub: 0
+			gifts: 0
+			pcv: 3000
+			pbv: 2400
+			tbv: 2400
+			dbv1: 2400
+			dbv2: 2400
+			dbv3: 2400
+			qualified: false
+			qualSubs: 0
+			teamVolume: 3000
+			orgVolume: 3000
+			qualDirs: 0
+			rank: Ambassador
+			commissions: 0
+
+			name: Nicholas Gambardella
+			consultant.data.rep: 1386
+			retail: 0
+			wineclub: 0
+			gifts: 27000
+			pcv: 13500
+			pbv: 13500
+			tbv: 13500
+			dbv1: 13500
+			dbv2: 13500
+			dbv3: 13500
+			qualified: false
+			qualSubs: 0
+			teamVolume: 13500
+			orgVolume: 13500
+			qualDirs: 0
+			rank: Ambassador
+			commissions: 0
+
+			name: Sports Car Club of America
+			consultant.data.rep: 1323
+			retail: 12500
+			wineclub: 71000
+			gifts: 73047
+			pcv: 105823
+			pbv: 103323
+			tbv: 103323
+			dbv1: 103323
+			dbv2: 103323
+			dbv3: 103323
+			qualified: true
+			qualSubs: 0
+			teamVolume: 105823
+			orgVolume: 105823
+			qualDirs: 0
+			rank: Ambassador
+			commissions: 21164
+
+			name: Nancy Collier
+			consultant.data.rep: 1188
+			retail: 50800
+			wineclub: 18000
+			gifts: 42372
+			pcv: 86386
+			pbv: 76226
+			tbv: 76226
+			dbv1: 76226
+			dbv2: 76226
+			dbv3: 76226
+			qualified: true
+			qualSubs: 0
+			teamVolume: 86386
+			orgVolume: 86386
+			qualDirs: 0
+			rank: Ambassador
+			commissions: 17277
+
+			name: Marla Hofstee
+			consultant.data.rep: 1141
+			retail: 58800
+			wineclub: 69000
+			gifts: 25501
+			pcv: 126750
+			pbv: 114990
+			tbv: 315602
+			dbv1: 114990
+			dbv2: 114990
+			dbv3: 114990
+			qualified: true
+			qualSubs: 3
+			teamVolume: 344102
+			orgVolume: 344102
+			qualDirs: 0
+			rank: Senior Ambassador
+			commissions: 31368
+
+				name: Jennifer Castillo
+				consultant.data.rep: 1434
+				retail: 22100
+				wineclub: 17500
+				gifts: 49369
+				pcv: 60784
+				pbv: 56364
+				tbv: 56364
+				dbv1: 56364
+				dbv2: 56364
+				dbv3: 56364
+				qualified: true
+				qualSubs: 0
+				teamVolume: 60784
+				orgVolume: 60784
+				qualDirs: 0
+				rank: Ambassador
+				commissions: 12156
+
+				name: Mary Marx
+				consultant.data.rep: 1374
+				retail: 9000
+				wineclub: 0
+				gifts: 56400
+				pcv: 37200
+				pbv: 35400
+				tbv: 35400
+				dbv1: 35400
+				dbv2: 35400
+				dbv3: 35400
+				qualified: true
+				qualSubs: 0
+				teamVolume: 37200
+				orgVolume: 37200
+				qualDirs: 0
+				rank: Ambassador
+				commissions: 7440
+
+				name: Diane Nathan
+				consultant.data.rep: 1196
+				retail: 52600
+				wineclub: 60000
+				gifts: 37537
+				pcv: 119368
+				pbv: 108848
+				tbv: 108848
+				dbv1: 108848
+				dbv2: 108848
+				dbv3: 108848
+				qualified: true
+				qualSubs: 0
+				teamVolume: 119368
+				orgVolume: 119368
+				qualDirs: 0
+				rank: Ambassador
+				commissions: 23873
+
+			name: Todd Boldt
+			consultant.data.rep: 1114
+			retail: 54700
+			wineclub: 81000
+			gifts: 24700
+			pcv: 131850
+			pbv: 120910
+			tbv: 120910
+			dbv1: 120910
+			dbv2: 120910
+			dbv3: 120910
+			qualified: true
+			qualSubs: 0
+			teamVolume: 131850
+			orgVolume: 131850
+			qualDirs: 0
+			rank: Ambassador
+			commissions: 26370
+
+			name: Deborah Love
+			consultant.data.rep: 1111
+			retail: 80000
+			wineclub: 36000
+			gifts: 81650
+			pcv: 149625
+			pbv: 133625
+			tbv: 491798
+			dbv1: 133625
+			dbv2: 133625
+			dbv3: 133625
+			qualified: true
+			qualSubs: 5
+			teamVolume: 535198
+			orgVolume: 544760
+			qualDirs: 0
+			rank: Director
+			commissions: 65203
+
+				name: Crystal Allison
+				consultant.data.rep: 1392
+				retail: 16500
+				wineclub: 60500
+				gifts: 4000
+				pcv: 66900
+				pbv: 63600
+				tbv: 63600
+				dbv1: 63600
+				dbv2: 63600
+				dbv3: 63600
+				qualified: true
+				qualSubs: 0
+				teamVolume: 66900
+				orgVolume: 66900
+				qualDirs: 0
+				rank: Ambassador
+				commissions: 13380
+
+				name: Eugenia Brown
+				consultant.data.rep: 1186
+				retail: 10000
+				wineclub: 34000
+				gifts: 8572
+				pcv: 41486
+				pbv: 39486
+				tbv: 39486
+				dbv1: 39486
+				dbv2: 39486
+				dbv3: 39486
+				qualified: true
+				qualSubs: 0
+				teamVolume: 41486
+				orgVolume: 41486
+				qualDirs: 0
+				rank: Ambassador
+				commissions: 8297
+
+				name: Anthony Rhem
+				consultant.data.rep: 1146
+				retail: 5200
+				wineclub: 53000
+				gifts: 55200
+				pcv: 75200
+				pbv: 74160
+				tbv: 74160
+				dbv1: 74160
+				dbv2: 74160
+				dbv3: 74160
+				qualified: true
+				qualSubs: 0
+				teamVolume: 75200
+				orgVolume: 75200
+				qualDirs: 0
+				rank: Ambassador
+				commissions: 15040
+
+				name: Barbara Kees
+				consultant.data.rep: 1145
+				retail: 71500
+				wineclub: 34000
+				gifts: 1200
+				pcv: 99300
+				pbv: 85000
+				tbv: 85000
+				dbv1: 85000
+				dbv2: 85000
+				dbv3: 85000
+				qualified: true
+				qualSubs: 0
+				teamVolume: 99300
+				orgVolume: 99300
+				qualDirs: 0
+				rank: Ambassador
+				commissions: 19860
+
+				name: Reggie Miller
+				consultant.data.rep: 1124
+				retail: 0
+				wineclub: 0
+				gifts: 19125
+				pcv: 9562
+				pbv: 9562
+				tbv: 9562
+				dbv1: 9562
+				dbv2: 9562
+				dbv3: 9562
+				qualified: false
+				qualSubs: 0
+				teamVolume: 9562
+				orgVolume: 9562
+				qualDirs: 0
+				rank: Ambassador
+				commissions: 0
+
+				name: Donna Fowlkes
+				consultant.data.rep: 1121
+				retail: 33800
+				wineclub: 70500
+				gifts: 24975
+				pcv: 102687
+				pbv: 95927
+				tbv: 95927
+				dbv1: 95927
+				dbv2: 95927
+				dbv3: 95927
+				qualified: true
+				qualSubs: 0
+				teamVolume: 102687
+				orgVolume: 102687
+				qualDirs: 0
+				rank: Ambassador
+				commissions: 20537
+
+			name: Courtney Bollettino
+			consultant.data.rep: 1107
+			retail: 28000
+			wineclub: 18000
+			gifts: 32771
+			pcv: 58785
+			pbv: 53185
+			tbv: 53185
+			dbv1: 53185
+			dbv2: 53185
+			dbv3: 53185
+			qualified: true
+			qualSubs: 0
+			teamVolume: 58785
+			orgVolume: 58785
+			qualDirs: 0
+			rank: Ambassador
+			commissions: 11757
+
+			name: Sharon Bacchetta
+			consultant.data.rep: 1021
+			retail: 55400
+			wineclub: 44000
+			gifts: 13550
+			pcv: 97375
+			pbv: 86295
+			tbv: 577185
+			dbv1: 86295
+			dbv2: 86295
+			dbv3: 86295
+			qualified: true
+			qualSubs: 3
+			teamVolume: 637685
+			orgVolume: 642822
+			qualDirs: 0
+			rank: Senior Ambassador
+			commissions: 23841
+
+				name: Pablo Troncoso
+				consultant.data.rep: 1256
+				retail: 0
+				wineclub: 0
+				gifts: 10275
+				pcv: 5137
+				pbv: 5137
+				tbv: 5137
+				dbv1: 5137
+				dbv2: 5137
+				dbv3: 5137
+				qualified: false
+				qualSubs: 0
+				teamVolume: 5137
+				orgVolume: 5137
+				qualDirs: 0
+				rank: Ambassador
+				commissions: 0
+
+				name: Kim Avery
+				consultant.data.rep: 1144
+				retail: 35100
+				wineclub: 34000
+				gifts: 1000
+				pcv: 62800
+				pbv: 55780
+				tbv: 55780
+				dbv1: 55780
+				dbv2: 55780
+				dbv3: 55780
+				qualified: true
+				qualSubs: 0
+				teamVolume: 62800
+				orgVolume: 62800
+				qualDirs: 0
+				rank: Ambassador
+				commissions: 12560
+
+				name: Becky Grant
+				consultant.data.rep: 1106
+				retail: 24600
+				wineclub: 36000
+				gifts: 0
+				pcv: 53400
+				pbv: 48480
+				tbv: 48480
+				dbv1: 48480
+				dbv2: 48480
+				dbv3: 48480
+				qualified: true
+				qualSubs: 0
+				teamVolume: 53400
+				orgVolume: 53400
+				qualDirs: 0
+				rank: Ambassador
+				commissions: 10680
+
+				name: Kay Thorpe
+				consultant.data.rep: 1054
+				retail: 27000
+				wineclub: 9000
+				gifts: 14700
+				pcv: 41550
+				pbv: 36150
+				tbv: 386630
+				dbv1: 36150
+				dbv2: 36150
+				dbv3: 36150
+				qualified: true
+				qualSubs: 1
+				teamVolume: 424110
+				orgVolume: 424110
+				qualDirs: 0
+				rank: Associate Ambassador
+				commissions: 9182
+
+					name: Linda McDonald
+					consultant.data.rep: 1055
+					retail: 44500
+					wineclub: 0
+					gifts: 16074
+					pcv: 52537
+					pbv: 43637
+					tbv: 350480
+					dbv1: 43637
+					dbv2: 43637
+					dbv3: 43637
+					qualified: true
+					qualSubs: 4
+					teamVolume: 382560
+					orgVolume: 382560
+					qualDirs: 0
+					rank: Senior Ambassador
+					commissions: 18573
+
+						name: Rendall Thomas
+						consultant.data.rep: 1428
+						retail: 9600
+						wineclub: 27000
+						gifts: 10598
+						pcv: 36499
+						pbv: 34579
+						tbv: 34579
+						dbv1: 34579
+						dbv2: 34579
+						dbv3: 34579
+						qualified: true
+						qualSubs: 0
+						teamVolume: 36499
+						orgVolume: 36499
+						qualDirs: 0
+						rank: Ambassador
+						commissions: 7299
+
+						name: Deanna Byron
+						consultant.data.rep: 1219
+						retail: 11000
+						wineclub: 69000
+						gifts: 53965
+						pcv: 93182
+						pbv: 90982
+						tbv: 90982
+						dbv1: 90982
+						dbv2: 90982
+						dbv3: 90982
+						qualified: true
+						qualSubs: 0
+						teamVolume: 93182
+						orgVolume: 93182
+						qualDirs: 0
+						rank: Ambassador
+						commissions: 18636
+
+						name: Katy Wade
+						consultant.data.rep: 1102
+						retail: 55300
+						wineclub: 61500
+						gifts: 22734
+						pcv: 115867
+						pbv: 104807
+						tbv: 104807
+						dbv1: 104807
+						dbv2: 104807
+						dbv3: 104807
+						qualified: true
+						qualSubs: 0
+						teamVolume: 115867
+						orgVolume: 115867
+						qualDirs: 0
+						rank: Ambassador
+						commissions: 23173
+
+						name: Blair Bolles
+						consultant.data.rep: 1062
+						retail: 20000
+						wineclub: 27000
+						gifts: 1800
+						pcv: 42500
+						pbv: 38500
+						tbv: 76475
+						dbv1: 38500
+						dbv2: 38500
+						dbv3: 38500
+						qualified: true
+						qualSubs: 1
+						teamVolume: 84475
+						orgVolume: 84475
+						qualDirs: 0
+						rank: Associate Ambassador
+						commissions: 9259
+
+							name: JoAnne Winslow
+							consultant.data.rep: 1193
+							retail: 20000
+							wineclub: 18000
+							gifts: 15150
+							pcv: 41975
+							pbv: 37975
+							tbv: 37975
+							dbv1: 37975
+							dbv2: 37975
+							dbv3: 37975
+							qualified: true
+							qualSubs: 0
+							teamVolume: 41975
+							orgVolume: 41975
+							qualDirs: 0
+							rank: Ambassador
+							commissions: 8395
+
+			name: Steve Hamilton
+			consultant.data.rep: 1011
+			retail: 7300
+			wineclub: 44000
+			gifts: 4675
+			pcv: 44837
+			pbv: 43377
+			tbv: 43377
+			dbv1: 43377
+			dbv2: 43377
+			dbv3: 43377
+			qualified: true
+			qualSubs: 0
+			teamVolume: 44837
+			orgVolume: 44837
+			qualDirs: 0
+			rank: Ambassador
+			commissions: 8967
+
+			name: Carrie Schulte
+			consultant.data.rep: 1010
+			retail: 32900
+			wineclub: 79000
+			gifts: 27746
+			pcv: 109973
+			pbv: 103393
+			tbv: 369182
+			dbv1: 103393
+			dbv2: 103393
+			dbv3: 103393
+			qualified: true
+			qualSubs: 4
+			teamVolume: 402362
+			orgVolume: 1187338
+			qualDirs: 1
+			rank: Senior Director
+			commissions: 55960
+
+				name: KIM BOYARSKY
+				consultant.data.rep: 1327
+				retail: 25500
+				wineclub: 36000
+				gifts: 7075
+				pcv: 57837
+				pbv: 52737
+				tbv: 99082
+				dbv1: 52737
+				dbv2: 52737
+				dbv3: 52737
+				qualified: true
+				qualSubs: 1
+				teamVolume: 110302
+				orgVolume: 110302
+				qualDirs: 0
+				rank: Associate Ambassador
+				commissions: 12493
+
+					name: Lisa Rogers
+					consultant.data.rep: 1447
+					retail: 30600
+					wineclub: 8500
+					gifts: 30131
+					pcv: 52465
+					pbv: 46345
+					tbv: 46345
+					dbv1: 46345
+					dbv2: 46345
+					dbv3: 46345
+					qualified: true
+					qualSubs: 0
+					teamVolume: 52465
+					orgVolume: 52465
+					qualDirs: 0
+					rank: Ambassador
+					commissions: 10493
+
+				name: Jules Kolb
+				consultant.data.rep: 1264
+				retail: 0
+				wineclub: 34000
+				gifts: 0
+				pcv: 27200
+				pbv: 27200
+				tbv: 27200
+				dbv1: 27200
+				dbv2: 27200
+				dbv3: 27200
+				qualified: true
+				qualSubs: 0
+				teamVolume: 27200
+				orgVolume: 27200
+				qualDirs: 0
+				rank: Ambassador
+				commissions: 5440
+
+				name: Crystal Barnes
+				consultant.data.rep: 1233
+				retail: 17500
+				wineclub: 45000
+				gifts: 20701
+				pcv: 63850
+				pbv: 60350
+				tbv: 60350
+				dbv1: 60350
+				dbv2: 60350
+				dbv3: 60350
+				qualified: true
+				qualSubs: 0
+				teamVolume: 63850
+				orgVolume: 63850
+				qualDirs: 0
+				rank: Ambassador
+				commissions: 12770
+
+				name: Aleshia Booth
+				consultant.data.rep: 1163
+				retail: 13500
+				wineclub: 0
+				gifts: 21525
+				pcv: 24262
+				pbv: 21562
+				tbv: 21562
+				dbv1: 21562
+				dbv2: 21562
+				dbv3: 21562
+				qualified: false
+				qualSubs: 0
+				teamVolume: 24262
+				orgVolume: 24262
+				qualDirs: 0
+				rank: Ambassador
+				commissions: 0
+
+				name: Heather Williams
+				consultant.data.rep: 1160
+				retail: 59400
+				wineclub: 0
+				gifts: 63274
+				pcv: 91037
+				pbv: 79157
+				tbv: 79157
+				dbv1: 79157
+				dbv2: 79157
+				dbv3: 79157
+				qualified: true
+				qualSubs: 0
+				teamVolume: 91037
+				orgVolume: 91037
+				qualDirs: 0
+				rank: Ambassador
+				commissions: 18207
+
+				name: Elizabeth J. Regan
+				consultant.data.rep: 1014
+				retail: 69300
+				wineclub: 72000
+				gifts: 29225
+				pcv: 141512
+				pbv: 127652
+				tbv: 691974
+				dbv1: 127652
+				dbv2: 127652
+				dbv3: 127652
+				qualified: true
+				qualSubs: 6
+				teamVolume: 760714
+				orgVolume: 760714
+				qualDirs: 0
+				rank: Director
+				commissions: 73111
+
+					name: Don McMahan
+					consultant.data.rep: 1478
+					retail: 0
+					wineclub: 0
+					gifts: 0
+					pcv: 0
+					pbv: 0
+					tbv: 0
+					dbv1: 0
+					dbv2: 0
+					dbv3: 0
+					qualified: false
+					qualSubs: 0
+					teamVolume: 0
+					orgVolume: 0
+					qualDirs: 0
+					rank: Ambassador
+					commissions: 0
+
+					name: Einar Andrade
+					consultant.data.rep: 1406
+					retail: 5000
+					wineclub: 18000
+					gifts: 39025
+					pcv: 38912
+					pbv: 37912
+					tbv: 37912
+					dbv1: 37912
+					dbv2: 37912
+					dbv3: 37912
+					qualified: true
+					qualSubs: 0
+					teamVolume: 38912
+					orgVolume: 38912
+					qualDirs: 0
+					rank: Ambassador
+					commissions: 7782
+
+					name: Rosemary Carpenello
+					consultant.data.rep: 1204
+					retail: 48200
+					wineclub: 86000
+					gifts: 76066
+					pcv: 155033
+					pbv: 145393
+					tbv: 145393
+					dbv1: 145393
+					dbv2: 145393
+					dbv3: 145393
+					qualified: true
+					qualSubs: 0
+					teamVolume: 155033
+					orgVolume: 155033
+					qualDirs: 0
+					rank: Ambassador
+					commissions: 31006
+
+					name: Dave Goulart
+					consultant.data.rep: 1203
+					retail: 0
+					wineclub: 70000
+					gifts: 13800
+					pcv: 62900
+					pbv: 62900
+					tbv: 62900
+					dbv1: 62900
+					dbv2: 62900
+					dbv3: 62900
+					qualified: true
+					qualSubs: 0
+					teamVolume: 62900
+					orgVolume: 62900
+					qualDirs: 0
+					rank: Ambassador
+					commissions: 12580
+
+					name: Jane Whitehurst
+					consultant.data.rep: 1126
+					retail: 84800
+					wineclub: 42500
+					gifts: 47380
+					pcv: 142490
+					pbv: 125530
+					tbv: 229980
+					dbv1: 125530
+					dbv2: 125530
+					dbv3: 125530
+					qualified: true
+					qualSubs: 1
+					teamVolume: 261340
+					orgVolume: 261340
+					qualDirs: 0
+					rank: Associate Ambassador
+					commissions: 30587
+
+						name: Anne Whitehurst
+						consultant.data.rep: 1211
+						retail: 72000
+						wineclub: 27000
+						gifts: 50501
+						pcv: 118850
+						pbv: 104450
+						tbv: 104450
+						dbv1: 104450
+						dbv2: 104450
+						dbv3: 104450
+						qualified: true
+						qualSubs: 0
+						teamVolume: 118850
+						orgVolume: 118850
+						qualDirs: 0
+						rank: Ambassador
+						commissions: 23770
+
+					name: Theresa Olguin
+					consultant.data.rep: 1112
+					retail: 23000
+					wineclub: 25500
+					gifts: 13946
+					pcv: 50373
+					pbv: 45773
+					tbv: 45773
+					dbv1: 45773
+					dbv2: 45773
+					dbv3: 45773
+					qualified: true
+					qualSubs: 0
+					teamVolume: 50373
+					orgVolume: 50373
+					qualDirs: 0
+					rank: Ambassador
+					commissions: 10074
+
+					name: Marylou R Descalso
+					consultant.data.rep: 1045
+					retail: 41400
+					wineclub: 9000
+					gifts: 4088
+					pcv: 50644
+					pbv: 42364
+					tbv: 42364
+					dbv1: 42364
+					dbv2: 42364
+					dbv3: 42364
+					qualified: true
+					qualSubs: 0
+					teamVolume: 50644
+					orgVolume: 50644
+					qualDirs: 0
+					rank: Ambassador
+					commissions: 10128
+
+		name: Jill Schultz
+		consultant.data.rep: 1002
+		retail: 33000
+		wineclub: 18000
+		gifts: 13150
+		pcv: 53975
+		pbv: 47375
+		tbv: 3174044
+		dbv1: 47375
+		dbv2: 47375
+		dbv3: 47375
+		qualified: true
+		qualSubs: 27
+		teamVolume: 3498324
+		orgVolume: 6016308
+		qualDirs: 1
+		rank: Senior Director
+		commissions: 176602
+
+			name: Amanda Matamala
+			consultant.data.rep: 1495
+			retail: 53000
+			wineclub: 44500
+			gifts: 16775
+			pcv: 96987
+			pbv: 86387
+			tbv: 86387
+			dbv1: 86387
+			dbv2: 86387
+			dbv3: 86387
+			qualified: true
+			qualSubs: 0
+			teamVolume: 96987
+			orgVolume: 96987
+			qualDirs: 0
+			rank: Ambassador
+			commissions: 19397
+
+			name: Keri & Ken Roberts
+			consultant.data.rep: 1481
+			retail: 84000
+			wineclub: 25500
+			gifts: 7625
+			pcv: 108212
+			pbv: 91412
+			tbv: 91412
+			dbv1: 91412
+			dbv2: 91412
+			dbv3: 91412
+			qualified: true
+			qualSubs: 0
+			teamVolume: 108212
+			orgVolume: 108212
+			qualDirs: 0
+			rank: Ambassador
+			commissions: 21642
+
+			name: Gary Frazier
+			consultant.data.rep: 1473
+			retail: 54700
+			wineclub: 89000
+			gifts: 29515
+			pcv: 140657
+			pbv: 129717
+			tbv: 129717
+			dbv1: 129717
+			dbv2: 129717
+			dbv3: 129717
+			qualified: true
+			qualSubs: 0
+			teamVolume: 140657
+			orgVolume: 140657
+			qualDirs: 0
+			rank: Ambassador
+			commissions: 28131
+
+			name: Stephanie Layton
+			consultant.data.rep: 1463
+			retail: 12500
+			wineclub: 35500
+			gifts: 15947
+			pcv: 48873
+			pbv: 46373
+			tbv: 46373
+			dbv1: 46373
+			dbv2: 46373
+			dbv3: 46373
+			qualified: true
+			qualSubs: 0
+			teamVolume: 48873
+			orgVolume: 48873
+			qualDirs: 0
+			rank: Ambassador
+			commissions: 9774
+
+			name: Mary Michele  Kuzma
+			consultant.data.rep: 1437
+			retail: 49100
+			wineclub: 81000
+			gifts: 39477
+			pcv: 133638
+			pbv: 123818
+			tbv: 266521
+			dbv1: 123818
+			dbv2: 123818
+			dbv3: 123818
+			qualified: true
+			qualSubs: 1
+			teamVolume: 287541
+			orgVolume: 297040
+			qualDirs: 0
+			rank: Associate Ambassador
+			commissions: 27752
+
+				name: Katie Rhone
+				consultant.data.rep: 1439
+				retail: 26700
+				wineclub: 34000
+				gifts: 5400
+				pcv: 56600
+				pbv: 51260
+				tbv: 142703
+				dbv1: 51260
+				dbv2: 51260
+				dbv3: 51260
+				qualified: true
+				qualSubs: 1
+				teamVolume: 153903
+				orgVolume: 163402
+				qualDirs: 0
+				rank: Associate Ambassador
+				commissions: 13303
+
+					name: Rebecca Weber
+					consultant.data.rep: 1491
+					retail: 8800
+					wineclub: 0
+					gifts: 1398
+					pcv: 9499
+					pbv: 7739
+					tbv: 7739
+					dbv1: 7739
+					dbv2: 7739
+					dbv3: 7739
+					qualified: false
+					qualSubs: 0
+					teamVolume: 9499
+					orgVolume: 9499
+					qualDirs: 0
+					rank: Ambassador
+					commissions: 0
+
+					name: Beth Bruss
+					consultant.data.rep: 1461
+					retail: 29300
+					wineclub: 62000
+					gifts: 36807
+					pcv: 97303
+					pbv: 91443
+					tbv: 91443
+					dbv1: 91443
+					dbv2: 91443
+					dbv3: 91443
+					qualified: true
+					qualSubs: 0
+					teamVolume: 97303
+					orgVolume: 97303
+					qualDirs: 0
+					rank: Ambassador
+					commissions: 19460
+
+			name: Brian Moran
+			consultant.data.rep: 1429
+			retail: 60600
+			wineclub: 70000
+			gifts: 45741
+			pcv: 139470
+			pbv: 127350
+			tbv: 127350
+			dbv1: 127350
+			dbv2: 127350
+			dbv3: 127350
+			qualified: true
+			qualSubs: 0
+			teamVolume: 139470
+			orgVolume: 139470
+			qualDirs: 0
+			rank: Ambassador
+			commissions: 27894
+
+			name: George Anderson
+			consultant.data.rep: 1426
+			retail: 3600
+			wineclub: 34000
+			gifts: 5423
+			pcv: 33511
+			pbv: 32791
+			tbv: 32791
+			dbv1: 32791
+			dbv2: 32791
+			dbv3: 32791
+			qualified: true
+			qualSubs: 0
+			teamVolume: 33511
+			orgVolume: 33511
+			qualDirs: 0
+			rank: Ambassador
+			commissions: 6702
+
+			name: Vickyana Vanderpool
+			consultant.data.rep: 1387
+			retail: 37100
+			wineclub: 0
+			gifts: 4388
+			pcv: 39294
+			pbv: 31874
+			tbv: 31874
+			dbv1: 31874
+			dbv2: 31874
+			dbv3: 31874
+			qualified: true
+			qualSubs: 0
+			teamVolume: 39294
+			orgVolume: 39294
+			qualDirs: 0
+			rank: Ambassador
+			commissions: 7858
+
+			name: Michael Faherty
+			consultant.data.rep: 1376
+			retail: 18900
+			wineclub: 0
+			gifts: 3425
+			pcv: 20612
+			pbv: 16832
+			tbv: 16832
+			dbv1: 16832
+			dbv2: 16832
+			dbv3: 16832
+			qualified: false
+			qualSubs: 0
+			teamVolume: 20612
+			orgVolume: 20612
+			qualDirs: 0
+			rank: Ambassador
+			commissions: 0
+
+			name: John and Sarah Lattanza
+			consultant.data.rep: 1373
+			retail: 15400
+			wineclub: 0
+			gifts: 2097
+			pcv: 16448
+			pbv: 13368
+			tbv: 13368
+			dbv1: 13368
+			dbv2: 13368
+			dbv3: 13368
+			qualified: false
+			qualSubs: 0
+			teamVolume: 16448
+			orgVolume: 16448
+			qualDirs: 0
+			rank: Ambassador
+			commissions: 0
+
+			name: Arlana Kerigan
+			consultant.data.rep: 1313
+			retail: 106700
+			wineclub: 8500
+			gifts: 24351
+			pcv: 125675
+			pbv: 104335
+			tbv: 104335
+			dbv1: 104335
+			dbv2: 104335
+			dbv3: 104335
+			qualified: true
+			qualSubs: 0
+			teamVolume: 125675
+			orgVolume: 125675
+			qualDirs: 0
+			rank: Ambassador
+			commissions: 25135
+
+			name: Jose Luna
+			consultant.data.rep: 1311
+			retail: 40400
+			wineclub: 9000
+			gifts: 44300
+			pcv: 69750
+			pbv: 61670
+			tbv: 61670
+			dbv1: 61670
+			dbv2: 61670
+			dbv3: 61670
+			qualified: true
+			qualSubs: 0
+			teamVolume: 69750
+			orgVolume: 69750
+			qualDirs: 0
+			rank: Ambassador
+			commissions: 13950
+
+			name: Elizabeth Dunn
+			consultant.data.rep: 1310
+			retail: 20200
+			wineclub: 79500
+			gifts: 51160
+			pcv: 109380
+			pbv: 105340
+			tbv: 105340
+			dbv1: 105340
+			dbv2: 105340
+			dbv3: 105340
+			qualified: true
+			qualSubs: 0
+			teamVolume: 109380
+			orgVolume: 109380
+			qualDirs: 0
+			rank: Ambassador
+			commissions: 21876
+
+			name: Amy Morehouse
+			consultant.data.rep: 1309
+			retail: 101800
+			wineclub: 113000
+			gifts: 4000
+			pcv: 194200
+			pbv: 173840
+			tbv: 173840
+			dbv1: 173840
+			dbv2: 173840
+			dbv3: 173840
+			qualified: true
+			qualSubs: 0
+			teamVolume: 194200
+			orgVolume: 194200
+			qualDirs: 0
+			rank: Ambassador
+			commissions: 38840
+
+			name: Lauri Armon
+			consultant.data.rep: 1308
+			retail: 27500
+			wineclub: 43000
+			gifts: 27780
+			pcv: 75790
+			pbv: 70290
+			tbv: 70290
+			dbv1: 70290
+			dbv2: 70290
+			dbv3: 70290
+			qualified: true
+			qualSubs: 0
+			teamVolume: 75790
+			orgVolume: 75790
+			qualDirs: 0
+			rank: Ambassador
+			commissions: 15158
+
+			name: Merry Kingsley
+			consultant.data.rep: 1302
+			retail: 13600
+			wineclub: 0
+			gifts: 19375
+			pcv: 23287
+			pbv: 20567
+			tbv: 20567
+			dbv1: 20567
+			dbv2: 20567
+			dbv3: 20567
+			qualified: false
+			qualSubs: 0
+			teamVolume: 23287
+			orgVolume: 23287
+			qualDirs: 0
+			rank: Ambassador
+			commissions: 0
+
+			name: Christine Winter
+			consultant.data.rep: 1296
+			retail: 12800
+			wineclub: 44500
+			gifts: 62165
+			pcv: 79482
+			pbv: 76922
+			tbv: 99269
+			dbv1: 76922
+			dbv2: 76922
+			dbv3: 76922
+			qualified: true
+			qualSubs: 1
+			teamVolume: 106229
+			orgVolume: 106229
+			qualDirs: 0
+			rank: Associate Ambassador
+			commissions: 16342
+
+				name: David Winter
+				consultant.data.rep: 1340
+				retail: 22000
+				wineclub: 0
+				gifts: 9495
+				pcv: 26747
+				pbv: 22347
+				tbv: 22347
+				dbv1: 22347
+				dbv2: 22347
+				dbv3: 22347
+				qualified: true
+				qualSubs: 0
+				teamVolume: 26747
+				orgVolume: 26747
+				qualDirs: 0
+				rank: Ambassador
+				commissions: 5349
+
+			name: Jenny Armour
+			consultant.data.rep: 1295
+			retail: 69800
+			wineclub: 60500
+			gifts: 51990
+			pcv: 144195
+			pbv: 130235
+			tbv: 130235
+			dbv1: 130235
+			dbv2: 130235
+			dbv3: 130235
+			qualified: true
+			qualSubs: 0
+			teamVolume: 144195
+			orgVolume: 144195
+			qualDirs: 0
+			rank: Ambassador
+			commissions: 28839
+
+			name: Valerie Dodge
+			consultant.data.rep: 1221
+			retail: 12900
+			wineclub: 0
+			gifts: 9000
+			pcv: 17400
+			pbv: 14820
+			tbv: 14820
+			dbv1: 14820
+			dbv2: 14820
+			dbv3: 14820
+			qualified: false
+			qualSubs: 0
+			teamVolume: 17400
+			orgVolume: 17400
+			qualDirs: 0
+			rank: Ambassador
+			commissions: 0
+
+			name: Lance Cutsforth
+			consultant.data.rep: 1212
+			retail: 60500
+			wineclub: 61000
+			gifts: 38900
+			pcv: 128750
+			pbv: 116650
+			tbv: 116650
+			dbv1: 116650
+			dbv2: 116650
+			dbv3: 116650
+			qualified: true
+			qualSubs: 0
+			teamVolume: 128750
+			orgVolume: 128750
+			qualDirs: 0
+			rank: Ambassador
+			commissions: 25750
+
+			name: Kay Sirianni
+			consultant.data.rep: 1166
+			retail: 44200
+			wineclub: 61000
+			gifts: 41650
+			pcv: 113825
+			pbv: 104985
+			tbv: 272990
+			dbv1: 104985
+			dbv2: 104985
+			dbv3: 104985
+			qualified: true
+			qualSubs: 1
+			teamVolume: 294470
+			orgVolume: 294470
+			qualDirs: 0
+			rank: Associate Ambassador
+			commissions: 24458
+
+				name: Paula Gabriola
+				consultant.data.rep: 1245
+				retail: 19800
+				wineclub: 70000
+				gifts: 25710
+				pcv: 88655
+				pbv: 84695
+				tbv: 168005
+				dbv1: 84695
+				dbv2: 84695
+				dbv3: 84695
+				qualified: true
+				qualSubs: 1
+				teamVolume: 180645
+				orgVolume: 180645
+				qualDirs: 0
+				rank: Associate Ambassador
+				commissions: 19397
+
+					name: Claudia Streeter
+					consultant.data.rep: 1341
+					retail: 43400
+					wineclub: 36000
+					gifts: 39580
+					pcv: 91990
+					pbv: 83310
+					tbv: 83310
+					dbv1: 83310
+					dbv2: 83310
+					dbv3: 83310
+					qualified: true
+					qualSubs: 0
+					teamVolume: 91990
+					orgVolume: 91990
+					qualDirs: 0
+					rank: Ambassador
+					commissions: 18398
+
+			name: Barry Layne
+			consultant.data.rep: 1147
+			retail: 49400
+			wineclub: 0
+			gifts: 0
+			pcv: 49400
+			pbv: 39520
+			tbv: 39520
+			dbv1: 39520
+			dbv2: 39520
+			dbv3: 39520
+			qualified: true
+			qualSubs: 0
+			teamVolume: 49400
+			orgVolume: 49400
+			qualDirs: 0
+			rank: Ambassador
+			commissions: 9880
+
+			name: Emran Javadov
+			consultant.data.rep: 1134
+			retail: 102400
+			wineclub: 42500
+			gifts: 17325
+			pcv: 145062
+			pbv: 124582
+			tbv: 124582
+			dbv1: 124582
+			dbv2: 124582
+			dbv3: 124582
+			qualified: true
+			qualSubs: 0
+			teamVolume: 145062
+			orgVolume: 145062
+			qualDirs: 0
+			rank: Ambassador
+			commissions: 29012
+
+			name: Damien Devine
+			consultant.data.rep: 1128
+			retail: 33000
+			wineclub: 34000
+			gifts: 4600
+			pcv: 62500
+			pbv: 55900
+			tbv: 55900
+			dbv1: 55900
+			dbv2: 55900
+			dbv3: 55900
+			qualified: true
+			qualSubs: 0
+			teamVolume: 62500
+			orgVolume: 62500
+			qualDirs: 0
+			rank: Ambassador
+			commissions: 12500
+
+			name: Jaime Rueda
+			consultant.data.rep: 1120
+			retail: 42300
+			wineclub: 44000
+			gifts: 32200
+			pcv: 93600
+			pbv: 85140
+			tbv: 130692
+			dbv1: 85140
+			dbv2: 85140
+			dbv3: 85140
+			qualified: true
+			qualSubs: 1
+			teamVolume: 148792
+			orgVolume: 148792
+			qualDirs: 0
+			rank: Associate Ambassador
+			commissions: 19631
+
+				name: Robyn Shultz
+				consultant.data.rep: 1218
+				retail: 48200
+				wineclub: 0
+				gifts: 13984
+				pcv: 55192
+				pbv: 45552
+				tbv: 45552
+				dbv1: 45552
+				dbv2: 45552
+				dbv3: 45552
+				qualified: true
+				qualSubs: 0
+				teamVolume: 55192
+				orgVolume: 55192
+				qualDirs: 0
+				rank: Ambassador
+				commissions: 11038
+
+			name: Gary Pado
+			consultant.data.rep: 1119
+			retail: 46900
+			wineclub: 149500
+			gifts: 42175
+			pcv: 187587
+			pbv: 178207
+			tbv: 178207
+			dbv1: 178207
+			dbv2: 178207
+			dbv3: 178207
+			qualified: true
+			qualSubs: 0
+			teamVolume: 187587
+			orgVolume: 187587
+			qualDirs: 0
+			rank: Ambassador
+			commissions: 37517
+
+			name: Deborah Gray
+			consultant.data.rep: 1108
+			retail: 12000
+			wineclub: 51500
+			gifts: 26813
+			pcv: 66606
+			pbv: 64206
+			tbv: 301568
+			dbv1: 64206
+			dbv2: 64206
+			dbv3: 64206
+			qualified: true
+			qualSubs: 1
+			teamVolume: 327928
+			orgVolume: 327928
+			qualDirs: 0
+			rank: Associate Ambassador
+			commissions: 15091
+
+				name: Lorie Okulove Pat Sielski
+				consultant.data.rep: 1388
+				retail: 25100
+				wineclub: 52500
+				gifts: 52900
+				pcv: 93550
+				pbv: 88530
+				tbv: 237362
+				dbv1: 88530
+				dbv2: 88530
+				dbv3: 88530
+				qualified: true
+				qualSubs: 1
+				teamVolume: 261322
+				orgVolume: 261322
+				qualDirs: 0
+				rank: Associate Ambassador
+				commissions: 21686
+
+					name: Carolina Daza
+					consultant.data.rep: 1389
+					retail: 94700
+					wineclub: 68000
+					gifts: 37344
+					pcv: 167772
+					pbv: 148832
+					tbv: 148832
+					dbv1: 148832
+					dbv2: 148832
+					dbv3: 148832
+					qualified: true
+					qualSubs: 0
+					teamVolume: 167772
+					orgVolume: 167772
+					qualDirs: 0
+					rank: Ambassador
+					commissions: 33554
+
+			name: Megan Kane
+			consultant.data.rep: 1046
+			retail: 9500
+			wineclub: 0
+			gifts: 31895
+			pcv: 25447
+			pbv: 23547
+			tbv: 23547
+			dbv1: 23547
+			dbv2: 23547
+			dbv3: 23547
+			qualified: true
+			qualSubs: 0
+			teamVolume: 25447
+			orgVolume: 25447
+			qualDirs: 0
+			rank: Ambassador
+			commissions: 5089
+
+			name: Kelli Rucker
+			consultant.data.rep: 1043
+			retail: 28000
+			wineclub: 0
+			gifts: 37751
+			pcv: 46875
+			pbv: 41275
+			tbv: 41275
+			dbv1: 41275
+			dbv2: 41275
+			dbv3: 41275
+			qualified: true
+			qualSubs: 0
+			teamVolume: 46875
+			orgVolume: 46875
+			qualDirs: 0
+			rank: Ambassador
+			commissions: 9375
+
+			name: MiShawn Williams
+			consultant.data.rep: 1029
+			retail: 47600
+			wineclub: 27000
+			gifts: 23500
+			pcv: 80950
+			pbv: 71430
+			tbv: 1799260
+			dbv1: 71430
+			dbv2: 71430
+			dbv3: 71430
+			qualified: true
+			qualSubs: 17
+			teamVolume: 1986220
+			orgVolume: 2106164
+			qualDirs: 0
+			rank: Director
+			commissions: 111866
+
+				name: Mary Ann M. Pastor
+				consultant.data.rep: 1418
+				retail: 0
+				wineclub: 8500
+				gifts: 13980
+				pcv: 13790
+				pbv: 13790
+				tbv: 13790
+				dbv1: 13790
+				dbv2: 13790
+				dbv3: 13790
+				qualified: false
+				qualSubs: 0
+				teamVolume: 13790
+				orgVolume: 13790
+				qualDirs: 0
+				rank: Ambassador
+				commissions: 0
+
+				name: Joanna Dunn
+				consultant.data.rep: 1381
+				retail: 69200
+				wineclub: 36000
+				gifts: 33872
+				pcv: 114936
+				pbv: 101096
+				tbv: 101096
+				dbv1: 101096
+				dbv2: 101096
+				dbv3: 101096
+				qualified: true
+				qualSubs: 0
+				teamVolume: 114936
+				orgVolume: 114936
+				qualDirs: 0
+				rank: Ambassador
+				commissions: 22987
+
+				name: Catherine Harnett
+				consultant.data.rep: 1358
+				retail: 80800
+				wineclub: 27000
+				gifts: 44600
+				pcv: 124700
+				pbv: 108540
+				tbv: 189588
+				dbv1: 108540
+				dbv2: 108540
+				dbv3: 108540
+				qualified: true
+				qualSubs: 1
+				teamVolume: 216428
+				orgVolume: 216428
+				qualDirs: 0
+				rank: Associate Ambassador
+				commissions: 26560
+
+					name: Tracy Hess
+					consultant.data.rep: 1383
+					retail: 53400
+					wineclub: 26000
+					gifts: 35056
+					pcv: 91728
+					pbv: 81048
+					tbv: 81048
+					dbv1: 81048
+					dbv2: 81048
+					dbv3: 81048
+					qualified: true
+					qualSubs: 0
+					teamVolume: 91728
+					orgVolume: 91728
+					qualDirs: 0
+					rank: Ambassador
+					commissions: 18345
+
+				name: Angela Mack
+				consultant.data.rep: 1348
+				retail: 17600
+				wineclub: 0
+				gifts: 11485
+				pcv: 23342
+				pbv: 19822
+				tbv: 19822
+				dbv1: 19822
+				dbv2: 19822
+				dbv3: 19822
+				qualified: false
+				qualSubs: 0
+				teamVolume: 23342
+				orgVolume: 23342
+				qualDirs: 0
+				rank: Ambassador
+				commissions: 0
+
+				name: Lori Pabros
+				consultant.data.rep: 1324
+				retail: 7500
+				wineclub: 17000
+				gifts: 17925
+				pcv: 30062
+				pbv: 28562
+				tbv: 28562
+				dbv1: 28562
+				dbv2: 28562
+				dbv3: 28562
+				qualified: true
+				qualSubs: 0
+				teamVolume: 30062
+				orgVolume: 30062
+				qualDirs: 0
+				rank: Ambassador
+				commissions: 6012
+
+				name: Cassandra Melhuish
+				consultant.data.rep: 1258
+				retail: 32000
+				wineclub: 34500
+				gifts: 4000
+				pcv: 61600
+				pbv: 55200
+				tbv: 124325
+				dbv1: 55200
+				dbv2: 55200
+				dbv3: 55200
+				qualified: true
+				qualSubs: 1
+				teamVolume: 140145
+				orgVolume: 140145
+				qualDirs: 0
+				rank: Associate Ambassador
+				commissions: 13702
+
+					name: LaMease Theis
+					consultant.data.rep: 1346
+					retail: 47100
+					wineclub: 17000
+					gifts: 35690
+					pcv: 78545
+					pbv: 69125
+					tbv: 69125
+					dbv1: 69125
+					dbv2: 69125
+					dbv3: 69125
+					qualified: true
+					qualSubs: 0
+					teamVolume: 78545
+					orgVolume: 78545
+					qualDirs: 0
+					rank: Ambassador
+					commissions: 15709
+
+				name: Anna Tkachenko
+				consultant.data.rep: 1257
+				retail: 21400
+				wineclub: 25500
+				gifts: 14150
+				pcv: 48875
+				pbv: 44595
+				tbv: 44595
+				dbv1: 44595
+				dbv2: 44595
+				dbv3: 44595
+				qualified: true
+				qualSubs: 0
+				teamVolume: 48875
+				orgVolume: 48875
+				qualDirs: 0
+				rank: Ambassador
+				commissions: 9775
+
+				name: Eric Ellis
+				consultant.data.rep: 1255
+				retail: 61300
+				wineclub: 54000
+				gifts: 6000
+				pcv: 107500
+				pbv: 95240
+				tbv: 95240
+				dbv1: 95240
+				dbv2: 95240
+				dbv3: 95240
+				qualified: true
+				qualSubs: 0
+				teamVolume: 107500
+				orgVolume: 107500
+				qualDirs: 0
+				rank: Ambassador
+				commissions: 21500
+
+				name: Nichole Wright
+				consultant.data.rep: 1252
+				retail: 76800
+				wineclub: 27000
+				gifts: 19485
+				pcv: 108142
+				pbv: 92782
+				tbv: 92782
+				dbv1: 92782
+				dbv2: 92782
+				dbv3: 92782
+				qualified: true
+				qualSubs: 0
+				teamVolume: 108142
+				orgVolume: 108142
+				qualDirs: 0
+				rank: Ambassador
+				commissions: 21628
+
+				name: Jennifer Okosun
+				consultant.data.rep: 1213
+				retail: 11600
+				wineclub: 27000
+				gifts: 3600
+				pcv: 35000
+				pbv: 32680
+				tbv: 79089
+				dbv1: 32680
+				dbv2: 32680
+				dbv3: 32680
+				qualified: true
+				qualSubs: 1
+				teamVolume: 83409
+				orgVolume: 91209
+				qualDirs: 0
+				rank: Associate Ambassador
+				commissions: 8084
+
+					name: Tamika Woodard
+					consultant.data.rep: 1396
+					retail: 10000
+					wineclub: 26000
+					gifts: 35219
+					pcv: 48409
+					pbv: 46409
+					tbv: 46409
+					dbv1: 46409
+					dbv2: 46409
+					dbv3: 46409
+					qualified: true
+					qualSubs: 0
+					teamVolume: 48409
+					orgVolume: 48409
+					qualDirs: 0
+					rank: Ambassador
+					commissions: 9681
+
+					name: KENNETH BROWN
+					consultant.data.rep: 1379
+					retail: 0
+					wineclub: 9000
+					gifts: 0
+					pcv: 7200
+					pbv: 7200
+					tbv: 7200
+					dbv1: 7200
+					dbv2: 7200
+					dbv3: 7200
+					qualified: false
+					qualSubs: 0
+					teamVolume: 7200
+					orgVolume: 7200
+					qualDirs: 0
+					rank: Ambassador
+					commissions: 0
+
+					name: Cynthia Nelson
+					consultant.data.rep: 1331
+					retail: 0
+					wineclub: 0
+					gifts: 1200
+					pcv: 600
+					pbv: 600
+					tbv: 600
+					dbv1: 600
+					dbv2: 600
+					dbv3: 600
+					qualified: false
+					qualSubs: 0
+					teamVolume: 600
+					orgVolume: 600
+					qualDirs: 0
+					rank: Ambassador
+					commissions: 0
+
+				name: Leandra Almodovar
+				consultant.data.rep: 1198
+				retail: 57600
+				wineclub: 78500
+				gifts: 122222
+				pcv: 181511
+				pbv: 169991
+				tbv: 169991
+				dbv1: 169991
+				dbv2: 169991
+				dbv3: 169991
+				qualified: true
+				qualSubs: 0
+				teamVolume: 181511
+				orgVolume: 181511
+				qualDirs: 0
+				rank: Ambassador
+				commissions: 36302
+
+				name: Maria Rowson
+				consultant.data.rep: 1139
+				retail: 7500
+				wineclub: 8500
+				gifts: 300
+				pcv: 14450
+				pbv: 12950
+				tbv: 12950
+				dbv1: 12950
+				dbv2: 12950
+				dbv3: 12950
+				qualified: false
+				qualSubs: 0
+				teamVolume: 14450
+				orgVolume: 14450
+				qualDirs: 0
+				rank: Ambassador
+				commissions: 0
+
+				name: Patrick Sauliere
+				consultant.data.rep: 1138
+				retail: 90100
+				wineclub: 0
+				gifts: 14775
+				pcv: 97487
+				pbv: 79467
+				tbv: 79467
+				dbv1: 79467
+				dbv2: 79467
+				dbv3: 79467
+				qualified: true
+				qualSubs: 0
+				teamVolume: 97487
+				orgVolume: 137912
+				qualDirs: 0
+				rank: Ambassador
+				commissions: 19497
+
+					name: Brenda Jorgensen
+					consultant.data.rep: 1224
+					retail: 14700
+					wineclub: 0
+					gifts: 0
+					pcv: 14700
+					pbv: 11760
+					tbv: 35685
+					dbv1: 11760
+					dbv2: 11760
+					dbv3: 11760
+					qualified: false
+					qualSubs: 1
+					teamVolume: 40425
+					orgVolume: 40425
+					qualDirs: 0
+					rank: Ambassador
+					commissions: 0
+
+						name: Lynn Hayward
+						consultant.data.rep: 1401
+						retail: 9000
+						wineclub: 0
+						gifts: 33450
+						pcv: 25725
+						pbv: 23925
+						tbv: 23925
+						dbv1: 23925
+						dbv2: 23925
+						dbv3: 23925
+						qualified: true
+						qualSubs: 0
+						teamVolume: 25725
+						orgVolume: 25725
+						qualDirs: 0
+						rank: Ambassador
+						commissions: 5145
+
+				name: Shanna Bush
+				consultant.data.rep: 1132
+				retail: 22100
+				wineclub: 59500
+				gifts: 22300
+				pcv: 80850
+				pbv: 76430
+				tbv: 76430
+				dbv1: 76430
+				dbv2: 76430
+				dbv3: 76430
+				qualified: true
+				qualSubs: 0
+				teamVolume: 80850
+				orgVolume: 85987
+				qualDirs: 0
+				rank: Ambassador
+				commissions: 16170
+
+					name: Talia Hollins
+					consultant.data.rep: 1470
+					retail: 0
+					wineclub: 0
+					gifts: 10275
+					pcv: 5137
+					pbv: 5137
+					tbv: 5137
+					dbv1: 5137
+					dbv2: 5137
+					dbv3: 5137
+					qualified: false
+					qualSubs: 0
+					teamVolume: 5137
+					orgVolume: 5137
+					qualDirs: 0
+					rank: Ambassador
+					commissions: 0
+
+				name: Renee Leach
+				consultant.data.rep: 1123
+				retail: 23000
+				wineclub: 43500
+				gifts: 61646
+				pcv: 88623
+				pbv: 84023
+				tbv: 84023
+				dbv1: 84023
+				dbv2: 84023
+				dbv3: 84023
+				qualified: true
+				qualSubs: 0
+				teamVolume: 88623
+				orgVolume: 88623
+				qualDirs: 0
+				rank: Ambassador
+				commissions: 17724
+
+				name: Joy Rodriguez
+				consultant.data.rep: 1115
+				retail: 15200
+				wineclub: 44000
+				gifts: 2900
+				pcv: 51850
+				pbv: 48810
+				tbv: 48810
+				dbv1: 48810
+				dbv2: 48810
+				dbv3: 48810
+				qualified: true
+				qualSubs: 0
+				teamVolume: 51850
+				orgVolume: 51850
+				qualDirs: 0
+				rank: Ambassador
+				commissions: 10370
+
+				name: Nancie Hemminger
+				consultant.data.rep: 1096
+				retail: 0
+				wineclub: 53000
+				gifts: 27140
+				pcv: 55970
+				pbv: 55970
+				tbv: 247339
+				dbv1: 55970
+				dbv2: 55970
+				dbv3: 55970
+				qualified: true
+				qualSubs: 3
+				teamVolume: 270419
+				orgVolume: 270419
+				qualDirs: 0
+				rank: Senior Ambassador
+				commissions: 16935
+
+					name: Myong Chon
+					consultant.data.rep: 1469
+					retail: 45900
+					wineclub: 72000
+					gifts: 21400
+					pcv: 114200
+					pbv: 105020
+					tbv: 105020
+					dbv1: 105020
+					dbv2: 105020
+					dbv3: 105020
+					qualified: true
+					qualSubs: 0
+					teamVolume: 114200
+					orgVolume: 114200
+					qualDirs: 0
+					rank: Ambassador
+					commissions: 22840
+
+					name: Douglas Harrison Snell
+					consultant.data.rep: 1427
+					retail: 29000
+					wineclub: 17500
+					gifts: 8875
+					pcv: 47437
+					pbv: 41637
+					tbv: 41637
+					dbv1: 41637
+					dbv2: 41637
+					dbv3: 41637
+					qualified: true
+					qualSubs: 0
+					teamVolume: 47437
+					orgVolume: 47437
+					qualDirs: 0
+					rank: Ambassador
+					commissions: 9487
+
+					name: Vicki & Bob Eggers
+					consultant.data.rep: 1413
+					retail: 40500
+					wineclub: 0
+					gifts: 24625
+					pcv: 52812
+					pbv: 44712
+					tbv: 44712
+					dbv1: 44712
+					dbv2: 44712
+					dbv3: 44712
+					qualified: true
+					qualSubs: 0
+					teamVolume: 52812
+					orgVolume: 52812
+					qualDirs: 0
+					rank: Ambassador
+					commissions: 10562
+
+				name: YESSENIA LOPEZ
+				consultant.data.rep: 1067
+				retail: 12500
+				wineclub: 42500
+				gifts: 17976
+				pcv: 55488
+				pbv: 52988
+				tbv: 52988
+				dbv1: 52988
+				dbv2: 52988
+				dbv3: 52988
+				qualified: true
+				qualSubs: 0
+				teamVolume: 55488
+				orgVolume: 55488
+				qualDirs: 0
+				rank: Ambassador
+				commissions: 11097
+
+				name: Holly Short
+				consultant.data.rep: 1063
+				retail: 39700
+				wineclub: 113500
+				gifts: 23090
+				pcv: 142045
+				pbv: 134105
+				tbv: 134105
+				dbv1: 134105
+				dbv2: 134105
+				dbv3: 134105
+				qualified: true
+				qualSubs: 0
+				teamVolume: 142045
+				orgVolume: 142045
+				qualDirs: 0
+				rank: Ambassador
+				commissions: 28409
+
+				name: Michele Morris
+				consultant.data.rep: 1061
+				retail: 40500
+				wineclub: 36000
+				gifts: 36400
+				pcv: 87500
+				pbv: 79400
+				tbv: 79400
+				dbv1: 79400
+				dbv2: 79400
+				dbv3: 79400
+				qualified: true
+				qualSubs: 0
+				teamVolume: 87500
+				orgVolume: 87500
+				qualDirs: 0
+				rank: Ambassador
+				commissions: 17500
+
+				name: Chris Ott
+				consultant.data.rep: 1060
+				retail: 15000
+				wineclub: 0
+				gifts: 0
+				pcv: 15000
+				pbv: 12000
+				tbv: 12000
+				dbv1: 12000
+				dbv2: 12000
+				dbv3: 12000
+				qualified: false
+				qualSubs: 0
+				teamVolume: 15000
+				orgVolume: 15000
+				qualDirs: 0
+				rank: Ambassador
+				commissions: 0
+
+			name: Robin Duffy
+			consultant.data.rep: 1015
+			retail: 18200
+			wineclub: 0
+			gifts: 0
+			pcv: 18200
+			pbv: 14560
+			tbv: 280874
+			dbv1: 14560
+			dbv2: 14560
+			dbv3: 14560
+			qualified: false
+			qualSubs: 2
+			teamVolume: 317074
+			orgVolume: 324574
+			qualDirs: 0
+			rank: Ambassador
+			commissions: 0
+
+				name: Yvonne Lerch
+				consultant.data.rep: 1210
+				retail: 128800
+				wineclub: 80500
+				gifts: 44949
+				pcv: 215674
+				pbv: 189914
+				tbv: 189914
+				dbv1: 189914
+				dbv2: 189914
+				dbv3: 189914
+				qualified: true
+				qualSubs: 0
+				teamVolume: 215674
+				orgVolume: 215674
+				qualDirs: 0
+				rank: Ambassador
+				commissions: 43134
+
+				name: Scott Swain
+				consultant.data.rep: 1072
+				retail: 34000
+				wineclub: 61500
+				gifts: 0
+				pcv: 83200
+				pbv: 76400
+				tbv: 76400
+				dbv1: 76400
+				dbv2: 76400
+				dbv3: 76400
+				qualified: true
+				qualSubs: 0
+				teamVolume: 83200
+				orgVolume: 83200
+				qualDirs: 0
+				rank: Ambassador
+				commissions: 16640
+
+				name: Shannon Maxwell
+				consultant.data.rep: 1025
+				retail: 7500
+				wineclub: 0
+				gifts: 0
+				pcv: 7500
+				pbv: 6000
+				tbv: 6000
+				dbv1: 6000
+				dbv2: 6000
+				dbv3: 6000
+				qualified: false
+				qualSubs: 0
+				teamVolume: 7500
+				orgVolume: 7500
+				qualDirs: 0
+				rank: Ambassador
+				commissions: 0
+
+			name: Kyle Haines
+			consultant.data.rep: 1008
+			retail: 70800
+			wineclub: 85500
+			gifts: 17925
+			pcv: 148162
+			pbv: 134002
+			tbv: 235504
+			dbv1: 134002
+			dbv2: 134002
+			dbv3: 134002
+			qualified: true
+			qualSubs: 1
+			teamVolume: 258224
+			orgVolume: 258224
+			qualDirs: 0
+			rank: Associate Ambassador
+			commissions: 30242
+
+				name: Tina Williams
+				consultant.data.rep: 1065
+				retail: 0
+				wineclub: 36000
+				gifts: 3400
+				pcv: 30500
+				pbv: 30500
+				tbv: 101502
+				dbv1: 30500
+				dbv2: 30500
+				dbv3: 30500
+				qualified: true
+				qualSubs: 1
+				teamVolume: 110062
+				orgVolume: 110062
+				qualDirs: 0
+				rank: Associate Ambassador
+				commissions: 7520
+
+					name: Carol West
+					consultant.data.rep: 1493
+					retail: 42800
+					wineclub: 34000
+					gifts: 19125
+					pcv: 79562
+					pbv: 71002
+					tbv: 71002
+					dbv1: 71002
+					dbv2: 71002
+					dbv3: 71002
+					qualified: true
+					qualSubs: 0
+					teamVolume: 79562
+					orgVolume: 79562
+					qualDirs: 0
+					rank: Ambassador
+					commissions: 15912
+
+			name: Julie Cover
+			consultant.data.rep: 1001
+			retail: 3600
+			wineclub: 43500
+			gifts: 22300
+			pcv: 49550
+			pbv: 48830
+			tbv: 48830
+			dbv1: 48830
+			dbv2: 48830
+			dbv3: 48830
+			qualified: true
+			qualSubs: 0
+			teamVolume: 49550
+			orgVolume: 49550
+			qualDirs: 0
+			rank: Ambassador
+			commissions: 9910
+
+		name: Melissa Lynch
+		consultant.data.rep: 1000
+		retail: 15200
+		wineclub: 34500
+		gifts: 28000
+		pcv: 56800
+		pbv: 53760
+		tbv: 507788
+		dbv1: 53760
+		dbv2: 53760
+		dbv3: 53760
+		qualified: true
+		qualSubs: 2
+		teamVolume: 562868
+		orgVolume: 4996518
+		qualDirs: 2
+		rank: Senior Ambassador
+		commissions: 21491
+
+			name: Glynis Hill
+			consultant.data.rep: 1238
+			retail: 60600
+			wineclub: 80500
+			gifts: 11150
+			pcv: 130575
+			pbv: 118455
+			tbv: 118455
+			dbv1: 118455
+			dbv2: 118455
+			dbv3: 118455
+			qualified: true
+			qualSubs: 0
+			teamVolume: 130575
+			orgVolume: 146325
+			qualDirs: 0
+			rank: Ambassador
+			commissions: 26115
+
+				name: Regine Rousseau
+				consultant.data.rep: 1400
+				retail: 13700
+				wineclub: 0
+				gifts: 4100
+				pcv: 15750
+				pbv: 13010
+				tbv: 13010
+				dbv1: 13010
+				dbv2: 13010
+				dbv3: 13010
+				qualified: false
+				qualSubs: 0
+				teamVolume: 15750
+				orgVolume: 15750
+				qualDirs: 0
+				rank: Ambassador
+				commissions: 0
+
+			name: Mary Spillane
+			consultant.data.rep: 1181
+			retail: 0
+			wineclub: 25500
+			gifts: 13800
+			pcv: 27300
+			pbv: 27300
+			tbv: 335573
+			dbv1: 27300
+			dbv2: 27300
+			dbv3: 27300
+			qualified: true
+			qualSubs: 3
+			teamVolume: 375493
+			orgVolume: 397893
+			qualDirs: 0
+			rank: Senior Ambassador
+			commissions: 15380
+
+				name: Ian Foley
+				consultant.data.rep: 1402
+				retail: 63600
+				wineclub: 17000
+				gifts: 53824
+				pcv: 104112
+				pbv: 91392
+				tbv: 91392
+				dbv1: 91392
+				dbv2: 91392
+				dbv3: 91392
+				qualified: true
+				qualSubs: 0
+				teamVolume: 104112
+				orgVolume: 104112
+				qualDirs: 0
+				rank: Ambassador
+				commissions: 20822
+
+				name: Robert Joers
+				consultant.data.rep: 1393
+				retail: 84500
+				wineclub: 62000
+				gifts: 29863
+				pcv: 149031
+				pbv: 132131
+				tbv: 132131
+				dbv1: 132131
+				dbv2: 132131
+				dbv3: 132131
+				qualified: true
+				qualSubs: 0
+				teamVolume: 149031
+				orgVolume: 149031
+				qualDirs: 0
+				rank: Ambassador
+				commissions: 29806
+
+				name: Marilisa Ayers
+				consultant.data.rep: 1375
+				retail: 51500
+				wineclub: 51000
+				gifts: 5500
+				pcv: 95050
+				pbv: 84750
+				tbv: 84750
+				dbv1: 84750
+				dbv2: 84750
+				dbv3: 84750
+				qualified: true
+				qualSubs: 0
+				teamVolume: 95050
+				orgVolume: 95050
+				qualDirs: 0
+				rank: Ambassador
+				commissions: 19010
+
+				name: Leslie Townsend
+				consultant.data.rep: 1369
+				retail: 0
+				wineclub: 26500
+				gifts: 2400
+				pcv: 22400
+				pbv: 22400
+				tbv: 22400
+				dbv1: 22400
+				dbv2: 22400
+				dbv3: 22400
+				qualified: false
+				qualSubs: 0
+				teamVolume: 22400
+				orgVolume: 22400
+				qualDirs: 0
+				rank: Ambassador
+				commissions: 0
+
+			name: Sarah Blosch
+			consultant.data.rep: 1135
+			retail: 20200
+			wineclub: 43500
+			gifts: 21188
+			pcv: 65594
+			pbv: 61554
+			tbv: 1046137
+			dbv1: 61554
+			dbv2: 61554
+			dbv3: 61554
+			qualified: true
+			qualSubs: 10
+			teamVolume: 1141877
+			orgVolume: 2496058
+			qualDirs: 1
+			rank: Senior Director
+			commissions: 74656
+
+				name: Kimberly Weaver
+				consultant.data.rep: 1443
+				retail: 3500
+				wineclub: 0
+				gifts: 7575
+				pcv: 7287
+				pbv: 6587
+				tbv: 6587
+				dbv1: 6587
+				dbv2: 6587
+				dbv3: 6587
+				qualified: false
+				qualSubs: 0
+				teamVolume: 7287
+				orgVolume: 7287
+				qualDirs: 0
+				rank: Ambassador
+				commissions: 0
+
+				name: Sarah Sharpless
+				consultant.data.rep: 1414
+				retail: 26700
+				wineclub: 8500
+				gifts: 23350
+				pcv: 45175
+				pbv: 39835
+				tbv: 39835
+				dbv1: 39835
+				dbv2: 39835
+				dbv3: 39835
+				qualified: true
+				qualSubs: 0
+				teamVolume: 45175
+				orgVolume: 45175
+				qualDirs: 0
+				rank: Ambassador
+				commissions: 9035
+
+				name: Travis Veselka
+				consultant.data.rep: 1405
+				retail: 7000
+				wineclub: 9000
+				gifts: 1988
+				pcv: 15194
+				pbv: 13794
+				tbv: 318371
+				dbv1: 13794
+				dbv2: 13794
+				dbv3: 13794
+				qualified: false
+				qualSubs: 3
+				teamVolume: 349691
+				orgVolume: 371025
+				qualDirs: 0
+				rank: Ambassador
+				commissions: 0
+
+					name: Frankie Moon
+					consultant.data.rep: 1487
+					retail: 17000
+					wineclub: 18000
+					gifts: 4095
+					pcv: 33447
+					pbv: 30047
+					tbv: 30047
+					dbv1: 30047
+					dbv2: 30047
+					dbv3: 30047
+					qualified: true
+					qualSubs: 0
+					teamVolume: 33447
+					orgVolume: 33447
+					qualDirs: 0
+					rank: Ambassador
+					commissions: 6689
+
+					name: Rashmi Malhotra
+					consultant.data.rep: 1458
+					retail: 41700
+					wineclub: 35000
+					gifts: 8200
+					pcv: 73800
+					pbv: 65460
+					tbv: 209115
+					dbv1: 65460
+					dbv2: 65460
+					dbv3: 65460
+					qualified: true
+					qualSubs: 2
+					teamVolume: 227775
+					orgVolume: 249109
+					qualDirs: 0
+					rank: Senior Ambassador
+					commissions: 19646
+
+						name: Phyllis Skene-Stimac
+						consultant.data.rep: 1489
+						retail: 10500
+						wineclub: 9000
+						gifts: 7268
+						pcv: 21334
+						pbv: 19234
+						tbv: 19234
+						dbv1: 19234
+						dbv2: 19234
+						dbv3: 19234
+						qualified: false
+						qualSubs: 0
+						teamVolume: 21334
+						orgVolume: 21334
+						qualDirs: 0
+						rank: Ambassador
+						commissions: 0
+
+						name: Marianne Wilson-Jackson
+						consultant.data.rep: 1480
+						retail: 11500
+						wineclub: 18000
+						gifts: 12950
+						pcv: 32375
+						pbv: 30075
+						tbv: 30075
+						dbv1: 30075
+						dbv2: 30075
+						dbv3: 30075
+						qualified: true
+						qualSubs: 0
+						teamVolume: 32375
+						orgVolume: 32375
+						qualDirs: 0
+						rank: Ambassador
+						commissions: 6475
+
+						name: Patricia Johnson
+						consultant.data.rep: 1459
+						retail: 40100
+						wineclub: 68500
+						gifts: 53400
+						pcv: 121600
+						pbv: 113580
+						tbv: 113580
+						dbv1: 113580
+						dbv2: 113580
+						dbv3: 113580
+						qualified: true
+						qualSubs: 0
+						teamVolume: 121600
+						orgVolume: 121600
+						qualDirs: 0
+						rank: Ambassador
+						commissions: 24320
+
+					name: Charles Cross, Jr.
+					consultant.data.rep: 1423
+					retail: 39300
+					wineclub: 35500
+					gifts: 11150
+					pcv: 73275
+					pbv: 65415
+					tbv: 65415
+					dbv1: 65415
+					dbv2: 65415
+					dbv3: 65415
+					qualified: true
+					qualSubs: 0
+					teamVolume: 73275
+					orgVolume: 73275
+					qualDirs: 0
+					rank: Ambassador
+					commissions: 14655
+
+				name: Lisa Gmur
+				consultant.data.rep: 1372
+				retail: 58800
+				wineclub: 52500
+				gifts: 31559
+				pcv: 116579
+				pbv: 104819
+				tbv: 104819
+				dbv1: 104819
+				dbv2: 104819
+				dbv3: 104819
+				qualified: true
+				qualSubs: 0
+				teamVolume: 116579
+				orgVolume: 116579
+				qualDirs: 0
+				rank: Ambassador
+				commissions: 23315
+
+				name: MIKE MAYS
+				consultant.data.rep: 1297
+				retail: 38000
+				wineclub: 51000
+				gifts: 37775
+				pcv: 97687
+				pbv: 90087
+				tbv: 90087
+				dbv1: 90087
+				dbv2: 90087
+				dbv3: 90087
+				qualified: true
+				qualSubs: 0
+				teamVolume: 97687
+				orgVolume: 97687
+				qualDirs: 0
+				rank: Ambassador
+				commissions: 19537
+
+				name: Caroline Moran
+				consultant.data.rep: 1294
+				retail: 18000
+				wineclub: 53000
+				gifts: 34848
+				pcv: 77824
+				pbv: 74224
+				tbv: 188788
+				dbv1: 74224
+				dbv2: 74224
+				dbv3: 74224
+				qualified: true
+				qualSubs: 2
+				teamVolume: 201948
+				orgVolume: 206497
+				qualDirs: 0
+				rank: Senior Ambassador
+				commissions: 19112
+
+					name: KIM POLLARD
+					consultant.data.rep: 1328
+					retail: 4200
+					wineclub: 0
+					gifts: 699
+					pcv: 4549
+					pbv: 3709
+					tbv: 3709
+					dbv1: 3709
+					dbv2: 3709
+					dbv3: 3709
+					qualified: false
+					qualSubs: 0
+					teamVolume: 4549
+					orgVolume: 4549
+					qualDirs: 0
+					rank: Ambassador
+					commissions: 0
+
+					name: Dusty Fletcher
+					consultant.data.rep: 1312
+					retail: 12000
+					wineclub: 26000
+					gifts: 2000
+					pcv: 33800
+					pbv: 31400
+					tbv: 31400
+					dbv1: 31400
+					dbv2: 31400
+					dbv3: 31400
+					qualified: true
+					qualSubs: 0
+					teamVolume: 33800
+					orgVolume: 33800
+					qualDirs: 0
+					rank: Ambassador
+					commissions: 6760
+
+					name: Angela Waters
+					consultant.data.rep: 1299
+					retail: 35800
+					wineclub: 52500
+					gifts: 25049
+					pcv: 90324
+					pbv: 83164
+					tbv: 83164
+					dbv1: 83164
+					dbv2: 83164
+					dbv3: 83164
+					qualified: true
+					qualSubs: 0
+					teamVolume: 90324
+					orgVolume: 90324
+					qualDirs: 0
+					rank: Ambassador
+					commissions: 18064
+
+				name: Carla Nichols
+				consultant.data.rep: 1285
+				retail: 38200
+				wineclub: 9000
+				gifts: 39250
+				pcv: 65025
+				pbv: 57385
+				tbv: 785813
+				dbv1: 57385
+				dbv2: 57385
+				dbv3: 57385
+				qualified: true
+				qualSubs: 7
+				teamVolume: 868653
+				orgVolume: 928015
+				qualDirs: 0
+				rank: Director
+				commissions: 56885
+
+					name: Pascal Cayet
+					consultant.data.rep: 1490
+					retail: 32800
+					wineclub: 42500
+					gifts: 21455
+					pcv: 77527
+					pbv: 70967
+					tbv: 70967
+					dbv1: 70967
+					dbv2: 70967
+					dbv3: 70967
+					qualified: true
+					qualSubs: 0
+					teamVolume: 77527
+					orgVolume: 77527
+					qualDirs: 0
+					rank: Ambassador
+					commissions: 15505
+
+					name: Ron Corcoran
+					consultant.data.rep: 1488
+					retail: 99700
+					wineclub: 78000
+					gifts: 49785
+					pcv: 186992
+					pbv: 167052
+					tbv: 266328
+					dbv1: 167052
+					dbv2: 167052
+					dbv3: 167052
+					qualified: true
+					qualSubs: 1
+					teamVolume: 291428
+					orgVolume: 291428
+					qualDirs: 0
+					rank: Associate Ambassador
+					commissions: 39383
+
+						name: Matthew Antonovich
+						consultant.data.rep: 1504
+						retail: 25800
+						wineclub: 89000
+						gifts: 14873
+						pcv: 104436
+						pbv: 99276
+						tbv: 99276
+						dbv1: 99276
+						dbv2: 99276
+						dbv3: 99276
+						qualified: true
+						qualSubs: 0
+						teamVolume: 104436
+						orgVolume: 104436
+						qualDirs: 0
+						rank: Ambassador
+						commissions: 20887
+
+					name: Jennifer Jorgensen
+					consultant.data.rep: 1445
+					retail: 66200
+					wineclub: 35500
+					gifts: 16863
+					pcv: 103031
+					pbv: 89791
+					tbv: 168381
+					dbv1: 89791
+					dbv2: 89791
+					dbv3: 89791
+					qualified: true
+					qualSubs: 1
+					teamVolume: 186281
+					orgVolume: 186281
+					qualDirs: 0
+					rank: Associate Ambassador
+					commissions: 22177
+
+						name: Amanda McGuckin
+						consultant.data.rep: 1455
+						retail: 23300
+						wineclub: 25500
+						gifts: 79101
+						pcv: 83250
+						pbv: 78590
+						tbv: 78590
+						dbv1: 78590
+						dbv2: 78590
+						dbv3: 78590
+						qualified: true
+						qualSubs: 0
+						teamVolume: 83250
+						orgVolume: 83250
+						qualDirs: 0
+						rank: Ambassador
+						commissions: 16650
+
+					name: Mark Thielke
+					consultant.data.rep: 1415
+					retail: 56000
+					wineclub: 0
+					gifts: 4925
+					pcv: 58462
+					pbv: 47262
+					tbv: 47262
+					dbv1: 47262
+					dbv2: 47262
+					dbv3: 47262
+					qualified: true
+					qualSubs: 0
+					teamVolume: 58462
+					orgVolume: 58462
+					qualDirs: 0
+					rank: Ambassador
+					commissions: 11692
+
+					name: Jim Bell
+					consultant.data.rep: 1370
+					retail: 16500
+					wineclub: 27000
+					gifts: 20150
+					pcv: 48175
+					pbv: 44875
+					tbv: 44875
+					dbv1: 44875
+					dbv2: 44875
+					dbv3: 44875
+					qualified: true
+					qualSubs: 0
+					teamVolume: 48175
+					orgVolume: 48175
+					qualDirs: 0
+					rank: Ambassador
+					commissions: 9635
+
+					name: Kelli Bingham
+					consultant.data.rep: 1365
+					retail: 17400
+					wineclub: 0
+					gifts: 600
+					pcv: 17700
+					pbv: 14220
+					tbv: 14220
+					dbv1: 14220
+					dbv2: 14220
+					dbv3: 14220
+					qualified: false
+					qualSubs: 0
+					teamVolume: 17700
+					orgVolume: 17700
+					qualDirs: 0
+					rank: Ambassador
+					commissions: 0
+
+					name: Jan Soechting
+					consultant.data.rep: 1364
+					retail: 19500
+					wineclub: 8500
+					gifts: 64760
+					pcv: 58680
+					pbv: 54780
+					tbv: 54780
+					dbv1: 54780
+					dbv2: 54780
+					dbv3: 54780
+					qualified: true
+					qualSubs: 0
+					teamVolume: 58680
+					orgVolume: 58680
+					qualDirs: 0
+					rank: Ambassador
+					commissions: 11736
+
+					name: Charlotte Abelson
+					consultant.data.rep: 1338
+					retail: 36200
+					wineclub: 43000
+					gifts: 24950
+					pcv: 83075
+					pbv: 75835
+					tbv: 75835
+					dbv1: 75835
+					dbv2: 75835
+					dbv3: 75835
+					qualified: true
+					qualSubs: 0
+					teamVolume: 83075
+					orgVolume: 83075
+					qualDirs: 0
+					rank: Ambassador
+					commissions: 16615
+
+					name: Janie Kappler
+					consultant.data.rep: 1318
+					retail: 0
+					wineclub: 17000
+					gifts: 2200
+					pcv: 14700
+					pbv: 14700
+					tbv: 38262
+					dbv1: 14700
+					dbv2: 14700
+					dbv3: 14700
+					qualified: false
+					qualSubs: 1
+					teamVolume: 41662
+					orgVolume: 41662
+					qualDirs: 0
+					rank: Ambassador
+					commissions: 0
+
+						name: Connie Deans
+						consultant.data.rep: 1357
+						retail: 17000
+						wineclub: 0
+						gifts: 19925
+						pcv: 26962
+						pbv: 23562
+						tbv: 23562
+						dbv1: 23562
+						dbv2: 23562
+						dbv3: 23562
+						qualified: true
+						qualSubs: 0
+						teamVolume: 26962
+						orgVolume: 26962
+						qualDirs: 0
+						rank: Ambassador
+						commissions: 5392
+
+					name: Sarah Rathke
+					consultant.data.rep: 1058
+					retail: 0
+					wineclub: 0
+					gifts: 0
+					pcv: 0
+					pbv: 0
+					tbv: 0
+					dbv1: 0
+					dbv2: 0
+					dbv3: 0
+					qualified: false
+					qualSubs: 0
+					teamVolume: 0
+					orgVolume: 0
+					qualDirs: 0
+					rank: Ambassador
+					commissions: 0
+
+				name: Caroline Waters
+				consultant.data.rep: 1254
+				retail: 49500
+				wineclub: 9000
+				gifts: 70250
+				pcv: 91825
+				pbv: 81925
+				tbv: 171065
+				dbv1: 81925
+				dbv2: 81925
+				dbv3: 81925
+				qualified: true
+				qualSubs: 2
+				teamVolume: 186465
+				orgVolume: 206077
+				qualDirs: 0
+				rank: Senior Ambassador
+				commissions: 21526
+
+					name: Michelle Scott-Soth
+					consultant.data.rep: 1422
+					retail: 21500
+					wineclub: 53000
+					gifts: 8699
+					pcv: 68249
+					pbv: 63949
+					tbv: 63949
+					dbv1: 63949
+					dbv2: 63949
+					dbv3: 63949
+					qualified: true
+					qualSubs: 0
+					teamVolume: 68249
+					orgVolume: 68249
+					qualDirs: 0
+					rank: Ambassador
+					commissions: 13649
+
+					name: Amanda Pokett
+					consultant.data.rep: 1335
+					retail: 6000
+					wineclub: 18000
+					gifts: 11982
+					pcv: 26391
+					pbv: 25191
+					tbv: 25191
+					dbv1: 25191
+					dbv2: 25191
+					dbv3: 25191
+					qualified: true
+					qualSubs: 0
+					teamVolume: 26391
+					orgVolume: 26391
+					qualDirs: 0
+					rank: Ambassador
+					commissions: 5278
+
+					name: Larry Mentzer
+					consultant.data.rep: 1267
+					retail: 16900
+					wineclub: 0
+					gifts: 5425
+					pcv: 19612
+					pbv: 16232
+					tbv: 16232
+					dbv1: 16232
+					dbv2: 16232
+					dbv3: 16232
+					qualified: false
+					qualSubs: 0
+					teamVolume: 19612
+					orgVolume: 19612
+					qualDirs: 0
+					rank: Ambassador
+					commissions: 0
+
+				name: Alex Estrada
+				consultant.data.rep: 1247
+				retail: 10000
+				wineclub: 0
+				gifts: 5998
+				pcv: 12999
+				pbv: 10999
+				tbv: 10999
+				dbv1: 10999
+				dbv2: 10999
+				dbv3: 10999
+				qualified: false
+				qualSubs: 0
+				teamVolume: 12999
+				orgVolume: 12999
+				qualDirs: 0
+				rank: Ambassador
+				commissions: 0
+
+				name: Darlene Wayman
+				consultant.data.rep: 1237
+				retail: 30200
+				wineclub: 0
+				gifts: 0
+				pcv: 30200
+				pbv: 24160
+				tbv: 24160
+				dbv1: 24160
+				dbv2: 24160
+				dbv3: 24160
+				qualified: true
+				qualSubs: 0
+				teamVolume: 30200
+				orgVolume: 40894
+				qualDirs: 0
+				rank: Ambassador
+				commissions: 6040
+
+					name: Marco  Mendoza
+					consultant.data.rep: 1360
+					retail: 2500
+					wineclub: 9000
+					gifts: 1988
+					pcv: 10694
+					pbv: 10194
+					tbv: 10194
+					dbv1: 10194
+					dbv2: 10194
+					dbv3: 10194
+					qualified: false
+					qualSubs: 0
+					teamVolume: 10694
+					orgVolume: 10694
+					qualDirs: 0
+					rank: Ambassador
+					commissions: 0
+
+				name: Gwendolyn Allen
+				consultant.data.rep: 1208
+				retail: 8300
+				wineclub: 17000
+				gifts: 6800
+				pcv: 25300
+				pbv: 23640
+				tbv: 23640
+				dbv1: 23640
+				dbv2: 23640
+				dbv3: 23640
+				qualified: true
+				qualSubs: 0
+				teamVolume: 25300
+				orgVolume: 25300
+				qualDirs: 0
+				rank: Ambassador
+				commissions: 5060
+
+				name: Katie Lieser
+				consultant.data.rep: 1197
+				retail: 39500
+				wineclub: 36000
+				gifts: 12376
+				pcv: 74488
+				pbv: 66588
+				tbv: 181078
+				dbv1: 66588
+				dbv2: 66588
+				dbv3: 66588
+				qualified: true
+				qualSubs: 1
+				teamVolume: 194138
+				orgVolume: 194138
+				qualDirs: 0
+				rank: Associate Ambassador
+				commissions: 17186
+
+					name: Samantha Lewis
+					consultant.data.rep: 1199
+					retail: 25800
+					wineclub: 95500
+					gifts: 34900
+					pcv: 119650
+					pbv: 114490
+					tbv: 114490
+					dbv1: 114490
+					dbv2: 114490
+					dbv3: 114490
+					qualified: true
+					qualSubs: 0
+					teamVolume: 119650
+					orgVolume: 119650
+					qualDirs: 0
+					rank: Ambassador
+					commissions: 23930
+
+				name: Judy Spurgeon
+				consultant.data.rep: 1179
+				retail: 50000
+				wineclub: 77500
+				gifts: 34482
+				pcv: 129241
+				pbv: 119241
+				tbv: 119241
+				dbv1: 119241
+				dbv2: 119241
+				dbv3: 119241
+				qualified: true
+				qualSubs: 0
+				teamVolume: 129241
+				orgVolume: 129241
+				qualDirs: 0
+				rank: Ambassador
+				commissions: 25848
+
+				name: David Barbier
+				consultant.data.rep: 1171
+				retail: 38400
+				wineclub: 0
+				gifts: 22300
+				pcv: 49550
+				pbv: 41870
+				tbv: 41870
+				dbv1: 41870
+				dbv2: 41870
+				dbv3: 41870
+				qualified: true
+				qualSubs: 0
+				teamVolume: 49550
+				orgVolume: 49550
+				qualDirs: 0
+				rank: Ambassador
+				commissions: 9910
+
+			name: Cheryl Scheerer
+			consultant.data.rep: 1117
+			retail: 12000
+			wineclub: 9000
+			gifts: 2982
+			pcv: 20691
+			pbv: 18291
+			tbv: 1097025
+			dbv1: 18291
+			dbv2: 18291
+			dbv3: 18291
+			qualified: false
+			qualSubs: 9
+			teamVolume: 1193825
+			orgVolume: 1215300
+			qualDirs: 0
+			rank: Ambassador
+			commissions: 0
+
+				name: Frances Oropeza
+				consultant.data.rep: 1350
+				retail: 26400
+				wineclub: 34500
+				gifts: 54558
+				pcv: 81279
+				pbv: 75999
+				tbv: 174660
+				dbv1: 75999
+				dbv2: 75999
+				dbv3: 75999
+				qualified: true
+				qualSubs: 1
+				teamVolume: 186500
+				orgVolume: 186500
+				qualDirs: 0
+				rank: Associate Ambassador
+				commissions: 18228
+
+					name: Joann Garcia
+					consultant.data.rep: 1351
+					retail: 32800
+					wineclub: 70500
+					gifts: 32043
+					pcv: 105221
+					pbv: 98661
+					tbv: 98661
+					dbv1: 98661
+					dbv2: 98661
+					dbv3: 98661
+					qualified: true
+					qualSubs: 0
+					teamVolume: 105221
+					orgVolume: 105221
+					qualDirs: 0
+					rank: Ambassador
+					commissions: 21044
+
+				name: Colleen Thomason
+				consultant.data.rep: 1222
+				retail: 90100
+				wineclub: 96000
+				gifts: 0
+				pcv: 166900
+				pbv: 148880
+				tbv: 148880
+				dbv1: 148880
+				dbv2: 148880
+				dbv3: 148880
+				qualified: true
+				qualSubs: 0
+				teamVolume: 166900
+				orgVolume: 166900
+				qualDirs: 0
+				rank: Ambassador
+				commissions: 33380
+
+				name: Sarroya Lomax
+				consultant.data.rep: 1194
+				retail: 33800
+				wineclub: 0
+				gifts: 18089
+				pcv: 42844
+				pbv: 36084
+				tbv: 102264
+				dbv1: 36084
+				dbv2: 36084
+				dbv3: 36084
+				qualified: true
+				qualSubs: 1
+				teamVolume: 113444
+				orgVolume: 113444
+				qualDirs: 0
+				rank: Associate Ambassador
+				commissions: 9891
+
+					name: Darrell Smothers
+					consultant.data.rep: 1432
+					retail: 22100
+					wineclub: 45000
+					gifts: 25000
+					pcv: 70600
+					pbv: 66180
+					tbv: 66180
+					dbv1: 66180
+					dbv2: 66180
+					dbv3: 66180
+					qualified: true
+					qualSubs: 0
+					teamVolume: 70600
+					orgVolume: 70600
+					qualDirs: 0
+					rank: Ambassador
+					commissions: 14120
+
+				name: Tandeeka Cole
+				consultant.data.rep: 1176
+				retail: 12300
+				wineclub: 36000
+				gifts: 20325
+				pcv: 51262
+				pbv: 48802
+				tbv: 48802
+				dbv1: 48802
+				dbv2: 48802
+				dbv3: 48802
+				qualified: true
+				qualSubs: 0
+				teamVolume: 51262
+				orgVolume: 51262
+				qualDirs: 0
+				rank: Ambassador
+				commissions: 10252
+
+				name: Randi Hartwell
+				consultant.data.rep: 1170
+				retail: 61100
+				wineclub: 103500
+				gifts: 61400
+				pcv: 174600
+				pbv: 162380
+				tbv: 231345
+				dbv1: 162380
+				dbv2: 162380
+				dbv3: 162380
+				qualified: true
+				qualSubs: 1
+				teamVolume: 251125
+				orgVolume: 251125
+				qualDirs: 0
+				rank: Associate Ambassador
+				commissions: 36299
+
+					name: M. Kay Montgomery
+					consultant.data.rep: 1353
+					retail: 37800
+					wineclub: 34000
+					gifts: 23050
+					pcv: 76525
+					pbv: 68965
+					tbv: 68965
+					dbv1: 68965
+					dbv2: 68965
+					dbv3: 68965
+					qualified: true
+					qualSubs: 0
+					teamVolume: 76525
+					orgVolume: 76525
+					qualDirs: 0
+					rank: Ambassador
+					commissions: 15305
+
+				name: Adrienne Garrett
+				consultant.data.rep: 1164
+				retail: 18000
+				wineclub: 61000
+				gifts: 2400
+				pcv: 68000
+				pbv: 64400
+				tbv: 64400
+				dbv1: 64400
+				dbv2: 64400
+				dbv3: 64400
+				qualified: true
+				qualSubs: 0
+				teamVolume: 68000
+				orgVolume: 68000
+				qualDirs: 0
+				rank: Ambassador
+				commissions: 13600
+
+				name: Brandy R. Jones
+				consultant.data.rep: 1156
+				retail: 4500
+				wineclub: 72000
+				gifts: 40082
+				pcv: 82141
+				pbv: 81241
+				tbv: 135716
+				dbv1: 81241
+				dbv2: 81241
+				dbv3: 81241
+				qualified: true
+				qualSubs: 1
+				teamVolume: 139616
+				orgVolume: 148116
+				qualDirs: 0
+				rank: Associate Ambassador
+				commissions: 17657
+
+					name: Kari Payne
+					consultant.data.rep: 1206
+					retail: 7600
+					wineclub: 0
+					gifts: 1800
+					pcv: 8500
+					pbv: 6980
+					tbv: 6980
+					dbv1: 6980
+					dbv2: 6980
+					dbv3: 6980
+					qualified: false
+					qualSubs: 0
+					teamVolume: 8500
+					orgVolume: 8500
+					qualDirs: 0
+					rank: Ambassador
+					commissions: 0
+
+					name: Jina Davis
+					consultant.data.rep: 1161
+					retail: 15000
+					wineclub: 9000
+					gifts: 70550
+					pcv: 57475
+					pbv: 54475
+					tbv: 54475
+					dbv1: 54475
+					dbv2: 54475
+					dbv3: 54475
+					qualified: true
+					qualSubs: 0
+					teamVolume: 57475
+					orgVolume: 57475
+					qualDirs: 0
+					rank: Ambassador
+					commissions: 11495
+
+				name: Brandy S. Jones
+				consultant.data.rep: 1151
+				retail: 65600
+				wineclub: 17000
+				gifts: 46275
+				pcv: 102337
+				pbv: 89217
+				tbv: 89217
+				dbv1: 89217
+				dbv2: 89217
+				dbv3: 89217
+				qualified: true
+				qualSubs: 0
+				teamVolume: 102337
+				orgVolume: 102337
+				qualDirs: 0
+				rank: Ambassador
+				commissions: 20467
+
+				name: Charlene Davis
+				consultant.data.rep: 1148
+				retail: 52500
+				wineclub: 44500
+				gifts: 11700
+				pcv: 93950
+				pbv: 83450
+				tbv: 83450
+				dbv1: 83450
+				dbv2: 83450
+				dbv3: 83450
+				qualified: true
+				qualSubs: 0
+				teamVolume: 93950
+				orgVolume: 106925
+				qualDirs: 0
+				rank: Ambassador
+				commissions: 18790
+
+					name: D. James Cooper
+					consultant.data.rep: 1205
+					retail: 8800
+					wineclub: 0
+					gifts: 8350
+					pcv: 12975
+					pbv: 11215
+					tbv: 11215
+					dbv1: 11215
+					dbv2: 11215
+					dbv3: 11215
+					qualified: false
+					qualSubs: 0
+					teamVolume: 12975
+					orgVolume: 12975
+					qualDirs: 0
+					rank: Ambassador
+					commissions: 0
+
+			name: Robin McKee
+			consultant.data.rep: 1083
+			retail: 30700
+			wineclub: 88000
+			gifts: 34290
+			pcv: 118245
+			pbv: 112105
+			tbv: 574518
+			dbv1: 112105
+			dbv2: 112105
+			dbv3: 112105
+			qualified: true
+			qualSubs: 4
+			teamVolume: 620258
+			orgVolume: 684142
+			qualDirs: 0
+			rank: Director
+			commissions: 61342
+
+				name: Laura Wegner
+				consultant.data.rep: 1345
+				retail: 22300
+				wineclub: 112000
+				gifts: 2796
+				pcv: 113298
+				pbv: 108838
+				tbv: 108838
+				dbv1: 108838
+				dbv2: 108838
+				dbv3: 108838
+				qualified: true
+				qualSubs: 0
+				teamVolume: 113298
+				orgVolume: 113298
+				qualDirs: 0
+				rank: Ambassador
+				commissions: 22659
+
+				name: Elaine Bell
+				consultant.data.rep: 1173
+				retail: 105100
+				wineclub: 43500
+				gifts: 14950
+				pcv: 147375
+				pbv: 126355
+				tbv: 126355
+				dbv1: 126355
+				dbv2: 126355
+				dbv3: 126355
+				qualified: true
+				qualSubs: 0
+				teamVolume: 147375
+				orgVolume: 147375
+				qualDirs: 0
+				rank: Ambassador
+				commissions: 29475
+
+				name: Clarisse Kostrzewski
+				consultant.data.rep: 1152
+				retail: 5800
+				wineclub: 8500
+				gifts: 4400
+				pcv: 14800
+				pbv: 13640
+				tbv: 13640
+				dbv1: 13640
+				dbv2: 13640
+				dbv3: 13640
+				qualified: false
+				qualSubs: 0
+				teamVolume: 14800
+				orgVolume: 14800
+				qualDirs: 0
+				rank: Ambassador
+				commissions: 0
+
+				name: Ginger Guthrie
+				consultant.data.rep: 1136
+				retail: 6600
+				wineclub: 0
+				gifts: 5895
+				pcv: 9547
+				pbv: 8227
+				tbv: 8227
+				dbv1: 8227
+				dbv2: 8227
+				dbv3: 8227
+				qualified: false
+				qualSubs: 0
+				teamVolume: 9547
+				orgVolume: 9547
+				qualDirs: 0
+				rank: Ambassador
+				commissions: 0
+
+				name: Melissa Darisay Thorpe
+				consultant.data.rep: 1133
+				retail: 36300
+				wineclub: 45000
+				gifts: 65150
+				pcv: 104875
+				pbv: 97615
+				tbv: 97615
+				dbv1: 97615
+				dbv2: 97615
+				dbv3: 97615
+				qualified: true
+				qualSubs: 0
+				teamVolume: 104875
+				orgVolume: 104875
+				qualDirs: 0
+				rank: Ambassador
+				commissions: 20975
+
+				name: Althea Mumford Stokes
+				consultant.data.rep: 1129
+				retail: 34300
+				wineclub: 105000
+				gifts: 36330
+				pcv: 136465
+				pbv: 129605
+				tbv: 129605
+				dbv1: 129605
+				dbv2: 129605
+				dbv3: 129605
+				qualified: true
+				qualSubs: 0
+				teamVolume: 136465
+				orgVolume: 136465
+				qualDirs: 0
+				rank: Ambassador
+				commissions: 27293
+
+				name: Michele Snock
+				consultant.data.rep: 1094
+				retail: 3000
+				wineclub: 0
+				gifts: 1400
+				pcv: 3700
+				pbv: 3100
+				tbv: 3100
+				dbv1: 3100
+				dbv2: 3100
+				dbv3: 3100
+				qualified: false
+				qualSubs: 0
+				teamVolume: 3700
+				orgVolume: 3700
+				qualDirs: 0
+				rank: Ambassador
+				commissions: 0
+
+				name: Kip Zook
+				consultant.data.rep: 1093
+				retail: 9600
+				wineclub: 0
+				gifts: 16725
+				pcv: 17962
+				pbv: 16042
+				tbv: 16042
+				dbv1: 16042
+				dbv2: 16042
+				dbv3: 16042
+				qualified: false
+				qualSubs: 0
+				teamVolume: 17962
+				orgVolume: 17962
+				qualDirs: 0
+				rank: Ambassador
+				commissions: 0
+
+				name: Cindy Irish
+				consultant.data.rep: 1086
+				retail: 12000
+				wineclub: 0
+				gifts: 11750
+				pcv: 17875
+				pbv: 15475
+				tbv: 15475
+				dbv1: 15475
+				dbv2: 15475
+				dbv3: 15475
+				qualified: false
+				qualSubs: 0
+				teamVolume: 17875
+				orgVolume: 17875
+				qualDirs: 0
+				rank: Ambassador
+				commissions: 0
+
+Sales: $321283.13
+Commissions: $75797.41
+Net Sales: $245485.72
+
+real	0m19.423s
+user	0m19.081s
+sys	0m0.152s
