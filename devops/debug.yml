@@ -1,0 +1,8 @@
+---
+- hosts: all
+  sudo: yes
+  gather_facts: yes
+  tasks:
+  - name: Debugging
+    debug:
+      msg: Testing 1 2 3

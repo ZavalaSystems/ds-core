@@ -1,0 +1,12 @@
+---
+- hosts: all
+  sudo: yes
+  gather_facts: yes
+  roles:
+  - Ansibles.utilities
+  - { role: Ansibles.nodejs, nodejs_version: "0.10.29" }
+  - { role: shadowkobolt.ruby, ruby_version: ruby2.0
+  tasks:
+  - name: Execute npm install
+    npm:
+      path: /vagrant
