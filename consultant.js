@@ -1,7 +1,7 @@
 /*jslint maxlen: 120*/
-module.exports = (function (bilby, _, request, q, cfg, con, m, res, uri, toggles, db) {
+module.exports = (function (bilby, _, cfg, con, m, res, uri, toggles, neo4j, db) {
     "use strict";
-    var hyperlink = bilby.curry(function (request, consultant) {
+    var hyperlink = _.curry(function (request, consultant) {
             return {
                 payload: con.clean(consultant),
                 links: con.links(uri.absoluteUri(request), consultant)
@@ -9,8 +9,6 @@ module.exports = (function (bilby, _, request, q, cfg, con, m, res, uri, toggles
         }),
         consultantType = res.header.contentType(cfg.mediatypes.hypermedia.consultant),
         consultantListType = res.header.contentType(cfg.mediatypes.list.hypermedia.consultant),
-        neo4j = "http://localhost:7474/db/data",
-        cypherEndpoint = neo4j + "/cypher",
         local = bilby.environment();
 
     function emptyQueryString(request) {
@@ -48,43 +46,22 @@ module.exports = (function (bilby, _, request, q, cfg, con, m, res, uri, toggles
         return m.find(db, function (x) { return x.id === id; });
     }
 
-    function execCypherQuery(query, params) {
-        var cypherQuery = {query: query, params: params || {}},
-            defer = q.defer();
-
-        request.post(cypherEndpoint, {json: cypherQuery}, function (err, response, body) {
-            if (err) { defer.reject(err); }
-            if (response.statusCode !== 200) {
-                defer.reject(response);
-            }
-
-            defer.resolve(body);
-        });
-
-        return defer.promise;
-    }
-
     function findNodeById(id) {
-        var cypherPromise = execCypherQuery("start n=node({id}) return n", {id: id});
+        return neo4j.cypherToObj("start n=node({id}) return n", {id: id})
+            .then(function (rows) {
+                var node = _.first(rows).n;
 
-        return cypherPromise.then(function (body) {
-            var dbResult = _.first(body.data),
-                node = _.first(dbResult);
-
-            return _.merge({}, node.data, {id: id});
-        });
+                return _.merge({}, node.data, {id: id});
+            });
     }
 
     function findRoot() {
-        var cypherPromise = execCypherQuery("match (n:Consultant) where n.rep = \"1\" return n, id(n)");
+        return neo4j.cypherToObj("match (n:Consultant) where n.rep = {rep} return n, id(n) as id", {rep: "1"})
+            .then(function (rows) {
+                var row = _.first(rows);
 
-        return cypherPromise.then(function (body) {
-            var dbResult = _.first(body.data),
-                node = _.first(dbResult),
-                id = _.last(dbResult);
-
-            return _.merge({}, node.data, {id: id});
-        });
+                return _.merge({}, row.n.data, {id: row.id});
+            });
     }
 
     return function (app) {
@@ -131,13 +108,12 @@ module.exports = (function (bilby, _, request, q, cfg, con, m, res, uri, toggles
 }(
     require("bilby"),
     require("lodash"),
-    require("request"),
-    require("q"),
     require("./config"),
     require("./lib/consultant"),
     require("./lib/monad"),
     require("./lib/response"),
     require("./lib/uri"),
     require("./lib/toggle"),
+    require("./lib/neo4j"),
     require("./spikes/flatcouch.json")
 ));

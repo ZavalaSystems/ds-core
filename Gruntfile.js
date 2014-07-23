@@ -19,7 +19,7 @@ module.exports = function (grunt) {
         },
         jasmine_node: {
             coverage: {},
-            all: ["spec/"]
+            all: ["lib/"]
         },
         watch: {
             scripts: {
