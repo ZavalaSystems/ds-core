@@ -17,3 +17,5 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     ansible.playbook = "devops/development.yml"
   end
 end
+
+#trigger build
