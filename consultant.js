@@ -1,5 +1,5 @@
 /*jslint maxlen: 120*/
-module.exports = (function (bilby, _, cfg, con, m, res, uri, toggles, neo4j, db) {
+module.exports = (function (bilby, _, cfg, con, m, res, uri, cypher, common) {
     "use strict";
     var hyperlink = _.curry(function (request, consultant) {
             return {
@@ -18,36 +18,41 @@ module.exports = (function (bilby, _, cfg, con, m, res, uri, toggles, neo4j, db)
     }
 
     function defaultConsultantList(request) {
-        return m.toOption(_.map(db, hyperlink(request)))
-            .map(res.respond)
-            .map(res.status.multipleChoices)
-            .map(consultantListType)
-            .getOrElse(res.status.internalServerError({}));
+        return cypher.cypherToObj("match (n:Consultant) return id(n) as id, n", {})
+            .then(function (rows) {
+                var consultants = common.multipluck(rows, "n", "data"),
+                    ids = _.map(rows, _.partialRight(_.pick, ["id"]));
+                return common.zipMerge(consultants, ids);
+            })
+            .then(_.partialRight(_.map, hyperlink(request)))
+            .then(res.respond)
+            .then(res.status.multipleChoices)
+            .then(consultantListType, res.status.internalServerError({}));
     }
 
-    function queryConsultantList(request) {
-        return m.toOption(_.map(_.reduce(request.query, function (acc, value, key) {
-            return _.filter(acc, function (x) { return x[key].toString() === value; });
-        }, db), hyperlink(request)))
-            .map(res.respond)
-            .map(res.status.multipleChoices)
-            .map(consultantListType)
-            .getOrElse(res.status.internalServerError({}));
-    }
+    // function queryConsultantList(request) {
+    //     return m.toOption(_.map(_.reduce(request.query, function (acc, value, key) {
+    //         return _.filter(acc, function (x) { return x[key].toString() === value; });
+    //     }, db), hyperlink(request)))
+    //         .map(res.respond)
+    //         .map(res.status.multipleChoices)
+    //         .map(consultantListType)
+    //         .getOrElse(res.status.internalServerError({}));
+    // }
 
     local = local
         .method("consultantList", emptyQueryString, defaultConsultantList)
-        .method("consultantList", _.constant(true), queryConsultantList)
+        // .method("consultantList", _.constant(true), queryConsultantList)
         .property("getChildren", bilby.curry(function (db, node) {
             return _.filter(db, function (x) { return x.parent === node.id; });
         }));
 
-    function findNode(db, id) {
-        return m.find(db, function (x) { return x.id === id; });
-    }
+    // function findNode(db, id) {
+    //     return m.find(db, function (x) { return x.id === id; });
+    // }
 
     function findNodeById(id) {
-        return neo4j.cypherToObj("start n=node({id}) return n", {id: id})
+        return cypher.cypherToObj("start n=node({id}) return n", {id: id})
             .then(function (rows) {
                 var node = _.first(rows).n;
 
@@ -56,11 +61,22 @@ module.exports = (function (bilby, _, cfg, con, m, res, uri, toggles, neo4j, db)
     }
 
     function findRoot() {
-        return neo4j.cypherToObj("match (n:Consultant) where n.rep = {rep} return n, id(n) as id", {rep: "1"})
+        return cypher.cypherToObj("match (n:Consultant) where n.rep = {rep} return n, id(n) as id", {rep: "1"})
             .then(function (rows) {
                 var row = _.first(rows);
 
                 return _.merge({}, row.n.data, {id: row.id});
+            });
+    }
+
+    function findNodeChildren(id) {
+        var query = "start n=node({id}) match (n)<-[:REPORTS_TO]-(children) return id(children) as id, children";
+        return cypher.cypherToObj(query, {id: id})
+            .then(function (objs) {
+                var consultants = common.multipluck(objs, "children", "data"),
+                    ids = _.pluck(objs, "id");
+
+                return _.map(consultants, function (cons, i) { return _.merge({}, cons, {id: ids[i]}); });
             });
     }
 
@@ -74,34 +90,32 @@ module.exports = (function (bilby, _, cfg, con, m, res, uri, toggles, neo4j, db)
                 .then(consultantType);
         });
 
-        app.get("/consultant/:cid", function (req, cid) {
-            return findNodeById(_.parseInt(cid))
-                .then(hyperlink(req))
+        app.get("/consultant/:cid", function (request) {
+            return findNodeById(_.parseInt(request.params.cid))
+                .then(hyperlink(request))
                 .then(res.respond)
                 .then(consultantType, _.constant(res.status.notFound({})));
         });
 
-        app.get("/consultant/:cid/firstLine", function (request, cid) {
-            return findNode(db, cid)
-                .map(local.getChildren(db))
-                .map(_.partialRight(_.map, hyperlink(request)))
-                .map(res.respond)
-                .map(res.status.multipleChoices)
-                .map(consultantListType)
-                .getOrElse(res.status.notFound({}));
+        app.get("/consultant/:cid/firstLine", function (request) {
+            return findNodeChildren(_.parseInt(request.params.cid))
+                .then(_.partialRight(_.map, hyperlink(request)))
+                .then(res.respond)
+                .then(res.status.multipleChoices)
+                .then(consultantListType, _.constant(res.status.notFound({})));
         });
 
-        app.get("/consultant/:cid/full", function (request, cid) {
-            return toggles.getToggleOff(request, "feature.full") ?
-                    findNode(db, cid)
-                        .map(con.assignGCV(local.getChildren(db)))
-                        .map(hyperlink(request))
-                        .map(res.respond)
-                        .map(consultantType)
-                        .map(res.status.ok)
-                        .getOrElse(res.status.notFound({})) :
-                    res.status.notFound({});
-        });
+        // app.get("/consultant/:cid/full", function (request, cid) {
+        //     return toggles.getToggleOff(request, "feature.full") ?
+        //             findNode(db, cid)
+        //                 .map(con.assignGCV(local.getChildren(db)))
+        //                 .map(hyperlink(request))
+        //                 .map(res.respond)
+        //                 .map(consultantType)
+        //                 .map(res.status.ok)
+        //                 .getOrElse(res.status.notFound({})) :
+        //             res.status.notFound({});
+        // });
 
         return app;
     };
@@ -113,7 +127,6 @@ module.exports = (function (bilby, _, cfg, con, m, res, uri, toggles, neo4j, db)
     require("./lib/monad"),
     require("./lib/response"),
     require("./lib/uri"),
-    require("./lib/toggle"),
-    require("./lib/neo4j"),
-    require("./spikes/flatcouch.json")
+    require("./lib/neo4j/cypher"),
+    require("./lib/common")
 ));
