@@ -123,7 +123,7 @@ module.exports = (function (bilby, _, cfg, con, m, res, uri, cypher, common) {
     require("bilby"),
     require("lodash"),
     require("./config"),
-    require("./lib/consultant"),
+    require("./lib/consultant/consultant"),
     require("./lib/monad"),
     require("./lib/response"),
     require("./lib/uri"),
