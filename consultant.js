@@ -1,5 +1,5 @@
 /*jslint maxlen: 120*/
-module.exports = (function (bilby, _, cfg, con, m, res, uri, cypher, common) {
+module.exports = (function (bilby, _, q, cfg, con, conDb, m, res, uri) {
     "use strict";
     var hyperlink = _.curry(function (request, consultant) {
             return {
@@ -18,91 +18,80 @@ module.exports = (function (bilby, _, cfg, con, m, res, uri, cypher, common) {
     }
 
     function defaultConsultantList(request) {
-        return cypher.cypherToObj("match (n:Consultant) return id(n) as id, n", {})
-            .then(function (rows) {
-                var consultants = common.multipluck(rows, "n", "data"),
-                    ids = _.map(rows, _.partialRight(_.pick, ["id"]));
-                return common.zipMerge(consultants, ids);
-            })
-            .then(_.partialRight(_.map, hyperlink(request)))
-            .then(res.respond)
-            .then(res.status.multipleChoices)
-            .then(consultantListType, res.status.internalServerError({}));
+        return conDb.list()
+            .then(local.listEndpoint(request));
     }
 
-    // function queryConsultantList(request) {
-    //     return m.toOption(_.map(_.reduce(request.query, function (acc, value, key) {
-    //         return _.filter(acc, function (x) { return x[key].toString() === value; });
-    //     }, db), hyperlink(request)))
-    //         .map(res.respond)
-    //         .map(res.status.multipleChoices)
-    //         .map(consultantListType)
-    //         .getOrElse(res.status.internalServerError({}));
-    // }
+    function queryConsultantList(request) {
+        return conDb.list()
+            .then(function (db) {
+                return _.reduce(request.query, function (acc, value, key) {
+                    var filterer = {};
+                    filterer[key] = value;
+                    return _.filter(acc, filterer);
+                }, db);
+            })
+            .then(local.listEndpoint(request));
+    }
 
     local = local
         .method("consultantList", emptyQueryString, defaultConsultantList)
-        // .method("consultantList", _.constant(true), queryConsultantList)
+        .method("consultantList", _.constant(true), queryConsultantList)
         .property("getChildren", bilby.curry(function (db, node) {
             return _.filter(db, function (x) { return x.parent === node.id; });
+        }))
+        .property("consultantEndpoint", _.curry(function (request, consultant) {
+            return q.when(consultant)
+                .then(hyperlink(request))
+                .then(res.respond)
+                .then(consultantType, _.constant(res.status.notFound({})));
+        }))
+        .property("listEndpoint", _.curry(function (request, consList) {
+            return q.when(consList)
+                .then(_.partialRight(_.map, hyperlink(request)))
+                .then(res.respond)
+                .then(res.status.multipleChoices)
+                .then(consultantListType, res.status.internalServerError({}));
         }));
 
-    // function findNode(db, id) {
-    //     return m.find(db, function (x) { return x.id === id; });
-    // }
-
     function findNodeById(id) {
-        return cypher.cypherToObj("start n=node({id}) return n", {id: id})
-            .then(function (rows) {
-                var node = _.first(rows).n;
-
-                return _.merge({}, node.data, {id: id});
+        return conDb.list()
+            .then(function (db) {
+                return _.find(db, {id: id});
             });
     }
 
     function findRoot() {
-        return cypher.cypherToObj("match (n:Consultant) where n.rep = {rep} return n, id(n) as id", {rep: "1"})
-            .then(function (rows) {
-                var row = _.first(rows);
-
-                return _.merge({}, row.n.data, {id: row.id});
+        return conDb.list()
+            .then(function (db) {
+                return _.find(db, {rep: "1"});
             });
     }
 
     function findNodeChildren(id) {
-        var query = "start n=node({id}) match (n)<-[:REPORTS_TO]-(children) return id(children) as id, children";
-        return cypher.cypherToObj(query, {id: id})
-            .then(function (objs) {
-                var consultants = common.multipluck(objs, "children", "data"),
-                    ids = _.pluck(objs, "id");
-
-                return _.map(consultants, function (cons, i) { return _.merge({}, cons, {id: ids[i]}); });
-            });
+        return conDb.list().then(function (db) {
+            var node = _.find(db, {id: id});
+            return _.filter(db, {sponsorrep: node.rep});
+        });
     }
 
     return function (app) {
         app.get("/consultant", local.consultantList);
 
-        app.get("/consultant/root", function (request) {
-            return findRoot()
-                .then(hyperlink(request))
-                .then(res.respond)
-                .then(consultantType);
-        });
-
         app.get("/consultant/:cid", function (request) {
+            console.log("here");
             return findNodeById(_.parseInt(request.params.cid))
-                .then(hyperlink(request))
-                .then(res.respond)
-                .then(consultantType, _.constant(res.status.notFound({})));
+                .then(local.consultantEndpoint(request));
         });
 
         app.get("/consultant/:cid/firstLine", function (request) {
             return findNodeChildren(_.parseInt(request.params.cid))
-                .then(_.partialRight(_.map, hyperlink(request)))
-                .then(res.respond)
-                .then(res.status.multipleChoices)
-                .then(consultantListType, _.constant(res.status.notFound({})));
+                .then(local.listEndpoint(request));
+        });
+
+        app.get("/consultant/root", function (request) {
+            return findRoot()
+                .then(local.consultantEndpoint(request));
         });
 
         // app.get("/consultant/:cid/full", function (request, cid) {
@@ -122,11 +111,11 @@ module.exports = (function (bilby, _, cfg, con, m, res, uri, cypher, common) {
 }(
     require("bilby"),
     require("lodash"),
+    require("q"),
     require("./config"),
     require("./lib/consultant/consultant"),
+    require("./lib/consultant/consultant.db"),
     require("./lib/monad"),
     require("./lib/response"),
-    require("./lib/uri"),
-    require("./lib/neo4j/cypher"),
-    require("./lib/common")
+    require("./lib/uri")
 ));
