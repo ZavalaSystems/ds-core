@@ -1,0 +1,29 @@
+{
+  "name": "Core Ui",
+  "version": "0.0.1",
+  "homepage": "https://github.com/likwid/gsati-core",
+  "authors": [
+    "Brandon Keown <bkeown@blitz.io>"
+  ],
+  "description": "Interactive Core API Demo",
+  "main": "index.html",
+  "moduleType": [
+    "globals"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-bootstrap": "~0.11.0",
+    "angular-route": "~1.2.21",
+    "angular": "~1.2.21",
+    "bootstrap": "~3.2.0",
+    "d3": "~3.4.11"
+  }
+}

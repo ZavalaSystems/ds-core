@@ -1,0 +1,14 @@
+<script type="text/ng-template" id="consultantList">
+    <strong>Name:</strong> {{consultant.payload.firstname + " " + consultant.payload.lastname}}
+    <br />
+    <strong>RepID:</strong> {{consultant.payload.rep}}
+    <br />
+    <button type="button" class="btn btn-xs btn-info" ng-click="toggleChildren(consultant)">Children</button>
+    <br />
+    <ul class="list-group" ng-if="consultant.displayChildren">
+        <li class="list-group-item" ng-repeat="consultant in consultant.children" ng-include="'consultantList'"></li>
+    </ul>
+</script>
+<ul class="list-group">
+    <li class="list-group-item" ng-repeat="consultant in vm.consultants" ng-include="'consultantList'"></li>
+</ul>
