@@ -3,15 +3,33 @@
 */
 (function () {
     "use strict";
+
     angular
-        .module("coreapi", ["ngRoute", "ui.bootstrap"])
+        .module("coreapi", ["ngRoute"])
         .config(["$routeProvider", function ($routeProvider) {
-            $routeProvider.
-                when("/consultant", {
+            function serviceDiscovery($http, $q) {
+                var df = $q.defer();
+                $http.get("http://localhost:8000/")
+                    .success(function (response) {
+                        df.resolve(response);
+                    });
+                return df.promise;
+            }
+
+            var discovery = ["$http", "$q", serviceDiscovery];
+
+            $routeProvider
+                .when("/consultant", {
                     templateUrl: "partials/consultant.html",
-                    controller: "ConsultantController"
-                }).
-                otherwise({
+                    controller: "ConsultantController",
+                    resolve: {discovery: discovery}
+                })
+                .when("/consultant/:cid", {
+                    templateUrl: "partials/details.html",
+                    controller: "DetailsController",
+                    resolve: {discovery: discovery}
+                })
+                .otherwise({
                     redirectTo: "/consultant"
                 });
         }]);

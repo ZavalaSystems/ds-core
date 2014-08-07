@@ -1,14 +1,52 @@
-<script type="text/ng-template" id="consultantList">
-    <strong>Name:</strong> {{consultant.payload.firstname + " " + consultant.payload.lastname}}
-    <br />
-    <strong>RepID:</strong> {{consultant.payload.rep}}
-    <br />
-    <button type="button" class="btn btn-xs btn-info" ng-click="toggleChildren(consultant)">Children</button>
-    <br />
-    <ul class="list-group" ng-if="consultant.displayChildren">
-        <li class="list-group-item" ng-repeat="consultant in consultant.children" ng-include="'consultantList'"></li>
-    </ul>
-</script>
-<ul class="list-group">
-    <li class="list-group-item" ng-repeat="consultant in vm.consultants" ng-include="'consultantList'"></li>
-</ul>
+<div class="three wide column">
+    <div class="ui form segment">
+        <form name="searchForm" ng-submit="doSearch()">
+            <div class="grouped fields">
+                <div class="field">
+                    <label>Consultant ID</label>
+                    <input type="text" placeholder="Consultant ID" ng-model="vm.search.rep">
+                </div>
+                <div class="field">
+                    <label>First Name</label>
+                    <input type="text" placeholder="First Name" ng-model="vm.search.firstname">
+                </div>
+                <div class="field">
+                    <label>Last name</label>
+                    <input type="text" placeholder="Last Name" ng-model="vm.search.lastname">
+                </div>
+                <div class="field">
+                    <label>Email</label>
+                    <input type="text" placeholder="Email" ng-model="vm.search.email">
+                </div>
+                <div class="field">
+                    <label>Sponsor ID</label>
+                    <input type="text" placeholder="Sponsor ID" ng-model="vm.search.sponsorrep">
+                </div>
+            </div>
+            <input type="submit" class="ui blue submit button floated right" value="Search" />
+        </form>
+    </div>
+</div>
+<div class="thirteen wide column">
+    <table class="ui table segment" ng-show="vm.results.length > 0 && vm.ready">
+        <thead>
+            <tr>
+                <th>Consultant ID</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email</th>
+                <th>Sponsor ID</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="result in vm.results">
+                <td><a href="" ng-click="toDetails(result.payload.rep)">{{result.payload.rep}}</a></td>
+                <td>{{result.payload.firstname}}</td>
+                <td>{{result.payload.lastname}}</td>
+                <td>{{result.payload.email}}</td>
+                <td><a href="" ng-click="searchBySponsor(result.payload)">{{result.payload.sponsorrep}}</a></td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="ui secondary inverted orange segment" ng-hide="vm.results.length > 0 || !vm.ready">No results to show.</div>
+</div>

@@ -26,9 +26,12 @@ module.exports = (function (bilby, _, q, cfg, con, conDb, m, res, uri) {
         return conDb.list()
             .then(function (db) {
                 return _.reduce(request.query, function (acc, value, key) {
-                    var filterer = {};
-                    filterer[key] = value;
-                    return _.filter(acc, filterer);
+                    var normalizedSearch = _.isString(value) ? value.toLowerCase() : value;
+                    return _.filter(acc, function (item) {
+                        var inspectedValue = item[key],
+                            normalizedText = _.isString(inspectedValue) ? inspectedValue.toLowerCase() : inspectedValue;
+                        return normalizedSearch === normalizedText;
+                    });
                 }, db);
             })
             .then(local.listEndpoint(request));

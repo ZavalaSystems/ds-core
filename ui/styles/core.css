@@ -1,8 +1,12 @@
 body {
-  padding-top: 70px;
-  padding-bottom: 30px;
+    font-family: "Open Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif/*rtl:prepend:"Droid Arabic Kufi","Droid Sans", */;
 }
 
-.btn-info {
-    margin-bottom: 10px;
+.reset {
+    margin: 0;
+    padding: 0;
+}
+
+.right-aligned {
+    text-align: right;
 }

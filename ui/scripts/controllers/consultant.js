@@ -1,50 +1,50 @@
 /*global
-    angular: true
+    angular: true,
+    d3: true,
+    _: true
 */
 (function () {
     "use strict";
-    var deps = ["$scope", "$http", "$q"];
-    function Controller($scope, $http, $q) {
+    var deps = ["$scope", "$http", "$q", "$location", "discovery"];
+    function Controller($scope, $http, $q, $location, discovery) {
+        console.log(discovery);
         $scope.vm = {
+            search: {},
+            ready: false,
+            results: []
         };
 
-        $http.get("http://localhost:8000/consultant/root")
-            .then(function (response) {
-                return response.data;
-                // return $http.get(root.links.firstLine.href);
-            })
-            .then(function (root) {
-                var df = $q.defer();
-                $http.get(root.links.firstLine.href)
-                    .error(function (err, status) {
-                        if (status === 300) {
-                            df.resolve(err);
-                        } else {
-                            df.reject(err);
-                        }
-                    });
-                return df.promise;
-            })
-            .then(function (response) {
-                $scope.vm.consultants = response;
+        $scope.doSearch = function () {
+            var df = $q.defer(),
+                criteria = _.pick($scope.vm.search, _.identity);
+
+            $http.get(discovery.consultant.find, {params: criteria})
+                .success(_.noop)
+                .error(function (response, status) {
+                    if (status === 300) {
+                        df.resolve(response);
+                    } else {
+                        df.reject(response);
+                    }
+                });
+            return df.promise.then(function (list) {
+                $scope.vm.ready = true;
+                $scope.vm.results = list;
             });
-
-        $scope.toggleChildren = function (consultant) {
-            if (consultant.displayChildren) {
-                consultant.children = [];
-                consultant.displayChildren = false;
-            } else {
-                $http.get(consultant.links.firstLine.href)
-                    .error(function (err, status) {
-                        if (status === 300) {
-                            consultant.children = err;
-                            consultant.displayChildren = true;
-                        } else {
-                            throw err;
-                        }
-                    });
-            }
         };
+
+        $scope.searchBySponsor = function (payload) {
+            $scope.vm.search = {
+                sponsorrep: payload.sponsorrep
+            };
+            $scope.doSearch();
+        };
+
+        $scope.toDetails = function (rep) {
+            $location.path("/consultant/" + rep);
+        };
+
+        $scope.doSearch();
     }
     angular
         .module("coreapi")

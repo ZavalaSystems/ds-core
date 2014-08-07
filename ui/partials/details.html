@@ -1,0 +1,23 @@
+<div class="ui grid" ng-if="vm.consultant" ng-repeat="details in [vm.consultant.payload]">
+    <div class="six wide column"></div>
+    <div class="four wide column">
+        <div class="ui segment">
+            <div class="ui grid">
+                <div class="two column row">
+                    <div class="column">{{details.firstname}} {{details.lastname}}</div>
+                    <div class="right aligned column">
+                        {{details.email}}
+                    </div>
+                </div>
+                <div class="one column row">
+                    <div class="column">
+                        <div>{{details.address1}}</div>
+                        <div>{{details.address2}}</div>
+                        <div>{{details.city}}, {{details.state}}&nbsp;&nbsp;{{details.postalcode}}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="six wide column"></div>
+</div>

@@ -4,26 +4,20 @@
     <title>Core API Demo</title>
     <script type="text/javascript" src="bower_components/angular/angular.js"></script>
     <script type="text/javascript" src="bower_components/angular-route/angular-route.js"></script>
-    <script type="text/javascript" src="bower_components/angular-bootstrap/ui-bootstrap.js"></script>
+    <script type="text/javascript" src="bower_components/d3/d3.js"></script>
+    <script type="text/javascript" src="bower_components/lodash/dist/lodash.js"></script>
     <script type="text/javascript" src="scripts/core.js"></script>
     <script type="text/javascript" src="scripts/controllers/consultant.js"></script>
-    <link href="bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
-    <link href="bower_components/bootstrap/dist/css/bootstrap-theme.css" rel="stylesheet" />
+    <script type="text/javascript" src="scripts/controllers/details.js"></script>
+    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700|Open+Sans:300italic,400,300,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="bower_components/semantic-ui/build/packaged/css/semantic.css" />
     <link href="styles/core.css" rel="stylesheet" />
   </head>
-  <body role="document">
-    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-      <div class="container">
-        <div class="navbar-header">
-          <a class="navbar-brand" href="#/">Core API</a>
-        </div>
-        <div class="navbar-collapse collapse">
-          <ul class="nav navbar-nav">
-            <li class="active"><a href="#/consultants">Consultants</a></li>
-          </ul>
-        </div>
-      </div>
+  <body class="ui reset">
+    <div class="ui fixed inverted main menu">
+      <span class="item">GSATI Core</span>
+      <a class="item" href="#/consultant">Consultant</a>
     </div>
-    <div class="container" role="main" ng-view></div>
+    <div class="ui grid" ng-view></div>
   </body>
 </html>
