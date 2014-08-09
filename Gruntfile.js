@@ -19,7 +19,10 @@ module.exports = function (grunt) {
         },
         jasmine_node: {
             coverage: {},
-            all: ["lib/"]
+            options: {
+                specFolders: ["lib/"]
+            },
+            all:  []
         },
         watch: {
             scripts: {
