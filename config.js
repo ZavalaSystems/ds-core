@@ -3,7 +3,7 @@ module.exports = (function (_) {
     "use strict";
     return {
         server: {
-            port: 8080
+            port: process.env.GSATI_API_PORT
         },
         mediatypes: {
             list: {
@@ -20,7 +20,7 @@ module.exports = (function (_) {
             host: _.template("${protocol}//${host}:${port}")
         },
         database: {
-            uri: "http://localhost:7474/",
+            uri: process.env.NEO4J_URI,
             discoveryDepth: 2
         }
     };

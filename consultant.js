@@ -1,5 +1,5 @@
 /*jslint maxlen: 120*/
-module.exports = (function (bilby, _, q, cfg, con, conDb, m, res, uri) {
+module.exports = (function (mach, bilby, _, q, cfg, con, conDb, m, res, uri, subprocess) {
     "use strict";
     var hyperlink = _.curry(function (request, consultant) {
             return {
@@ -40,7 +40,7 @@ module.exports = (function (bilby, _, q, cfg, con, conDb, m, res, uri) {
     local = local
         .method("consultantList", emptyQueryString, defaultConsultantList)
         .method("consultantList", _.constant(true), queryConsultantList)
-        .property("getChildren", bilby.curry(function (db, node) {
+        .property("getChildren", _.curry(function (db, node) {
             return _.filter(db, function (x) { return x.parent === node.id; });
         }))
         .property("consultantEndpoint", _.curry(function (request, consultant) {
@@ -82,7 +82,6 @@ module.exports = (function (bilby, _, q, cfg, con, conDb, m, res, uri) {
         app.get("/consultant", local.consultantList);
 
         app.get("/consultant/:cid", function (request) {
-            console.log("here");
             return findNodeById(_.parseInt(request.params.cid))
                 .then(local.consultantEndpoint(request));
         });
@@ -97,21 +96,20 @@ module.exports = (function (bilby, _, q, cfg, con, conDb, m, res, uri) {
                 .then(local.consultantEndpoint(request));
         });
 
-        // app.get("/consultant/:cid/full", function (request, cid) {
-        //     return toggles.getToggleOff(request, "feature.full") ?
-        //             findNode(db, cid)
-        //                 .map(con.assignGCV(local.getChildren(db)))
-        //                 .map(hyperlink(request))
-        //                 .map(res.respond)
-        //                 .map(consultantType)
-        //                 .map(res.status.ok)
-        //                 .getOrElse(res.status.notFound({})) :
-        //             res.status.notFound({});
-        // });
+        app.get("/consultant/:cid/commissions", function (request) {
+            return findNodeById(_.parseInt(request.params.cid))
+                .then(function (n) {
+                    return subprocess.run("node", "lib/processes/commissions.js", n.rep, null);
+                })
+                .then(_.property("stdout"))
+                .then(JSON.parse)
+                .then(mach.json);
+        });
 
         return app;
     };
 }(
+    require("mach"),
     require("bilby"),
     require("lodash"),
     require("q"),
@@ -120,5 +118,6 @@ module.exports = (function (bilby, _, q, cfg, con, conDb, m, res, uri) {
     require("./lib/consultant/consultant.db"),
     require("./lib/monad"),
     require("./lib/response"),
-    require("./lib/uri")
+    require("./lib/uri"),
+    require("./lib/subprocess")
 ));

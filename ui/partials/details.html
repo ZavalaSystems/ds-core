@@ -1,5 +1,63 @@
 <div class="ui grid" ng-if="vm.consultant" ng-repeat="details in [vm.consultant.payload]">
-    <div class="six wide column"></div>
+    <div class="one wide column"></div>
+    <div class="fourteen wide column">
+        <table class="ui table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Location</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{details.firstname}} {{details.lastname}}</td>
+                    <td>{{details.email}}</td>
+                    <td>{{details.city}}, {{details.state}}</td>
+                    <td><button class="ui red button" ng-click="calculateCommission()">Calculate</button></td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="ui basic segment">
+            <table class="ui table" ng-if="vm.commissions">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Personal Volume</th>
+                        <th>Team Volume</th>
+                        <th>Organization Volume</th>
+                        <th>Personal Bonus</th>
+                        <th>Team Bonus</th>
+                        <th>Qualified</th>
+                        <th>Rank</th>
+                        <th>Commissions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="commission in vm.commissions">
+                        <td>{{commission.consultant.rep}}</td>
+                        <td>{{commission.pcv | money}}</td>
+                        <td>{{commission.teamVolume | money}}</td>
+                        <td>{{commission.orgVolume | money}}</td>
+                        <td>{{commission.pbv | money}}</td>
+                        <td>{{commission.tbv | money}}</td>
+                        <td>
+                            <i class="ui red remove icon" ng-if="!commission.qualified"></i>
+                            <i class="ui green checkmark icon" ng-if="commission.qualified"></i>
+                        </td>
+                        <td>{{commission.rank}}</td>
+                        <td>{{commission.commissions | money}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div ng-class="{active: vm.commissionsRunning}" class="ui inverted dimmer">
+            <div class="ui large text loader">Calculating Commissions</div>
+        </div>
+    </div>
+    <div class="one wide column"></div>
+    <!-- <div class="six wide column"></div>
     <div class="four wide column">
         <div class="ui segment">
             <div class="ui grid">
@@ -19,5 +77,5 @@
             </div>
         </div>
     </div>
-    <div class="six wide column"></div>
+    <div class="six wide column"></div> -->
 </div>

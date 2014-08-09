@@ -12,6 +12,7 @@
         "grunt-jasmine-node": "*",
         "grunt-jasmine-node-coverage": "*",
         "grunt-contrib-watch": "0.x",
-        "grunt-jasmine-node-cover": "0.x"
+        "grunt-jasmine-node-cover": "0.x",
+        "jasmine-node": "1.x"
     }
 }
