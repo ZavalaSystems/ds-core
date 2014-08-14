@@ -1,5 +1,5 @@
 node_modules
 coverage
 .vagrant
-gsati-core.sublime-workspace
 bower_components
+*.sublime-workspace
