@@ -1,7 +1,11 @@
 ---
 - hosts: all
-  sudo: no
-  tasks: 
+  sudo: yes
+  tasks:
+  - name: Install docker-py
+    pip:
+      name: docker-py
+
   - name: Pull new docker image
     command: docker pull likwid/stuff:{{ version }}
     sudo: False
@@ -11,7 +15,7 @@
     ignore_errors: True
 
   - name: "Start version {{ version }}"
-    docker: 
+    docker:
       image: likwid/stuff:{{ version }}
       ports: "8080:8080"
       links: "db:db"
@@ -28,4 +32,4 @@
     #   token: "{{ hipchat_token }}"
     #   room: Build
     #   msg: Deploy {{ version }} failed
-    #   when: 
+    #   when:
