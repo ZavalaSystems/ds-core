@@ -6,19 +6,32 @@
     pip:
       name: docker-py
 
-  - name: Pull new docker image
+  - name: Pull API image
     command: docker pull likwid/stuff:{{ version }}
     sudo: False
 
+  - name: Pull Web image
+    command: docker pull likwid/frontend:{{ version }}
+    sudo: False
+
   - name: Stopping remote container
-    shell: docker stop `docker ps -lq`
+    shell: docker stop api web
     ignore_errors: True
 
-  - name: "Start version {{ version }}"
+  - name: "Start API {{ version }}"
     docker:
+      name: api
       image: likwid/stuff:{{ version }}
-      ports: "8080:8080"
+      ports: "8000:8080"
       links: "db:db"
+      detach: yes
+
+  - name: "Start Web {{ version }}"
+    docker:
+      name: web
+      image: likwid/frontend:{{ version }}
+      ports: "80:8001"
+      links: "api:api"
       detach: yes
 
   - name: Notify hipchat of success
