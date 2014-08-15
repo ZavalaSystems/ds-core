@@ -1,4 +1,4 @@
-FROM likwid/stuff:latest
+FROM ubuntu:14.04
 
 RUN echo "deb http://ppa.launchpad.net/nginx/stable/ubuntu trusty main" > /etc/apt/sources.list.d/nginx-stable-trusty.list
 RUN echo "deb-src http://ppa.launchpad.net/nginx/stable/ubuntu trusty main" >> /etc/apt/sources.list.d/nginx-stable-trusty.list
@@ -8,8 +8,9 @@ RUN apt-get install -y  wget nginx
 RUN echo "daemon off;" >> /etc/nginx/nginx.conf
 #fix for long server names
 RUN sed -i 's/# server_names_hash_bucket/server_names_hash_bucket/g' /etc/nginx/nginx.conf
+ADD . /opt/gsati/ui
+RUN cp /opt/gsati/site.nginx /etc/nginx/sites-enabled/gsati-ui
 
-ADD devops/gsati-ui /etc/nginx/sites-enabled/gsati-ui
 
 WORKDIR /etc/nginx
 CMD ["nginx"]
