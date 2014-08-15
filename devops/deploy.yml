@@ -22,7 +22,7 @@
     docker:
       name: api
       image: likwid/stuff:{{ version }}
-      ports: "8000:8080"
+      ports: "8080"
       links: "db:db"
       detach: yes
 
@@ -30,7 +30,7 @@
     docker:
       name: web
       image: likwid/frontend:{{ version }}
-      ports: "80:8001"
+      ports: ["80:8001", "8000:8000"]
       links: "api:api"
       detach: yes
 

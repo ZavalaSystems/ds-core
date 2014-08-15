@@ -1,0 +1,18 @@
+server {
+    listen 80;
+
+    location / {
+        root /opt/gsati/ui;
+        try_files $uri $uri/ index.html;
+    }
+}
+
+server {
+    listen 8000;
+
+    location / {
+        include cors.nginx;
+        proxy_pass http://api:8080;
+        proxy_set_header Host $host:8000;
+    }
+}

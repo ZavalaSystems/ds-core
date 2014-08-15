@@ -8,9 +8,9 @@ RUN apt-get install -y  wget nginx
 RUN echo "daemon off;" >> /etc/nginx/nginx.conf
 #fix for long server names
 RUN sed -i 's/# server_names_hash_bucket/server_names_hash_bucket/g' /etc/nginx/nginx.conf
-ADD . /opt/gsati/ui
-RUN cp /opt/gsati/site.nginx /etc/nginx/sites-enabled/gsati-ui
-
+ADD . /opt/gsati
+RUN cp /opt/gsati/ui/gsati-ui /etc/nginx/sites-enabled/gsati-ui
+RUN cp /opt/gsati/ui/cors.nginx /etc/nginx/cors.nginx
 
 WORKDIR /etc/nginx
 CMD ["nginx"]
