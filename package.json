@@ -1,6 +1,7 @@
 {
     "dependencies": {
         "bilby": "0.x",
+        "bower": "*",
         "lodash": "2.x",
         "mach": "0.x",
         "nodemon": "1.2.x",
