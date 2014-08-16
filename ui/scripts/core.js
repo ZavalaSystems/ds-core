@@ -8,16 +8,16 @@
     angular
         .module("coreapi", ["ngRoute"])
         .config(["$routeProvider", function ($routeProvider) {
-            function serviceDiscovery($http, $q, $window) {
+            function serviceDiscovery($http, $q) {
                 var df = $q.defer();
-                $http.get(_.template("${origin}:8000/", $window.location))
+                $http.get("/api")
                     .success(function (response) {
                         df.resolve(response);
                     });
                 return df.promise;
             }
 
-            var discovery = ["$http", "$q", "$window", serviceDiscovery];
+            var discovery = ["$http", "$q", serviceDiscovery];
 
             $routeProvider
                 .when("/consultant", {

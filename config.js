@@ -5,17 +5,6 @@ module.exports = (function (_) {
         server: {
             port: process.env.GSATI_API_PORT || 8080
         },
-        mediatypes: {
-            list: {
-                hypermedia: {
-                    consultant: "application/vnd.core.list.hypermedia+json; profile=consultant"
-                }
-            },
-            hypermedia: {
-                consultant: "application/vnd.core.hypermedia+json; profile=consultant"
-            },
-            consultant: "application/vnd.core.consultant+json"
-        },
         templates: {
             host: _.template("${protocol}//${host}:${port}")
         },

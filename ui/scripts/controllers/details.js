@@ -11,10 +11,8 @@
             commissions: null
         };
         $http.get(discovery.consultant.find, {params: {rep: $routeParams.cid}})
-            .error(function (response, status) {
-                if (status === 300) {
-                    $scope.vm.consultant = _.first(response);
-                }
+            .success(function (response) {
+                $scope.vm.consultant = _.first(response.payload);
             });
 
         $scope.toDetails = function (rep) {
@@ -29,7 +27,7 @@
 
         $scope.calculateCommission = function () {
             $scope.vm.commissionsRunning = true;
-            var url = $scope.vm.consultant.links.commissions.href;
+            var url = $scope.vm.consultant.links.commissions;
             $http.get(url).success(function (response) {
                 $scope.vm.commissions = flattenCommissionTree(response, []);
                 $scope.vm.commissionsRunning = false;

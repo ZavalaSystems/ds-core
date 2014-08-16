@@ -1,15 +1,21 @@
 /*jslint maxlen: 120*/
-module.exports = (function (mach, bilby, _, q, cfg, con, conDb, m, res, uri, subprocess) {
+module.exports = (function (mach, bilby, _, q, con, conDb, m, res, uri, subprocess) {
     "use strict";
+    /*jslint unparam: true*/
     var hyperlink = _.curry(function (request, consultant) {
             return {
                 payload: con.clean(consultant),
                 links: con.links(uri.absoluteUri(request), consultant)
             };
         }),
-        consultantType = res.header.contentType(cfg.mediatypes.hypermedia.consultant),
-        consultantListType = res.header.contentType(cfg.mediatypes.list.hypermedia.consultant),
+        listHyperlink = _.curry(function (request, consList) {
+            return {
+                payload: consList,
+                links: {}
+            };
+        }),
         local = bilby.environment();
+    /*jslint unparam: false*/
 
     function emptyQueryString(request) {
         return m.get("query", request)
@@ -46,15 +52,13 @@ module.exports = (function (mach, bilby, _, q, cfg, con, conDb, m, res, uri, sub
         .property("consultantEndpoint", _.curry(function (request, consultant) {
             return q.when(consultant)
                 .then(hyperlink(request))
-                .then(res.respond)
-                .then(consultantType, _.constant(res.status.notFound({})));
+                .then(mach.json, _.constant(res.status.notFound({})));
         }))
         .property("listEndpoint", _.curry(function (request, consList) {
             return q.when(consList)
                 .then(_.partialRight(_.map, hyperlink(request)))
-                .then(res.respond)
-                .then(res.status.multipleChoices)
-                .then(consultantListType, res.status.internalServerError({}));
+                .then(listHyperlink(request))
+                .then(mach.json, res.status.internalServerError({}));
         }));
 
     function findNodeById(id) {
@@ -113,7 +117,6 @@ module.exports = (function (mach, bilby, _, q, cfg, con, conDb, m, res, uri, sub
     require("bilby"),
     require("lodash"),
     require("q"),
-    require("./config"),
     require("./lib/consultant/consultant"),
     require("./lib/consultant/consultant.db"),
     require("./lib/monad"),
