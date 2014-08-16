@@ -1,8 +1,9 @@
 server {
     listen 80;
 
-    location /api {
-        proxy_set_header Host $http_host;
+    location ^~ /api {
+        rewrite ^/api(.*)$ $1 break;
+        proxy_set_header X-Api-Root $scheme://$host:$server_port/api;
         proxy_pass http://api:8080;
     }
 

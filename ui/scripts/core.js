@@ -10,7 +10,7 @@
         .config(["$routeProvider", function ($routeProvider) {
             function serviceDiscovery($http, $q) {
                 var df = $q.defer();
-                $http.get("/api")
+                $http.get("/api/")
                     .success(function (response) {
                         df.resolve(response);
                     });
