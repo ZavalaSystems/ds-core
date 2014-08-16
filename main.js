@@ -1,5 +1,6 @@
 (function main(mach, cfg, m) {
     "use strict";
+    console.log("hello");
     var app = mach.stack(),
         port = m.toOption(process.argv[2])
             .getOrElse(cfg.server.port);

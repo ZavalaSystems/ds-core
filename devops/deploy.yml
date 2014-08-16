@@ -6,17 +6,24 @@
     pip:
       name: docker-py
 
-  - name: Pull API image
-    command: docker pull likwid/stuff:{{ version }}
-    sudo: False
+  - name: Pull containers
+    docker:
+      image: "{{ item }}:{{ version }}"
+      state: present
+    with_items:
+    - likwid/stuff
+    - likwid/frontend
 
-  - name: Pull Web image
-    command: docker pull likwid/frontend:{{ version }}
-    sudo: False
-
-  - name: Stopping remote container
-    shell: docker stop api web
-    ignore_errors: True
+  - name: Stop containers
+    docker:
+      name: "{{ item.name }}"
+      image: "{{ item.image }}"
+      state: stopped
+    with_items:
+    - image: likwid/stuff
+      name: api
+    - image: likwid/frontend
+      name: web
 
   - name: "Start API {{ version }}"
     docker:
@@ -25,6 +32,7 @@
       ports: "8080"
       links: "db:db"
       detach: yes
+      state: running
 
   - name: "Start Web {{ version }}"
     docker:
@@ -33,6 +41,7 @@
       ports: ["80:80", "8000:8000"]
       links: "api:api"
       detach: yes
+      state: running
 
   - name: Notify hipchat of success
     hipchat:
