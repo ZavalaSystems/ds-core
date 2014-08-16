@@ -10,7 +10,7 @@
         .config(["$routeProvider", function ($routeProvider) {
             function serviceDiscovery($http, $q, $window) {
                 var df = $q.defer();
-                $http.get(_.template("http://${origin}:8000/", $window.location))
+                $http.get(_.template("${origin}:8000/", $window.location))
                     .success(function (response) {
                         df.resolve(response);
                     });
