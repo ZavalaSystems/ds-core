@@ -1,5 +1,6 @@
 /*global
-    angular: true
+    angular: true,
+    _: true
 */
 (function () {
     "use strict";
@@ -7,16 +8,16 @@
     angular
         .module("coreapi", ["ngRoute"])
         .config(["$routeProvider", function ($routeProvider) {
-            function serviceDiscovery($http, $q) {
+            function serviceDiscovery($http, $q, $window) {
                 var df = $q.defer();
-                $http.get("http://localhost:8000/")
+                $http.get(_.template("http://${origin}:8000/", $window.location))
                     .success(function (response) {
                         df.resolve(response);
                     });
                 return df.promise;
             }
 
-            var discovery = ["$http", "$q", serviceDiscovery];
+            var discovery = ["$http", "$q", "$window", serviceDiscovery];
 
             $routeProvider
                 .when("/consultant", {
