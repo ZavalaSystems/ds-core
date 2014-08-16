@@ -8,6 +8,7 @@
 
   - name: Pull containers
     command: "docker pull {{ item }}:{{ version }}"
+    sudo: no
     with_items:
     - likwid/stuff
     - likwid/frontend
