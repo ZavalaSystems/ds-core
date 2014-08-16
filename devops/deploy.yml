@@ -7,9 +7,7 @@
       name: docker-py
 
   - name: Pull containers
-    docker:
-      image: "{{ item }}:{{ version }}"
-      state: present
+    command: "docker pull {{ item }}:{{ version }}"
     with_items:
     - likwid/stuff
     - likwid/frontend

@@ -23,6 +23,7 @@
     "angular-route": "~1.2.21",
     "angular": "~1.2.21",
     "d3": "~3.4.11",
-    "semantic-ui": "*"
+    "semantic-ui": "*",
+    "lodash": "2.x"
   }
 }
