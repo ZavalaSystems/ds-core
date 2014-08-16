@@ -10,7 +10,6 @@ RUN echo "daemon off;" >> /etc/nginx/nginx.conf
 RUN sed -i 's/# server_names_hash_bucket/server_names_hash_bucket/g' /etc/nginx/nginx.conf
 ADD . /opt/gsati/ui
 RUN cp /opt/gsati/ui/gsati-ui /etc/nginx/sites-enabled/gsati-ui
-RUN cp /opt/gsati/ui/cors.nginx /etc/nginx/cors.nginx
 RUN rm /etc/nginx/sites-enabled/default
 
 WORKDIR /etc/nginx
