@@ -17,7 +17,7 @@
     docker:
       name: "{{ item.name }}"
       image: "{{ item.image }}"
-      state: stopped
+      state: absent
     with_items:
     - image: likwid/stuff
       name: api
