@@ -110,6 +110,12 @@ module.exports = (function (mach, bilby, _, q, con, conDb, m, res, uri, subproce
                 .then(mach.json);
         });
 
+        app.get("/consultant/:cid/orders", function (request) {
+            var consultantId = _.parseInt(request.params.cid);
+            return conDb.orders(consultantId)
+                .then(mach.json);
+        });
+
         return app;
     };
 }(

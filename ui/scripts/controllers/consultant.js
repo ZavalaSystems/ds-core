@@ -7,7 +7,6 @@
     "use strict";
     var deps = ["$scope", "$http", "$q", "$location", "discovery"];
     function Controller($scope, $http, $q, $location, discovery) {
-        console.log(discovery);
         $scope.vm = {
             search: {},
             ready: false,
