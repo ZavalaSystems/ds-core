@@ -3,10 +3,7 @@ module.exports = (function (mach, bilby, _, q, con, conDb, m, res, uri, subproce
     "use strict";
     /*jslint unparam: true*/
     var hyperlink = _.curry(function (request, consultant) {
-            return {
-                payload: con.clean(consultant),
-                links: con.links(uri.absoluteUri(request), consultant)
-            };
+            return con.linker(uri.absoluteUri(request), consultant);
         }),
         listHyperlink = _.curry(function (request, consList) {
             return {
