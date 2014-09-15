@@ -1,31 +1,23 @@
 (function(path, fs, q, _, cypher) {
     "use strict";
+    /*
     function mkPicker(props) {
         return _.partialRight(_.pick, props);
     }
-
-    function transformRename(result, val, key, map) {
-        debugger;
-        if (key in map) {
-            result[map[key]] = val;
-        } else {
-            result[key] = val;
-        }
-    }
+    */
 
     var slurpJsonSync = _.compose(JSON.parse, fs.readFileSync);
-    var repProps = ['rep-id', 'url', 'first-name', 'mi', 'last-name', 
-                    'sponsor-num'];
-    var mapPickRepProps = _.partialRight(_.map, mkPicker(repProps));
-    var slurpReps = _.compose(mapPickRepProps, slurpJsonSync);
+    // var repProps = ['rep-id', 'url', 'first-name', 'mi', 'last-name', 'sponsor-num'];
+    // var mapPickRepProps = _.partialRight(_.map, mkPicker(repProps));
+    var slurpReps = slurpJsonSync;
 
-    var orderProps = ['order-date', 'date-created', 'rep-num', 'order-num'];
-    var mapPickOrderProps = _.partialRight(_.map, mkPicker(orderProps));
-    var slurpOrders = _.compose(mapPickOrderProps, slurpJsonSync);
+    //var orderProps = ['order-date', 'date-created', 'rep-num', 'order-num'];
+    //var mapPickOrderProps = _.partialRight(_.map, mkPicker(orderProps));
+    var slurpOrders = slurpJsonSync;
 
-    var lineItemProps = ['id', 'order-num', 'price', 'quantity', 'status'];
-    var mapPickLineItemProps = _.partialRight(_.map, mkPicker(lineItemProps));
-    var slurpLineItems = _.compose(mapPickLineItemProps, slurpJsonSync);
+    //var lineItemProps = ['id', 'order-num', 'price', 'quantity', 'status'];
+    //var mapPickLineItemProps = _.partialRight(_.map, mkPicker(lineItemProps));
+    var slurpLineItems = slurpJsonSync;
 
     function main(repsFile, ordersFile, lineItemsFile) {
         console.log("deleting database");
@@ -74,7 +66,6 @@
                         bp: results.bp
                     };    
                 });
-                // Find the consultant that doesn't have a sponsor and attach him to the business period
             })
             .then(function(results) {
                 console.log('importing orders');
@@ -85,14 +76,21 @@
                         {rep: order['rep-num'], orderid: order['order-num'], when: new Date(order['date-created']).toISOString()});
                 }))
             })
-            .then(function(_) {
+            .then(function(results) {
                 console.log('importing line items');
                 var lineItems = slurpLineItems(lineItemsFile);
                 return q.all(_.map(lineItems, function(lineItem) {
-                    return cpyher.cypherToObj('match (o:Order {id: {orderid}) \
-                        create (o)-[r:PART_OF]->(li:LineItem {id: {lineid}, price :{price}, qty: {quantity}, status: {status}})',
-                        {orderid: lineItem['order-num'], lineid: lineItem['id'], price: lineItem['price'] * 100, quantity: lineItem['quantity'], 
-                         status: lineItem['status']});
+                    return cypher.cypherToObj('match (o:Order {id: {orderid}}) \
+                        create (li:LineItem {id: {lineid}, price: {price}, qty: {quantity}, status: {status}, product: {product}})-[r:PART_OF]->(o) \
+                        return r, li',
+                        {   
+                            orderid: lineItem['order-num'], 
+                            lineid: lineItem['id'],
+                            price: parseFloat(lineItem['price']) * 100,
+                            quantity: lineItem['quantity'], 
+                            status: lineItem['status'],
+                            product: lineItem['product-num']
+                        });
                 }));
             })
             .done(function(s) {
