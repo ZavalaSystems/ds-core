@@ -48,7 +48,7 @@
                         return cypher.cypherToObj(
                             "match (:Consultant {rep: {rep}})-[:PERFORMED]->(meta:ConsultantPerformance), " +
                                 "(bp:BusinessPeriod) " +
-                                "create (bp)-[r:DURING]->(meta) return r",
+                                "create (bp)<-[r:DURING]-(meta) return r",
                             {rep: rep["rep-id"]}
                         );
                     }
