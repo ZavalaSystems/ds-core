@@ -1,28 +1,25 @@
 /*jslint maxlen: 120*/
-module.exports = (function(mach, _, bilby) {
+module.exports = (function (mach, _, bilby, response) {
     "use strict";
-    var local = bilby.environment();
-
     function hasDate(request) {
-        return request.query.d != null;
+        return request.query.d !== null;
     }
 
     function formatDate(date) {
-        var year = date.getFullYear();
-        var month = date.getMonth() + 1;
-        return year.toString() + (month < 10 ? "0"+month : month.toString());
+        var year = date.getFullYear(),
+            month = date.getMonth() + 1;
+        return year.toString() + (month < 10 ? "0" + month : month.toString());
     }
 
     function datePeriod(request) {
         var date = new Date(request.query.d);
         if (_.isNaN(date.getFullYear())) {
-            return 404;
-        } else {
-            return mach.json(formatDate(date));
+            return response.status.badRequest({});
         }
+        return mach.json(formatDate(date));
     }
 
-    function todayPeriod(request) {
+    function todayPeriod() {
         return mach.json(formatDate(new Date()));
     }
 
@@ -30,11 +27,12 @@ module.exports = (function(mach, _, bilby) {
         .method("period", hasDate, datePeriod)
         .method("period", _.constant(true), todayPeriod);
 
-    return function(app) {
+    return function (app) {
         app.get("/bp", local.period);
-    }
+    };
 }(
     require("mach"),
     require("lodash"),
-    require("bilby")
+    require("bilby"),
+    require("./lib/response")
 ));
