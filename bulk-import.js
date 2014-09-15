@@ -39,7 +39,7 @@
                         {
                             firstname: rep['first-name'],
                             lastname: rep['last-name'], 
-                            rep: rep['rep-id'], 
+                            rep: parseInt(rep['rep-id']), 
                             rank: rep['rank'], 
                             joindate: new Date(rep['joindate']).toISOString()
                         });
@@ -60,13 +60,14 @@
                         // TODO: Consider how to do this with the relationship api
                         return cypher.cypherToObj('match (:Consultant {rep: {rep}})-[:PERFORMED]->(meta:ConsultantPerformance), \
                             (bp:BusinessPeriod) \
-                            create (bp)-[r:DURING]->(meta) return r', {rep: rep['rep-id']});
+                            create (bp)-[r:DURING]->(meta) return r', {rep: parseInt(rep['rep-id'])});
                     } else {
                         return cypher.cypherToObj('match (c:Consultant {rep: {child}})-[:PERFORMED]->(downline:ConsultantPerformance), \
                             (p:Consultant {rep: {parent}})-[:PERFORMED]->(upline:ConsultantPerformance) \
-                            create (downline)-[r:REPORTS_TO]->(upline), (c)-[e:ENROLLED_BY]->(p) return r, e', {child: rep['rep-id'], parent: rep['sponsor-num']});
+                            create (downline)-[r:REPORTS_TO]->(upline), (c)-[e:ENROLLED_BY]->(p) return r, e', 
+                            {child: parseInt(rep['rep-id']), parent: parseInt(rep['sponsor-num'])});
                     }
-                }))
+                }));
             })
             .done(function(s) {
                 console.log('done');
@@ -81,4 +82,4 @@
    require('fs'),
    require('q'),
    require('lodash'),
-   require('../lib/neo4j/cypher'));
+   require('./lib/neo4j/cypher'));
