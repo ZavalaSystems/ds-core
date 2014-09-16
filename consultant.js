@@ -46,7 +46,7 @@ module.exports = (function (mach, bilby, _, q, con, conDb, m, res, uri, subproce
         }))
         .property("consultantEndpoint", _.curry(function (request, consultant) {
             return q.when(consultant)
-                .then(hyperlink(request))
+                .then(hyperlink(request)(_.identity))
                 .then(mach.json, _.constant(res.status.notFound({})));
         }))
         .property("listEndpoint", _.curry(function (request, consList) {
