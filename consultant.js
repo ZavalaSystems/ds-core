@@ -2,9 +2,7 @@
 module.exports = (function (mach, bilby, _, q, con, conDb, m, res, uri, subprocess) {
     "use strict";
     /*jslint unparam: true*/
-    var hyperlink = _.curry(function (request, consultant) {
-            return con.linker(uri.absoluteUri(request), consultant);
-        }),
+    var hyperlink = _.compose(con.linker, uri.absoluteUri),
         listHyperlink = _.curry(function (request, consList) {
             return {
                 payload: consList,
