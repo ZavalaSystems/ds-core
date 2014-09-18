@@ -5,7 +5,6 @@
         inactiveRepNum = "5";
 
     function main(repsFile) {
-        console.log("deleting database");
         cypher.cypher("match (n) optional match (n)-[r]->() delete r, n", {})
             .then(function () {
                 // Create the the first business period
@@ -16,7 +15,8 @@
             .then(function (bp) {
                 var reps = slurpJsonSync(repsFile),
                     activeReps = R.filter(function (x) {
-                        return x["rep-id"] === inactiveRepNum || x["upline-num"] === inactiveRepNum;
+                        /* We only want reps that aren't on the inactive tree */
+                        return x["rep-id"] !== inactiveRepNum && x.rank !== "Cancelled";
                     }, reps),
                 // We can assume only 1 bp at this point
                     creations = R.map(function (rep) {
@@ -41,7 +41,6 @@
                     });
             })
             .then(function (results) {
-                console.log("linking geneaology");
                 // Connect every consultant to their sponsor
                 return q.all(_.map(results.consultants, function (rep) {
                     if (!rep["upline-num"]) { // We have found the toplevel metanode
@@ -54,8 +53,9 @@
                         );
                     }
                     return cypher.cypherToObj(
-                        "match (c:Consultant {rep: {child}})-[:PERFORMED]->(downline:ConsultantPerformance), " +
-                            "(p:Consultant {rep: {parent}})-[:PERFORMED]->(upline:ConsultantPerformance) " +
+                        "match (c:Consultant)-[:PERFORMED]->(downline:ConsultantPerformance), " +
+                            "(p:Consultant)-[:PERFORMED]->(upline:ConsultantPerformance) " +
+                            "where c.rep = {child} and p.rep = {parent} " +
                             "create (downline)-[r:REPORTS_TO]->(upline), (c)-[e:ENROLLED_BY]->(p) return r, e",
                         {child: rep["rep-id"], parent: rep["upline-num"]}
                     );
