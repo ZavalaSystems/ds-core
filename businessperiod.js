@@ -1,38 +1,41 @@
 /*jslint maxlen: 120*/
-module.exports = (function (mach, _, bilby, response) {
+module.exports = (function (R, bilby, response, bp) {
     "use strict";
-    function hasDate(request) {
-        return request.query.d !== null;
+    var local = null;
+
+    function isFind(request) {
+        var find = request.query.find;
+        return find !== null && find !== undefined;
     }
 
-    function formatDate(date) {
-        var year = date.getFullYear(),
-            month = date.getMonth() + 1;
-        return year.toString() + (month < 10 ? "0" + month : month.toString());
+    function isCurrent(request) {
+        return R.keys(request.query).length === 0;
     }
 
-    function datePeriod(request) {
-        var date = new Date(request.query.d);
-        if (_.isNaN(date.getFullYear())) {
-            return response.status.badRequest({});
-        }
-        return mach.json(formatDate(date));
+    function lookupCurrent(request) {
+        return request;
+
     }
 
-    function todayPeriod() {
-        return mach.json(formatDate(new Date()));
+    function lookupFind(request) {
+        return bp + request;
     }
 
-    var local = bilby.environment()
-        .method("period", hasDate, datePeriod)
-        .method("period", _.constant(true), todayPeriod);
+    function lookupUnknown() {
+        return response.status.notFound({});
+    }
+
+    local = bilby.environment()
+        .method("lookup", isFind, lookupFind)
+        .method("lookup", isCurrent, lookupCurrent)
+        .method("lookup", R.alwaysTrue, lookupUnknown);
 
     return function (app) {
-        app.get("/bp", local.period);
+        app.get("/bp", local.lookup);
     };
 }(
-    require("mach"),
-    require("lodash"),
+    require("ramda"),
     require("bilby"),
-    require("./lib/response")
+    require("./lib/response"),
+    require("./lib/businessperiod")
 ));

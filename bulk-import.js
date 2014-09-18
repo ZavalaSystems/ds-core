@@ -8,12 +8,9 @@
         console.log("deleting database");
         cypher.cypher("match (n) optional match (n)-[r]->() delete r, n", {})
             .then(function () {
-                // Create the dummy business period
-                var now = new Date(),
-                    year = now.getFullYear(),
-                    month = now.getMonth() + 1;
-                return cypher.cypherToObj("create (bp:BusinessPeriod {year: {year}, month: {month}}) return bp",
-                    {year: year, month: month}
+                // Create the the first business period
+                return cypher.cypherToObj("create (bp:BusinessPeriod {start: {start}, end: null}) return bp",
+                    {start: Date.now()}
                     );
             })
             .then(function (bp) {
