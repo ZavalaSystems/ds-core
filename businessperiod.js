@@ -1,41 +1,39 @@
-/*jslint maxlen: 120*/
-module.exports = (function (R, bilby, response, bp) {
+/*jslint maxlen: 120
+    unparam: true */
+module.exports = (function (R, bilby, mach, uri, response, request, bp) {
     "use strict";
-    var local = null;
 
-    function isFind(request) {
-        var find = request.query.find;
-        return find !== null && find !== undefined;
+    function formatPeriod(blob) {
+        var currentId = bp.currentIdLens.run(blob).getter,
+            current = bp.currentLens.run(blob).getter,
+            startdate = new Date(current.start),
+            enddate = (current.end && new Date(current.end)) || null;
+        return {
+            token: currentId,
+            startdate: startdate.toISOString(),
+            enddate: enddate !== null ? enddate.toISOString() : null,
+            year: startdate.getFullYear(),
+            month: startdate.getMonth() + 1,
+            closed: enddate !== null
+        };
     }
 
-    function isCurrent(request) {
-        return R.keys(request.query).length === 0;
+    function current(req) {
+        return bp.getCurrent()
+            .then(bp.linker(uri.absoluteUri(req))(formatPeriod))
+            .then(mach.json)
+            .catch(response.catcher);
     }
-
-    function lookupCurrent(request) {
-        return request;
-
-    }
-
-    function lookupFind(request) {
-        return bp + request;
-    }
-
-    function lookupUnknown() {
-        return response.status.notFound({});
-    }
-
-    local = bilby.environment()
-        .method("lookup", isFind, lookupFind)
-        .method("lookup", isCurrent, lookupCurrent)
-        .method("lookup", R.alwaysTrue, lookupUnknown);
 
     return function (app) {
-        app.get("/bp", local.lookup);
+        app.get("/bp", current);
     };
 }(
     require("ramda"),
     require("bilby"),
+    require("mach"),
+    require("./lib/uri"),
     require("./lib/response"),
+    require("./lib/request"),
     require("./lib/businessperiod")
 ));
