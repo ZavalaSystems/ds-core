@@ -1,7 +1,8 @@
-(function (fs, q, _, cypher) {
+(function (fs, q, _, R, cypher) {
     "use strict";
     /*jslint stupid: true*/
-    var slurpJsonSync = _.compose(JSON.parse, fs.readFileSync);
+    var slurpJsonSync = _.compose(JSON.parse, fs.readFileSync),
+        inactiveRepNum = "5";
 
     function main(repsFile) {
         console.log("deleting database");
@@ -17,8 +18,11 @@
             })
             .then(function (bp) {
                 var reps = slurpJsonSync(repsFile),
+                    activeReps = R.filter(function (x) {
+                        return x["rep-id"] === inactiveRepNum || x["upline-num"] === inactiveRepNum;
+                    }, reps),
                 // We can assume only 1 bp at this point
-                    creations = _.map(reps, function (rep) {
+                    creations = R.map(function (rep) {
                         return cypher.cypherToObj("create (c:Consultant {firstname: {firstname}, " +
                                 "lastname: {lastname}, " +
                                 "rep: {rep}, rank: {rank}, joindate: {joindate}})" +
@@ -30,7 +34,7 @@
                                 rank: rep.rank,
                                 joindate: new Date(rep.joindate).toISOString()
                             });
-                    });
+                    }, activeReps);
                 return q.all(creations)
                     .then(function () {
                         return {
@@ -43,7 +47,7 @@
                 console.log("linking geneaology");
                 // Connect every consultant to their sponsor
                 return q.all(_.map(results.consultants, function (rep) {
-                    if (!rep["sponsor-num"]) { // We have found the toplevel metanode
+                    if (!rep["upline-num"]) { // We have found the toplevel metanode
                         /* Consider how to do this with the relationship api */
                         return cypher.cypherToObj(
                             "match (:Consultant {rep: {rep}})-[:PERFORMED]->(meta:ConsultantPerformance), " +
@@ -56,7 +60,7 @@
                         "match (c:Consultant {rep: {child}})-[:PERFORMED]->(downline:ConsultantPerformance), " +
                             "(p:Consultant {rep: {parent}})-[:PERFORMED]->(upline:ConsultantPerformance) " +
                             "create (downline)-[r:REPORTS_TO]->(upline), (c)-[e:ENROLLED_BY]->(p) return r, e",
-                        {child: rep["rep-id"], parent: rep["sponsor-num"]}
+                        {child: rep["rep-id"], parent: rep["upline-num"]}
                     );
                 }));
             })
@@ -73,5 +77,6 @@
     require("fs"),
     require("q"),
     require("lodash"),
+    require("ramda"),
     require("./lib/neo4j/cypher")
 ));
