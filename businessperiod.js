@@ -24,7 +24,6 @@ module.exports = (function (R, bilby, q, mach, m, lens, uri, response, request, 
     }
 
     function resolveCurrent(req) {
-        console.log("getting current");
         return bp.getCurrent()
             .then(bp.linker(uri.absoluteUri(req))(formatPeriod))
             .then(m.map(mach.json))
