@@ -78,9 +78,6 @@ module.exports = (function (mach, bilby, _, q, con, conDb, m, res, uri, subproce
     }
 
     return function (app) {
-
-        app.get("/distributor");
-        /*
         app.get("/consultant", local.consultantList);
 
         app.get("/consultant/:cid", function (request) {
@@ -113,7 +110,6 @@ module.exports = (function (mach, bilby, _, q, con, conDb, m, res, uri, subproce
             return conDb.orders(consultantId)
                 .then(mach.json);
         });
-        */
 
         return app;
     };
