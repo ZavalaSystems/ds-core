@@ -2,7 +2,7 @@
 module.exports = (function (mach, bilby, _, q, con, conDb, m, res, uri, subprocess) {
     "use strict";
     /*jslint unparam: true*/
-    var hyperlink = _.compose(con.linker, uri.absoluteUri),
+    var hyperlink = con.linker,
         listHyperlink = _.curry(function (request, consList) {
             return {
                 payload: consList,
@@ -46,8 +46,9 @@ module.exports = (function (mach, bilby, _, q, con, conDb, m, res, uri, subproce
         }))
         .property("consultantEndpoint", _.curry(function (request, consultant) {
             return q.when(consultant)
-                .then(hyperlink(request)(_.identity))
-                .then(mach.json, _.constant(res.status.notFound({})));
+                .then(hyperlink(uri.absoluteUri(request))(_.identity))
+                .then(m.map(mach.json))
+                .then(m.getOrElse(res.status.notFound({})));
         }))
         .property("listEndpoint", _.curry(function (request, consList) {
             return q.when(consList)
