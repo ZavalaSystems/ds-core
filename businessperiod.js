@@ -1,6 +1,6 @@
 /*jslint maxlen: 120
     unparam: true */
-module.exports = (function (R, bilby, q, mach, lens, uri, response, request, bp) {
+module.exports = (function (R, bilby, q, mach, m, lens, uri, response, request, bp) {
     "use strict";
 
     var env = bilby.environment(),
@@ -24,9 +24,11 @@ module.exports = (function (R, bilby, q, mach, lens, uri, response, request, bp)
     }
 
     function resolveCurrent(req) {
+        console.log("getting current");
         return bp.getCurrent()
             .then(bp.linker(uri.absoluteUri(req))(formatPeriod))
-            .then(mach.json)
+            .then(m.map(mach.json))
+            .then(m.getOrElse(404))
             .catch(response.catcher);
     }
 
@@ -34,7 +36,8 @@ module.exports = (function (R, bilby, q, mach, lens, uri, response, request, bp)
         return decodeQueryDate(req).map(function (d) {
             return bp.getByDate(d)
                 .then(bp.linker(uri.absoluteUri(req))(formatPeriod))
-                .then(mach.json)
+                .then(m.map(mach.json))
+                .then(m.getOrElse(404))
                 .catch(response.catcher);
         }).getOrElse(q.when(404));
     }
@@ -42,7 +45,8 @@ module.exports = (function (R, bilby, q, mach, lens, uri, response, request, bp)
     function resolveById(req) {
         return bp.getById(parseInt(idLens.run(req).getter, 10))
             .then(bp.linker(uri.absoluteUri(req))(formatPeriod))
-            .then(mach.json)
+            .then(m.map(mach.json))
+            .then(m.getOrElse(404))
             .catch(response.catcher);
     }
 
@@ -63,6 +67,7 @@ module.exports = (function (R, bilby, q, mach, lens, uri, response, request, bp)
     require("bilby"),
     require("q"),
     require("mach"),
+    require("./lib/monad"),
     require("./lib/lens"),
     require("./lib/uri"),
     require("./lib/response"),
