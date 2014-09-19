@@ -1,80 +1,116 @@
-(function (fs, q, _, R, cypher) {
+(function (fs, q, R, cypher) {
     "use strict";
     /*jslint stupid: true*/
-    var slurpJsonSync = _.compose(JSON.parse, fs.readFileSync),
-        inactiveRepNum = "5";
+    var slurpJsonSync = R.compose(JSON.parse, fs.readFileSync),
+        isActive = function (x) {
+            return x["rep-id"] !== "5" && x.rank !== "Cancelled";
+        },
+        slurpActiveReps = R.compose(R.filter(isActive), slurpJsonSync),
+        addDistributor = function (d) {
+            return cypher.cypherToObj("create (d:Distributor {firstname: {firstname}, " +
+                    "lastname: {lastname}, id: {id}, rank: {rank}, joindate: {joindate}})",
+                {
+                    firstname: d["first-name"],
+                    lastname: d["last-name"],
+                    id: d["rep-id"], // not parseInt'ed intentionally
+                    rank: d.rank,
+                    joindate: Date.parse(d.joindate)
+                });
+        },
+        addSponsor = function (d) {
+            return cypher.cypherToObj("match (child:Distributor), (parent:Distributor) " +
+                "where child.id = {child} and parent.id = {parent} " +
+                "create (parent)-[s:SPONSORS]->(child), (parent)-[e:ENROLLED]->(child) " +
+                "return s, e",
+                {
+                    child: d["rep-id"],
+                    parent: d["upline-num"]
+                });
+        },
+        addOrder = function (o) {
+            return cypher.cypherToObj("match (bp:BusinessPeriod), (d:Distributor) " +
+                "where d.id = {distributor} " +
+                "create (bp)<-[during:DURING]-(o:Order {id: {id}, date: {date}, status: {status}}) " +
+                "<-[dist:DISTRIBUTES]-(d) " +
+                "return during, o, dist",
+                {
+                    distributor: o["rep-num"],
+                    id: o["order-num"],
+                    date: Date.parse(o["order-date"]),
+                    status: o.status
+                });
+        },
+        addBusinessPeriod = function (start) {
+            return cypher.cypherToObj("create (bp:BusinessPeriod {start: {start}}) " +
+                "return bp",
+                {
+                    start: start,
+                });
+        },
+        addLineItem = function (li) {
+            return cypher.cypherToObj("match (o:Order) where o.id = {order} " +
+                "create (li:LineItem {id: {id}, sku: {sku}, price: {price}, volume: {volume}, status: {status}}) " +
+                "-[r:PART_OF]->(o) " +
+                "return li", {
+                    order: li["order-num"],
+                    id: li.id,
+                    sku: li["product-num"],
+                    price: Math.floor(parseFloat(li.price, 10) * 100),
+                    volume: parseFloat(li.volume),
+                    status: li.status
+                });
+        };
 
-    function main(repsFile) {
-        cypher.cypher("match (n) optional match (n)-[r]->() delete r, n", {})
+    function main(repsFile, ordersFile, lineItemsFile) {
+        return cypher.cypherToObj("match (n) optional match (n)-[r]->() delete r, n", {})
             .then(function () {
-                // Create the the first business period
-                return cypher.cypherToObj("create (bp:BusinessPeriod {start: {start}, end: null}) return bp",
-                    {start: Date.now()}
-                    );
+                /* Create reps */
+                var reps = slurpActiveReps(repsFile);
+                return q.all(R.map(addDistributor, reps))
+                    .then(R.always(reps));
             })
-            .then(function (bp) {
-                var reps = slurpJsonSync(repsFile),
-                    activeReps = R.filter(function (x) {
-                        /* We only want reps that aren't on the inactive tree */
-                        return x["rep-id"] !== inactiveRepNum && x.rank !== "Cancelled";
-                    }, reps),
-                // We can assume only 1 bp at this point
-                    creations = R.map(function (rep) {
-                        return cypher.cypherToObj("create (c:Consultant {firstname: {firstname}, " +
-                                "lastname: {lastname}, " +
-                                "rep: {rep}, rank: {rank}, joindate: {joindate}})" +
-                                "-[:PERFORMED]->(cp:ConsultantPerformance)",
-                            {
-                                firstname: rep["first-name"],
-                                lastname: rep["last-name"],
-                                rep: rep["rep-id"],
-                                rank: rep.rank,
-                                joindate: new Date(rep.joindate).toISOString()
-                            });
-                    }, activeReps);
-                return q.all(creations)
-                    .then(function () {
-                        return {
-                            consultants: reps,
-                            bp: bp
-                        };
-                    });
+            .then(function (reps) {
+                /* Link genealogy */
+                return q.all(R.map(addSponsor, reps));
             })
-            .then(function (results) {
-                // Connect every consultant to their sponsor
-                return q.all(_.map(results.consultants, function (rep) {
-                    if (!rep["upline-num"]) { // We have found the toplevel metanode
-                        /* Consider how to do this with the relationship api */
-                        return cypher.cypherToObj(
-                            "match (:Consultant {rep: {rep}})-[:PERFORMED]->(meta:ConsultantPerformance), " +
-                                "(bp:BusinessPeriod) " +
-                                "create (bp)<-[r:DURING]-(meta) return r",
-                            {rep: rep["rep-id"]}
-                        );
-                    }
-                    return cypher.cypherToObj(
-                        "match (c:Consultant)-[:PERFORMED]->(downline:ConsultantPerformance), " +
-                            "(p:Consultant)-[:PERFORMED]->(upline:ConsultantPerformance) " +
-                            "where c.rep = {child} and p.rep = {parent} " +
-                            "create (downline)-[r:REPORTS_TO]->(upline), (c)-[e:ENROLLED_BY]->(p), " +
-                            "(c)-[s:SPONSORED_BY]->(p) return r, e, s",
-                        {child: rep["rep-id"], parent: rep["upline-num"]}
-                    );
-                }));
+            .then(function () {
+                var orders = slurpJsonSync(ordersFile);
+                return q.when(orders);
             })
-            .done(function () {
-                console.log("done");
-                process.exit(0);
-            }, function (err) {
-                console.error(err);
-                process.exit(1);
-            });
+            .then(function (orders) {
+                // Find the oldest and the newest
+                var orderEpochOffset = R.compose(Date.parse, R.prop("date-created")),
+                    oldest = R.min(R.map(orderEpochOffset, orders));
+                return addBusinessPeriod(oldest)
+                    .then(R.always(orders));
+            })
+            .then(function (orders) {
+                return q.all(R.map(addOrder, orders));
+            })
+            .then(function () {
+                var lineItems = slurpJsonSync(lineItemsFile);
+                return q.when(lineItems);
+            })
+            .then(function (lineItems) {
+                return q.all(R.map(addLineItem, lineItems));
+            })
+            .then(function () {
+                /* Construct a new business period that is current */
+                return cypher.cypherToObj("match (bp:BusinessPeriod) " +
+                    "set bp.end = {now} " +
+                    "create (cur:BusinessPeriod {start: {now}})<-[:PRECEDES]-(bp) " +
+                    "return bp, cur", {now: Date.now()});
+            })
+            .done(function () { process.exit(0); },
+                function (err) {
+                    console.error(err);
+                    process.exit(1);
+                });
     }
     main(process.argv[2], process.argv[3], process.argv[4]);
 }(
     require("fs"),
     require("q"),
-    require("lodash"),
     require("ramda"),
     require("./lib/neo4j/cypher")
 ));
