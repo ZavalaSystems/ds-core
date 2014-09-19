@@ -56,7 +56,8 @@
                         "match (c:Consultant)-[:PERFORMED]->(downline:ConsultantPerformance), " +
                             "(p:Consultant)-[:PERFORMED]->(upline:ConsultantPerformance) " +
                             "where c.rep = {child} and p.rep = {parent} " +
-                            "create (downline)-[r:REPORTS_TO]->(upline), (c)-[e:ENROLLED_BY]->(p) return r, e",
+                            "create (downline)-[r:REPORTS_TO]->(upline), (c)-[e:ENROLLED_BY]->(p), " +
+                            "(c)-[s:SPONSORED_BY]->(p) return r, e, s",
                         {child: rep["rep-id"], parent: rep["upline-num"]}
                     );
                 }));
