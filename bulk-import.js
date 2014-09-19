@@ -7,14 +7,14 @@
         },
         slurpActiveReps = R.compose(R.filter(isActive), slurpJsonSync),
         addDistributor = function (d) {
-            return cypher.cypherToObj("create (d:Distributor {firstname: {firstname}, " +
-                    "lastname: {lastname}, id: {id}, rank: {rank}, joindate: {joindate}})",
+            return cypher.cypherToObj("create (d:Distributor {firstName: {firstName}, " +
+                    "lastName: {lastName}, id: {id}, rank: {rank}, enrollDate: {enrollDate}})",
                 {
-                    firstname: d["first-name"],
-                    lastname: d["last-name"],
+                    firstName: d["first-name"],
+                    lastName: d["last-name"],
                     id: d["rep-id"], // not parseInt'ed intentionally
                     rank: d.rank,
-                    joindate: Date.parse(d.joindate)
+                    enrollDate: Date.parse(d.joindate)
                 });
         },
         addSponsor = function (d) {
@@ -44,7 +44,7 @@
             return cypher.cypherToObj("create (bp:BusinessPeriod {start: {start}}) " +
                 "return bp",
                 {
-                    start: start,
+                    start: start
                 });
         },
         addLineItem = function (li) {

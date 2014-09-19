@@ -15,7 +15,7 @@
             }
         });
     });
-    require("./consultant.js")(app);
+    require("./distributor.js")(app);
     require("./businessperiod.js")(app);
 
     mach.serve(app, port);
