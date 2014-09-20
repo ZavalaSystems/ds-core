@@ -76,7 +76,7 @@ module.exports = (function (mach, bilby, R, _, q, con, conDb, m, res, uri, subpr
 
     function findNodeChildren(id) {
         return conDb.list().then(function (db) {
-            var node = _.find(db, {id: id});
+            var node = m.toOption(R.find(R.propEq("id", id), db));
             return _.filter(db, {sponsorrep: node.rep});
         });
     }
@@ -90,7 +90,7 @@ module.exports = (function (mach, bilby, R, _, q, con, conDb, m, res, uri, subpr
         });
 
         app.get("/consultant/:cid/firstLine", function (request) {
-            return findNodeChildren(_.parseInt(request.params.cid))
+            return findNodeChildren(request.params.cid)
                 .then(local.listEndpoint(request));
         });
 
