@@ -3,6 +3,7 @@
             [fortuna.discovery :as d]))
 
 (defn cypher [query, params]
-  (:body (client/post (-> (d/discover) :data :cypher) {:form-params {:query query :params params}
-                                                     :content-type :json
-                                                     :as :json})))
+  (:body (client/post (-> (d/discover) :data :cypher)
+                      {:form-params {:query query, :params params}
+                       :content-type :json
+                       :as :json})))

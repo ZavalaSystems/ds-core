@@ -13,32 +13,37 @@
     (let [v (get m k)]
         (if (map? v)
             (assoc m k (:data v))
-            (assoc m k (map #(:data %) v)))))
+            (assoc m k (map :data v)))))
 
 (defn- no-neo4j [& args]
     (let [m (last args)
           ks (drop-last args)]
       (reduce get-data-sanely m ks)))
 
-(defn- sum-detail [obj]
-  (fn [detail-name]
-    (->> obj
-         :lineItems
-         (filter #(= detail-name (-> % :type)))
-         (map #(* (-> % :price) (-> % :qty)))
-         (reduce +))))
+(def ^:private sum (partial reduce +))
 
-(defn- calculate-pcv [obj]
-  (let [total-for (sum-detail obj)
+(defn- sum-by-item-type [consultant line-item-type]
+  (let [line-item-matches-type? #(= line-item-type (:type %))
+        limit-line-items-to-type (partial filter line-item-matches-type?)
+        calc-line-item-subtotals (partial map #(* (:price %) (:qty %)))
+        sum-line-items sum]
+    (->> consultant
+      (:lineItems)
+      (limit-line-items-to-type)
+      (calc-line-item-subtotals)
+      (sum-line-items))))
+
+(defn- calculate-pcv [consultant]
+  (let [total-for (partial sum-by-item-type consultant)
         retail (total-for "retail")
         wineclub (total-for "wineclub")
         gifts (total-for "gifts")
         pcv (+ retail (* (/ 3 4) wineclub) (* (/ 1 2) gifts))]
-    (assoc obj :retail retail
-               :wineclub wineclub
-               :gifts gifts
-               :pcv pcv
-               :qualified (> pcv 25000))))
+    (assoc consultant :retail retail
+                      :wineclub wineclub
+                      :gifts gifts
+                      :pcv pcv
+                      :qualified (> pcv 25000))))
 
 (defn -main []
   (println (let [result (c/cypher commission-query, {})
