@@ -7,4 +7,4 @@
     (let [discovery-level (:body (client/get uri {:as :json}))]
       (zipmap (keys discovery-level) (pmap #(discovery % (dec depth)) (vals discovery-level))))))
 
-(def services (discovery "http://localhost:7474" 2))
+(defn discover [] (discovery "http://localhost:7474" 2))
