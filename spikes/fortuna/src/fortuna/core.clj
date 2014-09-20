@@ -1,7 +1,8 @@
 (ns fortuna.core
-    (require [fortuna.discovery :as d]
-             [fortuna.cypher :as c]
-             [clojure.data.json :as json]))
+  (:gen-class)
+  (require [fortuna.discovery :as d]
+           [fortuna.cypher :as c]
+           [clojure.data.json :as json]))
 
 (def commission-query (str "match (cons:Consultant) "
                            "optional match (cons)<-[:REPORTS_TO]-(sub) "
@@ -10,15 +11,15 @@
                            "return consultant, downline, collect(li) as lineItems"))
 
 (defn- get-data-sanely [m k]
-    (let [v (get m k)]
-        (if (map? v)
-            (assoc m k (:data v))
-            (assoc m k (map :data v)))))
+  (let [v (get m k)]
+    (if (map? v)
+      (assoc m k (:data v))
+      (assoc m k (map :data v)))))
 
 (defn- no-neo4j [& args]
-    (let [m (last args)
-          ks (drop-last args)]
-      (reduce get-data-sanely m ks)))
+  (let [m (last args)
+        ks (drop-last args)]
+    (reduce get-data-sanely m ks)))
 
 (def ^:private sum (partial reduce +))
 
