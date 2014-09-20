@@ -1,5 +1,5 @@
 /*jslint maxlen: 120*/
-module.exports = (function (mach, bilby, _, q, con, conDb, m, res, uri, subprocess) {
+module.exports = (function (mach, bilby, R, _, q, con, conDb, m, res, uri, subprocess) {
     "use strict";
     /*jslint unparam: true*/
     var hyperlink = con.linker,
@@ -52,15 +52,18 @@ module.exports = (function (mach, bilby, _, q, con, conDb, m, res, uri, subproce
         }))
         .property("listEndpoint", _.curry(function (request, consList) {
             return q.when(consList)
-                .then(_.partialRight(_.map, hyperlink(request)))
-                .then(listHyperlink(request))
+                // Map each distributor to an element
+                .then(R.map(hyperlink(uri.absoluteUri(request))(R.identity)))
+                // Cope with the fact hyperlink produces options
+                .then(R.compose(R.flatten, R.map(m.optionToArray)))
+                .then(m.map(listHyperlink(request)))
                 .then(mach.json, res.status.internalServerError({}));
         }));
 
     function findNodeById(id) {
         return conDb.list()
             .then(function (db) {
-                return _.find(db, {id: id});
+                return m.toOption(R.find(R.propEq("id", id), db));
             });
     }
 
@@ -82,7 +85,7 @@ module.exports = (function (mach, bilby, _, q, con, conDb, m, res, uri, subproce
         app.get("/consultant", local.consultantList);
 
         app.get("/consultant/:cid", function (request) {
-            return findNodeById(_.parseInt(request.params.cid))
+            return findNodeById(request.params.cid)
                 .then(local.consultantEndpoint(request));
         });
 
@@ -117,6 +120,7 @@ module.exports = (function (mach, bilby, _, q, con, conDb, m, res, uri, subproce
 }(
     require("mach"),
     require("bilby"),
+    require("ramda"),
     require("lodash"),
     require("q"),
     require("./lib/distributor"),
