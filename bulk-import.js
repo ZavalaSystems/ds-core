@@ -62,7 +62,7 @@
         };
 
     function main(repsFile, ordersFile, lineItemsFile) {
-        return cypher.cypherToObj("match (n) optional match (n)-[r]->() delete r, n", {})
+        q.when({})
             .then(function () {
                 /* Create reps */
                 var reps = slurpActiveReps(repsFile);
