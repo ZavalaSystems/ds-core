@@ -1,0 +1,1 @@
+create (d:Distributor {id: {distributorID}, firstName: {firstName}, lastName: {lastName}}) return d;

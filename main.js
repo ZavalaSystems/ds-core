@@ -4,14 +4,14 @@
         port = m.toOption(process.argv[2])
             .getOrElse(cfg.server.port);
 
+    app.use(mach.params);
     app.get("/", function (request) {
         var resolve = uri.absoluteUri(request);
 
         return mach.json({
-            consultant: {
-                list: resolve("/consultant"),
-                root: resolve("/consultant/root"),
-                find: resolve("/consultant")
+            distributor: {
+                create: resolve("/distributor"),
+                find: resolve("/distributor")
             }
         });
     });
