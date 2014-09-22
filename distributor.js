@@ -24,6 +24,20 @@ module.exports = (function (R, bilby, mach, m, uri, response, distributor) {
     }
 
     function upgradeDistributor(req) {
+        debugger;
+        return distributor.upgradePartialCypher(distributor.transformDateToOffset(req.params))
+            .then(m.first)
+            .then(function (x) {
+                debugger;
+                return x;
+            })
+            .then(distributor.linker(uri.absoluteUri(req))(formatDistributor))
+            .then(m.map(mach.json))
+            .then(m.getOrElse(response.status.badRequest({})))
+            .catch(response.catcher);
+    }
+
+    function getDistributor(req) {
         return 500;
     }
 
