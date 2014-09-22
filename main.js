@@ -11,7 +11,7 @@
         return mach.json({
             distributor: {
                 create: resolve("/distributor"),
-                find: resolve("/distributor")
+                list: resolve("/distributor")
             }
         });
     });

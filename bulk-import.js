@@ -101,11 +101,7 @@
                     "create (cur:BusinessPeriod {start: {now}})<-[:PRECEDES]-(bp) " +
                     "return bp, cur", {now: Date.now()});
             })
-            .done(function () { process.exit(0); },
-                function (err) {
-                    console.error(err);
-                    process.exit(1);
-                });
+            .done(function () { process.exit(0); });
     }
     main(process.argv[2], process.argv[3], process.argv[4]);
 }(

@@ -24,13 +24,8 @@ module.exports = (function (R, bilby, mach, m, uri, response, distributor) {
     }
 
     function upgradeDistributor(req) {
-        debugger;
         return distributor.upgradePartialCypher(distributor.transformDateToOffset(req.params))
             .then(m.first)
-            .then(function (x) {
-                debugger;
-                return x;
-            })
             .then(distributor.linker(uri.absoluteUri(req))(formatDistributor))
             .then(m.map(mach.json))
             .then(m.getOrElse(response.status.badRequest({})))
@@ -38,7 +33,12 @@ module.exports = (function (R, bilby, mach, m, uri, response, distributor) {
     }
 
     function getDistributor(req) {
-        return 500;
+        return distributor.distributorByIdCypher(req.params)
+            .then(m.first)
+            .then(distributor.linker(uri.absoluteUri(req))(formatDistributor))
+            .then(m.map(mach.json))
+            .then(m.getOrElse(response.status.notFound({})))
+            .catch(response.catcher);
     }
 
     env = bilby.environment()
@@ -46,7 +46,8 @@ module.exports = (function (R, bilby, mach, m, uri, response, distributor) {
         .method("createDistributor", R.compose(distributor.isValidPartial, R.prop("params")), createPartial)
         .method("createDistributor", R.alwaysTrue, R.always(response.status.badRequest({})))
         .method("upgradeDistributor", R.compose(distributor.isValidUpgrade, R.prop("params")), upgradeDistributor)
-        .method("upgradeDistributor", R.alwaysTrue, R.always(response.status.badRequest({})));
+        .method("upgradeDistributor", R.alwaysTrue, R.always(response.status.badRequest({})))
+        .property("getDistributor", getDistributor);
 
     return function (app) {
         app.get("/distributor/:distributorID", env.getDistributor);
