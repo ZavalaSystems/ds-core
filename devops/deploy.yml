@@ -2,9 +2,9 @@
 - hosts: all
   sudo: yes
   tasks:
-  - name: Install docker-py
-    pip:
-      name: docker-py
+  # - name: Install docker-py
+  #   pip:
+  #     name: docker-py
 
   - name: Pull containers
     command: "docker pull {{ item }}:{{ version }}"
