@@ -9,12 +9,20 @@
         var resolve = uri.absoluteUri(request);
 
         return mach.json({
+            rank: {
+                list: resolve("/rank")
+            },
             distributor: {
                 create: resolve("/distributor"),
                 list: resolve("/distributor")
+            },
+            businessperiod: {
+                current: resolve("/bp"),
+                find: resolve("/bp")
             }
         });
     });
+    require("./rank")(app);
     require("./distributor.js")(app);
     require("./businessperiod.js")(app);
 

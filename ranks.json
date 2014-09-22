@@ -1,0 +1,35 @@
+[{
+    "rankID": 0,
+    "rankName": "Ambassador",
+    "isLeader": false
+},
+{
+    "rankID": 1,
+    "rankName": "Associate Ambassador",
+    "isLeader": false
+},
+{
+    "rankID": 2,
+    "rankName": "Senior Ambassador",
+    "isLeader": false
+},
+{
+    "rankID": 3,
+    "rankName": "Director",
+    "isLeader": true
+},
+{
+    "rankID": 4,
+    "rankName": "Senior Director",
+    "isLeader": true
+},
+{
+    "rankID": 5,
+    "rankName": "Crystal Director",
+    "isLeader": true
+},
+{
+    "rankID": 6,
+    "rankName": "Diamond Director",
+    "isLeader": true
+}]
