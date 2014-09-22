@@ -7,7 +7,7 @@
   #     name: docker-py
 
   - name: Pull containers
-    command: "docker pull localhost:5000/{{ item }}:{{ version }}"
+    command: "docker pull ds-sysadmin:5000/{{ item }}:{{ version }}"
     sudo: no
     with_items:
     - core-api
@@ -19,15 +19,15 @@
       image: "{{ item.image }}"
       state: absent
     with_items:
-    - image: core-api
+    - image: ds-sysadmin:5000/core-api
       name: api
-    - image: core-ui
+    - image: ds-sysadmin:5000/core-ui
       name: web
 
   - name: "Start API {{ version }}"
     docker:
       name: api
-      image: core-api:{{ version }}
+      image: ds-sysadmin:5000/core-api:{{ version }}
       ports: "8080"
       links: "db:db"
       detach: yes
@@ -36,7 +36,7 @@
   - name: "Start Web {{ version }}"
     docker:
       name: web
-      image: core-ui:{{ version }}
+      image: ds-sysadmin:5000/core-ui:{{ version }}
       ports: ["80:80", "8000:8000"]
       links: "api:api"
       detach: yes
