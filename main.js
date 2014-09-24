@@ -23,8 +23,9 @@
         });
     });
     require("./rank")(app);
-    require("./distributor.js")(app);
-    require("./businessperiod.js")(app);
+    require("./distributor")(app);
+    require("./businessperiod")(app);
+    require("./orders")(app);
 
     mach.serve(app, port);
 }(

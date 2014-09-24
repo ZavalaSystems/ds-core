@@ -1,29 +1,33 @@
-module.exports = (function (mach, R, request, response, uri, m, orders) {
-    var env = null;
+module.exports = (function (mach, bilby, R, request, response, uri, m, orders) {
+    "use strict";
+    var env = bilby.environment(),
+        formatOrder = R.compose(orders.transformOffsetToDate, orders.order),
+        createOrderQuery = R.compose(orders.createOrderAndItems, orders.transformOrderDateToOffset, request.params),
+        matchOrderForDistributorQuery = R.compose(orders.matchOrderForDistributor, request.params);
 
     function createOrder(req) {
-        return orders.createOrderAndItems(request.params(req))
-            .then(orders.orderLinker(uri.absoluteUri(req))(orders.order))
+        return createOrderQuery(req)
+            .then(orders.orderLinker(uri.absoluteUri(req))(formatOrder))
             .then(m.map(mach.json))
             .then(m.getOrElse(response.status.internalServerError({})))
             .catch(response.catcher);
     }
 
     function getOrder(req) {
-        return orders.matchOrderForDistributor(request.params(req))
-            .then(orders.orderLinker(uri.absoluteUri(req))(orders.order))
+        return matchOrderForDistributorQuery(req)
+            .then(orders.orderLinker(uri.absoluteUri(req))(formatOrder))
             .then(m.map(mach.json))
             .then(m.getOrElse(response.status.notFound({})))
             .catch(response.catcher);
     }
 
-    function listOrders(req) {
-
+    function listOrders() {
+        return 500;
     }
 
     env = env.method("createOrder", R.compose(orders.createOrderPrecondition, request.params), createOrder)
         .method("createOrder", R.alwaysTrue, R.always(response.status.badRequest({})))
-        .property("llistOrders", listOrders)
+        .property("listOrders", listOrders)
         .property("getOrder", getOrder);
 
     return function (app) {
@@ -33,6 +37,7 @@ module.exports = (function (mach, R, request, response, uri, m, orders) {
     };
 }(
     require("mach"),
+    require("bilby"),
     require("ramda"),
     require("./lib/request"),
     require("./lib/response"),
