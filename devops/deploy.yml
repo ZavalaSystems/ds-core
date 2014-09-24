@@ -2,13 +2,17 @@
 - hosts: all
   sudo: no
   tasks:
-  # - name: Install docker-py
-  #   pip:
-  #     name: docker-py
 
   - name: Pull containers
     command: "docker pull ds-sysadmin:5000/{{ item }}:{{ version }}"
-    sudo: no
+    with_items:
+    - core-api
+    - core-ui
+
+  - name: Stop container services
+    service:
+      name: "{{ item }}"
+      state: stopped
     with_items:
     - core-api
     - core-ui
@@ -20,27 +24,31 @@
       state: absent
     with_items:
     - image: ds-sysadmin:5000/core-api
-      name: api
+      name: core-api
     - image: ds-sysadmin:5000/core-ui
-      name: web
+      name: core-ui
 
   - name: "Start API {{ version }}"
     docker:
-      name: api
+      name: core-api
       image: ds-sysadmin:5000/core-api:{{ version }}
       ports: "8080"
       links: "db:db"
-      detach: yes
-      state: running
 
   - name: "Start Web {{ version }}"
     docker:
-      name: web
+      name: core-ui
       image: ds-sysadmin:5000/core-ui:{{ version }}
       ports: ["80:80", "8000:8000"]
-      links: "api:api"
-      detach: yes
-      state: running
+      links: "core-api:core-api"
+
+  - name: Start container services
+    service:
+      name: "{{ item }}"
+      state: started
+    with_items:
+    - core-api
+    - core-ui
 
   - name: Notify hipchat of success
     hipchat:
