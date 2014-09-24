@@ -25,15 +25,23 @@ module.exports = (function (mach, bilby, R, request, response, uri, m, orders) {
         return 500;
     }
 
+    function deleteOrder(req) {
+        return orders.setOrderStatus(R.merge({status: "deleted"}, request.params(req)))
+            .then(R.always("OK"))
+            .catch(response.catcher);
+    }
+
     env = env.method("createOrder", R.compose(orders.createOrderPrecondition, request.params), createOrder)
         .method("createOrder", R.alwaysTrue, R.always(response.status.badRequest({})))
         .property("listOrders", listOrders)
-        .property("getOrder", getOrder);
+        .property("getOrder", getOrder)
+        .property("deleteOrder", deleteOrder);
 
     return function (app) {
         app.get("/distributor/:distributorID/order", env.listOrders);
         app.post("/distributor/:distributorID/order", env.createOrder);
         app.post("/distributor/:distributorID/order/:orderID", env.getOrder);
+        app.delete("/distributor/:distributorID/order/:orderID", deleteOrder);
     };
 }(
     require("mach"),
