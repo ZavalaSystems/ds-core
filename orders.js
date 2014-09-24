@@ -1,4 +1,4 @@
-module.exports = (function (mach, bilby, R, request, response, uri, m, orders) {
+module.exports = (function (mach, bilby, R, request, response, uri, common, m, orders) {
     "use strict";
     var env = bilby.environment(),
         formatOrder = R.compose(orders.transformOffsetToDate, orders.order),
@@ -26,7 +26,13 @@ module.exports = (function (mach, bilby, R, request, response, uri, m, orders) {
     }
 
     function deleteOrder(req) {
-        return orders.setOrderStatus(R.merge({status: "deleted"}, request.params(req)))
+        return orders.setOrderStatus(common.merge({status: "cancelld"}, request.params(req)))
+            .then(R.always("OK"))
+            .catch(response.catcher);
+    }
+
+    function deleteLineItem(req) {
+        return orders.setLineItemStatus(common.merge({status: "cancelled"}, request.params(req)))
             .then(R.always("OK"))
             .catch(response.catcher);
     }
@@ -35,13 +41,15 @@ module.exports = (function (mach, bilby, R, request, response, uri, m, orders) {
         .method("createOrder", R.alwaysTrue, R.always(response.status.badRequest({})))
         .property("listOrders", listOrders)
         .property("getOrder", getOrder)
-        .property("deleteOrder", deleteOrder);
+        .property("deleteOrder", deleteOrder)
+        .property("deleteItem", deleteLineItem);
 
     return function (app) {
         app.get("/distributor/:distributorID/order", env.listOrders);
         app.post("/distributor/:distributorID/order", env.createOrder);
         app.post("/distributor/:distributorID/order/:orderID", env.getOrder);
-        app.delete("/distributor/:distributorID/order/:orderID", deleteOrder);
+        app.delete("/distributor/:distributorID/order/:orderID", env.deleteOrder);
+        app.delete("/distributor/:distributorID/order/:orderID/item/:itemID", env.deleteItem);
     };
 }(
     require("mach"),
@@ -50,6 +58,7 @@ module.exports = (function (mach, bilby, R, request, response, uri, m, orders) {
     require("./lib/request"),
     require("./lib/response"),
     require("./lib/uri"),
+    require("./lib/common"),
     require("./lib/monad"),
     require("./lib/orders")
 ));
