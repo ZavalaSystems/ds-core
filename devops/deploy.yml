@@ -40,7 +40,7 @@
       name: core-ui
       image: ds-sysadmin:5000/core-ui:{{ version }}
       ports: ["80:80", "8000:8000"]
-      links: "api:api"
+      links: "core-api:api"
 
   - name: Start container services
     service:
