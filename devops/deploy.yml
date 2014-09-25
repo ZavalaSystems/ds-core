@@ -13,6 +13,7 @@
     service:
       name: "{{ item }}"
       state: stopped
+    sudo: yes
     with_items:
     - core-api
     - core-ui
@@ -56,6 +57,7 @@
     service:
       name: "{{ item }}"
       state: started
+    sudo: yes
     with_items:
     - core-api
     - core-ui
