@@ -17,7 +17,7 @@
     - core-api
     - core-ui
 
-  - name: Stop containers
+  - name: Remove containers
     docker:
       name: "{{ item.name }}"
       image: "{{ item.image }}"
@@ -41,6 +41,16 @@
       image: ds-sysadmin:5000/core-ui:{{ version }}
       ports: ["80:80", "8000:8000"]
       links: "core-api:api"
+
+  - name: Stop containers for service
+    docker:
+      name: "{{ item.name }}"
+      state: stopped
+    with_items:
+    - image: ds-sysadmin:5000/core-api
+      name: core-api
+    - image: ds-sysadmin:5000/core-ui
+      name: core-ui
 
   - name: Start container services
     service:
