@@ -15,7 +15,7 @@ module.exports = (function (R, bilby, mach, m, uri, response, distributor) {
     }
 
     function createPartial(req) {
-        return distributor.createPartialCypher(req.params)
+        return distributor.createPartialCypher(distributor.transformPartialInput(req.params))
             .then(m.first)
             .then(distributor.linker(uri.absoluteUri(req))(formatDistributor))
             .then(m.map(mach.json))
@@ -24,7 +24,7 @@ module.exports = (function (R, bilby, mach, m, uri, response, distributor) {
     }
 
     function upgradeDistributor(req) {
-        return distributor.upgradePartialCypher(distributor.transformDateToOffset(req.params))
+        return distributor.upgradePartialCypher(distributor.transformUpgradeInput(req.params))
             .then(m.first)
             .then(distributor.linker(uri.absoluteUri(req))(formatDistributor))
             .then(m.map(mach.json))
