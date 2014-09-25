@@ -26,7 +26,7 @@ module.exports = (function (mach, bilby, R, request, response, uri, common, m, o
     }
 
     function deleteOrder(req) {
-        return orders.setOrderStatus(common.merge({status: "cancelld"}, request.params(req)))
+        return orders.setOrderStatus(common.merge({status: "cancelled"}, request.params(req)))
             .then(R.always("OK"))
             .catch(response.catcher);
     }
