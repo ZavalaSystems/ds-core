@@ -33,7 +33,7 @@ module.exports = (function (R, bilby, mach, m, uri, response, distributor) {
     }
 
     function getDistributor(req) {
-        return distributor.distributorByIdCypher(req.params)
+        return distributor.distributorByIdCypher(distributor.transformGetInput(req.params))
             .then(m.first)
             .then(distributor.linker(uri.absoluteUri(req))(formatDistributor))
             .then(m.map(mach.json))
