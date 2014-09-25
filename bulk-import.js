@@ -12,7 +12,7 @@
                 {
                     firstName: d["first-name"],
                     lastName: d["last-name"],
-                    id: d["rep-id"], // not parseInt'ed intentionally
+                    id: parseInt(d["rep-id"], 10),
                     rank: d.rank,
                     enrollDate: Date.parse(d.joindate)
                 });
@@ -23,8 +23,8 @@
                 "create (parent)-[s:SPONSORS]->(child), (parent)-[e:ENROLLED]->(child) " +
                 "return s, e",
                 {
-                    child: d["rep-id"],
-                    parent: d["upline-num"]
+                    child: parseInt(d["rep-id"], 10),
+                    parent: parseInt(d["upline-num"], 10)
                 });
         },
         addOrder = function (o) {
@@ -34,8 +34,8 @@
                 "<-[dist:DISTRIBUTES]-(d) " +
                 "return during, o, dist",
                 {
-                    distributor: o["rep-num"],
-                    id: o["order-num"],
+                    distributor: parseInt(o["rep-num"], 10),
+                    id: parseInt(o["order-num"], 10),
                     date: Date.parse(o["order-date"]),
                     status: o.status
                 });
@@ -52,11 +52,11 @@
                 "create (li:LineItem {id: {id}, sku: {sku}, price: {price}, volume: {volume}, status: {status}}) " +
                 "-[r:PART_OF]->(o) " +
                 "return li", {
-                    order: li["order-num"],
-                    id: li.id,
+                    order: parseInt(li["order-num"], 10),
+                    id: parseInt(li.id, 10),
                     sku: li["product-num"],
                     price: Math.floor(parseFloat(li.price, 10) * 100),
-                    volume: parseFloat(li.volume),
+                    volume: Math.floor(parseFloat(li.volume, 10) * 100),
                     status: li.status
                 });
         };
