@@ -26,6 +26,7 @@
     require("./distributor")(app);
     require("./businessperiod")(app);
     require("./orders")(app);
+    require("./nuke.js")(app);
 
     mach.serve(app, port);
 }(
