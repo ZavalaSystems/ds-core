@@ -36,7 +36,7 @@
       ports: "8080"
       links: "db:db"
       env:
-        NODE_ENV: development
+      - NODE_ENV=development
 
   - name: "Start Web {{ version }}"
     docker:
