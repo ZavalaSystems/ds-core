@@ -1,5 +1,4 @@
-/*jslint maxlen: 120
-    unparam: true */
+/*jslint maxlen: 120 */
 module.exports = (function (R, bilby, q, mach, m, lens, uri, response, request, bp) {
     "use strict";
 
@@ -49,8 +48,8 @@ module.exports = (function (R, bilby, q, mach, m, lens, uri, response, request, 
             .catch(response.catcher);
     }
 
-    function close(req) {
-        return 500;
+    function close() {
+        return response.status.notImplement({});
     }
 
     env = env.method("resolve", bilby.compose(lens.get, findLens.run), resolveByDate)
