@@ -35,6 +35,8 @@
       image: ds-sysadmin:5000/core-api:{{ version }}
       ports: "8080"
       links: "db:db"
+      env:
+        NODE_ENV: development
 
   - name: "Start Web {{ version }}"
     docker:
