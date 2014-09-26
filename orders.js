@@ -1,8 +1,8 @@
 module.exports = (function (mach, bilby, R, request, response, uri, common, m, orders) {
     "use strict";
     var env = bilby.environment(),
-        formatOrder = R.compose(orders.transformOffsetToDate, orders.order),
-        createOrderQuery = R.compose(orders.createOrderAndItems, orders.transformOrderDateToOffset, request.params),
+        formatOrder = R.compose(orders.transformOrderOutput, orders.order),
+        createOrderQuery = R.compose(orders.createOrderAndItems, orders.transformOrderInput, request.params),
         matchOrderForDistributorQuery = R.compose(orders.matchOrderForDistributor, request.params);
 
     function createOrder(req) {
