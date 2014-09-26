@@ -19,7 +19,8 @@
             businessperiod: {
                 current: resolve("/bp"),
                 find: resolve("/bp")
-            }
+            },
+            nuke: resolve("/nuke")
         });
     });
     require("./rank")(app);
