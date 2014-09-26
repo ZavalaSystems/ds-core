@@ -3,7 +3,8 @@ module.exports = (function (mach, bilby, R, request, response, uri, common, m, o
     var env = bilby.environment(),
         formatOrder = R.compose(orders.transformOrderOutput, orders.order),
         createOrderQuery = R.compose(orders.createOrderAndItems, orders.transformOrderInput, request.params),
-        matchOrderForDistributorQuery = R.compose(orders.matchOrderForDistributor, request.params);
+        matchOrderForDistributorQuery = R.compose(orders.matchOrderForDistributor,
+            orders.transformGetOrderInput, request.params);
 
     function createOrder(req) {
         return createOrderQuery(req)
@@ -15,6 +16,7 @@ module.exports = (function (mach, bilby, R, request, response, uri, common, m, o
 
     function getOrder(req) {
         return matchOrderForDistributorQuery(req)
+            .then(m.firstOption)
             .then(orders.orderLinker(uri.absoluteUri(req))(formatOrder))
             .then(m.map(mach.json))
             .then(m.getOrElse(response.status.notFound({})))
@@ -47,7 +49,7 @@ module.exports = (function (mach, bilby, R, request, response, uri, common, m, o
     return function (app) {
         app.get("/distributor/:distributorID/order", env.listOrders);
         app.post("/distributor/:distributorID/order", env.createOrder);
-        app.post("/distributor/:distributorID/order/:orderID", env.getOrder);
+        app.get("/distributor/:distributorID/order/:orderID", env.getOrder);
         app.delete("/distributor/:distributorID/order/:orderID", env.deleteOrder);
         app.delete("/distributor/:distributorID/order/:orderID/item/:itemID", env.deleteItem);
     };
