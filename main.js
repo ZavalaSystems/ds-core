@@ -24,7 +24,6 @@
     });
     require("./rank")(app);
     require("./distributor")(app);
-    require("./org")(app);
     require("./businessperiod")(app);
     require("./orders")(app);
 
