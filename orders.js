@@ -4,7 +4,15 @@ module.exports = (function (mach, bilby, R, request, response, uri, common, m, o
         formatOrder = R.compose(orders.transformOrderOutput, orders.order),
         createOrderQuery = R.compose(orders.createOrderAndItems, orders.transformOrderInput, request.params),
         matchOrderForDistributorQuery = R.compose(orders.matchOrderForDistributor,
-            orders.transformGetOrderInput, request.params);
+            orders.transformLookupOrderInput, request.params);
+
+    /* Updating properties returns the updated items by convention */
+    function decodeSetResults(r) {
+        if (r.length === 0) {
+            return response.status.notFound({});
+        }
+        return response.status.ok({});
+    }
 
     function createOrder(req) {
         return createOrderQuery(req)
@@ -28,14 +36,16 @@ module.exports = (function (mach, bilby, R, request, response, uri, common, m, o
     }
 
     function deleteOrder(req) {
-        return orders.setOrderStatus(common.merge({status: "cancelled"}, request.params(req)))
-            .then(R.always("OK"))
+        return orders.setOrderStatus(common.merge({status: "cancelled"},
+                orders.transformLookupOrderInput(request.params(req))))
+            .then(decodeSetResults)
             .catch(response.catcher);
     }
 
     function deleteLineItem(req) {
-        return orders.setLineItemStatus(common.merge({status: "cancelled"}, request.params(req)))
-            .then(R.always("OK"))
+        return orders.setLineItemStatus(common.merge({status: "cancelled"},
+                orders.transformLookupLineItemInput(request.params(req))))
+            .then(decodeSetResults)
             .catch(response.catcher);
     }
 
@@ -51,7 +61,7 @@ module.exports = (function (mach, bilby, R, request, response, uri, common, m, o
         app.post("/distributor/:distributorID/order", env.createOrder);
         app.get("/distributor/:distributorID/order/:orderID", env.getOrder);
         app.delete("/distributor/:distributorID/order/:orderID", env.deleteOrder);
-        app.delete("/distributor/:distributorID/order/:orderID/item/:itemID", env.deleteItem);
+        app.delete("/distributor/:distributorID/order/:orderID/item/:lineItemID", env.deleteItem);
     };
 }(
     require("mach"),
