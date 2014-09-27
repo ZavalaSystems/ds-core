@@ -23,27 +23,40 @@ module.exports = (function (R, bilby, mach, m, uri, response, request, bp) {
             .catch(response.catcher);
     }
 
-    function resolveById(req) {
-        return bp.matchByID(bp.transformInput(req.params))
+    function resolveByID(req) {
+        return bp.matchByDate(bp.transformInput(req.params))
             .then(m.firstOption)
             .then(bp.linker(uri.absoluteUri(req))(formatBusinessPeriod))
             .then(m.map(mach.json))
-            .then(m.getOrElse(404))
+            .then(m.getOrElse(response.status.notFound({})))
             .catch(response.catcher);
     }
 
-    function close() {
-        return response.status.notImplemented({});
+    function close(req) {
+        var now = Date.now();
+        return bp.createNext({
+            id: bp.transformInput(req.params).id,
+            now: now
+        })
+            .then(m.firstOption)
+            .then(bp.linker(uri.absoluteUri(req))(formatBusinessPeriod))
+            .then(m.map(mach.json))
+            .then(m.getOrElse(response.status.conflict({content: "BP is not the latest"})))
+            .catch(response.catcher);
     }
 
     env = bilby.environment()
         .method("resolve", R.compose(bp.hasFind, request.params), resolveByDate)
         .method("resolve", request.emptyParams, resolveCurrent)
-        .method("resolve", R.alwaysTrue, R.always(response.status.badRequest({})));
+        .method("resolve", R.alwaysTrue, R.always(response.status.badRequest({})))
+        .method("resolveByID", R.compose(bp.idPrecondition, request.params), resolveByID)
+        .method("resolveByID", R.alwaysTrue, R.always(response.status.notFound({})))
+        .method("close", R.compose(bp.idPrecondition, request.params), close)
+        .method("close", R.alwaysTrue, R.always(response.status.notFound({})));
 
     return function (app) {
         app.get("/bp", env.resolve);
-        app.get("/bp/:id", resolveById);
+        app.get("/bp/:id", env.resolveByID);
         app.post("/bp/:id/close", close);
     };
 }(
