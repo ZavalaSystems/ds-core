@@ -9,7 +9,7 @@ module.exports = (function (toggle, cypher) {
                             start: Date.now()
                         });
                     }).then(function () {
-                        return cypher.cypherToObj("create (d:Distributor {id: 1, enrollDate: {now}})",
+                        return cypher.cypherToObj("create (d:Distributor {id: 1, enrollDate: {now}, rank: 'Director'})",
                             {now: Date.now()});
                     }).then(function () {
                         return {
