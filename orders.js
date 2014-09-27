@@ -2,6 +2,7 @@ module.exports = (function (mach, bilby, R, request, response, uri, common, m, o
     "use strict";
     var env = bilby.environment(),
         formatOrder = R.compose(orders.transformOrderOutput, orders.order),
+        formatLineItem = R.compose(orders.transformLineItemOutput, orders.lineItem),
         createOrderQuery = R.compose(orders.createOrderAndItems, orders.transformOrderInput, request.params),
         matchOrderForDistributorQuery = R.compose(orders.matchOrderForDistributor,
             orders.transformLookupOrderInput, request.params);
@@ -52,11 +53,48 @@ module.exports = (function (mach, bilby, R, request, response, uri, common, m, o
             .catch(response.catcher);
     }
 
+    function listLineItems(req) {
+        return orders.matchLineItemListForDistributor(orders.transformLookupOrderInput(req.params))
+            .then(orders.lineItemMultiLinker(uri.absoluteUri(req))(formatLineItem))
+            .then(mach.json)
+            .catch(response.catcher);
+    }
+
+    function getLineItem(req) {
+        return orders.matchLineItemForDistributor(orders.transformLookupLineItemInput(req.params))
+            .then(m.firstOption)
+            .then(orders.lineItemLinker(uri.absoluteUri(req))(formatLineItem))
+            .then(m.map(mach.json))
+            .then(m.getOrElse(response.status.notFound({})))
+            .catch(response.catcher);
+    }
+
+    function setOrderStatus(req) {
+        return orders.setOrderStatus(orders.transformLookupOrderInput(req.params))
+            .then(decodeSetResults)
+            .catch(response.catcher);
+    }
+
+    function setLineItemStatus(req) {
+        return orders.setLineItemStatus(orders.transformLookupLineItemInput(req.params))
+            .then(decodeSetResults)
+            .catch(response.catcher);
+    }
+
     env = env.method("createOrder", R.compose(orders.createOrderPrecondition, request.params), createOrder)
         .method("createOrder", R.alwaysTrue, R.always(response.status.badRequest({})))
         .method("listOrders", R.compose(orders.lookupOrderListPrecondition, request.params), listOrders)
-        .method("listOrders", R.alwaysTrue, R.always(response.status.badRequest({})))
-        .property("getOrder", getOrder)
+        .method("listOrders", R.alwaysTrue, R.always(response.status.notFound({})))
+        .method("getOrder", R.compose(orders.lookupOrderPrecondition, request.params), getOrder)
+        .method("getOrder", R.alwaysTrue, R.always(response.status.notFound({})))
+        .method("listItems", R.compose(orders.lookupOrderListPrecondition, request.params), listLineItems)
+        .method("listItems", R.alwaysTrue, R.always(response.status.notFound({})))
+        .method("getItem", R.compose(orders.lookupLineItemPrecondition, request.params), getLineItem)
+        .method("getItem", R.alwaysTrue, R.always(response.status.notFound({})))
+        .method("setOrderStatus", R.compose(orders.setOrderStatusPrecondition, request.params), setOrderStatus)
+        .method("setOrderStatus", R.alwaysTrue, R.always(response.status.notFound({})))
+        .method("setLineItemStatus", R.compose(orders.setLineItemStatusPrecondition, request.params), setLineItemStatus)
+        .method("setLineItemStatus", R.alwaysTrue, R.always(response.status.notFound({})))
         .property("deleteOrder", deleteOrder)
         .property("deleteItem", deleteLineItem);
 
@@ -64,7 +102,11 @@ module.exports = (function (mach, bilby, R, request, response, uri, common, m, o
         app.get("/distributor/:distributorID/order", env.listOrders);
         app.post("/distributor/:distributorID/order", env.createOrder);
         app.get("/distributor/:distributorID/order/:orderID", env.getOrder);
+        app.post("/distributor/:distributorID/order/:orderID/status", env.setOrderStatus);
         app.delete("/distributor/:distributorID/order/:orderID", env.deleteOrder);
+        app.get("/distributor/:distributorID/order/:orderID/item", env.listItems);
+        app.get("/distributor/:distributorID/order/:orderID/item/:lineItemID", env.getItem);
+        app.post("/distributor/:distributorID/order/:orderID/item/:lineItemID/status", env.setLineItemStatus);
         app.delete("/distributor/:distributorID/order/:orderID/item/:lineItemID", env.deleteItem);
     };
 }(
