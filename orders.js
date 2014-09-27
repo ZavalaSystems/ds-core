@@ -31,8 +31,11 @@ module.exports = (function (mach, bilby, R, request, response, uri, common, m, o
             .catch(response.catcher);
     }
 
-    function listOrders() {
-        return 500;
+    function listOrders(req) {
+        return orders.matchOrderListForDistributor(orders.transformLookupOrderListInput(req.params))
+            .then(orders.orderMultiLinker(uri.absoluteUri(req))(formatOrder))
+            .then(mach.json)
+            .catch(response.catcher);
     }
 
     function deleteOrder(req) {
@@ -51,7 +54,8 @@ module.exports = (function (mach, bilby, R, request, response, uri, common, m, o
 
     env = env.method("createOrder", R.compose(orders.createOrderPrecondition, request.params), createOrder)
         .method("createOrder", R.alwaysTrue, R.always(response.status.badRequest({})))
-        .property("listOrders", listOrders)
+        .method("listOrders", R.compose(orders.lookupOrderListPrecondition, request.params), listOrders)
+        .method("listOrders", R.alwaysTrue, R.always(response.status.badRequest({})))
         .property("getOrder", getOrder)
         .property("deleteOrder", deleteOrder)
         .property("deleteItem", deleteLineItem);
