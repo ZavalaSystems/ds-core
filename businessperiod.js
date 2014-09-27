@@ -1,59 +1,45 @@
 /*jslint maxlen: 120 */
-module.exports = (function (R, bilby, q, mach, m, lens, uri, response, request, bp) {
+module.exports = (function (R, bilby, mach, m, uri, response, request, bp) {
     "use strict";
 
-    var env = bilby.environment(),
-        findLens = bilby.objectLens("find").compose(request.queryLens),
-        idLens = bilby.objectLens("id").compose(request.paramsLens),
-        decodeQueryDate = R.compose(bp.decodeDate, lens.get, findLens.run);
-
-    function formatPeriod(blob) {
-        var currentId = bp.currentIdLens.run(blob).getter,
-            current = bp.currentLens.run(blob).getter,
-            startdate = new Date(current.start),
-            enddate = (current.end && new Date(current.end)) || null;
-        return {
-            token: currentId,
-            startdate: startdate.toISOString(),
-            enddate: enddate !== null ? enddate.toISOString() : null,
-            year: startdate.getFullYear(),
-            month: startdate.getMonth() + 1,
-            closed: enddate !== null
-        };
-    }
+    var env = null,
+        formatBusinessPeriod = R.compose(bp.transformOutput, bp.current);
 
     function resolveCurrent(req) {
-        return bp.getCurrent()
-            .then(bp.linker(uri.absoluteUri(req))(formatPeriod))
+        return bp.matchCurrent()
+            .then(m.firstOption)
+            .then(bp.linker(uri.absoluteUri(req))(formatBusinessPeriod))
             .then(m.map(mach.json))
-            .then(m.getOrElse(404))
+            .then(m.getOrElse(response.status.notFound({content: "There are no business periods"})))
             .catch(response.catcher);
     }
 
     function resolveByDate(req) {
-        return decodeQueryDate(req).map(function (d) {
-            return bp.getByDate(d)
-                .then(bp.linker(uri.absoluteUri(req))(formatPeriod))
-                .then(m.map(mach.json))
-                .then(m.getOrElse(404))
-                .catch(response.catcher);
-        }).getOrElse(q.when(404));
+        return bp.matchByDate(bp.transformFindInput(req.params))
+            .then(m.firstOption)
+            .then(bp.linker(uri.absoluteUri(req))(formatBusinessPeriod))
+            .then(m.map(mach.json))
+            .then(m.getOrElse(response.status.notFound({})))
+            .catch(response.catcher);
     }
 
     function resolveById(req) {
-        return bp.getById(parseInt(idLens.run(req).getter, 10))
-            .then(bp.linker(uri.absoluteUri(req))(formatPeriod))
+        return bp.matchByID(bp.transformInput(req.params))
+            .then(m.firstOption)
+            .then(bp.linker(uri.absoluteUri(req))(formatBusinessPeriod))
             .then(m.map(mach.json))
             .then(m.getOrElse(404))
             .catch(response.catcher);
     }
 
     function close() {
-        return response.status.notImplement({});
+        return response.status.notImplemented({});
     }
 
-    env = env.method("resolve", bilby.compose(lens.get, findLens.run), resolveByDate)
-        .method("resolve", bilby.constant(true), resolveCurrent);
+    env = bilby.environment()
+        .method("resolve", R.compose(bp.hasFind, request.params), resolveByDate)
+        .method("resolve", request.emptyParams, resolveCurrent)
+        .method("resolve", R.alwaysTrue, R.always(response.status.badRequest({})));
 
     return function (app) {
         app.get("/bp", env.resolve);
@@ -63,10 +49,8 @@ module.exports = (function (R, bilby, q, mach, m, lens, uri, response, request, 
 }(
     require("ramda"),
     require("bilby"),
-    require("q"),
     require("mach"),
     require("./lib/monad"),
-    require("./lib/lens"),
     require("./lib/uri"),
     require("./lib/response"),
     require("./lib/request"),
