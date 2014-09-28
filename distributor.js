@@ -48,6 +48,31 @@ module.exports = (function (R, bilby, mach, m, uri, response, distributor) {
             .catch(response.catcher);
     }
 
+    function mockOrg() {
+        var mockPayloads = [{
+            payload: {
+                id: 10001,
+                personalVolume: 100.01,
+                groupVolume: 2000.05,
+                orgVolume: 10000.50,
+                paidAs: "Diamond Director",
+                leg: 4,
+                level: 3,
+                relationshipTag: "Group"
+            },
+            links: {
+                self: "fake_url",
+                enroller: "fake_url",
+                sponsor: "fake_url",
+                leader: "fake_url"
+            }
+        }];
+        return mach.json([{
+            payload: mockPayloads,
+            links: {}
+        }]);
+    }
+
     env = bilby.environment()
         .method("createDistributor", R.compose(distributor.isValidFull, R.prop("params")), createFull)
         .method("createDistributor", R.compose(distributor.isValidPartial, R.prop("params")), createPartial)
@@ -62,6 +87,7 @@ module.exports = (function (R, bilby, mach, m, uri, response, distributor) {
         app.post("/distributor", env.createDistributor);
         app.get("/distributor/:distributorID", env.getDistributor);
         app.post("/distributor/:distributorID/upgrade", env.upgradeDistributor);
+        app.get("/distributor/:distributorID/org", mockOrg);
         return app;
     };
 }(
