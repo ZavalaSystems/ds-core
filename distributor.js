@@ -1,5 +1,5 @@
 /*jslint maxlen: 120*/
-module.exports = (function (R, bilby, mach, m, uri, response, distributor) {
+module.exports = (function (R, bilby, mach, m, uri, response, request, distributor) {
     "use strict";
     var env = bilby.environment(),
         formatDistributor = R.compose(distributor.transformOutput, distributor.matched);
@@ -10,8 +10,7 @@ module.exports = (function (R, bilby, mach, m, uri, response, distributor) {
             .then(m.first)
             .then(distributor.linker(uri.absoluteUri(req))(formatDistributor))
             .then(m.map(mach.json))
-            .then(m.getOrElse(response.status.badRequest({})))
-            .catch(response.catcher(req));
+            .then(m.getOrElse(response.status.badRequest({})));
     }
 
     function createPartial(req) {
@@ -19,8 +18,7 @@ module.exports = (function (R, bilby, mach, m, uri, response, distributor) {
             .then(m.first)
             .then(distributor.linker(uri.absoluteUri(req))(formatDistributor))
             .then(m.map(mach.json))
-            .then(m.getOrElse(response.status.badRequest({})))
-            .catch(response.catcher(req));
+            .then(m.getOrElse(response.status.badRequest({})));
     }
 
     function upgradeDistributor(req) {
@@ -28,8 +26,7 @@ module.exports = (function (R, bilby, mach, m, uri, response, distributor) {
             .then(m.first)
             .then(distributor.linker(uri.absoluteUri(req))(formatDistributor))
             .then(m.map(mach.json))
-            .then(m.getOrElse(response.status.badRequest({})))
-            .catch(response.catcher(req));
+            .then(m.getOrElse(response.status.badRequest({})));
     }
 
     function getDistributor(req) {
@@ -37,15 +34,26 @@ module.exports = (function (R, bilby, mach, m, uri, response, distributor) {
             .then(m.first)
             .then(distributor.linker(uri.absoluteUri(req))(formatDistributor))
             .then(m.map(mach.json))
-            .then(m.getOrElse(response.status.notFound({})))
-            .catch(response.catcher(req));
+            .then(m.getOrElse(response.status.notFound({})));
     }
 
     function listDistributors(req) {
         return distributor.distributorsCypher()
             .then(distributor.multilinker(uri.absoluteUri(req))(formatDistributor))
-            .then(mach.json)
-            .catch(response.catcher(req));
+            .then(mach.json);
+    }
+
+    function getOrg(req) {
+       /* Lookup the organization of the a user */
+        var root = null;
+        root = distributor.distributorByIdCypher(distributor.transformGetInput(req.params))
+            .then(m.first)
+            .then(m.toEither(response.status.notFound({})))
+            .then(distributor.linker(uri.absoluteUri(req))(formatDistributor))
+            .then(m.map(mach.json))
+            .then(m.getEither);
+
+        return root;
     }
 
     function mockOrg() {
@@ -80,14 +88,16 @@ module.exports = (function (R, bilby, mach, m, uri, response, distributor) {
         .method("upgradeDistributor", R.compose(distributor.isValidUpgrade, R.prop("params")), upgradeDistributor)
         .method("upgradeDistributor", R.alwaysTrue, R.always(response.status.badRequest({})))
         .property("listDistributors", listDistributors)
-        .property("getDistributor", getDistributor);
+        .property("getDistributor", getDistributor)
+        .method("getOrg", R.compose(distributor.isValidGetPrecondition, request.params), getOrg)
+        .method("getOrg", R.alwaysTrue, R.always(response.status.notFound({})));
 
     return function (app) {
         app.get("/distributor", env.listDistributors);
         app.post("/distributor", env.createDistributor);
         app.get("/distributor/:distributorID", env.getDistributor);
         app.post("/distributor/:distributorID/upgrade", env.upgradeDistributor);
-        app.get("/distributor/:distributorID/org", mockOrg);
+        app.get("/distributor/:distributorID/org", env.getOrg);
         return app;
     };
 }(
@@ -97,5 +107,6 @@ module.exports = (function (R, bilby, mach, m, uri, response, distributor) {
     require("./lib/monad"),
     require("./lib/uri"),
     require("./lib/response"),
+    require("./lib/request"),
     require("./lib/distributor")
 ));
