@@ -1,5 +1,5 @@
 /*jslint maxlen: 120*/
-module.exports = (function (R, bilby, mach, m, uri, response, request, distributor) {
+module.exports = (function (R, bilby, mach, q, m, uri, hypermedia, response, request, distributor) {
     "use strict";
     var env = bilby.environment(),
         formatDistributor = R.compose(distributor.transformOutput, distributor.matched);
@@ -50,8 +50,16 @@ module.exports = (function (R, bilby, mach, m, uri, response, request, distribut
             .then(mach.json);
     }
 
-    function getPerf() {
-        return response.status.notImplemented({});
+    function getPerf(req) {
+        var params = distributor.transformGetPerformanceInput(req.params),
+            personalVolume = distributor.computePv(params);
+        return q.spread([personalVolume], function (pv) {
+            return {
+                personalVolume: pv
+            };
+        })
+            .then(hypermedia.unlinked)
+            .then(mach.json);
     }
 
     env = bilby.environment()
@@ -84,8 +92,10 @@ module.exports = (function (R, bilby, mach, m, uri, response, request, distribut
     require("ramda"),
     require("bilby"),
     require("mach"),
+    require("q"),
     require("./lib/monad"),
     require("./lib/uri"),
+    require("./hypermedia"),
     require("./lib/response"),
     require("./lib/request"),
     require("./lib/distributor")
