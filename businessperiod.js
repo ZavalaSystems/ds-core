@@ -11,7 +11,7 @@ module.exports = (function (R, bilby, mach, m, uri, response, request, bp) {
             .then(bp.linker(uri.absoluteUri(req))(formatBusinessPeriod))
             .then(m.map(mach.json))
             .then(m.getOrElse(response.status.notFound({content: "There are no business periods"})))
-            .catch(response.catcher);
+            .catch(response.catcher(req));
     }
 
     function resolveByDate(req) {
@@ -20,7 +20,7 @@ module.exports = (function (R, bilby, mach, m, uri, response, request, bp) {
             .then(bp.linker(uri.absoluteUri(req))(formatBusinessPeriod))
             .then(m.map(mach.json))
             .then(m.getOrElse(response.status.notFound({})))
-            .catch(response.catcher);
+            .catch(response.catcher(req));
     }
 
     function resolveByID(req) {
@@ -29,7 +29,7 @@ module.exports = (function (R, bilby, mach, m, uri, response, request, bp) {
             .then(bp.linker(uri.absoluteUri(req))(formatBusinessPeriod))
             .then(m.map(mach.json))
             .then(m.getOrElse(response.status.notFound({})))
-            .catch(response.catcher);
+            .catch(response.catcher(req));
     }
 
     function close(req) {
@@ -42,7 +42,7 @@ module.exports = (function (R, bilby, mach, m, uri, response, request, bp) {
             .then(bp.linker(uri.absoluteUri(req))(formatBusinessPeriod))
             .then(m.map(mach.json))
             .then(m.getOrElse(response.status.conflict({content: "BP is not the latest"})))
-            .catch(response.catcher);
+            .catch(response.catcher(req));
     }
 
     env = bilby.environment()

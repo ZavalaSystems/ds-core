@@ -11,7 +11,7 @@ module.exports = (function (R, bilby, mach, m, uri, response, distributor) {
             .then(distributor.linker(uri.absoluteUri(req))(formatDistributor))
             .then(m.map(mach.json))
             .then(m.getOrElse(response.status.badRequest({})))
-            .catch(response.catcher);
+            .catch(response.catcher(req));
     }
 
     function createPartial(req) {
@@ -20,7 +20,7 @@ module.exports = (function (R, bilby, mach, m, uri, response, distributor) {
             .then(distributor.linker(uri.absoluteUri(req))(formatDistributor))
             .then(m.map(mach.json))
             .then(m.getOrElse(response.status.badRequest({})))
-            .catch(response.catcher);
+            .catch(response.catcher(req));
     }
 
     function upgradeDistributor(req) {
@@ -29,7 +29,7 @@ module.exports = (function (R, bilby, mach, m, uri, response, distributor) {
             .then(distributor.linker(uri.absoluteUri(req))(formatDistributor))
             .then(m.map(mach.json))
             .then(m.getOrElse(response.status.badRequest({})))
-            .catch(response.catcher);
+            .catch(response.catcher(req));
     }
 
     function getDistributor(req) {
@@ -38,14 +38,14 @@ module.exports = (function (R, bilby, mach, m, uri, response, distributor) {
             .then(distributor.linker(uri.absoluteUri(req))(formatDistributor))
             .then(m.map(mach.json))
             .then(m.getOrElse(response.status.notFound({})))
-            .catch(response.catcher);
+            .catch(response.catcher(req));
     }
 
     function listDistributors(req) {
         return distributor.distributorsCypher()
             .then(distributor.multilinker(uri.absoluteUri(req))(formatDistributor))
             .then(mach.json)
-            .catch(response.catcher);
+            .catch(response.catcher(req));
     }
 
     function mockOrg() {

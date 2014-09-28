@@ -20,7 +20,7 @@ module.exports = (function (mach, bilby, R, request, response, uri, common, m, o
             .then(orders.orderLinker(uri.absoluteUri(req))(formatOrder))
             .then(m.map(mach.json))
             .then(m.getOrElse(response.status.internalServerError({})))
-            .catch(response.catcher);
+            .catch(response.catcher(req));
     }
 
     function getOrder(req) {
@@ -29,35 +29,35 @@ module.exports = (function (mach, bilby, R, request, response, uri, common, m, o
             .then(orders.orderLinker(uri.absoluteUri(req))(formatOrder))
             .then(m.map(mach.json))
             .then(m.getOrElse(response.status.notFound({})))
-            .catch(response.catcher);
+            .catch(response.catcher(req));
     }
 
     function listOrders(req) {
         return orders.matchOrderListForDistributor(orders.transformLookupOrderListInput(req.params))
             .then(orders.orderMultiLinker(uri.absoluteUri(req))(formatOrder))
             .then(mach.json)
-            .catch(response.catcher);
+            .catch(response.catcher(req));
     }
 
     function deleteOrder(req) {
         return orders.setOrderStatus(common.merge({status: "cancelled"},
                 orders.transformLookupOrderInput(request.params(req))))
             .then(decodeSetResults)
-            .catch(response.catcher);
+            .catch(response.catcher(req));
     }
 
     function deleteLineItem(req) {
         return orders.setLineItemStatus(common.merge({status: "cancelled"},
                 orders.transformLookupLineItemInput(request.params(req))))
             .then(decodeSetResults)
-            .catch(response.catcher);
+            .catch(response.catcher(req));
     }
 
     function listLineItems(req) {
         return orders.matchLineItemListForDistributor(orders.transformLookupOrderInput(req.params))
             .then(orders.lineItemMultiLinker(uri.absoluteUri(req))(formatLineItem))
             .then(mach.json)
-            .catch(response.catcher);
+            .catch(response.catcher(req));
     }
 
     function getLineItem(req) {
@@ -66,19 +66,19 @@ module.exports = (function (mach, bilby, R, request, response, uri, common, m, o
             .then(orders.lineItemLinker(uri.absoluteUri(req))(formatLineItem))
             .then(m.map(mach.json))
             .then(m.getOrElse(response.status.notFound({})))
-            .catch(response.catcher);
+            .catch(response.catcher(req));
     }
 
     function setOrderStatus(req) {
         return orders.setOrderStatus(orders.transformLookupOrderInput(req.params))
             .then(decodeSetResults)
-            .catch(response.catcher);
+            .catch(response.catcher(req));
     }
 
     function setLineItemStatus(req) {
         return orders.setLineItemStatus(orders.transformLookupLineItemInput(req.params))
             .then(decodeSetResults)
-            .catch(response.catcher);
+            .catch(response.catcher(req));
     }
 
     env = env.method("createOrder", R.compose(orders.createOrderPrecondition, request.params), createOrder)
