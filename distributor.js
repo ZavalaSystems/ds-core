@@ -44,41 +44,14 @@ module.exports = (function (R, bilby, mach, m, uri, response, request, distribut
     }
 
     function getOrg(req) {
-       /* Lookup the organization of the a user */
-        var root = null;
-        root = distributor.distributorByIdCypher(distributor.transformGetInput(req.params))
-            .then(m.first)
-            .then(m.toEither(response.status.notFound({})))
-            .then(distributor.linker(uri.absoluteUri(req))(formatDistributor))
-            .then(m.map(mach.json))
-            .then(m.getEither);
-
-        return root;
+        /* Lookup the organization of the a user */
+        return distributor.orgCypher(distributor.transformGetInput(req.params))
+            .then(distributor.multilinker(uri.absoluteUri(req))(formatDistributor))
+            .then(mach.json);
     }
 
-    function mockOrg() {
-        var mockPayloads = [{
-            payload: {
-                id: 10001,
-                personalVolume: 100.01,
-                groupVolume: 2000.05,
-                orgVolume: 10000.50,
-                paidAs: "Diamond Director",
-                leg: 4,
-                level: 3,
-                relationshipTag: "Group"
-            },
-            links: {
-                self: "fake_url",
-                enroller: "fake_url",
-                sponsor: "fake_url",
-                leader: "fake_url"
-            }
-        }];
-        return mach.json([{
-            payload: mockPayloads,
-            links: {}
-        }]);
+    function getPerf() {
+        return response.status.notImplemented({});
     }
 
     env = bilby.environment()
@@ -90,14 +63,21 @@ module.exports = (function (R, bilby, mach, m, uri, response, request, distribut
         .property("listDistributors", listDistributors)
         .property("getDistributor", getDistributor)
         .method("getOrg", R.compose(distributor.isValidGetPrecondition, request.params), getOrg)
-        .method("getOrg", R.alwaysTrue, R.always(response.status.notFound({})));
+        .method("getOrg", R.alwaysTrue, R.always(response.status.notFound({})))
+        .method("getPerf", R.compose(
+            R.and(distributor.isValidGetPrecondition, distributor.hasBusinessPeriod),
+            request.params
+        ),
+            getPerf)
+        .method("getPerf", R.alwaysTrue, R.always(response.status.notFound({})));
 
     return function (app) {
         app.get("/distributor", env.listDistributors);
         app.post("/distributor", env.createDistributor);
         app.get("/distributor/:distributorID", env.getDistributor);
         app.post("/distributor/:distributorID/upgrade", env.upgradeDistributor);
-        app.get("/distributor/:distributorID/org", env.getOrg);
+        app.get("/distributor/:distributorID/organization", env.getOrg);
+        app.get("/distributor/:distributorID/performance", env.getPerf);
         return app;
     };
 }(
