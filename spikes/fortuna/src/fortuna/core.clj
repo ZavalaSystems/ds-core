@@ -1,59 +1,77 @@
 (ns fortuna.core
-  (:gen-class)
-  (require [fortuna.discovery :as d]
-           [fortuna.cypher :as c]
-           [clojure.data.json :as json]))
+  (use [clojure.string :only [join]])
+  (:require [fortuna.cypher :as cypher]
+            [clojure.data.json :as json]))
 
-(def commission-query (str "match (cons:Consultant) "
-                           "optional match (cons)<-[:REPORTS_TO]-(sub) "
-                           "with cons as consultant, collect(sub) as downline "
-                           "optional match (consultant)<-[:PLACED_BY]-(order:Order)<-[:PART_OF]-(li:LineItem) "
-                           "return consultant, downline, collect(li) as lineItems"))
+(def commission-query
+  (slurp (clojure.java.io/resource "commission.cql")))
+=
+(def commission-ranks (map (partial zipmap [:title                  :pcv  :gv    :amb :dir :org    :is-dir])
+                                          [["Diamond Director"      75000 400000  4    4   5000000   true],
+                                           ["Crystal Director"      75000 400000  4    2   2000000   true],
+                                           ["Senior Director"       50000 400000  4    1   1000000   true],
+                                           ["Director"              50000 400000  4    0         0   true],
+                                           ["Senior Ambassador"     25000 100000  2    0         0  false],
+                                           ["Associate Ambassador"  25000  50000  1    0         0  false],
+                                           ["Ambassador"                0      0  0    0         0  false]]))
 
-(defn- get-data-sanely [m k]
-  (let [v (get m k)]
-    (if (map? v)
-      (assoc m k (:data v))
-      (assoc m k (map :data v)))))
+(defn substring? [needle haystack] (<= 0 (.indexOf haystack needle)))
 
-(defn- no-neo4j [& args]
-  (let [m (last args)
-        ks (drop-last args)]
-    (reduce get-data-sanely m ks)))
+(defn find-first [pred l]
+  (first (filter pred l)))
 
-(def ^:private sum (partial reduce +))
+(defn find-node [nodes id]
+  (find-first #(= id (-> % :dist :id)) nodes))
 
-(defn- sum-by-item-type [consultant line-item-type]
-  (let [line-item-matches-type? #(= line-item-type (:type %))
-        limit-line-items-to-type (partial filter line-item-matches-type?)
-        calc-line-item-subtotals (partial map #(* (:price %) (:qty %)))
-        sum-line-items sum]
-    (->> consultant
-      (:lineItems)
-      (limit-line-items-to-type)
-      (calc-line-item-subtotals)
-      (sum-line-items))))
+(defn build-tree [root-node nodes]
+  (assoc root-node :children (map (comp #(build-tree % nodes) (partial find-node nodes)) (:children root-node))))
 
-(defn- calculate-pcv [consultant]
-  (let [total-for (partial sum-by-item-type consultant)
-        retail (total-for "retail")
-        wineclub (total-for "wineclub")
-        gifts (total-for "gifts")
-        pcv (+ retail (* (/ 3 4) wineclub) (* (/ 1 2) gifts))]
-    (assoc consultant :retail retail
-                      :wineclub wineclub
-                      :gifts gifts
-                      :pcv pcv
-                      :qualified (> pcv 25000))))
+(defn add-qualification [ds]
+  (letfn [(qualify [dist] (assoc dist :qualified (<= 25000 (:pcv dist))))]
+    (map qualify ds)))
 
-(defn -main []
-  (println (let [result (c/cypher commission-query, {})
-        headers (->> result :columns (map keyword))
-        make-obj (partial zipmap headers)]
-    (->> result
-         :data
-         (map make-obj)
-         (first)
-         (no-neo4j :lineItems :downline :consultant)
-         (calculate-pcv))))
-  (shutdown-agents))
+(def sum (partial reduce +))
+
+(defn get-direct-ambassadors [root-node]
+  (filter (complement :director) (:children root-node)))
+
+(defn count-directors [root-node]
+  (let [direct-directors (filter :director (:children root-node))]
+    (+ (count direct-directors) (sum (map count-directors (get-direct-ambassadors root-node))))))
+
+(defn count-ambassadors [root-node]
+  (let [direct-ambassadors (get-direct-ambassadors root-node)]
+    (+ (count direct-ambassadors) (sum (map count-ambassadors direct-ambassadors)))))
+
+(defn get-group-volume [root-node]
+  (let [direct-ambassadors (get-direct-ambassadors root-node)
+        direct-volumes (sum (map :pcv direct-ambassadors))]
+    (+ direct-volumes (sum (map get-group-volume direct-ambassadors)))))
+
+(defn classify-node [n]
+  (letfn [(rank-qualifies [rank] (and (>= (:pcv n) (:pcv rank))
+                                      (>= (:group-volume n) (:gv rank))
+                                      (>= (:qualified-ambassadors n) (:amb rank))
+                                      (>= (:qualified-directors n) (:dir rank))
+                                      (>= (:orgVolume n) (:org rank))))]
+    (let [qualified-rank (find-first rank-qualifies commission-ranks)]
+      (assoc n :rank (:title qualified-rank)
+               :director (:is-dir qualified-rank)))))
+
+
+(defn classify-tree [root-node]
+  (let [partial-node (assoc root-node :children (map classify-tree (:children root-node))
+                                      :qualified-ambassadors (count-ambassadors root-node)
+                                      :qualified-directors (count-directors root-node)
+                                      :group-volume (get-group-volume root-node))]
+    (classify-node partial-node)))
+
+(defn main
+  ([bpId] (let [raw-data (cypher/cypher commission-query {:nodeId (read-string bpId)})
+                cleaned-rows (-> raw-data :data cypher/extract-data)
+                keywordized-columns (map keyword (:columns raw-data))
+                mapped-rows (map (partial zipmap keywordized-columns) cleaned-rows)
+                qualified-rows (add-qualification mapped-rows)
+                root-node (find-node qualified-rows "1")]
+            (println (json/write-str (classify-tree (build-tree root-node qualified-rows))))))
+  ([bpId rep] (println (str "commissions for rep: " rep ", bp: " bpId))))

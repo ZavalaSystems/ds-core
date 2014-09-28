@@ -7,3 +7,12 @@
                       {:form-params {:query query, :params params}
                        :content-type :json
                        :as :json})))
+
+(letfn [(process-cypher-datapoint [point]
+          (cond (map? point) (:data point)
+                (vector? point) (process-cypher-row point)
+                :else point))
+        (process-cypher-row [row]
+          (map process-cypher-datapoint row))]
+  (defn extract-data [cypher-data-rows]
+    (map process-cypher-row cypher-data-rows)))
