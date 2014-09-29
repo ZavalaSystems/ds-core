@@ -95,7 +95,7 @@ module.exports = (function (R, bilby, mach, q, m, uri, hypermedia, response, req
     require("q"),
     require("./lib/monad"),
     require("./lib/uri"),
-    require("./hypermedia"),
+    require("./lib/hypermedia"),
     require("./lib/response"),
     require("./lib/request"),
     require("./lib/distributor")
