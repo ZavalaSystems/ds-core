@@ -43,11 +43,63 @@ module.exports = (function (R, bilby, mach, q, m, uri, hypermedia, response, req
             .then(mach.json);
     }
 
+    /*
     function getOrg(req) {
-        /* Lookup the organization of the a user */
         return distributor.orgCypher(distributor.transformGetInput(req.params))
             .then(distributor.multilinker(uri.absoluteUri(req))(formatDistributor))
             .then(mach.json);
+    }
+    */
+
+    function mockOrg() {
+        return mach.json({
+            payload: {
+                group: [{
+                    payload: {
+                        id: -1,
+                        firstName: "F",
+                        lastName: "Z",
+                        rank: "Ambassador",
+                        enrollDate: "2014-10-01"
+                    },
+                    links: {
+                        enroller: "_",
+                        sponsor: "_",
+                        leader: "_"
+                    }
+                }],
+                org: [[{
+                    payload: {
+                        id: -2,
+                        level: 0,
+                        firstName: "D",
+                        lastName: "R",
+                        rank: "Director",
+                        enrollDate: "2014-10-01"
+                    },
+                    links: {
+                        enroller: "_",
+                        sponsor: "_",
+                        leader: "_"
+                    }
+                }, {
+                    payload: {
+                        id: -3,
+                        level: 1,
+                        firstName: "S",
+                        lastName: "C",
+                        rank: "Ambassador",
+                        enrollDate: "2014-10-01"
+                    },
+                    links: {
+                        enroller: "_",
+                        sponsor: "_",
+                        leader: "_"
+                    }
+                }]]
+            },
+            links: {}
+        });
     }
 
     function getPerf(req) {
@@ -70,8 +122,9 @@ module.exports = (function (R, bilby, mach, q, m, uri, hypermedia, response, req
         .method("upgradeDistributor", R.alwaysTrue, R.always(response.status.badRequest({})))
         .property("listDistributors", listDistributors)
         .property("getDistributor", getDistributor)
-        .method("getOrg", R.compose(distributor.isValidGetPrecondition, request.params), getOrg)
-        .method("getOrg", R.alwaysTrue, R.always(response.status.notFound({})))
+        // .method("getOrg", R.compose(distributor.isValidGetPrecondition, request.params), getOrg)
+        // .method("getOrg", R.alwaysTrue, R.always(response.status.notFound({})))
+        .property("getOrg", mockOrg)
         .method("getPerf", R.compose(
             R.and(distributor.isValidGetPrecondition, distributor.hasBusinessPeriod),
             request.params
