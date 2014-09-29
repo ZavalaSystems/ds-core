@@ -1,6 +1,7 @@
-match (d:Distributor), (self:Distributor)
-where (d)<-[:SPONSORS*]-(self) and self.id = {distributorID}
-optional match (enroller:Distributor)-[:ENROLLED]->(d)<-[:SPONSORS]-(sponsor:Distributor)
-optional match (leader:Distributor)-[:SPONSORS*]->(d)
-where leader.rank =~ '.*(D|d)irector.*'
-return d, enroller, sponsor, leader
+// Match all distributors downline from the query
+match (d:Distributor)<-[:SPONSORS*]-(orgRoot:Distributor)
+where orgRoot.id = {distributorID}
+// Add a second match against the actual sponsor to allow building the tree
+with d
+match (d)<-[:SPONSORS]-(sponsor:Distributor)
+return d, sponsor
