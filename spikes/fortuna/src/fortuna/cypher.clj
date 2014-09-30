@@ -1,6 +1,7 @@
 (ns fortuna.cypher
   (:require [clj-http.client :as client]
-            [fortuna.discovery :as d]))
+            [fortuna.discovery :as d]
+            [fortuna.util :as util]))
 
 (defn cypher [query, params]
   (:body (client/post (-> (d/discover) :data :cypher)
@@ -11,6 +12,7 @@
 (letfn [(process-cypher-datapoint [point]
           (cond (map? point) (:data point)
                 (vector? point) (process-cypher-row point)
+                (float? point) (util/conservative-int point)
                 :else point))
         (process-cypher-row [row]
           (map process-cypher-datapoint row))]

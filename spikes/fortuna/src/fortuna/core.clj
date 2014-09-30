@@ -1,11 +1,12 @@
 (ns fortuna.core
-  (use [clojure.string :only [join]])
+  (:use [clojure.string :only [join]])
   (:require [fortuna.cypher :as cypher]
-            [clojure.data.json :as json]))
+            [clojure.data.json :as json]
+            [fortuna.util :as util]))
 
 (def commission-query
   (slurp (clojure.java.io/resource "commission.cql")))
-=
+
 (def commission-ranks (map (partial zipmap [:title                  :pcv  :gv    :amb :dir :org    :is-dir])
                                           [["Diamond Director"      75000 400000  4    4   5000000   true],
                                            ["Crystal Director"      75000 400000  4    2   2000000   true],
@@ -58,13 +59,24 @@
       (assoc n :rank (:title qualified-rank)
                :director (:is-dir qualified-rank)))))
 
+(defn calculate-node [root-node]
+  (let [pcv (:pcv root-node)
+        made-fast-start? (< 200000 pcv)
+        fast-start-ratio (/ 3 10)
+        slow-start-ratio (/ 1 4)
+        multiplier (cond
+                     (not (:qualified root-node)) 0
+                     made-fast-start? (/ 3 10)
+                     :else (/ 1 4))]
+    (assoc root-node :commissions (util/conservative-int (* pcv multiplier)))))
 
-(defn classify-tree [root-node]
-  (let [partial-node (assoc root-node :children (map classify-tree (:children root-node))
+(defn calculate-tree [root-node]
+  (let [partial-node (assoc root-node :children (map calculate-tree (:children root-node))
                                       :qualified-ambassadors (count-ambassadors root-node)
                                       :qualified-directors (count-directors root-node)
-                                      :group-volume (get-group-volume root-node))]
-    (classify-node partial-node)))
+                                      :group-volume (get-group-volume root-node))
+        classified-node (classify-node partial-node)]
+    (calculate-node classified-node)))
 
 (defn main
   ([bpId] (let [raw-data (cypher/cypher commission-query {:nodeId (read-string bpId)})
@@ -73,5 +85,5 @@
                 mapped-rows (map (partial zipmap keywordized-columns) cleaned-rows)
                 qualified-rows (add-qualification mapped-rows)
                 root-node (find-node qualified-rows "1")]
-            (println (json/write-str (classify-tree (build-tree root-node qualified-rows))))))
+            (println (json/write-str (calculate-tree (build-tree root-node qualified-rows))))))
   ([bpId rep] (println (str "commissions for rep: " rep ", bp: " bpId))))
