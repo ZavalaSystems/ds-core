@@ -117,7 +117,7 @@
     (calculate-node classified-node)))
 
 (defn entry [bpId rep]
-  (let [raw-data (cypher/cypher commission-query {:nodeId (read-string bpId)})
+  (let [raw-data (cypher/cypher (format commission-query bpId) {})
                 cleaned-rows (-> raw-data :data cypher/extract-data)
                 keywordized-columns (map keyword (:columns raw-data))
                 mapped-rows (map (partial zipmap keywordized-columns) cleaned-rows)
@@ -126,5 +126,5 @@
             (println (json/write-str (calculate-tree (build-tree root-node qualified-rows))))))
 
 (defn main
-  ([bpId] (entry bpId "1"))
-  ([bpId rep] (entry bpId rep)))
+  ([bpId] (entry bpId 1))
+  ([bpId rep] (entry bpId (read-string rep))))

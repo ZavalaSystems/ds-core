@@ -1,7 +1,7 @@
 match (d:Distributor)
 optional match (d)-[:SPONSORS]->(other)
 with d as dist, collect(other.id) as children
-start bp=node(335290)
+start bp=node(%s)
 optional match (bp)<-[:DURING]-(orders)<-[:DISTRIBUTES]-(dist)
 where orders.status <> "cancelled"
 with dist, orders, children
