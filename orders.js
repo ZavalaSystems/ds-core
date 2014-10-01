@@ -3,7 +3,6 @@ module.exports = (function (mach, bilby, R, request, response, uri, common, m, o
     var env = bilby.environment(),
         formatOrder = R.compose(orders.transformOrderOutput, orders.order),
         formatLineItem = R.compose(orders.transformLineItemOutput, orders.lineItem),
-        createOrderQuery = R.compose(orders.createOrderAndItems, orders.transformOrderInput, request.params),
         matchOrderForDistributorQuery = R.compose(orders.matchOrderForDistributor,
             orders.transformLookupOrderInput, request.params);
 
@@ -16,11 +15,10 @@ module.exports = (function (mach, bilby, R, request, response, uri, common, m, o
     }
 
     function createOrder(req) {
-        return createOrderQuery(req)
+        return orders.createOrderAndItems(orders.transformOrderInput(req.params))
             .then(orders.orderLinker(uri.absoluteUri(req))(formatOrder))
             .then(m.map(mach.json))
-            .then(m.getOrElse(response.status.internalServerError({})))
-            .catch(response.catcher(req));
+            .then(m.getOrElse(response.status.internalServerError({})));
     }
 
     function getOrder(req) {
