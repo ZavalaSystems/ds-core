@@ -3,14 +3,16 @@ module.exports = (function (toggle, cypher) {
     return function (app) {
         app.post("/nuke", function (req) {
             if (process.env.NODE_ENV === "development" && toggle.getToggleOff(req, "thermonuclearwar")) {
+                var now = new Date(),
+                    bpStart = new Date(now.getFullYear(), now.getMonth(), 1);
                 return cypher.cypherToObj("match (d) optional match (d)-[r]-() delete d, r", {})
                     .then(function () {
                         return cypher.cypherToObj("create (bp:BusinessPeriod {start: {start}}) return bp", {
-                            start: Date.now()
+                            start: bpStart
                         });
                     }).then(function () {
                         return cypher.cypherToObj("create (d:Distributor {id: 1, enrollDate: {now}, rank: 'Director'})",
-                            {now: Date.now()});
+                            {now: bpStart});
                     }).then(function () {
                         return {
                             status: 200,
