@@ -29,7 +29,7 @@
   (assoc root-node :children (map (comp #(build-tree % nodes) (partial find-node nodes)) (:children root-node))))
 
 (defn add-qualification [ds]
-  (letfn [(qualify [dist] (assoc dist :qualified (<= 25000 (:pcv dist))))]
+  (letfn [(qualify [dist] (assoc dist :qualified (<= 25000 (:ppcv dist))))]
     (map qualify ds)))
 
 (def sum (partial reduce +))
@@ -84,16 +84,16 @@
 
 (defn calculate-node [root-node]
   (let [rank (find-first #(= (:title %) (:rank root-node)) commission-ranks)
-        pcv (:pcv root-node)
-        made-fast-start? (< 200000 pcv)
+        ppcv (:ppcv root-node)
+        made-fast-start? (< 200000 ppcv)
         multiplier (cond
                      (not (:qualified root-node)) 0
                      made-fast-start? (:fstart rank)
                      :else (:base rank))
         by-mult (partial efficient-multiply multiplier)
         node-dirs-at-gen (partial get-directors-at-gen root-node)
-        base-commission (by-mult 1 pcv)
-        personal-override (by-mult (:personal rank) pcv)
+        base-commission (by-mult 1 ppcv)
+        personal-override (by-mult (:personal rank) ppcv)
         lev1-override (by-mult (:lev1 rank) (collect-pcv (get-qualified-direct-ambassadors root-node)))
         team-override (by-mult (:team rank) (get-team-volume root-node))
         gen1-override (by-mult (:gen1 rank) (collect-pcv (get-directors root-node)))
