@@ -44,8 +44,9 @@ module.exports = (function (R, bilby, mach, q, m, uri, hypermedia, response, req
     }
 
     function getOrg(req) {
-        return distributor.generateOrg(distributor.transformGetInput(req.params))
-            .then(mach.json);
+        return distributor.getOrg(distributor.transformGetInput(req.params))
+            .then(m.map(mach.json))
+            .then(m.getOrElse(response.status.notFound({})));
     }
 
     function getPerf(req) {
