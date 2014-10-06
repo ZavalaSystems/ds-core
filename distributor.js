@@ -1,5 +1,5 @@
 /*jslint maxlen: 120*/
-module.exports = (function (R, bilby, mach, q, m, uri, hypermedia, response, request, distributor) {
+module.exports = (function (R, bilby, mach, q, ftree, m, uri, hypermedia, response, request, distributor) {
     "use strict";
     var env = bilby.environment(),
         formatDistributor = R.compose(distributor.transformOutput, distributor.matched);
@@ -45,6 +45,18 @@ module.exports = (function (R, bilby, mach, q, m, uri, hypermedia, response, req
 
     function getOrg(req) {
         return distributor.getOrg(distributor.transformGetInput(req.params))
+            // Run the linker across the entire tree
+            .then(m.map(function (tree) {
+                return tree.map(distributor.linker(uri.absoluteUri(req))(formatDistributor))
+                    .map(m.getOrElse(null));
+            }))
+            .then(m.map(ftree.toArray))
+            .then(m.map(function (t) {
+                return {
+                    payload: t,
+                    links: {}
+                };
+            }))
             .then(m.map(mach.json))
             .then(m.getOrElse(response.status.notFound({})));
     }
@@ -92,6 +104,7 @@ module.exports = (function (R, bilby, mach, q, m, uri, hypermedia, response, req
     require("bilby"),
     require("mach"),
     require("q"),
+    require("./lib/ftree"),
     require("./lib/monad"),
     require("./lib/uri"),
     require("./lib/hypermedia"),
