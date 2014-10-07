@@ -1,5 +1,5 @@
 /*jslint maxlen: 120*/
-module.exports = (function (R, bilby, mach, q, ftree, m, uri, hypermedia, response, request, distributor) {
+module.exports = (function (R, bilby, mach, ftree, m, uri, response, request, distributor) {
     "use strict";
     var env = bilby.environment(),
         formatDistributor = R.compose(distributor.transformOutput, distributor.matched);
@@ -61,15 +61,9 @@ module.exports = (function (R, bilby, mach, q, ftree, m, uri, hypermedia, respon
             .then(m.getOrElse(response.status.notFound({})));
     }
 
-    function getPerf(req) {
-        var params = distributor.transformGetPerformanceInput(req.params),
-            personalVolume = distributor.computePv(params);
-        return q.spread([personalVolume], function (pv) {
-            return {
-                personalVolume: pv
-            };
-        })
-            .then(hypermedia.unlinked)
+    /* TASK ensure this copes with valid input */
+    function getProgress(req) {
+        return distributor.getProgress(distributor.transformGetProgressInput(req.params))
             .then(mach.json);
     }
 
@@ -83,12 +77,12 @@ module.exports = (function (R, bilby, mach, q, ftree, m, uri, hypermedia, respon
         .property("getDistributor", getDistributor)
         .method("getOrg", R.compose(distributor.isValidGetPrecondition, request.params), getOrg)
         .method("getOrg", R.alwaysTrue, R.always(response.status.notFound({})))
-        .method("getPerf", R.compose(
+        .method("getProgress", R.compose(
             R.and(distributor.isValidGetPrecondition, distributor.hasBusinessPeriod),
             request.params
         ),
-            getPerf)
-        .method("getPerf", R.alwaysTrue, R.always(response.status.notFound({})));
+            getProgress)
+        .method("getProgress", R.alwaysTrue, R.always(response.status.badRequest({})));
 
     return function (app) {
         app.get("/distributor", env.listDistributors);
@@ -96,18 +90,16 @@ module.exports = (function (R, bilby, mach, q, ftree, m, uri, hypermedia, respon
         app.get("/distributor/:distributorID", env.getDistributor);
         app.post("/distributor/:distributorID/upgrade", env.upgradeDistributor);
         app.get("/distributor/:distributorID/organization", env.getOrg);
-        app.get("/distributor/:distributorID/performance", env.getPerf);
+        app.get("/distributor/:distributorID/progress", env.getProgress);
         return app;
     };
 }(
     require("ramda"),
     require("bilby"),
     require("mach"),
-    require("q"),
     require("./lib/ftree"),
     require("./lib/monad"),
     require("./lib/uri"),
-    require("./lib/hypermedia"),
     require("./lib/response"),
     require("./lib/request"),
     require("./lib/distributor")
