@@ -64,6 +64,12 @@ module.exports = (function (R, bilby, mach, ftree, m, uri, response, request, di
     /* TASK ensure this copes with valid input */
     function getProgress(req) {
         return distributor.getProgress(distributor.transformGetProgressInput(req.params))
+            .then(function (payload) {
+                return {
+                    payload: payload,
+                    links: {}
+                };
+            })
             .then(mach.json);
     }
 
