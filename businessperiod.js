@@ -3,7 +3,9 @@ module.exports = (function (R, bilby, mach, m, uri, response, request, bp) {
     "use strict";
 
     var env = null,
-        formatBusinessPeriod = R.compose(bp.transformOutput, bp.current);
+        formatBusinessPeriod = R.compose(bp.transformOutput, function (blob) {
+            return R.mixin(bp.current(blob), {id: bp.currentID(blob)});
+        });
 
     function resolveCurrent(req) {
         return bp.matchCurrent()
