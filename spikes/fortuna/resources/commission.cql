@@ -16,4 +16,4 @@ where li.status <> "cancelled"
 with dist, pcv, sum(li.volume) as ppcv, children
 optional match (dist)-[:SPONSORS*]->(other)-[:DISTRIBUTES]->(orders)<-[:PART_OF]-(lineitems)
 where orders.status <> "cancelled" and lineitems.status <> "cancelled"
-return dist, floor(pcv*100) as pcv, floor(ppcv*100) as ppcv, children, floor((sum(lineitems.volume) + pcv)*100) as orgVolume
+return dist, floor(pcv) as pcv, floor(ppcv) as ppcv, children, floor((sum(lineitems.volume) + pcv)) as orgVolume
