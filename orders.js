@@ -26,36 +26,31 @@ module.exports = (function (mach, bilby, R, request, response, uri, common, m, o
             .then(m.firstOption)
             .then(orders.orderLinker(uri.absoluteUri(req))(formatOrder))
             .then(m.map(mach.json))
-            .then(m.getOrElse(response.status.notFound({})))
-            .catch(response.catcher(req));
+            .then(m.getOrElse(response.status.notFound({})));
     }
 
     function listOrders(req) {
         return orders.matchOrderListForDistributor(orders.transformLookupOrderListInput(req.params))
             .then(orders.orderMultiLinker(uri.absoluteUri(req))(formatOrder))
-            .then(mach.json)
-            .catch(response.catcher(req));
+            .then(mach.json);
     }
 
     function deleteOrder(req) {
         return orders.setOrderStatus(common.merge({status: "cancelled"},
                 orders.transformLookupOrderInput(request.params(req))))
-            .then(decodeSetResults)
-            .catch(response.catcher(req));
+            .then(decodeSetResults);
     }
 
     function deleteLineItem(req) {
         return orders.setLineItemStatus(common.merge({status: "cancelled"},
                 orders.transformLookupLineItemInput(request.params(req))))
-            .then(decodeSetResults)
-            .catch(response.catcher(req));
+            .then(decodeSetResults);
     }
 
     function listLineItems(req) {
         return orders.matchLineItemListForDistributor(orders.transformLookupOrderInput(req.params))
             .then(orders.lineItemMultiLinker(uri.absoluteUri(req))(formatLineItem))
-            .then(mach.json)
-            .catch(response.catcher(req));
+            .then(mach.json);
     }
 
     function getLineItem(req) {
@@ -63,20 +58,25 @@ module.exports = (function (mach, bilby, R, request, response, uri, common, m, o
             .then(m.firstOption)
             .then(orders.lineItemLinker(uri.absoluteUri(req))(formatLineItem))
             .then(m.map(mach.json))
-            .then(m.getOrElse(response.status.notFound({})))
-            .catch(response.catcher(req));
+            .then(m.getOrElse(response.status.notFound({})));
     }
 
     function setOrderStatus(req) {
         return orders.setOrderStatus(orders.transformLookupOrderInput(req.params))
-            .then(decodeSetResults)
-            .catch(response.catcher(req));
+            .then(decodeSetResults);
     }
 
     function setLineItemStatus(req) {
         return orders.setLineItemStatus(orders.transformLookupLineItemInput(req.params))
-            .then(decodeSetResults)
-            .catch(response.catcher(req));
+            .then(decodeSetResults);
+    }
+
+    function updateOrder(req) {
+        return orders.updateOrderData(orders.transformOrderInput(req.params))
+            .then(orders.orderLinker(uri.absoluteUri(req))(formatOrder))
+            .then(m.map(mach.json))
+            // Not found if we didn't get anything back on the update
+            .then(m.getOrElse(response.status.notFound({})));
     }
 
     env = env.method("createOrder", R.compose(orders.createOrderPrecondition, request.params), createOrder)
@@ -85,6 +85,9 @@ module.exports = (function (mach, bilby, R, request, response, uri, common, m, o
         .method("listOrders", R.alwaysTrue, R.always(response.status.notFound({})))
         .method("getOrder", R.compose(orders.lookupOrderPrecondition, request.params), getOrder)
         .method("getOrder", R.alwaysTrue, R.always(response.status.notFound({})))
+        // Lookup order precondition requires distributor and order ids, everything else is optional for the update
+        .method("updateOrder", R.compose(orders.lookupOrderPrecondition, request.params), updateOrder)
+        .method("updateOrder", R.alwaysTrue, R.always(response.status.notFound({})))
         .method("listItems", R.compose(orders.lookupOrderListPrecondition, request.params), listLineItems)
         .method("listItems", R.alwaysTrue, R.always(response.status.notFound({})))
         .method("getItem", R.compose(orders.lookupLineItemPrecondition, request.params), getLineItem)
@@ -100,6 +103,7 @@ module.exports = (function (mach, bilby, R, request, response, uri, common, m, o
         app.get("/distributor/:distributorID/order", env.listOrders);
         app.post("/distributor/:distributorID/order", env.createOrder);
         app.get("/distributor/:distributorID/order/:orderID", env.getOrder);
+        app.post("/distributor/:distributorID/order/:orderID", env.updateOrder);
         app.post("/distributor/:distributorID/order/:orderID/status", env.setOrderStatus);
         app.delete("/distributor/:distributorID/order/:orderID", env.deleteOrder);
         app.get("/distributor/:distributorID/order/:orderID/item", env.listItems);
