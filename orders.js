@@ -79,6 +79,14 @@ module.exports = (function (mach, bilby, R, request, response, uri, common, m, o
             .then(m.getOrElse(response.status.notFound({})));
     }
 
+    function updateLineItem(req) {
+        // Requires lookuporder input due to needing distributor id etc converted
+        return orders.updateLineItemData(orders.transformLookupOrderInput(orders.transformLineItemInput(req.params)))
+            .then(orders.lineItemLinker(uri.absoluteUri(req))(formatLineItem))
+            .then(m.map(mach.json))
+            .then(m.getOrElse(response.status.notFound({})));
+    }
+
     env = env.method("createOrder", R.compose(orders.createOrderPrecondition, request.params), createOrder)
         .method("createOrder", R.alwaysTrue, R.always(response.status.badRequest({})))
         .method("listOrders", R.compose(orders.lookupOrderListPrecondition, request.params), listOrders)
@@ -88,6 +96,8 @@ module.exports = (function (mach, bilby, R, request, response, uri, common, m, o
         // Lookup order precondition requires distributor and order ids, everything else is optional for the update
         .method("updateOrder", R.compose(orders.lookupOrderPrecondition, request.params), updateOrder)
         .method("updateOrder", R.alwaysTrue, R.always(response.status.notFound({})))
+        .method("updateLineItem", R.compose(orders.lookupLineItemPrecondition, request.params), updateLineItem)
+        .method("updateLineItem", R.alwaysTrue, R.always(response.status.notFound({})))
         .method("listItems", R.compose(orders.lookupOrderListPrecondition, request.params), listLineItems)
         .method("listItems", R.alwaysTrue, R.always(response.status.notFound({})))
         .method("getItem", R.compose(orders.lookupLineItemPrecondition, request.params), getLineItem)
@@ -108,6 +118,7 @@ module.exports = (function (mach, bilby, R, request, response, uri, common, m, o
         app.delete("/distributor/:distributorID/order/:orderID", env.deleteOrder);
         app.get("/distributor/:distributorID/order/:orderID/item", env.listItems);
         app.get("/distributor/:distributorID/order/:orderID/item/:lineItemID", env.getItem);
+        app.post("/distributor/:distributorID/order/:orderID/item/:lineItemID", env.updateLineItem);
         app.post("/distributor/:distributorID/order/:orderID/item/:lineItemID/status", env.setLineItemStatus);
         app.delete("/distributor/:distributorID/order/:orderID/item/:lineItemID", env.deleteItem);
     };
