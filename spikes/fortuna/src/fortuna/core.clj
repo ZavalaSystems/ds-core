@@ -123,8 +123,12 @@
                 mapped-rows (map (partial zipmap keywordized-columns) cleaned-rows)
                 qualified-rows (add-qualification mapped-rows)
                 root-node (find-node qualified-rows rep)]
-            (println (json/write-str (calculate-tree (build-tree root-node qualified-rows))))))
+            (json/write-str (calculate-tree (build-tree root-node qualified-rows)))))
+
+(defn- ->json [body]
+  {:status 200 :headers {"Content-Type" "application/json"} :body body})
+
 
 (defn main
-  ([bpId] (entry bpId 1))
-  ([bpId rep] (entry bpId (read-string rep))))
+  ([bpId] (->json (entry bpId 1)))
+  ([bpId rep] (->json (entry bpId (read-string rep)))))
