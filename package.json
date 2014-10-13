@@ -11,6 +11,7 @@
     "jasmine-node": "1.x",
     "lodash": "2.x",
     "mach": "0.x",
+    "moment": "^2.8.3",
     "nodemon": "1.2.x",
     "proxyquire": "1.x",
     "q": "1.x",
