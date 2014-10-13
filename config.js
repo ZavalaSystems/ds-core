@@ -11,6 +11,9 @@ module.exports = (function (_) {
         database: {
             uri: process.env.NEO4J_URI || "http://db:7474",
             discoveryDepth: 2
+        },
+        fortuna: {
+            uri: process.env.FORTUNA_URI || "http://localhost:80"
         }
     };
 }(
