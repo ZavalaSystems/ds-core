@@ -129,6 +129,10 @@
   {:status 200 :headers {"Content-Type" "application/json"} :body body})
 
 
-(defn main
+(defn cmd-main
+  ([bpId] (println (entry bpId 1)))
+  ([bpId rep] (println (entry bpId (read-string rep)))))
+
+(defn server-main
   ([bpId] (->json (entry bpId 1)))
   ([bpId rep] (->json (entry bpId (read-string rep)))))

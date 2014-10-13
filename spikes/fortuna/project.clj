@@ -9,7 +9,7 @@
   :plugins [[lein-kibit "0.0.8"]
             [lein-ring "0.8.12"]]
   :ring {:handler test.handler/app}
-  :main fortuna.main
+  :main fortuna.cli
   :profiles {:uberjar {:aot :all}
              :dev {:dependencies [[javax.servlet/servlet-api "2.5"]
                         [ring-mock "0.1.5"]]}})
