@@ -1,5 +1,5 @@
 /*jslint maxlen: 120*/
-module.exports = (function (R, bilby, mach, ftree, m, toggle, uri, hypermedia, response, request, distributor) {
+module.exports = (function (R, bilby, mach, ftree, m, uri, hypermedia, response, request, distributor) {
     "use strict";
     var env = bilby.environment(),
         formatDistributor = R.compose(distributor.transformOutput, distributor.matched);
@@ -63,8 +63,7 @@ module.exports = (function (R, bilby, mach, ftree, m, toggle, uri, hypermedia, r
 
     /* TASK ensure this copes with valid input */
     function getProgress(req) {
-        return distributor.getProgress(distributor.transformGetProgressInput(req.params),
-                toggle.getToggleOff(req, "fortuna.service"))
+        return distributor.getProgress(distributor.transformGetProgressInput(req.params))
             .then(hypermedia.unlinked)
             .then(mach.json);
     }
@@ -101,7 +100,6 @@ module.exports = (function (R, bilby, mach, ftree, m, toggle, uri, hypermedia, r
     require("mach"),
     require("./lib/ftree"),
     require("./lib/monad"),
-    require("./lib/toggle"),
     require("./lib/uri"),
     require("./lib/hypermedia"),
     require("./lib/response"),
