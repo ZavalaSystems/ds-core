@@ -16,5 +16,5 @@
 (def app
   (handler/site app-routes))
 
-(defn -main []
-  (run-jetty app {:port 8081}))
+(defn -main [port]
+  (run-jetty app {:port (read-string port)}))
