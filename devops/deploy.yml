@@ -3,8 +3,8 @@
   sudo: no
   vars:
     containers:
-    - api
     - commissions
+    - api
     - ui
   tasks:
 
