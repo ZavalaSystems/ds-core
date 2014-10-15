@@ -34,6 +34,7 @@
       image: ds-sysadmin:5000/core-api:{{ version }}
       ports: "8080"
       links: "db:db"
+      command: java -cp /opt/gsati/fortuna/target/fortuna-0.0.2-standalone.jar fortuna.server 8080
 
   - name: "Start API {{ version }}"
     docker:
