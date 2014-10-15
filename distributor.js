@@ -64,8 +64,9 @@ module.exports = (function (R, bilby, mach, ftree, m, uri, hypermedia, response,
     /* TASK ensure this copes with valid input */
     function getProgress(req) {
         return distributor.getProgress(distributor.transformGetProgressInput(req.params))
-            .then(hypermedia.unlinked)
-            .then(mach.json);
+            .then(m.map(hypermedia.unlinked))
+            .then(m.map(mach.json))
+            .then(m.getOrElse(response.status.notFound({})));
     }
 
     env = bilby.environment()
