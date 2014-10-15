@@ -1,3 +1,3 @@
-match (o:Order) where o.id = {orderID}
+match (d:Distributor)-[:DISTRIBUTES]->(o:Order) where o.id = {orderID}
 create (li:LineItem {id: {lineItemID}, priceCode: {priceCode}, price: {price}, volume: {volume}, status: {lineItemStatus}})-[:PART_OF]->(o)
-return o, li;
+return d, o, li;

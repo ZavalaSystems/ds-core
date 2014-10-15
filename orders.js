@@ -47,6 +47,15 @@ module.exports = (function (mach, bilby, R, request, response, uri, common, m, o
             .then(decodeSetResults);
     }
 
+    function createSingleLineItem(req) {
+        var input = orders.transformCreateLineItemInput(req.params);
+        return orders.createLineItem(input)
+            .then(m.first)
+            .then(orders.lineItemLinker(uri.absoluteUri(req))(formatLineItem))
+            .then(m.map(mach.json))
+            .then(m.getOrElse(response.status.notFound({})));
+    }
+
     function listLineItems(req) {
         return orders.matchLineItemListForDistributor(orders.transformLookupOrderInput(req.params))
             .then(orders.lineItemMultiLinker(uri.absoluteUri(req))(formatLineItem))
@@ -88,6 +97,9 @@ module.exports = (function (mach, bilby, R, request, response, uri, common, m, o
         .method("updateOrder", R.alwaysTrue, R.always(response.status.notFound({})))
         .method("updateLineItem", R.compose(orders.lookupLineItemPrecondition, request.params), updateLineItem)
         .method("updateLineItem", R.alwaysTrue, R.always(response.status.notFound({})))
+        .method("createSingleLineItem", R.compose(orders.createSingleLineItemPrecondition, request.params),
+            createSingleLineItem)
+        .method("createSingleLineItem", R.alwaysTrue, R.always(response.status.badRequest({})))
         .method("listItems", R.compose(orders.lookupOrderListPrecondition, request.params), listLineItems)
         .method("listItems", R.alwaysTrue, R.always(response.status.notFound({})))
         .method("getItem", R.compose(orders.lookupLineItemPrecondition, request.params), getLineItem)
@@ -102,6 +114,7 @@ module.exports = (function (mach, bilby, R, request, response, uri, common, m, o
         app.post("/distributor/:distributorID/order/:orderID", env.updateOrder);
         app.delete("/distributor/:distributorID/order/:orderID", env.deleteOrder);
         app.get("/distributor/:distributorID/order/:orderID/item", env.listItems);
+        app.post("/distributor/:distributorID/order/:orderID/item", env.createSingleLineItem);
         app.get("/distributor/:distributorID/order/:orderID/item/:lineItemID", env.getItem);
         app.post("/distributor/:distributorID/order/:orderID/item/:lineItemID", env.updateLineItem);
         app.delete("/distributor/:distributorID/order/:orderID/item/:lineItemID", env.deleteItem);
