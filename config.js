@@ -13,7 +13,7 @@ module.exports = (function (_) {
             discoveryDepth: 2
         },
         fortuna: {
-            uri: process.env.FORTUNA_URI || "http://localhost:80"
+            uri: process.env.FORTUNA_URI || "http://localhost:8081"
         }
     };
 }(

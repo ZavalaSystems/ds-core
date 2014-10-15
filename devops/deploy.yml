@@ -1,69 +1,73 @@
 ---
 - hosts: all
   sudo: no
+  vars:
+    containers:
+    - api
+    - commissions
+    - ui
   tasks:
 
   - name: Pull containers
-    command: "docker pull ds-sysadmin:5000/{{ item }}:{{ version }}"
+    command: "docker pull ds-sysadmin:5000/core-{{ item }}:{{ version }}"
     with_items:
-    - core-api
-    - core-ui
+    - api
+    - ui
 
   - name: Stop container services
     service:
-      name: "{{ item }}"
+      name: "core-{{ item }}"
       state: stopped
     sudo: yes
-    with_items:
-    - core-api
-    - core-ui
+    with_items: containers
 
   - name: Remove containers
     docker:
-      name: "{{ item.name }}"
-      image: "{{ item.image }}"
+      name: "core-{{ item }}"
+      image: "ds-sysadmin:5000/core-{{ item }}"
       state: absent
-    with_items:
-    - image: ds-sysadmin:5000/core-api
-      name: core-api
-    - image: ds-sysadmin:5000/core-ui
-      name: core-ui
+    with_items: containers
+
+  - name: "Start Commissions {{ version }}"
+    docker:
+      name: core-commissions
+      image: ds-sysadmin:5000/core-api:{{ version }}
+      ports: "8080"
+      links: "db:db"
 
   - name: "Start API {{ version }}"
     docker:
       name: core-api
       image: ds-sysadmin:5000/core-api:{{ version }}
       ports: "8080"
-      links: "db:db"
+      links:
+      - "db:db"
+      - "core-commissions:commissions"
       env:
       - NODE_ENV=development
+      - FORTUNA_URI=http://commissions:8080
 
   - name: "Start Web {{ version }}"
     docker:
       name: core-ui
       image: ds-sysadmin:5000/core-ui:{{ version }}
       ports: ["80:80", "8000:8000"]
-      links: "core-api:api"
+      links:
+      - "core-api:api"
 
   - name: Stop containers for service
     docker:
-      name: "{{ item.name }}"
-      image: "{{ item.image }}"
+      name: "core-{{ item.name }}"
+      image: "ds-sysadmin:5000/core-{{ item }}"
       state: stopped
-    with_items:
-    - image: ds-sysadmin:5000/core-api
-      name: core-api
-    - image: ds-sysadmin:5000/core-ui
-      name: core-ui
+    with_items: containers
 
   - name: Start container services
     service:
-      name: "{{ item }}"
+      name: "core-{{ item }}"
       state: started
     sudo: yes
-    with_items:
-    - core-api
-    - core-ui
+    with_items: containers
 
   - name: Notify hipchat of success
     hipchat:

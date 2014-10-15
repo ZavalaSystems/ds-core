@@ -24,7 +24,7 @@ module.exports = (function (R, bilby, mach, m, uri, response, request, bp) {
     }
 
     function resolveByID(req) {
-        return bp.matchByDate(bp.transformInput(req.params))
+        return bp.matchByID(bp.transformInput(req.params))
             .then(m.firstOption)
             .then(bp.linker(uri.absoluteUri(req))(formatBusinessPeriod))
             .then(m.map(mach.json))
