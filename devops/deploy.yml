@@ -57,7 +57,7 @@
 
   - name: Stop containers for service
     docker:
-      name: "core-{{ item.name }}"
+      name: "core-{{ item }}"
       image: "ds-sysadmin:5000/core-{{ item }}"
       state: stopped
     with_items: containers
