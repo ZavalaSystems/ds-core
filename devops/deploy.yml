@@ -14,13 +14,6 @@
     - api
     - ui
 
-  - name: Stop container services
-    service:
-      name: "core-{{ item }}"
-      state: stopped
-    sudo: yes
-    with_items: containers
-
   - name: Remove containers
     docker:
       name: "core-{{ item }}"
@@ -28,57 +21,17 @@
       state: absent
     with_items: containers
 
-  - name: "Start Commissions {{ version }}"
-    docker:
-      name: core-commissions
-      image: ds-sysadmin:5000/core-api:{{ version }}
-      ports: "8080"
-      links: "db:db"
-      command: java -cp /opt/gsati/fortuna/target/fortuna-0.0.2-standalone.jar fortuna.server 8080
+  - name: Start Commissions {{ version }}
+    shell: docker run -d --restart always --name core-commissions -p 8080 --link "db:db" ds-sysadmin:5000/core-api:{{ version }} java -cp /opt/gsati/fortuna/target/fortuna-0.0.2-standalone.jar fortuna.server 8080
 
-  - name: "Start API {{ version }}"
-    docker:
-      name: core-api
-      image: ds-sysadmin:5000/core-api:{{ version }}
-      ports: "8080"
-      links:
-      - "db:db"
-      - "core-commissions:commissions"
-      env:
-      - NODE_ENV=development
-      - FORTUNA_URI=http://commissions:8080
+  - name: Start API {{ version }}
+    shell: docker run -d --restart always --name core-api -p 8080 --link "db:db" --link "core-commissions:commissions" -e NODE_ENV=development -e FORTUNA_URI=http://commissions:8080 ds-sysadmin:5000/core-api:{{ version }}
 
-  - name: "Start Web {{ version }}"
-    docker:
-      name: core-ui
-      image: ds-sysadmin:5000/core-ui:{{ version }}
-      ports: ["80:80", "8000:8000"]
-      links:
-      - "core-api:api"
-
-  - name: Stop containers for service
-    docker:
-      name: "core-{{ item }}"
-      image: "ds-sysadmin:5000/core-{{ item }}"
-      state: stopped
-    with_items: containers
-
-  - name: Start container services
-    service:
-      name: "core-{{ item }}"
-      state: started
-    sudo: yes
-    with_items: containers
+  - name: Start UI {{ version }}
+    shell: docker run -d --restart always --name core-ui -p 80:80 -p 8000:8000 --link "core-api:api" ds-sysadmin:5000/core-ui:{{ version }}
 
   - name: Notify hipchat of success
     hipchat:
       token: "{{ hipchat_token }}"
       room: Build
       msg: Deploy {{ version }} succeeded
-
-    # - name: Notify hipchat of failure
-    # hipchat:
-    #   token: "{{ hipchat_token }}"
-    #   room: Build
-    #   msg: Deploy {{ version }} failed
-    #   when:
