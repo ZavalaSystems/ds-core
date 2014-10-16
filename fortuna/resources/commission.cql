@@ -12,7 +12,7 @@ optional match (dist)-[:DISTRIBUTES]->(orders)
 where not(has(orders.placedFor)) or dist.id <> orders.placedFor
 with dist, orders, pcv, children
 optional match (orders)<-[:PART_OF]-(li)
-where li.status <> "cancelled"
+where li.status <> "cancelled" and orders.status <> "cancelled"
 with dist, pcv, sum(li.volume) as ppcv, children
 optional match (dist)-[:SPONSORS*]->(other)-[:DISTRIBUTES]->(orders)<-[:PART_OF]-(lineitems)
 where orders.status <> "cancelled" and lineitems.status <> "cancelled"
