@@ -1,8 +1,11 @@
 /*jslint maxlen: 120*/
-module.exports = (function (R, bilby, mach, ftree, m, uri, hypermedia, response, request, distributor) {
+module.exports = (function (R, bilby, mach, m, uri, hypermedia, response, request, distributor) {
     "use strict";
     var env = bilby.environment(),
-        formatDistributor = R.compose(distributor.transformOutput, distributor.matched);
+        formatDistributor = R.compose(distributor.transformOutput, distributor.matched),
+        formatOrgRecord = function (blob) {
+            return distributor.transformOutput(R.mixin(distributor.matched(blob), R.pick(["leg", "level"], blob)));
+        };
 
     function createFull(req) {
         /* Duplicate ids should be taken care of by constraints in configure-db */
@@ -44,19 +47,8 @@ module.exports = (function (R, bilby, mach, ftree, m, uri, hypermedia, response,
     }
 
     function getOrg(req) {
-        return distributor.getOrg(distributor.transformGetInput(req.params))
-            // Run the linker across the entire tree
-            .then(m.map(function (tree) {
-                return tree.map(distributor.linker(uri.absoluteUri(req))(formatDistributor))
-                    .map(m.getOrElse(null));
-            }))
-            .then(m.map(ftree.toArray))
-            .then(m.map(function (t) {
-                return {
-                    payload: t,
-                    links: {}
-                };
-            }))
+        return distributor.getOrg(distributor.transformGetProgressInput(req.params))
+            .then(m.map(distributor.multilinker(uri.absoluteUri(req))(formatOrgRecord)))
             .then(m.map(mach.json))
             .then(m.getOrElse(response.status.notFound({})));
     }
@@ -99,7 +91,6 @@ module.exports = (function (R, bilby, mach, ftree, m, uri, hypermedia, response,
     require("ramda"),
     require("bilby"),
     require("mach"),
-    require("./lib/ftree"),
     require("./lib/monad"),
     require("./lib/uri"),
     require("./lib/hypermedia"),
