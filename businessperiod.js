@@ -1,5 +1,5 @@
 /*jslint maxlen: 120 */
-module.exports = (function (R, bilby, mach, m, uri, response, request, bp) {
+module.exports = (function (R, bilby, mach, m, uri, response, request, fortuna, bp) {
     "use strict";
 
     var env = null,
@@ -31,17 +31,45 @@ module.exports = (function (R, bilby, mach, m, uri, response, request, bp) {
             .then(m.getOrElse(response.status.notFound({})));
     }
 
+
+    function intermediateCommissions(req) {
+        return bp.matchCurrent()
+            .then(m.first)
+            .then(m.map(bp.currentID))
+            .then(function (idOpt) {
+                // Sequence to ensure we keep Promise[Option[x]]
+                return idOpt.cata({
+                    Some: function (id) {
+                        return fortuna.service(id).then(bilby.some);
+                    },
+                    None: function () {
+                        return bilby.none;
+                    }
+                });
+            })
+            .then(m.map(mach.json))
+            .then(m.getOrElse)
+    }
+
+    function closingCommissions(req) {
+
+    }
+
+    /*
     function close(req) {
-        var now = Date.now();
+        var now = Date.now(),
+            params = bp.transformInput(req.params),
+            current = bp.;
         return bp.createNext({
             id: bp.transformInput(req.params).id,
             now: now
         })
-            .then(m.firstOption)
+            .then(m.first)
             .then(bp.linker(uri.absoluteUri(req))(formatBusinessPeriod))
             .then(m.map(mach.json))
             .then(m.getOrElse(response.status.conflict({content: "BP is not the latest"})));
     }
+    */
 
     env = bilby.environment()
         .method("resolve", R.compose(bp.hasFind, request.params), resolveByDate)
@@ -49,13 +77,12 @@ module.exports = (function (R, bilby, mach, m, uri, response, request, bp) {
         .method("resolve", R.alwaysTrue, R.always(response.status.badRequest({})))
         .method("resolveByID", R.compose(bp.idPrecondition, request.params), resolveByID)
         .method("resolveByID", R.alwaysTrue, R.always(response.status.notFound({})))
-        .method("close", R.compose(bp.idPrecondition, request.params), close)
-        .method("close", R.alwaysTrue, R.always(response.status.notFound({})));
 
     return function (app) {
         app.get("/bp", env.resolve);
         app.get("/bp/:id", env.resolveByID);
-        app.post("/bp/:id/close", close);
+        app.post("/bp/intermedia", intermediate)
+        app.post("/bp/close", close);
     };
 }(
     require("ramda"),
@@ -65,5 +92,6 @@ module.exports = (function (R, bilby, mach, m, uri, response, request, bp) {
     require("./lib/uri"),
     require("./lib/response"),
     require("./lib/request"),
+    require("./lib/fortuna"),
     require("./lib/businessperiod")
 ));
