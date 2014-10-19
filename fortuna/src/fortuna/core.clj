@@ -36,7 +36,6 @@
 
 (defn get-direct-ambassadors [root-node]
   (->> (:children root-node)
-      (filter :qualified)
       (filter (complement :director))))
 
 (defn get-qualified-direct-ambassadors [root-node]
@@ -52,7 +51,7 @@
 
 (declare get-group-volume)
 (defn get-team-volume [root-node]
-  (let [direct-ambassadors (get-qualified-direct-ambassadors root-node)
+  (let [direct-ambassadors (get-direct-ambassadors root-node)
         direct-volumes (sum (map :pcv direct-ambassadors))]
     (+ direct-volumes (sum (map get-team-volume direct-ambassadors)))))
 
