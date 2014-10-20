@@ -34,4 +34,4 @@
     hipchat:
       token: "{{ hipchat_token }}"
       room: Build
-      msg: Deploy {{ version }} succeeded
+      msg: Deploy {{ version }} succeeded on {{ build_location }}
