@@ -66,8 +66,7 @@
                                       (>= (:orgVolume n) (:org rank))))]
     (let [qualified-rank (find-first rank-qualifies commission-ranks)]
       (assoc n :rank (:title qualified-rank)
-               :director (:is-dir qualified-rank)
-               :qualified (not (nil? qualified-rank))))))
+               :director (:is-dir qualified-rank)))))
 
 (defn get-directors [root-node]
   (let [direct-directors (filter :director (:children root-node))]
