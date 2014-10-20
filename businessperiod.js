@@ -31,8 +31,11 @@ module.exports = (function (R, bilby, mach, m, uri, response, request, fortuna, 
             .then(m.getOrElse(response.status.notFound({})));
     }
 
+    function intermediateCommissions() {
+        return response.status.notImplemented({});
+    }
 
-    function intermediateCommissions(req) {
+    function closingCommissions() {
         return bp.matchCurrent()
             .then(m.first)
             .then(m.map(bp.currentID))
@@ -48,11 +51,7 @@ module.exports = (function (R, bilby, mach, m, uri, response, request, fortuna, 
                 });
             })
             .then(m.map(mach.json))
-            .then(m.getOrElse)
-    }
-
-    function closingCommissions(req) {
-
+            .then(m.getOrElse);
     }
 
     /*
@@ -76,13 +75,13 @@ module.exports = (function (R, bilby, mach, m, uri, response, request, fortuna, 
         .method("resolve", request.emptyParams, resolveCurrent)
         .method("resolve", R.alwaysTrue, R.always(response.status.badRequest({})))
         .method("resolveByID", R.compose(bp.idPrecondition, request.params), resolveByID)
-        .method("resolveByID", R.alwaysTrue, R.always(response.status.notFound({})))
+        .method("resolveByID", R.alwaysTrue, R.always(response.status.notFound({})));
 
     return function (app) {
         app.get("/bp", env.resolve);
         app.get("/bp/:id", env.resolveByID);
-        app.post("/bp/intermedia", intermediate)
-        app.post("/bp/close", close);
+        app.post("/bp/intermedia", intermediateCommissions);
+        app.post("/bp/close", closingCommissions);
     };
 }(
     require("ramda"),
