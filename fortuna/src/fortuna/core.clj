@@ -17,8 +17,6 @@
   ["Associate Ambassador"  25000  50000  1    0         0  false   0.25    0.30         0  0.02     0     0     0     0],
   ["Ambassador"                0      0  0    0         0  false   0.25    0.30         0     0     0     0     0     0]]))
 
-(defn substring? [needle haystack] (<= 0 (.indexOf haystack needle)))
-
 (defn find-first [pred l]
   (first (filter pred l)))
 
@@ -35,8 +33,7 @@
 (def sum (partial reduce +))
 
 (defn get-direct-ambassadors [root-node]
-  (->> (:children root-node)
-      (filter (complement :director))))
+  (filter (complement :director) (:children root-node)))
 
 (defn get-qualified-direct-ambassadors [root-node]
   (filter :qualified (get-direct-ambassadors root-node)))

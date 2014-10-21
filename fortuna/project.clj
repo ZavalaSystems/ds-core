@@ -10,6 +10,7 @@
             [lein-ring "0.8.12"]]
   :ring {:handler test.handler/app}
   :main fortuna.cli
+  :global-vars {*warn-on-reflection* true}
   :profiles {:uberjar {:aot :all}
              :dev {:dependencies [[javax.servlet/servlet-api "2.5"]
                         [ring-mock "0.1.5"]]}})
