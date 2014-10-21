@@ -87,6 +87,11 @@
 (defn efficient-multiply [multiplier bonus vol]
   (if (zero? bonus) 0 (* multiplier bonus vol)))
 
+(defn make-detail [volume multiplier]
+  {:volume (util/conservative-int volume)
+   :percent multiplier
+   :commissions (util/conservative-int (* volume multiplier))})
+
 (defn calculate-node [root-node]
   (let [rank (find-first #(= (:title %) (:rank root-node)) commission-ranks)
         ppcv (:ppcv root-node)
@@ -97,20 +102,32 @@
                      :else (:base rank))
         by-mult (partial efficient-multiply multiplier)
         node-dirs-at-gen (partial get-directors-at-gen root-node)
-        base-commission (by-mult 1 ppcv)
+        base-commission (* 0.25 ppcv)
         personal-override (by-mult (:personal rank) ppcv)
         lev1-override (by-mult (:lev1 rank) (collect-pcv (get-qualified-direct-ambassadors root-node)))
-        team-override (by-mult (:team rank) (get-team-volume root-node))
-        gen1-override (by-mult (:gen1 rank) (collect-pcv (get-directors root-node)))
-        gen2-override (by-mult (:gen2 rank) (collect-pcv (node-dirs-at-gen 2)))
-        gen3-override (by-mult (:gen3 rank) (collect-pcv (node-dirs-at-gen 3)))]
+        team-volume (get-team-volume root-node)
+        team-override (by-mult (:team rank) team-volume)
+        gen1-volume (collect-pcv (get-directors root-node))
+        gen1-override (by-mult (:gen1 rank) gen1-volume)
+        gen2-volume (collect-pcv (node-dirs-at-gen 2))
+        gen2-override (by-mult (:gen2 rank) gen2-volume)
+        gen3-volume (collect-pcv (node-dirs-at-gen 3))
+        gen3-override (by-mult (:gen3 rank) gen3-volume)]
     (assoc root-node :commissions (util/conservative-int (+ base-commission
                                                             personal-override
                                                             lev1-override
                                                             team-override
                                                             gen1-override
                                                             gen2-override
-                                                            gen3-override)))))
+                                                            gen3-override))
+                     :details {
+                        :personal (make-detail ppcv 0.25)
+                        :sales    (make-detail (* ppcv multiplier) (:personal rank))
+                        :team     (make-detail (* team-volume multiplier) (:team rank))
+                        :gen1     (make-detail (* gen1-volume multiplier) (:gen1 rank))
+                        :gen2     (make-detail (* gen2-volume multiplier) (:gen2 rank))
+                        :gen3     (make-detail (* gen3-volume multiplier) (:gen3 rank))
+                      })))
 
 (defn calculate-tree [root-node]
   (let [with-classy-children (assoc root-node :children (map calculate-tree (:children root-node)))
@@ -123,12 +140,12 @@
 
 (defn entry [bpId rep]
   (let [raw-data (cypher/cypher (format commission-query bpId) {})
-                cleaned-rows (-> raw-data :data cypher/extract-data)
-                keywordized-columns (map keyword (:columns raw-data))
-                mapped-rows (map (partial zipmap keywordized-columns) cleaned-rows)
-                qualified-rows (add-qualification mapped-rows)
-                root-node (find-node qualified-rows rep)]
-            (json/write-str (calculate-tree (build-tree root-node qualified-rows)))))
+        cleaned-rows (-> raw-data :data cypher/extract-data)
+        keywordized-columns (map keyword (:columns raw-data))
+        mapped-rows (map (partial zipmap keywordized-columns) cleaned-rows)
+        qualified-rows (add-qualification mapped-rows)
+        root-node (find-node qualified-rows rep)]
+    (json/write-str (calculate-tree (build-tree root-node qualified-rows)))))
 
 (defn- ->json [body]
   {:status 200 :headers {"Content-Type" "application/json"} :body body})
