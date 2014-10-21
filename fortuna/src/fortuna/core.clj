@@ -45,9 +45,13 @@
   (let [direct-directors (filter :director (:children root-node))]
     (+ (count direct-directors) (sum (map count-directors (get-qualified-direct-ambassadors root-node))))))
 
-(defn count-ambassadors [root-node]
+; This is the old version that counts the whole tree
+#_(defn count-ambassadors [root-node]
   (let [direct-ambassadors (get-qualified-direct-ambassadors root-node)]
     (+ (count direct-ambassadors) (sum (map count-ambassadors direct-ambassadors)))))
+
+(defn count-ambassadors [root-node]
+  (count (get-qualified-direct-ambassadors root-node)))
 
 (declare get-group-volume)
 (defn get-team-volume [root-node]
