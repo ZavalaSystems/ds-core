@@ -36,7 +36,17 @@ module.exports = (function (R, bilby, mach, m, uri, response, request, fortuna, 
     }
 
     function close() {
-        return bp.createNext({now:now})
+        return bp.createNext({now: Date.now()})
+            .then(m.first)
+            .then(m.map(bp.prevID))
+            .then(function (prevOpt) {
+                return prevOpt.cata({
+                    Some: function (id) {
+                        return fortuna.service(id).then(bilby.some);
+                    },
+                    None: R.always(bilby.none)
+                });
+            })
             .then(R.always("OK"));
     }
 
