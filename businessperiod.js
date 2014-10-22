@@ -31,27 +31,13 @@ module.exports = (function (R, bilby, mach, m, uri, response, request, fortuna, 
             .then(m.getOrElse(response.status.notFound({})));
     }
 
-    function intermediateCommissions() {
+    function intermediate() {
         return response.status.notImplemented({});
     }
 
-    function closingCommissions() {
-        return bp.matchCurrent()
-            .then(m.first)
-            .then(m.map(bp.currentID))
-            .then(function (idOpt) {
-                // Sequence to ensure we keep Promise[Option[x]]
-                return idOpt.cata({
-                    Some: function (id) {
-                        return fortuna.service(id).then(bilby.some);
-                    },
-                    None: function () {
-                        return bilby.none;
-                    }
-                });
-            })
-            .then(m.map(mach.json))
-            .then(m.getOrElse);
+    function close() {
+        return bp.createNext({now:now})
+            .then(R.always("OK"));
     }
 
     /*
@@ -80,8 +66,8 @@ module.exports = (function (R, bilby, mach, m, uri, response, request, fortuna, 
     return function (app) {
         app.get("/bp", env.resolve);
         app.get("/bp/:id", env.resolveByID);
-        app.post("/bp/intermedia", intermediateCommissions);
-        app.post("/bp/close", closingCommissions);
+        app.post("/bp/intermedia", intermediate);
+        app.post("/bp/close", close);
     };
 }(
     require("ramda"),
