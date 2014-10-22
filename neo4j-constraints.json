@@ -1,0 +1,10 @@
+{
+	"statements": [{
+			"statement": "create constraint on (d:Distributor) assert d.id is unique;"
+		}, {
+			"statement": "create constraint on (o:Order) assert o.id is unique;"
+		}, {
+			"statement": "create constraint on (li:LineItem) assert li.id is unique;"
+		}
+	]
+}
