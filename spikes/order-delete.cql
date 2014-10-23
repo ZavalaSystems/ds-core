@@ -1,0 +1,1 @@
+match ()-[dist:DISTRIBUTES]->(o:Order)<-[of:PART_OF]-(li), ()<-[dur:DURING]-(o) where id(o) = 12356 delete dist, dur, o, of, li;

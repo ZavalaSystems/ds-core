@@ -16,11 +16,11 @@ module.exports = (function (R, cypher) {
             return R.join("\n", R.map(fmt, pair[1])) + "\n";
         }),
         formatLineItem = function (data) {
-            return "li: " + JSON.stringify(li(data).data) + " li_id: " + liID(data) +
+            return " li_id: " + liID(data) + " li: " + JSON.stringify(li(data).data) +
                 " o: " + JSON.stringify(o(data).data);
         },
         formatOrder = function (data) {
-            return "o: " + JSON.stringify(o(data).data) + " o_id: " + oID(data);
+            return "o_id: " + oID(data) + " o: " + JSON.stringify(o(data).data);
         },
         formatDist = function (data) {
             return "d: " + JSON.stringify(d(data).data);
