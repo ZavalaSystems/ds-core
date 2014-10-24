@@ -30,11 +30,6 @@
   - name: Start UI {{ version }}
     shell: docker run -d --restart always --name core-ui -p 80:80 -p 8000:8000 --link "core-api:api" ds-sysadmin:5000/core-ui:{{ version }}
 
-  - name: Restart Docker Service
-    service:
-      name: docker
-      state: restarted
-
   - name: Notify hipchat of success
     hipchat:
       token: "{{ hipchat_token }}"
