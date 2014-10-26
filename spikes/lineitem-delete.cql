@@ -1,0 +1,1 @@
+match (li:LineItem)-[of:PART_OF]-(o:Order) where id(li) = {nodeID} delete of, li;
