@@ -61,6 +61,14 @@ module.exports = (function (R, bilby, mach, m, uri, hypermedia, response, reques
             .then(m.getOrElse(response.status.notFound({})));
     }
 
+    function changeSponsor(req) {
+        return distributor.changeSponsor(distributor.transformSponsorChangeInput(req.params))
+            .then(m.first)
+            .then(distributor.linker(uri.absoluteUri(req))(formatDistributor))
+            .then(m.map(mach.json))
+            .then(m.getOrElse(response.status.conflict({content: "Unable to find the new sponsor"})));
+    }
+
     env = bilby.environment()
         .method("createDistributor", R.compose(distributor.isValidFull, R.prop("params")), createFull)
         .method("createDistributor", R.compose(distributor.isValidPartial, R.prop("params")), createPartial)
@@ -76,7 +84,9 @@ module.exports = (function (R, bilby, mach, m, uri, hypermedia, response, reques
             request.params
         ),
             getProgress)
-        .method("getProgress", R.alwaysTrue, R.always(response.status.badRequest({})));
+        .method("getProgress", R.alwaysTrue, R.always(response.status.badRequest({})))
+        .method("changeSponsor", R.compose(distributor.sponsorChangePrecondition, request.params), changeSponsor)
+        .method("changeSponsor", R.alwaysTrue, R.always(response.status.badRequest({})));
 
     return function (app) {
         app.get("/distributor", env.listDistributors);
@@ -84,7 +94,8 @@ module.exports = (function (R, bilby, mach, m, uri, hypermedia, response, reques
         app.get("/distributor/:distributorID", env.getDistributor);
         app.post("/distributor/:distributorID/upgrade", env.upgradeDistributor);
         app.get("/distributor/:distributorID/organization", env.getOrg);
-        app.get("/distributor/:distributorID/progress", env.getProgress);
+        app.get("/distributor/:distributorID/progress", env.getProgress)
+        app.post("/distributor/:distributorID/change_sponsor", env.changeSponsor);
         return app;
     };
 }(
