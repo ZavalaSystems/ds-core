@@ -94,7 +94,7 @@ module.exports = (function (R, bilby, mach, m, uri, hypermedia, response, reques
         app.get("/distributor/:distributorID", env.getDistributor);
         app.post("/distributor/:distributorID/upgrade", env.upgradeDistributor);
         app.get("/distributor/:distributorID/organization", env.getOrg);
-        app.get("/distributor/:distributorID/progress", env.getProgress)
+        app.get("/distributor/:distributorID/progress", env.getProgress);
         app.post("/distributor/:distributorID/change_sponsor", env.changeSponsor);
         return app;
     };
