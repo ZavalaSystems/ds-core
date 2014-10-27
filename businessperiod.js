@@ -1,5 +1,5 @@
 /*jslint maxlen: 120 */
-module.exports = (function (R, bilby, mach, m, uri, response, request, fortuna, bp) {
+module.exports = (function (R, bilby, mach, m, uri, response, request, fortuna, couch, bp) {
     "use strict";
 
     var env = null,
@@ -38,24 +38,19 @@ module.exports = (function (R, bilby, mach, m, uri, response, request, fortuna, 
     }
 
     function computeCommissions(req) {
-
+        var id = bp.transformInput(req.params).id;
+        return fortuna.service(id)
+            .then(fortuna.toSeq)
+            // Compose a record containing the desired information and the distributor id
+            .then(R.map(function (record) {
+                return R.mixin(bp.commRecord(record), R.compose(R.pick(["id"]), R.prop("dist"))(record));
+            }))
+            // Ensure that we add the bp to each record
+            .then(R.map(R.mixin({bp: id})))
+            // Save everything into couch
+            .then(couch.createManyDocuments("commissions"))
+            .then(mach.json);
     }
-
-    /*
-    function close(req) {
-        var now = Date.now(),
-            params = bp.transformInput(req.params),
-            current = bp.;
-        return bp.createNext({
-            id: bp.transformInput(req.params).id,
-            now: now
-        })
-            .then(m.first)
-            .then(bp.linker(uri.absoluteUri(req))(formatBusinessPeriod))
-            .then(m.map(mach.json))
-            .then(m.getOrElse(response.status.conflict({content: "BP is not the latest"})));
-    }
-    */
 
     env = bilby.environment()
         .method("resolve", R.compose(bp.hasFind, request.params), resolveByDate)
@@ -69,7 +64,7 @@ module.exports = (function (R, bilby, mach, m, uri, response, request, fortuna, 
     return function (app) {
         app.get("/bp", env.resolve);
         app.get("/bp/:id", env.resolveByID);
-        app.post("/bp/:id/commissions", env.computeCommissions)
+        app.post("/bp/:id/commissions", env.computeCommissions);
         app.post("/bp/close", close);
     };
 }(
@@ -81,5 +76,6 @@ module.exports = (function (R, bilby, mach, m, uri, response, request, fortuna, 
     require("./lib/response"),
     require("./lib/request"),
     require("./lib/fortuna"),
+    require("./lib/couch"),
     require("./lib/businessperiod")
 ));

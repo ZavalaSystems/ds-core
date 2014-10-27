@@ -14,6 +14,9 @@ module.exports = (function (_) {
             maxRetries: 30,
             retryDelay: 1000
         },
+        couch: {
+            uri: process.env.COUCH_URI || "http://localhost:5984"
+        },
         fortuna: {
             uri: process.env.FORTUNA_URI || "http://localhost:8081"
         }
