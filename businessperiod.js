@@ -31,23 +31,14 @@ module.exports = (function (R, bilby, mach, m, uri, response, request, fortuna, 
             .then(m.getOrElse(response.status.notFound({})));
     }
 
-    function intermediate() {
-        return response.status.notImplemented({});
-    }
-
     function close() {
         return bp.createNext({now: Date.now()})
             .then(m.first)
-            .then(m.map(bp.prevID))
-            .then(function (prevOpt) {
-                return prevOpt.cata({
-                    Some: function (id) {
-                        return fortuna.service(id).then(bilby.some);
-                    },
-                    None: R.always(bilby.none)
-                });
-            })
             .then(R.always("OK"));
+    }
+
+    function computeCommissions(req) {
+
     }
 
     /*
@@ -71,12 +62,14 @@ module.exports = (function (R, bilby, mach, m, uri, response, request, fortuna, 
         .method("resolve", request.emptyParams, resolveCurrent)
         .method("resolve", R.alwaysTrue, R.always(response.status.badRequest({})))
         .method("resolveByID", R.compose(bp.idPrecondition, request.params), resolveByID)
-        .method("resolveByID", R.alwaysTrue, R.always(response.status.notFound({})));
+        .method("resolveByID", R.alwaysTrue, R.always(response.status.notFound({})))
+        .method("computeCommissions", R.compose(bp.idPrecondition, request.params), computeCommissions)
+        .method("computeCommissions", R.alwaysTrue, R.always(response.status.notFound({})));
 
     return function (app) {
         app.get("/bp", env.resolve);
         app.get("/bp/:id", env.resolveByID);
-        app.post("/bp/intermedia", intermediate);
+        app.post("/bp/:id/commission", env.computeCommissions)
         app.post("/bp/close", close);
     };
 }(
