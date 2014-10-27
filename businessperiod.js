@@ -69,7 +69,7 @@ module.exports = (function (R, bilby, mach, m, uri, response, request, fortuna, 
     return function (app) {
         app.get("/bp", env.resolve);
         app.get("/bp/:id", env.resolveByID);
-        app.post("/bp/:id/commission", env.computeCommissions)
+        app.post("/bp/:id/commissions", env.computeCommissions)
         app.post("/bp/close", close);
     };
 }(
