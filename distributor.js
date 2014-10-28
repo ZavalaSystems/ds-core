@@ -78,9 +78,9 @@ module.exports = (function (R, bilby, mach, q, get, config, m, uri, hypermedia, 
             .then(JSON.parse)
             .then(R.prop("rows"))
             .then(distributor.sortMostRecent)
-            .then(R.head)
-            .then(distributor.commissionData)
-            .then(distributor.formatCommissions)
+            .then(R.take(2))
+            .then(R.map(distributor.commissionData))
+            .then(R.map(distributor.formatCommissions))
             .then(hypermedia.unlinked)
             .then(mach.json);
     }
