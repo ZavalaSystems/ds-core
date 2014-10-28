@@ -45,8 +45,9 @@ module.exports = (function (R, bilby, mach, m, uri, response, request, fortuna, 
             .then(R.map(function (record) {
                 return R.mixin(bp.commRecord(record), R.compose(R.pick(["id"]), R.prop("dist"))(record));
             }))
-            // Ensure that we add the bp to each record
-            .then(R.map(R.mixin({bp: id})))
+            // Ensure that we add the bp to each record. Also include a date so we have a timestamp to preclude
+            // needing to delete
+            .then(R.map(R.mixin({bp: id, computed: Date.now()})))
             // Save everything into couch
             .then(couch.createManyDocuments("commissions"))
             .then(mach.json);
