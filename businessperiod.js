@@ -53,6 +53,19 @@ module.exports = (function (R, bilby, mach, m, uri, response, request, fortuna, 
             .then(mach.json);
     }
 
+    function getCommissions(req) {
+        var viewURI = config.couch.uri + config.couch.view + "/" + "by_bp" + "?key=" + req.params.id;
+        return getAsync(viewURI)
+            .then(R.prop("1"))
+            .then(JSON.parse)
+            .then(R.prop("rows"))
+            .then(R.map(R.prop("value")))
+            .then(R.groupBy(R.prop("id")))
+            .then(R.mapObj(R.compose(R.reverse, R.sortBy(R.prop("computed")))))
+            .then(hypermedia.unlinked)
+            .then(mach.json);
+    }
+
     env = bilby.environment()
         .method("resolve", R.compose(bp.hasFind, request.params), resolveByDate)
         .method("resolve", request.emptyParams, resolveCurrent)
@@ -65,6 +78,7 @@ module.exports = (function (R, bilby, mach, m, uri, response, request, fortuna, 
     return function (app) {
         app.get("/bp", env.resolve);
         app.get("/bp/:id", env.resolveByID);
+        app.get("/bp/:id/commissions", getCommissions);
         app.post("/bp/:id/commissions", env.computeCommissions);
         app.post("/bp/close", close);
     };
@@ -72,8 +86,12 @@ module.exports = (function (R, bilby, mach, m, uri, response, request, fortuna, 
     require("ramda"),
     require("bilby"),
     require("mach"),
+    require("q"),
+    require("request").get,
+    require("./config"),
     require("./lib/monad"),
     require("./lib/uri"),
+    require("./lib/hypermedia"),
     require("./lib/response"),
     require("./lib/request"),
     require("./lib/fortuna"),
