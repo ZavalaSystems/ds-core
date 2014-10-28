@@ -1,0 +1,69 @@
+---
+- name: Backup production data from GSATI
+  hosts: production
+  gather_facts: yes
+  tasks:
+  - name: Get production backup var
+    shell: 'echo `docker inspect -f "{% raw %}{{ index .Volumes \"/mnt/backup\" }}{% endraw %}" prod_backup`'
+    register: backup_dir
+
+  - name: Remove backup volume directory
+    file:
+      path: "{{ backup_dir.stdout }}"
+      state: absent
+
+  - name: Create backup volume directory
+    file:
+      path: "{{ backup_dir.stdout }}"
+      state: directory
+
+  - name: Create backup of production
+    shell: docker start -a prod_backup
+    register: backup_state
+
+  - name: Copy backup to temporary graph.db folder
+    shell: cp -R {{ backup_dir.stdout }} /root/graph.db
+
+  - name: Make current date var
+    shell: echo `date +%s`
+    register: current_date
+
+  - name: "Archive the backed up data @ {{ current_date.stdout }}"
+    shell: tar -cf - graph.db/ -C /root | bzip2 -c9 > proddata-{{ current_date.stdout }}.tar.bz2
+
+  - name: Fetch the backup
+    fetch:
+      flat: yes
+      dest: "{{ local_backup_path }}"
+      src: /root/proddata-{{ current_date.stdout }}.tar.bz2
+
+  - name: Remove backup file
+    file:
+      path: /root/proddata-{{ current_date.stdout }}.tar.bz2
+      state: absent
+
+  - name: Remove temporary graph.db directory
+    file:
+      path: /root/graph.db
+      state: absent
+
+- name: Perform symlink tasks
+  hosts: all
+  connection: local
+  gather_facts: no
+  tasks:
+  - name: Create backup symlink container
+    file:
+      path: "{{ symlink_path }}"
+      state: directory
+
+  - name: Remove current symlink
+    file:
+      path: "{{ symlink_path }}/current"
+      state: absent
+
+  - name: Add symlink to backup
+    file:
+      path: "{{ symlink_path }}/current"
+      src: "{{ local_backup_path }}/proddata-{{ current_date.stdout }}.tar.bz2"
+      state: link
