@@ -15,9 +15,9 @@ module.exports = (function (_) {
             retryDelay: 1000
         },
         couch: {
-            uri: process.env.COUCH_URI || "http://localhost:5984",
+            uri: process.env.COUCH_URI || "http://history:5984",
             database: "commissions",
-            view: "/commissions/_design/commissions/_view/by_distributor_bp"
+            view: "/commissions/_design/commissions/_view"
         },
         fortuna: {
             uri: process.env.FORTUNA_URI || "http://localhost:8081"

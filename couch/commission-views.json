@@ -4,6 +4,9 @@
     "views": {
 	    "by_distributor_bp": {
 	        "map": "function (doc) { emit([doc.id, doc.bp], doc); }"
+	    },
+	    "by_bp": {
+	    	"map": "function (doc) { emit(doc.bp, doc); }"
 	    }
 	}
 }
