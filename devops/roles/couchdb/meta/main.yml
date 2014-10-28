@@ -1,0 +1,3 @@
+---
+dependencies:
+- { role: guillaumededrie.couchdb, couchdb_version: "1.5.0" }

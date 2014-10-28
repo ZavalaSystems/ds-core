@@ -4,8 +4,10 @@
   gather_facts: yes
   roles:
   - Ansibles.utilities
-  - { role: Ansibles.nodejs, nodejs_version: "0.10.29" }
-  tasks:
-  - name: Execute npm install
-    npm:
-      path: /vagrant
+  - { role: JasonGiedymin.nodejs, nodejs_version: "0.10.32" }
+  - couchdb
+  - { role: julienroubieu.neo4j, neo4j_package: neo4j-enterprise, neo4j_package_version: 2.1.5, neo4j_server_database_location: /var/lib/neo4j/ }
+  #tasks:
+  # - name: Execute npm install
+  #   npm:
+  #     path: /vagrant

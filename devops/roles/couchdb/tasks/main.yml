@@ -1,0 +1,7 @@
+---
+- name: Copy local.ini
+  template:
+    src: local.ini.j2
+    dest: /usr/local/etc/couchdb/local.ini
+    owner: couchdb
+    group: couchdb

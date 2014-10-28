@@ -25,7 +25,7 @@
     shell: docker run -d --restart always --name core-commissions -p 8080 --link "db:db" ds-sysadmin:5000/core-api:{{ version }} java -cp /opt/gsati/fortuna/target/fortuna-0.0.2-standalone.jar fortuna.server 8080
 
   - name: Start API {{ version }}
-    shell: docker run -d --restart always --name core-api -p 8080 --link "db:db" --link "core-commissions:commissions" -e NODE_ENV=development -e FORTUNA_URI=http://commissions:8080 ds-sysadmin:5000/core-api:{{ version }}
+    shell: docker run -d --restart always --name core-api -p 8080 --link "db:db" --link "core-commissions:commissions" --link "history:history" -e NODE_ENV=development -e FORTUNA_URI=http://commissions:8080 ds-sysadmin:5000/core-api:{{ version }}
 
   - name: Start UI {{ version }}
     shell: docker run -d --restart always --name core-ui -p 80:80 -p 8000:8000 --link "core-api:api" ds-sysadmin:5000/core-ui:{{ version }}
