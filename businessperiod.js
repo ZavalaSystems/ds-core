@@ -1,11 +1,12 @@
 /*jslint maxlen: 120 */
-module.exports = (function (R, bilby, mach, m, uri, response, request, fortuna, couch, bp) {
+module.exports = (function (R, bilby, mach, q, get, config, m, uri, hypermedia, response, request, fortuna, couch, bp) {
     "use strict";
 
     var env = null,
         formatBusinessPeriod = R.compose(bp.transformOutput, function (blob) {
-            return R.mixin(bp.current(blob), {id: bp.currentID(blob)});
-        });
+            return R.mixin(bp.current(blob), {id: bp.currentID(blob), closed: bp.nextID(blob) !== null });
+        }),
+        getAsync = q.denodeify(get);
 
     function resolveCurrent(req) {
         return bp.matchCurrent()
