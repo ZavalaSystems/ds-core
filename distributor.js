@@ -1,11 +1,12 @@
 /*jslint maxlen: 120*/
-module.exports = (function (R, bilby, mach, m, uri, hypermedia, response, request, distributor) {
+module.exports = (function (R, bilby, mach, q, get, config, m, uri, hypermedia, response, request, distributor) {
     "use strict";
     var env = bilby.environment(),
         formatDistributor = R.compose(distributor.transformOutput, distributor.matched),
         formatOrgRecord = function (blob) {
             return distributor.transformOutput(R.mixin(distributor.matched(blob), R.pick(["leg", "level"], blob)));
-        };
+        },
+        getAsync = q.denodeify(get);
 
     function createFull(req) {
         /* Duplicate ids should be taken care of by constraints in configure-db */
@@ -69,6 +70,21 @@ module.exports = (function (R, bilby, mach, m, uri, hypermedia, response, reques
             .then(m.getOrElse(response.status.conflict({content: "Unable to find the new sponsor"})));
     }
 
+    function getCommissions(req) {
+        var viewURI = config.couch.uri + config.couch.view + "?" +
+                        distributor.couchQueryString(req.params.distributorID, req.params.bp);
+        return getAsync(viewURI)
+            .then(R.prop("1"))
+            .then(JSON.parse)
+            .then(R.prop("rows"))
+            .then(distributor.sortMostRecent)
+            .then(R.head)
+            .then(distributor.commissionData)
+            .then(distributor.formatCommissions)
+            .then(hypermedia.unlinked)
+            .then(mach.json);
+    }
+
     env = bilby.environment()
         .method("createDistributor", R.compose(distributor.isValidFull, R.prop("params")), createFull)
         .method("createDistributor", R.compose(distributor.isValidPartial, R.prop("params")), createPartial)
@@ -95,6 +111,7 @@ module.exports = (function (R, bilby, mach, m, uri, hypermedia, response, reques
         app.post("/distributor/:distributorID/upgrade", env.upgradeDistributor);
         app.get("/distributor/:distributorID/organization", env.getOrg);
         app.get("/distributor/:distributorID/progress", env.getProgress);
+        app.get("/distributor/:distributorID/commissions", getCommissions);
         app.post("/distributor/:distributorID/change_sponsor", env.changeSponsor);
         return app;
     };
@@ -102,6 +119,9 @@ module.exports = (function (R, bilby, mach, m, uri, hypermedia, response, reques
     require("ramda"),
     require("bilby"),
     require("mach"),
+    require("q"),
+    require("request").get,
+    require("./config"),
     require("./lib/monad"),
     require("./lib/uri"),
     require("./lib/hypermedia"),

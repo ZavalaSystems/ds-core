@@ -1,8 +1,9 @@
 {
     "_id": "_design/commissions",
-    "_rev": 1,
-    "by_distributor_bp": {
-        "map": "function (doc) { emit([doc.id, doc.bp], doc); }",
-        "reduce": "function (keys, values) {}"         
-    }
+    "language": "javascript",
+    "views": {
+	    "by_distributor_bp": {
+	        "map": "function (doc) { emit([doc.id, doc.bp], doc); }"
+	    }
+	}
 }
