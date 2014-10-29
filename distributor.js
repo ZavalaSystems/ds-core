@@ -71,7 +71,8 @@ module.exports = (function (R, bilby, mach, q, get, config, m, uri, hypermedia, 
     }
 
     function getCommissions(req) {
-        var viewURI = config.couch.uri + config.couch.view + "/" + "by_distributor" + "?key=" + req.params.distributorID;
+        var viewURI = config.couch.uri + config.couch.view + "/" + "by_distributor" +
+            "?key=" + req.params.distributorID;
         return getAsync(viewURI)
             .then(R.prop("1"))
             .then(JSON.parse)
