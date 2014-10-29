@@ -86,8 +86,9 @@
 
 (defn get-directors-at-gen [root-node gen]
   (let [current-directors (get-directors root-node)]
-    (if (<= gen 1)
-      (flatten (map #(get-directors-at-gen % (dec gen)) current-directors)))))
+    (if (> gen 1)
+      (flatten (map #(get-directors-at-gen % (dec gen)) current-directors))
+      current-directors)))
 
 (defn collect-pcv [nodes]
   (sum (map :pcv nodes)))
@@ -114,7 +115,7 @@
           :sales    (make-detail (by-mult ppcv) (:personal rank))
           :lev1     (make-detail (by-mult (collect-pcv (get-direct-ambassadors root-node))) (:lev1 rank))
           :team     (make-detail (by-mult (get-team-volume root-node)) (:team rank))
-          :gen1     (make-detail (by-mult (sum (map :group-volume (get-directors root-node)))) (:gen1 rank))
+          :gen1     (make-detail (by-mult (sum (map :group-volume (node-dirs-at-gen 1)))) (:gen1 rank))
           :gen2     (make-detail (by-mult (sum (map :group-volume (node-dirs-at-gen 2)))) (:gen2 rank))
           :gen3     (make-detail (by-mult (sum (map :group-volume (node-dirs-at-gen 3)))) (:gen3 rank))}]
     (assoc root-node :commissions (util/conservative-int (apply + (map :commissions (vals details))))
