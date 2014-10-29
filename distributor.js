@@ -71,16 +71,17 @@ module.exports = (function (R, bilby, mach, q, get, config, m, uri, hypermedia, 
     }
 
     function getCommissions(req) {
-        var viewURI = config.couch.uri + config.couch.view + "/" + "by_distributor_bp" + "?" +
-                        distributor.couchQueryString(req.params.distributorID, req.params.bp);
+        var viewURI = config.couch.uri + config.couch.view + "/" + "by_distributor" + "?key=" + req.params.distributorID;
         return getAsync(viewURI)
             .then(R.prop("1"))
             .then(JSON.parse)
             .then(R.prop("rows"))
-            .then(distributor.sortMostRecent)
-            .then(R.take(2))
-            .then(R.map(distributor.commissionData))
-            .then(R.map(distributor.formatCommissions))
+            .then(R.map(R.prop("value")))
+            .then(distributor.groupByBp)
+            .then(R.mapObj(distributor.sortMostRecent))
+            .then(R.mapObj(R.take(2)))
+            .then(R.mapObj(R.map(distributor.commissionData)))
+            .then(R.mapObj(R.map(distributor.formatCommissions)))
             .then(hypermedia.unlinked)
             .then(mach.json);
     }

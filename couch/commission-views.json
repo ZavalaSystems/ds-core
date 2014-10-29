@@ -7,6 +7,9 @@
 	    },
 	    "by_bp": {
 	    	"map": "function (doc) { emit(doc.bp, doc); }"
+	    },
+	    "by_distributor": {
+	    	"map": "function (doc) { emit(doc.id, doc); }"
 	    }
 	}
 }
