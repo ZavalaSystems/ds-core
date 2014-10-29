@@ -99,7 +99,8 @@
         node-dirs-at-gen (partial get-directors-at-gen root-node)
         base-commission (* multiplier ppcv)
         personal-override (by-mult (:personal rank) ppcv)
-        lev1-override (by-mult (:lev1 rank) (collect-pcv (get-qualified-direct-ambassadors root-node)))
+        lev1-volume (collect-pcv (get-qualified-direct-ambassadors root-node))
+        lev1-override (by-mult (:lev1 rank))
         team-volume (get-team-volume root-node)
         team-override (by-mult (:team rank) team-volume)
         gen1-volume (collect-pcv (get-directors root-node))
@@ -118,6 +119,7 @@
                      :details {
                         :personal (make-detail ppcv multiplier)
                         :sales    (make-detail (by-mult ppcv) (:personal rank))
+                        :lev1     (make-detail (by-mult lev1-volume) (:lev1 rank))
                         :team     (make-detail (by-mult team-volume) (:team rank))
                         :gen1     (make-detail (by-mult gen1-volume) (:gen1 rank))
                         :gen2     (make-detail (by-mult gen2-volume) (:gen2 rank))
