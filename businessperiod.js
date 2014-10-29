@@ -4,7 +4,8 @@ module.exports = (function (R, bilby, mach, q, get, config, m, uri, hypermedia, 
 
     var env = null,
         formatBusinessPeriod = R.compose(bp.transformOutput, function (blob) {
-            return R.mixin(bp.current(blob), {id: bp.currentID(blob), closed: bp.nextID(blob) !== null });
+            return R.mixin(bp.current(blob), {id: bp.currentID(blob),
+                closed: bp.nextID(blob) !== null && bp.nextID(blob) !== undefined });
         }),
         getAsync = q.denodeify(get);
 
