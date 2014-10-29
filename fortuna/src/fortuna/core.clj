@@ -81,9 +81,6 @@
 (defn collect-pcv [nodes]
   (sum (map :pcv nodes)))
 
-(defn efficient-multiply [multiplier bonus vol]
-  (if (zero? bonus) 0 (* multiplier bonus vol)))
-
 (defn make-detail [volume multiplier]
   {:volume (util/conservative-int volume)
    :percent multiplier
@@ -97,7 +94,8 @@
                      (not (:qualified root-node)) 0
                      made-fast-start? (:fstart rank)
                      :else (:base rank))
-        by-mult (partial efficient-multiply 0.75)
+        bonus-value-multiplier 0.75
+        by-mult (partial * bonus-value-multiplier)
         node-dirs-at-gen (partial get-directors-at-gen root-node)
         base-commission (* multiplier ppcv)
         personal-override (by-mult (:personal rank) ppcv)
@@ -119,11 +117,11 @@
                                                             gen3-override))
                      :details {
                         :personal (make-detail ppcv multiplier)
-                        :sales    (make-detail (* ppcv 0.75) (:personal rank))
-                        :team     (make-detail (* team-volume 0.75) (:team rank))
-                        :gen1     (make-detail (* gen1-volume 0.75) (:gen1 rank))
-                        :gen2     (make-detail (* gen2-volume 0.75) (:gen2 rank))
-                        :gen3     (make-detail (* gen3-volume 0.75) (:gen3 rank))
+                        :sales    (make-detail (by-mult ppcv) (:personal rank))
+                        :team     (make-detail (by-mult team-volume) (:team rank))
+                        :gen1     (make-detail (by-mult gen1-volume) (:gen1 rank))
+                        :gen2     (make-detail (by-mult gen2-volume) (:gen2 rank))
+                        :gen3     (make-detail (by-mult gen3-volume) (:gen3 rank))
                       })))
 
 (defn calculate-tree [root-node]
