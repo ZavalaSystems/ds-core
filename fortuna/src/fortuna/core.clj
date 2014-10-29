@@ -7,15 +7,26 @@
 (def commission-query
   (slurp (clojure.java.io/resource "commission.cql")))
 
+(def one4  (/ 1 4))
+(def one20 (/ 1 20))
+(def one25 (/ 1 25))
+(def one40 (/ 1 40))
+(def one50 (/ 1 50))
+(def two25 (/ 2 25))
+(def thr10 (/ 3 10))
+(def thr50 (/ 3 50))
+(def th100 (/ 3 100))
+(def sv100 (/ 7 100))
+
 (def commission-ranks (map (partial zipmap
-  [:title                  :pcv  :gv    :amb :dir :org    :is-dir :base :fstart :personal :lev1 :team :gen1 :gen2 :gen3])
- [["Diamond Director"      75000 400000  4    4   5000000   true   0.25    0.30      0.08     0  0.05  0.06  0.04  0.02],
-  ["Crystal Director"      75000 400000  4    2   2000000   true   0.25    0.30      0.07     0  0.05  0.06  0.04     0],
-  ["Senior Director"       50000 400000  4    1   1000000   true   0.25    0.30      0.06     0  0.05  0.06  0.03     0],
-  ["Director"              50000 400000  4    0         0   true   0.25    0.30      0.05     0  0.05  0.03     0     0],
-  ["Senior Ambassador"     25000 100000  2    0         0  false   0.25    0.30         0  0.03     0     0     0     0],
-  ["Associate Ambassador"  25000  50000  1    0         0  false   0.25    0.30         0  0.02     0     0     0     0],
-  ["Ambassador"                0      0  0    0         0  false   0.25    0.30         0     0     0     0     0     0]]))
+  [:title                  :pcv  :gv    :amb :dir :org    :is-dir :base :fstart :personal  :lev1 :team :gen1 :gen2 :gen3])
+ [["Diamond Director"      75000 400000  4    4   5000000   true   one4   thr10     two25      0 one20 thr50 one25 one50],
+  ["Crystal Director"      75000 400000  4    2   2000000   true   one4   thr10     sv100      0 one20 thr50 one25     0],
+  ["Senior Director"       50000 400000  4    1   1000000   true   one4   thr10     thr50      0 one20 thr50 th100     0],
+  ["Director"              50000 400000  4    0         0   true   one4   thr10     one20      0 one20 th100     0     0],
+  ["Senior Ambassador"     25000 100000  2    0         0  false   one4   thr10         0  th100     0     0     0     0],
+  ["Associate Ambassador"  25000  50000  1    0         0  false   one4   thr10         0  one40     0     0     0     0],
+  ["Ambassador"                0      0  0    0         0  false   one4   thr10         0      0     0     0     0     0]]))
 
 (defn find-first [pred l]
   (first (filter pred l)))
@@ -82,9 +93,9 @@
   (sum (map :pcv nodes)))
 
 (defn make-detail [volume multiplier]
-  {:volume (util/conservative-int volume)
+  {:volume volume
    :percent multiplier
-   :commissions (util/conservative-int (* volume multiplier))})
+   :commissions (* volume multiplier)})
 
 (defn calculate-node [root-node]
   (let [rank (find-first #(= (:title %) (:rank root-node)) commission-ranks)
@@ -94,37 +105,20 @@
                      (not (:qualified root-node)) 0
                      made-fast-start? (:fstart rank)
                      :else (:base rank))
-        bonus-value-multiplier 0.75
+        bonus-value-multiplier (/ 3 4)
         by-mult (partial * bonus-value-multiplier)
         node-dirs-at-gen (partial get-directors-at-gen root-node)
         base-commission (* multiplier ppcv)
-        personal-override (by-mult (:personal rank) ppcv)
-        lev1-volume (collect-pcv (get-qualified-direct-ambassadors root-node))
-        lev1-override (by-mult (:lev1 rank))
-        team-volume (get-team-volume root-node)
-        team-override (by-mult (:team rank) team-volume)
-        gen1-volume (collect-pcv (get-directors root-node))
-        gen1-override (by-mult (:gen1 rank) gen1-volume)
-        gen2-volume (collect-pcv (node-dirs-at-gen 2))
-        gen2-override (by-mult (:gen2 rank) gen2-volume)
-        gen3-volume (collect-pcv (node-dirs-at-gen 3))
-        gen3-override (by-mult (:gen3 rank) gen3-volume)]
-    (assoc root-node :commissions (util/conservative-int (+ base-commission
-                                                            personal-override
-                                                            lev1-override
-                                                            team-override
-                                                            gen1-override
-                                                            gen2-override
-                                                            gen3-override))
-                     :details {
-                        :personal (make-detail ppcv multiplier)
-                        :sales    (make-detail (by-mult ppcv) (:personal rank))
-                        :lev1     (make-detail (by-mult lev1-volume) (:lev1 rank))
-                        :team     (make-detail (by-mult team-volume) (:team rank))
-                        :gen1     (make-detail (by-mult gen1-volume) (:gen1 rank))
-                        :gen2     (make-detail (by-mult gen2-volume) (:gen2 rank))
-                        :gen3     (make-detail (by-mult gen3-volume) (:gen3 rank))
-                      })))
+        details {
+          :personal (make-detail ppcv multiplier)
+          :sales    (make-detail (by-mult ppcv) (:personal rank))
+          :lev1     (make-detail (by-mult (collect-pcv (get-direct-ambassadors root-node))) (:lev1 rank))
+          :team     (make-detail (by-mult (get-team-volume root-node)) (:team rank))
+          :gen1     (make-detail (by-mult (collect-pcv (get-directors root-node))) (:gen1 rank))
+          :gen2     (make-detail (by-mult (collect-pcv (node-dirs-at-gen 2))) (:gen2 rank))
+          :gen3     (make-detail (by-mult (collect-pcv (node-dirs-at-gen 3))) (:gen3 rank))}]
+    (assoc root-node :commissions (util/conservative-int (apply + (map :commissions (vals details))))
+                     :details details)))
 
 (defn calculate-tree [root-node]
   (let [with-classy-children (assoc root-node :children (map calculate-tree (:children root-node)))
