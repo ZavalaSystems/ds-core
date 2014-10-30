@@ -38,7 +38,7 @@
   (assoc root-node :children (map (comp #(build-tree % nodes) (partial find-node nodes)) (:children root-node))))
 
 (defn add-qualification [ds]
-  (letfn [(qualify [dist] (assoc dist :qualified (<= 25000 (:ppcv dist))))]
+  (letfn [(qualify [dist] (assoc dist :qualified (<= 25000 (:pcv dist))))]
     (map qualify ds)))
 
 (def sum (partial reduce +))
