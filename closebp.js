@@ -1,6 +1,6 @@
 (function (R, q, request) {
     "use strict";
-    var opURI = process.env.CORE_COMMISSIONS_URI || "http://localhost:8080",
+    var opURI = process.env.CORE_URI || "http://localhost:8080",
         getAsync = q.denodeify(request.get),
         postAsync = q.denodeify(request.post);
     getAsync(opURI)
