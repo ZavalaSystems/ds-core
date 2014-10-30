@@ -1,5 +1,6 @@
 /*jslint maxlen: 120 */
-module.exports = (function (R, bilby, mach, q, get, config, m, uri, hypermedia, response, request, fortuna, couch, bp) {
+module.exports = (function (R, bilby, mach, q, get, config, m, uri, hypermedia, response, request,
+    fortuna, couch, bp, distributor) {
     "use strict";
 
     var env = null,
@@ -45,7 +46,8 @@ module.exports = (function (R, bilby, mach, q, get, config, m, uri, hypermedia, 
             .then(fortuna.toSeq)
             // Compose a record containing the desired information and the distributor id
             .then(R.map(function (record) {
-                return R.mixin(bp.commRecord(record), R.compose(R.pick(["id"]), R.prop("dist"))(record));
+                return R.mixin(distributor.commissionsVolumes(record),
+                    R.compose(R.pick(["id"]), R.prop("dist"))(record));
             }))
             // Ensure that we add the bp to each record. Also include a date so we have a timestamp to preclude
             // needing to delete
@@ -98,5 +100,6 @@ module.exports = (function (R, bilby, mach, q, get, config, m, uri, hypermedia, 
     require("./lib/request"),
     require("./lib/fortuna"),
     require("./lib/couch"),
-    require("./lib/businessperiod")
+    require("./lib/businessperiod"),
+    require("./lib/distributor")
 ));
