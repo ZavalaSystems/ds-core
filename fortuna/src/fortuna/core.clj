@@ -25,7 +25,7 @@
   ["Senior Director"       50000 400000  4    1   1000000   true   one4   thr10     thr50      0 one20 thr50 th100     0],
   ["Director"              50000 400000  4    0         0   true   one4   thr10     one20      0 one20 th100     0     0],
   ["Senior Ambassador"     25000 100000  2    0         0  false   one4   thr10         0  th100     0     0     0     0],
-  ["Associate Ambassador"  25000  50000  1    0         0  false   one4   thr10         0  one40     0     0     0     0],
+  ["Associate Ambassador"  25000  50000  1    0         0  false   one4   thr10         0  one50     0     0     0     0],
   ["Ambassador"                0      0  0    0         0  false   one4   thr10         0      0     0     0     0     0]]))
 
 (defn find-first [pred l]
