@@ -18,7 +18,8 @@
             },
             businessperiod: {
                 current: resolve("/bp"),
-                find: resolve("/bp")
+                find: resolve("/bp"),
+                close: resolve("/bp/close")
             },
             nuke: resolve("/nuke")
         });
