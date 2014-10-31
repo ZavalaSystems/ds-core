@@ -26,7 +26,7 @@
                 .then(function (urls) {
                     return postAsync(urls.close)
                         .then(function () {
-                            return postAsync(urls.commissions);
+                            return postAsync(urls.commissions, {form: {commit: 'true'}});
                         });
                 });
         })

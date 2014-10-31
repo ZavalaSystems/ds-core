@@ -1,6 +1,6 @@
 /*jslint maxlen: 120 */
 module.exports = (function (R, bilby, mach, q, get, config, m, uri, hypermedia, response, request,
-    fortuna, couch, bp, distributor) {
+    io, fortuna, couch, bp, distributor) {
     "use strict";
 
     var env = null,
@@ -41,7 +41,8 @@ module.exports = (function (R, bilby, mach, q, get, config, m, uri, hypermedia, 
     }
 
     function computeCommissions(req) {
-        var id = bp.transformInput(req.params).id;
+        var id = bp.transformInput(req.params).id,
+            commitRanks = req.params.commit !== null && req.params.commit !== undefined;
         return fortuna.service(id)
             .then(fortuna.toSeq)
             // Compose a record containing the desired information and the distributor id
@@ -52,9 +53,19 @@ module.exports = (function (R, bilby, mach, q, get, config, m, uri, hypermedia, 
             // Ensure that we add the bp to each record. Also include a date so we have a timestamp to preclude
             // needing to delete
             .then(R.map(R.mixin({bp: id, computed: Date.now()})))
-            // Save everything into couch
-            .then(couch.createManyDocuments("commissions"))
-            .then(mach.json);
+            .then(function (records) {
+                var creates = couch.createManyDocuments("commissions")(records);
+                if (commitRanks) {
+                    return creates
+                        .then(R.always(records))
+                        .then(R.map(R.pick(["id", "paidAs"])))
+                        .then(io.serializeIO(function (d) {
+                            return distributor.changeRank({distributorID: d.id, rank: d.paidAs});
+                        }));
+                }
+                return creates;
+            })
+            .then(R.always("OK"));
     }
 
     function getCommissions(req) {
@@ -98,6 +109,7 @@ module.exports = (function (R, bilby, mach, q, get, config, m, uri, hypermedia, 
     require("./lib/hypermedia"),
     require("./lib/response"),
     require("./lib/request"),
+    require("./lib/io"),
     require("./lib/fortuna"),
     require("./lib/couch"),
     require("./lib/businessperiod"),
