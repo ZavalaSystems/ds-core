@@ -46,7 +46,7 @@ module.exports = (function (R, bilby, mach, q, get, config, m, uri, hypermedia, 
             .then(fortuna.toSeq)
             // Compose a record containing the desired information and the distributor id
             .then(R.map(function (record) {
-                return R.mixin(distributor.commissionsVolumes(record),
+                return R.mixin(distributor.rawCommissionsVolumes(record),
                     R.compose(R.pick(["id"]), R.prop("dist"))(record));
             }))
             // Ensure that we add the bp to each record. Also include a date so we have a timestamp to preclude
