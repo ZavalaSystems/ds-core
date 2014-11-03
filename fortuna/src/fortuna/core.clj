@@ -102,13 +102,12 @@
   (let [rank (find-first #(= (:title %) (:rank root-node)) commission-ranks)
         ppcv (:ppcv root-node)
         made-fast-start? (< 200000 ppcv)
-        multiplier (cond
-                     made-fast-start? (:fstart rank)
-                     :else (:base rank))
+        multiplier (if made-fast-start?
+                     (:fstart rank)
+                     (:base rank))
         bonus-value-multiplier (/ 3 4)
         by-mult (partial * bonus-value-multiplier)
         node-dirs-at-gen (partial get-directors-at-gen root-node)
-        base-commission (* multiplier ppcv)
         details {
           :personal (make-detail ppcv multiplier)
           :sales    (make-detail (by-mult ppcv) (:personal rank))
