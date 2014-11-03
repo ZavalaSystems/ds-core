@@ -103,7 +103,6 @@
         ppcv (:ppcv root-node)
         made-fast-start? (< 200000 ppcv)
         multiplier (cond
-                     (not (:qualified root-node)) 0
                      made-fast-start? (:fstart rank)
                      :else (:base rank))
         bonus-value-multiplier (/ 3 4)
