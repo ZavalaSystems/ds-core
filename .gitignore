@@ -4,3 +4,4 @@ coverage
 bower_components
 *.sublime-workspace
 *.orig
+.Rproj.user
