@@ -33,7 +33,7 @@
   - name: Notify Slack of success
     slack:
       token: "{{ slack_token }}"
-      domain: zavalasystems.slack.com
+      domain: hooks.slack.com
       channel: "#build"
       msg: Deploy {{ version }} succeeded on {{ build_location }}
 
