@@ -30,12 +30,12 @@
   - name: Start UI {{ version }}
     shell: docker run -d --restart always --name core-ui -p 80:80 -p 8000:8000 --link "core-api:api" ds-sysadmin:5000/core-ui:{{ version }}
 
-# - name: Notify Slack of success
-#    slack:
-#      token: "{{ slack_token }}"
-#      domain: hooks.slack.com
-#      channel: "#build"
-#      msg: Deploy {{ version }} succeeded on {{ build_location }}
+  - name:
+    slack:
+      token: "{{ slack_token }}"
+      domain: zavalasystems.slack.com
+      msg: "Deploy {{ version }} succeeded on {{ build_location }}"
+      channel: "#build"
 
   - name: Notify hipchat of success
     hipchat:
