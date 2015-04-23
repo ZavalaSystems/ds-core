@@ -9,7 +9,7 @@
   tasks:
 
   - name: Pull containers
-    command: "docker pull localhost:5000/core-{{ item }}:{{ version }}"
+    command: "docker pull ds-sysadmin:5000/core-{{ item }}:{{ version }}"
     with_items:
     - api
     - ui
