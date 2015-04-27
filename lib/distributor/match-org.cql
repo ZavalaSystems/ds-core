@@ -5,4 +5,4 @@
 
 match (org:Distributor)-[:SPONSORS*]->(d:Distributor), (enroller:Distributor)-[:ENROLLED]->(d)<-[:SPONSORS]-(sponsor:Distributor)
 where org.id = {distributorID}
-return  collect(distinct d), enroller, sponsor;
+return  distinct d, enroller, sponsor;
