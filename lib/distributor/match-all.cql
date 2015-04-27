@@ -3,5 +3,5 @@ match (d:Distributor)
 optional match (enroller:Distributor)-[:ENROLLED]->(d)<-[:SPONSORS]-(sponsor:Distributor)
 optional match (leader:Distributor)-[:SPONSORS*]->(d)
 where leader.rank =~ '.*(D|d)irector.*'
-return collect(distinct d), enroller, sponsor, leader;
+return distinct d, enroller, sponsor, leader;
 
