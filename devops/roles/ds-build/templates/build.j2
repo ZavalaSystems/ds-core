@@ -3,8 +3,10 @@ server {
     root /usr/share/nginx/html;
     index index.html index.htm;
     location / {
+        {% if jenkins_pass != 'password' %}
         auth_basic "Restricted";
         auth_basic_user_file /var/www/jenkins;
+        {% endif %}
         proxy_pass http://localhost:8080;
         proxy_set_header Host $host;
         proxy_set_header X-Real-IP $remote_addr;

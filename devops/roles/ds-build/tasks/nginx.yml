@@ -11,13 +11,14 @@
     state: absent
 
 - name: Add htpasswd file
-  htpasswd: 
+  htpasswd:
     path: /var/www/jenkins
     name: gsati
     password: "{{ jenkins_pass }}"
     owner: root
     group: www-data
     mode: 0640
+  when: jenkins_pass is defined
 
 - name: Configure build proxy
   template:

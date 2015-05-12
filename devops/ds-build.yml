@@ -1,6 +1,8 @@
 ---
 - hosts: all
-  gather_facts: True
-  sudo: True
+  gather_facts: yes
+  sudo: yes
+  vars:
+    jenkins_pass: password
   roles:
     - ds-build
