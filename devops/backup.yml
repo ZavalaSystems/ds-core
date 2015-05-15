@@ -2,6 +2,7 @@
 - name: Backup production data from GSATI
   hosts: gsati-production
   gather_facts: yes
+  sudo: yes
   tasks:
   - name: Include secure variables
     include_vars: secure.yml.aes
