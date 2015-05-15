@@ -1,6 +1,6 @@
 ---
 - name: Backup production data from GSATI
-  hosts: production
+  hosts: gsati-production
   gather_facts: yes
   tasks:
   - name: Include secure variables
