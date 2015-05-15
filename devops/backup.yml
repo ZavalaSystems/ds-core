@@ -3,8 +3,16 @@
   hosts: production
   gather_facts: yes
   tasks:
+  - name: Copy prod_backup inspect
+    copy:
+      src: prod_backup_inspect.sh
+      dest: /tmp/prod_backup_inspect.sh
+      mode: 0700
+      owner: root
+      group: root
+
   - name: Get production backup var
-    shell: 'echo `docker inspect -f "{% raw %}{{ index .Volumes \"/mnt/backup\" }}{% endraw %}" prod_backup`'
+    command: /tmp/prod_backup_inspect.sh
     register: backup_dir
 
   - name: Remove backup volume directory
@@ -22,48 +30,39 @@
     register: backup_state
 
   - name: Copy backup to temporary graph.db folder
-    shell: cp -R {{ backup_dir.stdout }} /root/graph.db
+    shell: cp -R {{ backup_dir.stdout }} /tmp/graph.db
+
+  - name: Set owner as deploy
+    file:
+      path: /tmp/graph.db
+      owner: deploy
+      mode: 0755
+      state: directory
+      recurse: yes
 
   - name: Make current date var
     shell: echo `date +%s`
     register: current_date
 
-  - name: "Archive the backed up data @ {{ current_date.stdout }}"
-    shell: tar -cf - graph.db/ -C /root | bzip2 -c9 > proddata-{{ current_date.stdout }}.tar.bz2
+  - name: "Archive the backed up data "
+    shell: tar -cf - /tmp/graph.db/ | bzip2 -c9 > /tmp/proddata-{{ current_date.stdout }}.tar.bz2
+    sudo: no
 
-  - name: Fetch the backup
-    fetch:
-      flat: yes
-      dest: "{{ local_backup_path }}"
-      src: /root/proddata-{{ current_date.stdout }}.tar.bz2
+  - name: Upload backup to S3
+    s3:
+      aws_access_key: AKIAJXCRR7F424PLQPFA
+      aws_secret_key: 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
+      bucket: ds-core-backup
+      object: proddata-{{ current_date.stdout }}.tar.bz2
+      src: /tmp/proddata-{{ current_date.stdout }}.tar.bz2
+      mode: put
 
   - name: Remove backup file
     file:
-      path: /root/proddata-{{ current_date.stdout }}.tar.bz2
+      path: /tmp/proddata-{{ current_date.stdout }}.tar.bz2
       state: absent
 
   - name: Remove temporary graph.db directory
     file:
-      path: /root/graph.db
+      path: /tmp/graph.db
       state: absent
-
-- name: Perform symlink tasks
-  hosts: all
-  connection: local
-  gather_facts: no
-  tasks:
-  - name: Create backup symlink container
-    file:
-      path: "{{ symlink_path }}"
-      state: directory
-
-  - name: Remove current symlink
-    file:
-      path: "{{ symlink_path }}/current"
-      state: absent
-
-  - name: Add symlink to backup
-    file:
-      path: "{{ symlink_path }}/current"
-      src: "{{ local_backup_path }}/proddata-{{ current_date.stdout }}.tar.bz2"
-      state: link

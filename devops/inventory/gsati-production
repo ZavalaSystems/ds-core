@@ -1,2 +1,2 @@
-[production]
-ds-prod-app1
+[gsati-production]
+ds-prod-app1 ansible_ssh_user=deploy

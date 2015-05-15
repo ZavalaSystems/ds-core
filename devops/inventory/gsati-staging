@@ -1,0 +1,2 @@
+[gsati-staging]
+ds-stage-app ansible_ssh_user=deploy
