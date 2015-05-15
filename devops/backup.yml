@@ -57,6 +57,7 @@
       aws_access_key: "{{ aws_access_key }}"
       aws_secret_key: "{{ aws_secret_key }}"
       bucket: ds-core-backup
+      region: us-east-1
       object: proddata-{{ current_date.stdout }}.tar.bz2
       src: /tmp/proddata-{{ current_date.stdout }}.tar.bz2
       mode: put
