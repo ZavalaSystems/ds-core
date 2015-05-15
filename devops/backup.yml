@@ -66,3 +66,11 @@
     file:
       path: /tmp/graph.db
       state: absent
+
+  - name:
+    slack:
+      token: "{{ slack_token }}"
+      domain: zavalasystems.slack.com
+      msg: "Production databse back up succeeded."
+      channel: "#build"
+
