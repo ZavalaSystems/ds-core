@@ -3,6 +3,9 @@
   hosts: production
   gather_facts: yes
   tasks:
+  - name: Include secure variables
+    include_vars: secure.yml.aes
+
   - name: Copy prod_backup inspect
     copy:
       src: prod_backup_inspect.sh
@@ -50,8 +53,8 @@
 
   - name: Upload backup to S3
     s3:
-      aws_access_key: AKIAJXCRR7F424PLQPFA
-      aws_secret_key: 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
+      aws_access_key: "{{ aws_access_key }}"
+      aws_secret_key: "{{ aws_secret_key }}"
       bucket: ds-core-backup
       object: proddata-{{ current_date.stdout }}.tar.bz2
       src: /tmp/proddata-{{ current_date.stdout }}.tar.bz2
