@@ -76,6 +76,6 @@
     slack:
       token: "{{ slack_token }}"
       domain: zavalasystems.slack.com
-      msg: "Production databse back up succeeded."
+      msg: "Production database back up succeeded."
       channel: "#build"
 
