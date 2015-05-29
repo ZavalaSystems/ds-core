@@ -5,7 +5,7 @@
 
 match 	(org:Distributor)-[:SPONSORS*]->(d:Distributor), (enroller:Distributor)-[:ENROLLED]->(d)<-[:SPONSORS]-(sponsor:Distributor)
 where 	org.id = {distributorID}
-and 	sponsor.id <> org.id
-and 	sponsor.id <> enroller.id
+or 	sponsor.id <> org.id
+or 	sponsor.id <> enroller.id
 return  distinct d, sponsor, enroller;
 	
