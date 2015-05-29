@@ -1,6 +1,6 @@
 match (d:Distributor)
 optional match (d)-[:SPONSORS]->(other)
-with d as dist, collect(other.id) as children
+with d as dist, collect(distinct other.id) as children
 optional match (bp)<-[:DURING]-(orders)<-[:DISTRIBUTES]-(dist)
 where orders.status <> "cancelled" and orders.status <> "canceled" and id(bp) = %1$s
 
