@@ -2,11 +2,11 @@ match (d:Distributor)
 optional match (d)-[:SPONSORS]->(other)
 with d as dist, collect(distinct other.id) as children
 optional match (bp)<-[:DURING]-(orders)<-[:DISTRIBUTES]-(dist)
-where orders.status <> "cancelled" or orders.status <> "canceled" and id(bp) = %1$s
+where orders.status <> "cancelled" and orders.status <> "canceled" and id(bp) = %1$s
 
 with dist, orders, children
 optional match (orders)<-[:PART_OF]-(li)
-where li.status <> "cancelled" or li.status <> "canceled"
+where li.status <> "cancelled" and li.status <> "canceled"
 
 
 with dist, sum(li.volume) as pcv, children
@@ -16,7 +16,7 @@ where id(bp) = %1$s
 
 with dist, orders, pcv, children
 optional match (orders)<-[:PART_OF]-(li)
-where li.status <> "cancelled" or li.status <> "canceled" or orders.status <> "cancelled" or orders.status <> "canceled"
+where li.status <> "cancelled" and li.status <> "canceled" and orders.status <> "cancelled" and orders.status <> "canceled"
 
 
 with dist, pcv, sum(li.volume) as ppcv, children
@@ -26,5 +26,5 @@ where id(bp) = %1$s
 
 with dist, pcv, ppcv, children, orders
 optional match (orders)<-[:PART_OF]-(lineitems)
-where orders.status <> "cancelled" or orders.status <> "canceled" or lineitems.status <> "cancelled" or lineitems.status <> "canceled"
+where orders.status <> "cancelled" and orders.status <> "canceled" and lineitems.status <> "cancelled" and lineitems.status <> "canceled"
 return dist, floor(pcv) as pcv, floor(ppcv) as ppcv, children, floor((sum(lineitems.volume) + pcv)) as orgVolume
